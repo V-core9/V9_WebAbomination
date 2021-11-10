@@ -1,10 +1,12 @@
 {
-  "name": "v-core9.com",
+  "name": "v-core9_com",
   "version": "1.0.0",
-  "description": "",
+  "description": "V-core9.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,13 +19,14 @@
     "url": "https://github.com/V-core9/V-core9.com/issues"
   },
   "homepage": "https://github.com/V-core9/V-core9.com#readme",
+  "devDependencies": {
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1"
+  },
   "dependencies": {
-    "boxen": "^6.2.1",
-    "cli-progress": "^3.9.1",
-    "command-line-usage": "^6.1.1",
-    "enquirer": "^2.3.6",
-    "faker": "^5.5.3",
-    "user-home": "^3.0.0",
-    "uuid": "^8.3.2"
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "is-online": "^9.0.1",
+    "node-sass": "^6.0.1"
   }
 }

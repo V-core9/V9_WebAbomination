@@ -1,0 +1,14 @@
+{
+  "Application": {
+    "name": "Vdo",
+    "description": "<]_V_[> ToDo Help Application",
+    "version": 11111,
+    "data_folder": "C:\\Users\\v__V_\\vdo\\"
+  },
+  "Author": {
+    "name": "-v-",
+    "url": "http://localhost:8888/yeaa/nooot/yet/working/:D"
+  },
+  "main_todo_file": "C:\\Users\\v__V_\\vdo\\todo_main.json",
+  "main_notes_file": "C:\\Users\\v__V_\\vdo\\notes_main.json"
+}
