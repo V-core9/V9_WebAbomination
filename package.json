@@ -1,0 +1,20 @@
+{
+  "name": "v-core9_com",
+  "version": "1.0.0",
+  "description": "V-core9.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-core9/V-core9.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V-core9/V-core9.com/issues"
+  },
+  "homepage": "https://github.com/V-core9/V-core9.com#readme"
+}
