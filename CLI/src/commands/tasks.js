@@ -1,15 +1,15 @@
 /*jshint esversion: 8 */
 const { Command, flags } = require("@oclif/command");
 
-const taskList = require('../../../universal_helpers/tasks/list');
+const taskList = require('../../../universals/tasks/list');
 var helperTaskList = taskList();
 
-const setStatus = require('../../../universal_helpers/tasks/set_status')
+const setStatus = require('../../../universals/tasks/set_status')
 
-const totalNumber = require('../../../universal_helpers/tasks/total_number');
-const cmdArgsAction = require('../../../universal_helpers/cfg_options/cmd_post_args_action');
+const totalNumber = require('../../../universals/tasks/total_number');
+const cmdArgsAction = require('../../../universals/cfg_options/cmd_post_args_action');
 
-let newTask = require('../../../universal_helpers/tasks/new');
+let newTask = require('../../../universals/tasks/new');
 
 //-------------
 class TasksCommand extends Command {
@@ -100,7 +100,7 @@ class TasksCommand extends Command {
         if (confirmedPurge){
           try {
             console.log("Starting Purge >> NoaT: " + totalNumber() );
-            const [createTodo] = require("../../../universal_helpers/config/create");
+            const [createTodo] = require("../../../universals/config/create");
             createTodo();
             console.log("FINISHED Purge >> NoaT: " + totalNumber() );
           } catch (err){

@@ -1,9 +1,9 @@
 /*jshint esversion: 8 */
 const { Command, flags } = require("@oclif/command");
 const userHome = require("user-home");
-const cmdArgsAction = require('../../../universal_helpers/cfg_options/cmd_post_args_action');
+const cmdArgsAction = require('../../../universals/cfg_options/cmd_post_args_action');
 
-let newNote = require('../../../universal_helpers/notes/new');
+let newNote = require('../../../universals/notes/new');
 
 
 class NotesCommand extends Command {
@@ -31,11 +31,11 @@ class NotesCommand extends Command {
 
       case "view":
         console.log("\n-----<[-s- WORK-IN-PROGRESS -s-]>-----------\n");
-        const loadConfig = require("../../../universal_helpers/config/load");
+        const loadConfig = require("../../../universals/config/load");
         const vdoConfig = loadConfig();
 
 
-        const vReadFile = require("../../../universal_helpers/vfs/v_read_file");
+        const vReadFile = require("../../../universals/vfs/v_read_file");
         let notesList = vReadFile(vdoConfig.main_notes_file);
 
         console.log(notesList);

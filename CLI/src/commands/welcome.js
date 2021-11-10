@@ -1,6 +1,6 @@
 /*jshint esversion: 8 */
 const { Command, flags } = require("@oclif/command");
-const welcomePageCLI = require("../../../universal_helpers/welcome_cli");
+const welcomePageCLI = require("../../../universals/welcome_cli");
 
 class StatusCommand extends Command {
   async run() {

@@ -39,21 +39,21 @@ class ConfigCommand extends Command {
 
     switch (action) {
       case "view":
-        const loadConfig = require("../../../universal_helpers/config/load");
+        const loadConfig = require("../../../universals/config/load");
         console.log(loadConfig());
         break;
 
       case "create":
-        const [createConfig] = require("../../../universal_helpers/config/create");
+        const [createConfig] = require("../../../universals/config/create");
         createConfig();
-        const makeDirs = require("../../../universal_helpers/config/make_dirs");
+        const makeDirs = require("../../../universals/config/make_dirs");
         makeDirs();
 
         console.log("SUCCESS: Vdo_App Configuration Finished!");
         break;
 
       case "registerOption":
-        const addOption = require("../../../universal_helpers/cfg_options/add_option");
+        const addOption = require("../../../universals/cfg_options/add_option");
 
         var newOptName = newOptionName;
         var newOptVal = newOptionValue;
