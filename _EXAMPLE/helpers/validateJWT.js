@@ -1,4 +1,4 @@
-const jwtConfig = require('./config/jwt_config');
+const jwtConfig = require('../config/jwt_config');
 const jwt = require('jsonwebtoken');
 
 const validateJWT = (req, res, next) => {
