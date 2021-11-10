@@ -1,4 +1,4 @@
-const emailSchema = require('./schema_email');
+const emailSchema = require('../email.schema');
 
 console.log(emailSchema.isValid("My@string-with(some%text)") , ">> Includes disallowed characters.");    //false
 console.log(emailSchema.isValid("mojmail@gmail.om"), ">> Ok email.");        //true

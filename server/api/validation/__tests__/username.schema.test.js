@@ -1,21 +1,5 @@
-var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-//            ^                                       ^   
-console.log(format.test("My@string-with(some%text)") );    //true
-console.log(format.test("My string with spaces") );        //true 
-console.log(format.test("MyStringContainingNoSpecialChars"));       //false
+const usernameSchema = require('../username.schema');
 
-const usernameSchema = {
-  format: /[ `!@#$%^&*()+=\[\]{};':"\\|,<>\/?~]/,
-  max_len: 40,
-  min_len: 5,
-  test(inVal){
-    return usernameSchema.format.test(inVal);
-  },
-  isValid(inVal){
-    return ( !usernameSchema.test(inVal) && inVal.length > usernameSchema.min_len && inVal.length < usernameSchema.max_len );
-  }
-};
-//            ^                                       ^   
 console.log(usernameSchema.isValid("My@string-with(some%text)") , ">> Includes disallowed characters.");    //false
 console.log(usernameSchema.isValid("My string with spaces"), ">> Includes disallowed characters.");        //false 
 console.log(usernameSchema.isValid("MyStringContainingNoSpecialChars"), " >> All ok.");       //true

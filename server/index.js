@@ -2,7 +2,7 @@ const tokenSecret = require('./config/jwt_config');
 const jwt = require('jsonwebtoken');
 
 // Authenticate JWT -> Validate/verify Token
-const authValid = require('./authValid/index');
+const authValid = require('./api/auth/index');
 //const validateJWT = require('./auth/jwt');
 //const validateAdmin = require('./auth/admin');
 
