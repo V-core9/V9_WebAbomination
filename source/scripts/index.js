@@ -1,4 +1,4 @@
-const v_core9 = {
+const v9 = {
   config: null,
   data: null,
   init(){
@@ -6,6 +6,6 @@ const v_core9 = {
   }
 };
 
-v_core9.init();
+v9.init();
 
-module.exports = v_core9;
+module.exports = v9;
