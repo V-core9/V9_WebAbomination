@@ -1,1 +1,2 @@
-console.log('web_app');
+const v_core9 = require('./source');
+
