@@ -1,0 +1,8 @@
+const sysConfig = {
+  admin : {
+
+  },
+  user : {
+    
+  }
+};
