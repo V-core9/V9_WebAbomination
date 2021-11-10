@@ -2,8 +2,9 @@ const tokenSecret = require('./config/jwt_config');
 const jwt = require('jsonwebtoken');
 
 // Authenticate JWT -> Validate/verify Token
-const validateJWT = require('./helpers/validateJWT');
-const validateAdmin = require('./helpers/validateAdmin');
+const authValid = require('./authValid/index');
+//const validateJWT = require('./auth/jwt');
+//const validateAdmin = require('./auth/admin');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -264,14 +265,14 @@ app.post('/logout', (req, res) => {
 
 
 
-app.get('/books', validateJWT, (req, res) => {
+app.get('/books', authValid.jwt, (req, res) => {
   res.json(books);
 });
 
 
 
-app.post('/books', validateJWT, (req, res) => {
-  validateAdmin(req, res);
+app.post('/books', authValid.jwt, (req, res) => {
+  authValid.admin(req, res);
 
   const book = req.body;
   books.push(book);

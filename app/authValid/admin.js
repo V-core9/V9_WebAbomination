@@ -1,4 +1,4 @@
-const validateAdmin=( req, res ) => {
+const admin=( req, res ) => {
   const { role } = req.user;
 
   if (role !== 'admin') {
@@ -6,4 +6,4 @@ const validateAdmin=( req, res ) => {
   }
 };
 
-module.exports = validateAdmin;
+module.exports = admin;
