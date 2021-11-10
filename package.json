@@ -5,6 +5,7 @@
   "main": "web_app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install -g node-sass nodemon @babel/core @babel/cli babel-minify localtunnel image-2-min imagemin-cli imagemin-pngquant pngquant-bin gifsicle",
     "build": "bash -c \"node-sass source/styles/main.scss public/styles/main.css\" && bash -c \"webpack\"",
     "start": "node web_app"
   },
