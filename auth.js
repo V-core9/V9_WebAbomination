@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
-const accessTokenSecret = 'somerandomaccesstoken';
-const refreshTokenSecret = 'somerandomstringforrefreshtoken';
+const accessTokenSecret = 'accessTokenSecret123456';
+const refreshTokenSecret = 'refreshTokenSecret1234567890';
 
 const users = [
   {
@@ -21,8 +21,57 @@ const users = [
 
 let refreshTokens = [];
 
+// parse application/x-www-form-urlencoded
+// for easier testing with Postman or plain HTML forms
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// parse application/json
 app.use(bodyParser.json());
 
+// Homepage to show something at least :D 
+app.get("/", function(req, res) {
+  res.json({message: "Express is up [ / ]!"});
+});
+app.get("/index", function(req, res) {
+  res.json({message: "Express is up [ /index ]!"});
+});
+app.get("/home", function(req, res) {
+  res.json({message: "Express is up [ /home ]!"});
+});
+app.get("/root", function(req, res) {
+  res.json({message: "Express is up [ /root ]!"});
+});
+app.get("/index.html", function(req, res) {
+  res.json({message: "Express is up [ /index.html ]!"});
+});
+app.get("/home.html", function(req, res) {
+  res.json({message: "Express is up [ /home.html]!"});
+});
+app.get("/root.html", function(req, res) {
+  res.json({message: "Express is up [ /root.html ]!"});
+});
+
+
+// Login Page GET
+app.get("/login", function(req, res) {
+  res.json({message: "Express is up [ /login ]!"});
+});
+//  [ ALT_ROUTE ]
+app.get("/sign-in", function(req, res) {
+  res.json({message: "Express is up [ /sign-in ]!"});
+});
+// [ ALT_ROUTE ]
+app.get("/login.html", function(req, res) {
+  res.json({message: "Express is up [ /login.html ]!"});
+});
+// [ ALT_ROUTE ]
+app.get("/sign-in.html", function(req, res) {
+  res.json({message: "Express is up [ /sign-in.html ]!"});
+});
+
+// Login POST 
 app.post('/login', (req, res) => {
   // read username and password from request body
   const { username, password } = req.body;
@@ -46,30 +95,57 @@ app.post('/login', (req, res) => {
   }
 });
 
+
+
+
+// Register Page GET
+app.get("/register", function(req, res) {
+  res.json({message: "Express is up [ /register ]!"});
+});
+//  [ ALT_ROUTE ]
+app.get("/sign-up", function(req, res) {
+  res.json({message: "Express is up [ /sign-up ]!"});
+});
+//  [ ALT_ROUTE ]
+app.get("/register.html", function(req, res) {
+  res.json({message: "Express is up [ /register.html ]!"});
+});
+//  [ ALT_ROUTE ]
+app.get("/sign-up.html", function(req, res) {
+  res.json({message: "Express is up [ /sign-up.html ]!"});
+});
+
+
 app.post('/token', (req, res) => {
   const { token } = req.body;
 
+  // If token does not exist... send 401
   if (!token) {
     return res.sendStatus(401);
   }
 
+  // If refreshTokens does not include this one...send 403..
   if (!refreshTokens.includes(token)) {
     return res.sendStatus(403);
   }
 
+  // Verify JWT 
   jwt.verify(token, refreshTokenSecret, (err, user) => {
     if (err) {
       return res.sendStatus(403);
     }
 
+    // Create new signed JWT token
     const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret, { expiresIn: '20m' });
 
+    // Response in JSON format
     res.json({
       accessToken
     });
   });
 });
 
+// Should clear the refreshToken and accessToken by doing so...
 app.post('/logout', (req, res) => {
   const { token } = req.body;
   refreshTokens = refreshTokens.filter(t => t !== token);
@@ -77,6 +153,7 @@ app.post('/logout', (req, res) => {
   res.send("Logout successful");
 });
 
+// Authenticate JWT -> Validate/verify Token
 const authenticateJWT = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
@@ -144,8 +221,3 @@ app.post('/books', authenticateJWT, (req, res) => {
 app.listen(2500, () => {
   console.log('Authentication service started on port 2500');
 });
-
-
-
-
-
