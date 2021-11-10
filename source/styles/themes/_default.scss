@@ -1,0 +1,296 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+html,
+body {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 21px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: #333;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+img {
+  width: 100%;
+}
+
+article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+footer {
+  padding: 24px 0px;
+  background-color: #343a40;
+  color: white;
+}
+
+.section {
+  border: red 1px solid;
+}
+
+
+.section.base-hero-section {
+  background-color: #418c96;
+  background: url("./assets/img/hero-home-with-overlay.jpeg");
+  color: white;
+
+  h3 {
+    background: #9da0cd;
+    width: auto;
+    display: initial;
+    padding: 0.25em;
+    font-size: 18px;
+    font-weight: 800;
+  }
+}
+
+.about-us-doctors {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.doctor-boxes {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  background: white;
+}
+
+.dr-box {
+  box-shadow: 0 0 4px gray;
+  flex: 1;
+}
+
+
+
+.single-info-box svg {
+  max-width: 50px;
+}
+
+.thirds-info .container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  .single-info-box {
+    padding: 1em;
+    background: white;
+  }
+}
+
+
+.trusted-platform-section {
+  background-color: #7489e2;
+
+  .container {
+    padding: 2em;
+    gap: 2em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .single-info-box {
+    color: white;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0;
+    color: white;
+    text-align: center;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+
+.main-footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .links-list {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      background: linear-gradient(45deg, rgba(255, 255, 255, .05), #0000);
+      margin: 0.25em;
+      border-left: 4px solid dimgray;
+      color: white;
+      padding: 0.25em .5em;
+    }
+  }
+}
+
+.disclaimer-part {
+  text-align: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  h4 {
+    font-size: 16px;
+    color: white;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  p {
+    color: #f8f9facc;
+    font-size: 13px;
+    line-height: 1em;
+  }
+
+
+  .credit-width-mobile {
+    width: 37%;
+  }
+
+}
+
+
+hr {
+  border: 0;
+  background-color: #515151;
+  border-top: 1px solid #6965650d;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+
+.donations-section {
+  background-color: #363636;
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+
+span.text-underline {
+  text-decoration: underline;
+}
+
+
+
+
+
+.cookie-notification {
+  align-items: center;
+  background-color: #6c757d;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-size: 14px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1030;
+  width: 100%;
+
+  p {
+    color: #f8f9fa;
+    margin: 0;
+    padding: 1rem;
+    text-align: justify;
+  }
+
+  button {
+    background-color: #28a745;
+    border: initial;
+    border-color: #28a745;
+    border-radius: 0.3 rem;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: medium;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 1rem 0.5rem;
+    overflow: visible;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-transform: none;
+    transition: all .2s ease;
+    user-select: none;
+  }
+}
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+
+  &.cookie-notification {
+    top: auto;
+    height: auto;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    background: #0000002b;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-content {
+    position: absolute;
+    z-index: 15999;
+    background: #efefef;
+    box-shadow: 0 5px 15px gray;
+    padding: 1em;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+
+  }
+}

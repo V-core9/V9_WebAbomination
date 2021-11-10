@@ -2,11 +2,11 @@
   "name": "v-core9_com",
   "version": "1.0.0",
   "description": "V-core9.com",
-  "main": "index.js",
+  "main": "web_app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "node source/server"
+    "build": "bash -c \"node-sass source/styles/main.scss public/styles/main.css\" && bash -c \"webpack\"",
+    "start": "node web_app"
   },
   "repository": {
     "type": "git",
