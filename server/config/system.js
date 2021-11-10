@@ -1,8 +1,0 @@
-const sysConfig = {
-  admin : {
-
-  },
-  user : {
-    
-  }
-};

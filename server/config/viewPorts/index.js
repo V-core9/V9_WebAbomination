@@ -1,4 +1,4 @@
-const V_ScreenPortsList = [
+const viewPorts = [
 	{
 		"title": "AppleIPhoneSE",
 		"device": "Apple IPhone SE",
@@ -95,6 +95,6 @@ const V_ScreenPortsList = [
 		"width": 1920,
 		"height": 1080
 	}
-]
+];
 
-module.exports = V_ScreenPortsList;
+module.exports = viewPorts;
