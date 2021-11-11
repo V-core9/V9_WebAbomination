@@ -1,7 +1,8 @@
-const jwtConfig = require('../config/jwt_config');
+const path  = require('path');
+const jwtConfig = require(path.join(__dirname,'../../config/jwt_config'));
 const jwt = require('jsonwebtoken');
 
-const validateJWT = (req, res, next) => {
+const validJWT = (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (authHeader) {
@@ -20,4 +21,4 @@ const validateJWT = (req, res, next) => {
     }
 };
 
-module.exports = validateJWT;
+module.exports = validJWT;
