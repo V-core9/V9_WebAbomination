@@ -1,6 +1,6 @@
 const authValid = {
-  jwt : require('./jwt'),
-  admin: require('./admin')
+  jwt : require('./validate_jwt'),
+  admin: require('./validate_admin')
 };
 
 module.exports = authValid;

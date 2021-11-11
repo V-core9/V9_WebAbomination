@@ -1,0 +1,14 @@
+{
+    "12345152": {
+      "username": "john",
+      "password": "password123admin",
+      "role": "admin"
+    }
+  ,
+  
+    "23123123": {
+      "username": "anna",
+      "password": "password123member",
+      "role": "member"
+    }
+  }
