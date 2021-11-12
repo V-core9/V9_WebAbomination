@@ -1,4 +1,4 @@
-const v_fsd = require('../index');
+const vData = require('../index');
 
 
 function log(data){
@@ -7,10 +7,10 @@ function log(data){
 
 
 // Returns names of all data types added
-log(v_fsd.getDataTypes());
+log(vData.getDataTypes());
 
 // Number of different data types - similar to WordPress Posts 
-log(v_fsd.getDataTypesCount());
+log(vData.getDataTypesCount());
 
 // List of files in data folder
-log(v_fsd.getFilesList());
+log(vData.getFilesList());

@@ -1,13 +1,13 @@
 
 
-const v_fsd = {
+const vData = {
 
   $_data: require('./actions/get_data_types'),
 
   getFilesList : require('./actions/get_files_list'),
   findById(dataType, itemId) {
     try {
-      var response = v_fsd.$_data[dataType][itemId];
+      var response = vData.$_data[dataType][itemId];
       return typeof response === "undefined" ? false : response;
     } catch (error) {
       console.error(error);
@@ -35,4 +35,4 @@ const v_fsd = {
 };
 
 
-module.exports = v_fsd;
+module.exports = vData;
