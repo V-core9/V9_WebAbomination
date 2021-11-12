@@ -56,6 +56,7 @@ $_v.get('/blog/', (req, res) => {
 
   finishReq(req, res);
 });
+
 $_v.get('/tags/', (req, res) => {
   pageData = {
     title: "Tags Root",
