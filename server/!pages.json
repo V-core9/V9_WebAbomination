@@ -1,0 +1,70 @@
+{
+  "home":{
+    "main_path": "/",
+    "alt_paths": [
+      "/index",
+      "/home",
+      "/root"
+    ],
+    "type": "GET",
+    "exec": "sampleExec"
+  },
+  "login_get":{
+    "main_path": "/login",
+    "alt_paths": [
+      "`/sign-in",
+      "/verify-user"
+    ],
+    "type": "GET",
+    "exec": "sampleExec"
+  },
+  "login_post":{
+    "main_path": "/login",
+    "alt_paths": [
+      "`/sign-in",
+      "/verify-user"
+    ],
+    "type": "POST",
+    "exec": "sampleExec"
+  },
+  "register_get":{
+    "main_path": "/register",
+    "alt_paths": [
+      "`/sign-up",
+      "/new-user"
+    ],
+    "type": "GET",
+    "exec": "sampleExec"
+  },
+  "register_post":{
+    "main_path": "/register",
+    "alt_paths": [
+      "`/sign-up",
+      "/new-user"
+    ],
+    "type": "POST",
+    "exec": "sampleExec"
+  },
+  "logout_post":{
+    "main_path": "/logout",
+    "alt_paths": [
+      "`/sign-out",
+      "/lockout-user"
+    ],
+    "type": "POST",
+    "exec": "user_action_logout"
+  },
+  "books_get":{
+    "main_path": "/books",
+    "type": "GET",
+    "require_login": true,
+    "exec": "books_get"
+  },
+  "books_post":{
+    "main_path": "/books",
+    "type": "POST",
+    "require_login": true,
+    "requires_admin": true,
+    "exec": "books_post"
+  }
+}

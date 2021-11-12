@@ -1,12 +1,12 @@
 const fs = require('fs');
 
-const listDir = (dirPath, cb) => {
+const listDirSync = (dirPath) =>{
   try {
-    fs.readdir(dirPath, cb );
+    return fs.readdirSync(dirPath);
   } catch (error) {
     console.error(error);
     return false;
   }
 };
 
-module.exports = listDir;
+module.exports = listDirSync;

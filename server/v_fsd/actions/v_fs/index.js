@@ -1,5 +1,15 @@
+const listDir = require('./_list_dir_sync');
+const writeFile = require('./_write_file');
+
+
 const v_fs = {
-  listDir : require('./_list_dir'),
+  listDir,
+  writeFile ,
 };
 
-module.exports = v_fs;
+module.exports = { 
+  v_fs,
+  listDir,
+  writeFile ,
+};
+

@@ -1,16 +1,10 @@
 
-var users = require("./data/users.json");
-var pages = require("./data/pages.json");
-var books = require("./data/books.json");
 
 const v_fsd = {
 
-  $_data: {
-    users,
-    pages,
-    books,
-  },
+  $_data: require('./actions/get_data_types'),
 
+  getFilesList : require('./actions/get_files_list'),
   findById(dataType, itemId) {
     try {
       var response = v_fsd.$_data[dataType][itemId];
@@ -35,21 +29,9 @@ const v_fsd = {
     }
   },
 
-  getDataTypes () {
-    try {
-      return Object.keys(v_fsd.$_data);
-    } catch (error) {
-      return false;
-    }
-  },
+  getDataTypes: require('./actions/get_data_types'),
 
-  dataTypeCount () {
-    try {
-      return v_fsd.getDataTypes().length;
-    } catch (error) {
-      return false;
-    }
-  },
+  getDataTypesCount: require('./actions/get_data_types_count'),
 };
 
 

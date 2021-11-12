@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const writeFile = (filePath, content, callback) => {
+const writeFileSync = (filePath, content) => {
   try {
     fs.writeFile( filePath, content, encoding = "utf8", err => {
       if (err) {
@@ -8,7 +8,7 @@ const writeFile = (filePath, content, callback) => {
         return;
       }
       //file written successfully
-      callback(filePath);
+      return true;
     });
   } catch (error) {
     console.error(error);
@@ -16,4 +16,4 @@ const writeFile = (filePath, content, callback) => {
   }
 };
 
-module.exports = writeFile;
+module.exports = writeFileSync;

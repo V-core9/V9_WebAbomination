@@ -6,8 +6,4 @@ const content = 'Some content!';
 const demoFilePath = path.join(__dirname,'/test_output.txt');
 
 
-function cbLog(data){
-  console.log(`✅ File Written Successfully\nFILE_PATH : [ ${data} ]`);
-}
-
-writeFile(demoFilePath, content , cbLog);
+console.log(writeFile(demoFilePath, content ));
