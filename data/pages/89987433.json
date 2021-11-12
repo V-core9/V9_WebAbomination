@@ -1,0 +1,7 @@
+{
+  "route": "/about",
+  "alt_route": ["/about-us", "/about_us"],
+  "title": "About us",
+  "description": "description description description",
+  "owner": 1111111
+}
