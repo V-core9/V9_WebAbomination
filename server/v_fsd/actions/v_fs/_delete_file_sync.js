@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const deleteFileSync = (filePath) => {
   try {
-    fs.unlinkSync(path);
+    fs.unlinkSync(filePath);
     return true;
   } catch(error) {
     console.error(error);

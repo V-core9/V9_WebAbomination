@@ -11,3 +11,6 @@ function cbLog(data){
 }
 
 writeFile(demoFilePath, content , cbLog);
+
+const demoFilePathQQ = path.join(__dirname, '/QQ/QQ/test_output_sync.txt');
+writeFile(demoFilePathQQ, content , cbLog);

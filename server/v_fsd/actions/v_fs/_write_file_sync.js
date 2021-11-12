@@ -1,17 +1,12 @@
 const fs = require('fs');
 
-const writeFileSync = (filePath, content) => {
+const writeFileSync = (filePath, content, encoding = "utf8") => {
   try {
-    fs.writeFile( filePath, content, encoding = "utf8", err => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      //file written successfully
-      return true;
-    });
+    fs.writeFileSync( filePath, content, encoding);
+    //file written successfully
+    return true;
   } catch (error) {
-    console.error(error);
+    //console.error(error);
     return false;
   }
 };
