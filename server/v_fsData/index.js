@@ -1,9 +1,14 @@
+
+var users = require("./content/users.json");
+var pages = require("./content/pages.json");
+var books = require("./content/books.json");
+
 const vData = {
 
   _data: {
-    users: require("./users.json"),
-    pages: require("./pages.json"),
-    books: require("./books.json"),
+    users,
+    pages,
+    books,
   },
 
   findById(dataType, itemId) {
