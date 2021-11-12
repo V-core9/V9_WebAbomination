@@ -2,8 +2,13 @@ module.exports = {
   name: "test",
   language: "EN",
   onlySecure: true,
-  origin: "localhost",
+  protocol: "http",
+  hostname: "localhost",
   port: 440,
   target: "web",
-  printConsole: true,
+  log: {
+    print: true,
+  save: true,
+  },
+  apiPath: "v_1-api"
 };

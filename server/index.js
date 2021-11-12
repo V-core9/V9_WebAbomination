@@ -1,6 +1,8 @@
 const tokenSecret = require('./config/jwt_config');
 const jwt = require('jsonwebtoken');
 
+const $V = require('./config/mode/')
+
 // Authenticate JWT -> Validate/verify Token
 const auth = require('./api/auth');
 //const validateJWT = require('./auth/jwt');
@@ -200,7 +202,7 @@ app.get("/login.html", sampleEXEC);
 app.get("/sign-in.html", sampleEXEC);
 
 // Login POST 
-app.post('/login', (req, res) => {
+app.post($V.apiPath+'/login', (req, res) => {
   // read username and password from request body
   const { username, password } = req.body;
 
@@ -224,9 +226,7 @@ app.post('/login', (req, res) => {
 });
 
 
-
-
-app.post('/token', (req, res) => {
+const tokenPOST = (req, res) => {
   const { token } = req.body;
 
   // If token does not exist... send 401
@@ -253,35 +253,31 @@ app.post('/token', (req, res) => {
       accessToken
     });
   });
-});
+};
 
-// Should clear the refreshToken and accessToken by doing so...
-app.post('/logout', (req, res) => {
+app.post($V.apiPath+'/token', tokenPOST);
+
+const logoutPOST = (req, res) => {
   const { token } = req.body;
   refreshTokens = refreshTokens.filter(t => t !== token);
 
   res.send("Logout successful");
-});
+};
+
+// Should clear the refreshToken and accessToken by doing so...
+app.post($V.apiPath+'/logout', logoutPOST );
 
 
 
-app.get('/books', auth.jwt, (req, res) => {
-  res.json(books);
-});
+const vHandler = require('./handler/');
+
+app.get($V.apiPath+'/books', auth.jwt, vHandler.books.list );
+
+app.post($V.apiPath+'/books', auth.jwt, vHandler.books.post );
 
 
 
-app.post('/books', auth.jwt, (req, res) => {
-  auth.admin(req, res);
-
-  const book = req.body;
-  books.push(book);
-
-  res.send('book added successfully');
-});
-
-
-
-app.listen(2500, () => {
-  console.log('Authentication service started on port 2500');
+app.listen($V.port, () => {
+  console.log(`Application started :  ${$V.protocol}://${$V.hostname}:${$V.port}/`);
+  console.log(`API Root :  ${$V.protocol}://${$V.hostname}:${$V.port}/${$V.apiPath}/`);
 });

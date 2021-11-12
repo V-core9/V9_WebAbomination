@@ -2,8 +2,13 @@ module.exports = {
   name: "live",
   language: "EN",
   onlySecure: true,
-  origin: "https://v-core9.com",
+  protocol: "http",
+  hostname: "https://v-core9.com",
   port: null,
   target: "web",
-  printConsole: false,
+  log: {
+    print: false,
+    save: true,
+  },
+  apiPath: "v_1-api"
 };
