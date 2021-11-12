@@ -1,5 +1,5 @@
 const path= require('path');
-const contentList = path.join(__dirname,'../data/');
+const contentList = path.join(__dirname,'../data/content/');
 const v_fs = require('./v_fs');
 
 const getFilesList = () => {

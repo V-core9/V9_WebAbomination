@@ -1,7 +1,9 @@
+const contentPath = "../data/content/";
+
 const $_data= {
-  users: require("../data/users.json"),
-  pages: require("../data/pages.json"),
-  books: require("../data/books.json"),
+  users: require(contentPath+"users.json"),
+  pages: require(contentPath+"pages.json"),
+  books: require(contentPath+"books.json"),
 };
 
 module.exports = $_data;
