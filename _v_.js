@@ -6,6 +6,7 @@ const err_page_404 = (req, res ) => {
 };
 const _V_ = (req, res, next) => {
   console.log("Request Was Made To : "+ req.path);
+
   res.send({
     app: req.app,
     baseUrl: req.baseUrl,
@@ -30,6 +31,7 @@ const _V_ = (req, res, next) => {
     timestamp:  Date.now(),
     userAgent: req.headers.user_agent
   });
+  
 };
 
 
