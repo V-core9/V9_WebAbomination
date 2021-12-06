@@ -9,10 +9,6 @@ var geoip = require('geoip-lite');
 
 const v_debugger = require('./v_debugger');
 
-const bot_check = async (agent) => {
-    return isBot(agent);
-};
-
 const v_pages = {
 
     $_list: [
@@ -123,13 +119,15 @@ const v_pages = {
 
     _render_: async (req, res, data) => {
 
-        var bot_status = await bot_check(req.headers['user-agent']);
+        var bot_status = await v.bot_check(req.headers['user-agent']);
 
         var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
+        if (bot_status === true) console.log(req.headers['user-agent']);
+
         var user_info = {
             ts: Date.now(),
-            lookup: geoip.lookup(ip),
+            lookup: await v.geoip_check(ip),
             ip: ip,
             bot: bot_status,
             api_version: v.info.version,
@@ -140,12 +138,13 @@ const v_pages = {
 
         res.end(`
                 <!DOCTYPE html>
-                    <html lang="en">
+                    <html lang="${v.config.lang}">
                     <head>
                         <title>${data.title}</title>
                         <meta charset="${data.charset}">
-                        <meta http-equiv="Content-Security-Policy" content="${data.app_config.ContentSecurityPolicy}">
-                        <meta name="viewport" content="${data.app_config.viewport}">
+                        <meta http-equiv="Content-Security-Policy" content="${v.config.ContentSecurityPolicy}">
+                        <meta http-equiv="Object-Security-Policy" content="${v.config.ObjectSecurityPolicy}">
+                        <meta name="viewport" content="${v.config.viewport}">
                         <meta name="description" content="${data.meta.description}" />
                         <style>
                             * {
@@ -209,13 +208,12 @@ const v_pages = {
                         </style>
                     </head>
                     <body>
-                        ${await v_debugger(req, res, user_info)}
+                        ${(v.config.v_debugger === true) ? await v_debugger(req, res, user_info) : ``}
                         <v_page> 
                             <hero>
                                 <h1>${data.title}</h1>
-                                <h2>Welcome to V-core9.com</h2>
+                                <h2>${data.meta.description}</h2>
                                 <h3>IP: ${ip}</h3>
-                                <p>${data.meta.description}</p>
                             </hero>
                         </v_page>
                     </body>
@@ -243,12 +241,25 @@ const v = {
     },
 
     config : {
+        v_debugger: false,
+        lang: 'en',
         port : process.env.PORT || 2500,
         viewport : "width=device-width",
         compression: true,
-        ContentSecurityPolicy : "script-src 'none'"
+        ContentSecurityPolicy : "script-src 'unsafe-inline'", // 'none'
+        ObjectSecurityPolicy : "object-src 'unsafe-inline'" // 'none'
+    },
+    isBot : require('isbot'),
+
+    bot_check : async (agent) => {
+        return v.isBot(agent);
     },
 
+    geoip : require('geoip-lite'),
+
+    geoip_check : async (ip) => {
+        return v.geoip.lookup(ip);
+    },
     init(){
         if (v.config.compression === true) app.use(compression());
 
