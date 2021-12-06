@@ -133,6 +133,7 @@ const v_pages = {
             ip: ip,
             bot: bot_status,
             api_version: v.info.version,
+            app_config: v.config,
             _pages: v_pages.$_list,
             _req_headers: req.headers || {},
         };
@@ -143,7 +144,8 @@ const v_pages = {
                     <head>
                         <title>${data.title}</title>
                         <meta charset="${data.charset}">
-                        <meta name="viewport" content="width=device-width">
+                        <meta http-equiv="Content-Security-Policy" content="${data.app_config.ContentSecurityPolicy}">
+                        <meta name="viewport" content="${data.app_config.viewport}">
                         <meta name="description" content="${data.meta.description}" />
                         <style>
                             * {
@@ -244,6 +246,7 @@ const v = {
         port : process.env.PORT || 2500,
         viewport : "width=device-width",
         compression: true,
+        ContentSecurityPolicy : "script-src 'none'"
     },
 
     init(){
