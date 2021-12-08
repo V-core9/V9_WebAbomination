@@ -30,6 +30,7 @@
     "is-online": "^9.0.1",
     "isbot": "^3.3.4",
     "mysql": "^2.18.1",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "v_scrolls": "^0.1.12"
   }
 }
