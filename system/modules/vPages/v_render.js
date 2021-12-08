@@ -1,5 +1,6 @@
-const { geoip_check, bot_check } = require('../system/helpers');
-const v_debugger = require('../v_debugger');
+const { geoip_check, bot_check } = require('../../helpers');
+const config = require('../../config');
+const v_debugger = require('../vDebugger');
 const v_pages = require('.');
 
 module.exports = async (req, res, data) => {
@@ -17,21 +18,19 @@ module.exports = async (req, res, data) => {
         lookup: await geoip_check(ip),
         ip: ip,
         bot: bot_status,
-        api_version: data.info.version,
-        app_config: data.config,
-        _pages: data.$_pages._list,
+        app_config: config,
         _req_headers: req.headers || {},
     };
 
     res.end(`
                 <!DOCTYPE html>
-                    <html lang="${data.config.lang}">
+                    <html lang="${config.lang}">
                     <head>
                         <title>${page.title}</title>
-                        <meta charset="${data.config.charset}">
-                        <meta http-equiv="Content-Security-Policy" content="${data.config.ContentSecurityPolicy}">
-                        <meta http-equiv="Object-Security-Policy" content="${data.config.ObjectSecurityPolicy}">
-                        <meta name="viewport" content="${data.config.viewport}">
+                        <meta charset="${config.charset}">
+                        <meta http-equiv="Content-Security-Policy" content="${config.ContentSecurityPolicy}">
+                        <meta http-equiv="Object-Security-Policy" content="${config.ObjectSecurityPolicy}">
+                        <meta name="viewport" content="${config.viewport}">
                         <meta name="description" content="${page.meta.description}" />
                         <style>
                             * {
@@ -88,7 +87,7 @@ module.exports = async (req, res, data) => {
                         </style>
                     </head>
                     <body>
-                        ${(data.config.v_debugger === true) ? await v_debugger(dbg_info) : ``}
+                        ${(config.v_debugger === true) ? await v_debugger(dbg_info) : ``}
                         <v_page> 
                             <hero>
                                 <h1>${page.title}</h1>
