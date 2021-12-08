@@ -1,4 +1,13 @@
 {
+    "exec": "v_render",
+    "name": "system_status",
+    "path": "/system_status",
+    "alt_paths": [
+        "/system_status.html",
+        "/system-status",
+        "/system-status.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "System Status V-core9",
     "meta": {

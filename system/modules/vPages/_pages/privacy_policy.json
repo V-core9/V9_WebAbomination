@@ -1,4 +1,13 @@
 {
+    "exec": "v_render",
+    "name": "privacy_policy",
+    "path": "/privacy_policy",
+    "alt_paths": [
+        "/privacy_policy.html",
+        "/privacy-policy",
+        "/privacy-policy.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Website Privacy Policy",
     "meta": {

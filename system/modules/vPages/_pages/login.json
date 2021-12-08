@@ -1,4 +1,15 @@
 {
+    "exec": "v_render",
+    "name": "login",
+    "path": "/login",
+    "alt_paths": [
+        "/sign-in",
+        "/verify-user",
+        "/login.html",
+        "/sign-in.html",
+        "/verify-user.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Login/Sign-in",
     "meta": {

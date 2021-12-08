@@ -1,4 +1,15 @@
 {
+    "exec": "v_render",
+    "name": "contact",
+    "path": "/contact-us",
+    "alt_paths": [
+        "/contact-us.html",
+        "/contact",
+        "/contact.html",
+        "/contact_us",
+        "/contact_us.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Contact Us",
     "meta": {

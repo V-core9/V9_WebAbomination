@@ -1,4 +1,16 @@
 {
+    "exec": "v_render",
+    "name": "index",
+    "path": "/",
+    "alt_paths": [
+        "/root",
+        "/root.html",
+        "/home",
+        "/home.html",
+        "/index",
+        "/index.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Home",
     "meta": {

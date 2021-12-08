@@ -1,4 +1,13 @@
 {
+    "exec": "v_render",
+    "name": "terms_policy",
+    "path": "/terms_policy",
+    "alt_paths": [
+        "/terms_policy.html",
+        "/terms-policy",
+        "/terms-policy.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Terms and Conditions",
     "meta": {

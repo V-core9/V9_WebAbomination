@@ -1,4 +1,13 @@
 {
+    "exec": "v_render",
+    "name": "register",
+    "path": "/register",
+    "alt_paths": [
+        "/sign-up",
+        "/sign-up.html",
+        "/register.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "Register / Sign-up",
     "meta": {

@@ -1,4 +1,15 @@
 {
+    "exec": "v_render",
+    "name": "about",
+    "path": "/about-us",
+    "alt_paths": [
+        "/about-us.html",
+        "/about",
+        "/about.html",
+        "/info",
+        "/info.html"
+    ],
+    "type": "get",
     "status": "published",
     "title": "About Us",
     "meta": {
