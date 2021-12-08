@@ -3,12 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-var compression = require('compression');
 
-const v_pages = require('./v_pages');
-
-
-
+const v_render = require('./v_pages/v_render');
 
 
 const v = {
@@ -50,7 +46,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'index', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'index', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -65,7 +61,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'login', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'login', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -78,7 +74,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'register', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'register', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -93,7 +89,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'about', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'about', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -108,7 +104,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'contact', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'contact', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -121,7 +117,7 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v_pages.render(req, res, {page_name : 'system_status', info: v.info, config: v.config, $_pages: v.$_pages});
+                    await v_render(req, res, {page_name : 'system_status', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
 
@@ -142,7 +138,10 @@ const v = {
     },
 
     init() {
-        if (v.config.compression === true) app.use(compression());
+        if (v.config.compression === true) {
+            var compression = require('compression');
+            app.use(compression());
+        }
 
         app.use(bodyParser.urlencoded({
             extended: true
