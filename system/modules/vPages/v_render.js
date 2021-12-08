@@ -8,8 +8,6 @@ module.exports = async (req, res, data) => {
 
     var page = v_pages.get(data.page_name);
 
-    v_pages.load();
-
     var bot_status = await bot_check(req.headers['user-agent']);
 
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
