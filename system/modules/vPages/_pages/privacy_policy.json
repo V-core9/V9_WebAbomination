@@ -1,14 +1,14 @@
 {
-    "title": "Login/Sign-in",
+    "title": "Website Privacy Policy",
     "meta": {
-        "description": "LOGIN TO V-core9.com"
+        "description": "V-core9 Privacy Policy page to show some data about this."
     },
     "$_page": [
         {
             "type": "hero",
-            "title": "Index of V-core9",
-            "subtitle": "Welcome to V-core9.com",
-            "image": "https: //v-core9.com/images/v-core9-logo.png",
+            "title": "Website Privacy Policy",
+            "subtitle": "V-core9 Privacy Policy page to show some data about this.",
+            "image": "https://v-core9.com/images/v-core9-logo.png",
             "image_alt": "V-core9 Logo",
             "image_width": 350,
             "image_height": 350

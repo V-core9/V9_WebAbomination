@@ -152,31 +152,32 @@ const v_pages = {
     },
 
     get(name) {
-        if (this._list[name]) {
-            return this._list[name];
+        if (v_pages._list[name]) {
+            return v_pages._list[name];
         }
         return false;
     },
 
-    load: () => {
+    load() {
         var pages = v_fs.listDirSy(path.join(__dirname,'_pages'));
         
         pages.forEach((page) => {
             
         });
-        console.log(pages);
         console.log(JSON.stringify(v_pages, true, 2));
     }, 
 
-    save_all () {
+    save_all() {
         Object.keys(v_pages._list).forEach((page) => {
             console.log(page);
-            console.log( v_fs.writeSy(path.join(__dirname,'_pages', page + '.json'), JSON.stringify(v_pages[page], true, 2)));
+            var dir = path.join(__dirname,'_pages',page + '.json');
+            console.log(dir);
+            console.log(v_fs.writeSy(dir, JSON.stringify(v_pages._list[page], true, 4)));
         });
     }
 };
 
-v_pages.save_all();
+v_pages.load();
 
 
 module.exports = v_pages;

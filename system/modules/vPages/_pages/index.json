@@ -1,14 +1,14 @@
 {
-    "title": "Login/Sign-in",
+    "title": "Home",
     "meta": {
-        "description": "LOGIN TO V-core9.com"
+        "description": "Welcome to V-core9.com"
     },
     "$_page": [
         {
             "type": "hero",
             "title": "Index of V-core9",
             "subtitle": "Welcome to V-core9.com",
-            "image": "https: //v-core9.com/images/v-core9-logo.png",
+            "image": "https://v-core9.com/images/v-core9-logo.png",
             "image_alt": "V-core9 Logo",
             "image_width": 350,
             "image_height": 350
