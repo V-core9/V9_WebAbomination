@@ -149,13 +149,17 @@ const v_pages = {
 
     },
 
-    load(name) {
+    get(name) {
         if (this._list[name]) {
             return this._list[name];
         }
         return false;
     },
 
+    load() {
+        console.log("I will load pages");
+        return false;
+    }
 };
 
 

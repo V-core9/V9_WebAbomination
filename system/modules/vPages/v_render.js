@@ -5,7 +5,7 @@ const v_pages = require('.');
 
 module.exports = async (req, res, data) => {
 
-    var page = v_pages.load(data.page_name);
+    var page = v_pages.get(data.page_name);
 
     var bot_status = await bot_check(req.headers['user-agent']);
 
