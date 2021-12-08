@@ -1,4 +1,5 @@
 module.exports = {
+    auto_init: true,
     v_debugger: true,
     charset: "UTF-8",
     lang: 'en',

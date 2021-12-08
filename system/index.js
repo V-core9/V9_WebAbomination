@@ -1,35 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const v_render = require('./modules/vPages/v_render');
+
 
 const v_pages = require('./modules/vPages');
 
-const actions = {
-    'index': async (req, res) => {
-        v_render(req, res, { page_name: 'index' });
-    },
-    'about': async (req, res) => {
-        v_render(req, res, { page_name: 'about' });
-    },
-    'contact': async (req, res) => {
-        v_render(req, res, { page_name: 'contact' });
-    },
-    'login': async (req, res) => {
-        v_render(req, res, { page_name: 'login' });
-    },
-    'privacy_policy': async (req, res) => {
-        v_render(req, res, { page_name: 'privacy_policy' });
-    },
-    'register': async (req, res) => {
-        v_render(req, res, { page_name: 'register' });
-    },
-    'system_status': async (req, res) => {
-        v_render(req, res, { page_name: 'system_status' });
-    },
-    'terms_policy': async (req, res) => {
-        v_render(req, res, { page_name: 'terms_policy' });
-    },
-};
+const route_actions = require('./route_actions');
 
 const v = {
 
@@ -43,22 +18,22 @@ const v = {
     config: require('./config'),
 
     // Application Pages
-    set_routes() {
+    set_routes : () => {
 
         console.log(v_pages);
         Object.keys(v_pages._list).forEach(page => {
             var item = v_pages._list[page];
-            v.app[item.type](item.path, actions[page]);
+            v.app[item.type](item.path, route_actions[page]);
 
             if (item.alt_paths !== undefined) {
                 item.alt_paths.forEach(alt_path => {
-                    v.app[item.type](alt_path, actions[page]);
+                    v.app[item.type](alt_path, route_actions[page]);
                 });
             }
         });
     },
 
-    init() {
+    init: () =>{
         if (v.config.compression === true) {
             var compression = require('compression');
             v.app.use(compression());
@@ -79,5 +54,6 @@ const v = {
 
 };
 
+if ( v.config.auto_init === true ) v.init();
 
-v.init();
+module.exports = v;
