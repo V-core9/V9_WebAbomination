@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const v_render = require('./system/modules/vPages/v_render');
+const v_render = require('./modules/vPages/v_render');
 
 
 
@@ -11,11 +11,11 @@ const v = {
 
 
     // Some info to provide
-    info: require('./system/info'),
+    info: require('./info'),
 
 
     // Settings for the app
-    config: require('./system/config'),
+    config: require('./config'),
 
 
     // Application Pages
