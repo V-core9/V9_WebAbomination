@@ -5,21 +5,15 @@ const v_pages = require('.');
 
 
 module.exports = async (req, res, data) => {
-
-    console.log(data);
-    var page = v_pages.get(data.page_name);
-
-    var bot_status = await bot_check(req.headers['user-agent']);
-
+    var page = await v_pages.get(data.page_name);
+    
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-
-    //if (bot_status === true) console.log(req.headers['user-agent']);
-
+    
     var dbg_info = {
         ts: Date.now(),
         lookup: await geoip_check(ip),
         ip: ip,
-        bot: bot_status,
+        bot: await bot_check(req.headers['user-agent']),
         app_config: config,
         _req_headers: req.headers || {},
     };

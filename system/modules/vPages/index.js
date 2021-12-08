@@ -5,7 +5,7 @@ const v_pages = {
 
     _list: {},
 
-    get(name) {
+    get: async (name)=> {
         if (Object.keys(v_pages._list).indexOf(name) === -1) return false; 
         return v_pages._list[name];
     },
