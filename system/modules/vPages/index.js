@@ -1,3 +1,5 @@
+const v_fs = require('v_file_system');
+const path = require('path');
 
 const v_pages = {
 
@@ -156,11 +158,25 @@ const v_pages = {
         return false;
     },
 
-    load() {
-        console.log("I will load pages");
-        return false;
+    load: () => {
+        var pages = v_fs.listDirSy(path.join(__dirname,'_pages'));
+        
+        pages.forEach((page) => {
+            
+        });
+        console.log(pages);
+        console.log(JSON.stringify(v_pages, true, 2));
+    }, 
+
+    save_all () {
+        Object.keys(v_pages._list).forEach((page) => {
+            console.log(page);
+            console.log( v_fs.writeSy(path.join(__dirname,'_pages', page + '.json'), JSON.stringify(v_pages[page], true, 2)));
+        });
     }
 };
+
+v_pages.save_all();
 
 
 module.exports = v_pages;

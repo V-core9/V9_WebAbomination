@@ -3,9 +3,12 @@ const config = require('../../config');
 const v_debugger = require('../vDebugger');
 const v_pages = require('.');
 
+
 module.exports = async (req, res, data) => {
 
     var page = v_pages.get(data.page_name);
+
+    v_pages.load();
 
     var bot_status = await bot_check(req.headers['user-agent']);
 
