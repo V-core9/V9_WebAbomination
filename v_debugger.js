@@ -1,9 +1,9 @@
-module.exports = async (req, res, $_info) => {
+module.exports = async (data) => {
     return `
     <script>
     const v_debugger = { 
 
-        api_version: "${$_info.version}",
+        api_version: "${data.version}",
 
         timestamp: ${Date.now()},
 
@@ -31,39 +31,39 @@ module.exports = async (req, res, $_info) => {
                     <box>
                         <item>
                             <name>IP:</name>
-                            <txt>${($_info.ip !== undefined) ? $_info.ip : 'NULL'}</txt>
+                            <txt>${(data.ip !== undefined) ? data.ip : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Country:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.country : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.country : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Region:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.region : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.region : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Eu:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.eu : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.eu : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Timezone:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.timezone : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.timezone : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>City:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.city : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.city : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Metro:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.metro : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.metro : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Area:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.area : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.area : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>LL:</name>
-                            <txt>${($_info.lookup !== null) ? $_info.lookup.ll : 'NULL'}</txt>
+                            <txt>${(data.lookup !== null) ? data.lookup.ll : 'NULL'}</txt>
                         </item>
                     </box>
                     <foot>
@@ -81,11 +81,11 @@ module.exports = async (req, res, $_info) => {
                     <box>
                         <item>
                             <name>IP:</name>
-                            <txt>${($_info.ip !== undefined) ? $_info.ip : 'NULL'}</txt>
+                            <txt>${(data.ip !== undefined) ? data.ip : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>BOT:</name>
-                            <txt>${($_info.bot !== null) ? $_info.bot : 'NULL'}</txt>
+                            <txt>${(data.bot !== null) ? data.bot : 'NULL'}</txt>
                         </item>
                     </box>
                     <foot>
@@ -103,11 +103,11 @@ module.exports = async (req, res, $_info) => {
                     <box>
                         <item>
                             <name>API Version:</name>
-                            <txt>${($_info.api_version !== undefined) ? $_info.api_version : 'NULL'}</txt>
+                            <txt>${(data.api_version !== undefined) ? data.api_version : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Request Timestamp:</name>
-                            <txt>${($_info.ts !== null) ? $_info.ts : 'NULL'}</txt>
+                            <txt>${(data.ts !== null) ? data.ts : 'NULL'}</txt>
                         </item>
                     </box>
                     <foot>
@@ -125,107 +125,107 @@ module.exports = async (req, res, $_info) => {
                     <box>
                         <item>
                             <name>User Agent:</name>
-                            <txt>${($_info._req_headers[`user-agent`] !== null) ? $_info._req_headers[`user-agent`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`user-agent`] !== null) ? data._req_headers[`user-agent`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Accept:</name>
-                            <txt>${($_info._req_headers[`accept`] !== null) ? $_info._req_headers[`accept`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`accept`] !== null) ? data._req_headers[`accept`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>accept-encoding:</name>
-                            <txt>${($_info._req_headers[`accept-encoding`] !== null) ? $_info._req_headers[`accept-encoding`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`accept-encoding`] !== null) ? data._req_headers[`accept-encoding`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>accept-language:</name>
-                            <txt>${($_info._req_headers[`accept-language`] !== null) ? $_info._req_headers[`accept-language`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`accept-language`] !== null) ? data._req_headers[`accept-language`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cache-control:</name>
-                            <txt>${($_info._req_headers[`cache-control`] !== null) ? $_info._req_headers[`cache-control`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cache-control`] !== null) ? data._req_headers[`cache-control`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cache-control:</name>
-                            <txt>${($_info._req_headers[`cache-control`] !== null) ? $_info._req_headers[`cache-control`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cache-control`] !== null) ? data._req_headers[`cache-control`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cdn-loop:</name>
-                            <txt>${($_info._req_headers[`cdn-loop`] !== null) ? $_info._req_headers[`cdn-loop`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cdn-loop`] !== null) ? data._req_headers[`cdn-loop`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cf-connecting-ip:</name>
-                            <txt>${($_info._req_headers[`cf-connecting-ip`] !== null) ? $_info._req_headers[`cf-connecting-ip`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cf-connecting-ip`] !== null) ? data._req_headers[`cf-connecting-ip`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cf-ipcountry:</name>
-                            <txt>${($_info._req_headers[`cf-ipcountry`] !== null) ? $_info._req_headers[`cf-ipcountry`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cf-ipcountry`] !== null) ? data._req_headers[`cf-ipcountry`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cf-ray:</name>
-                            <txt>${($_info._req_headers[`cf-ray`] !== null) ? $_info._req_headers[`cf-ray`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cf-ray`] !== null) ? data._req_headers[`cf-ray`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cf-visitor:</name>
-                            <txt>${($_info._req_headers[`cf-visitor`] !== null) ? $_info._req_headers[`cf-visitor`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cf-visitor`] !== null) ? data._req_headers[`cf-visitor`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>cf-warp-tag-id:</name>
-                            <txt>${($_info._req_headers[`cf-warp-tag-id`] !== null) ? $_info._req_headers[`cf-warp-tag-id`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`cf-warp-tag-id`] !== null) ? data._req_headers[`cf-warp-tag-id`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>connection:</name>
-                            <txt>${($_info._req_headers[`connection`] !== null) ? $_info._req_headers[`connection`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`connection`] !== null) ? data._req_headers[`connection`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>dnt:</name>
-                            <txt>${($_info._req_headers[`dnt`] !== null) ? $_info._req_headers[`dnt`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`dnt`] !== null) ? data._req_headers[`dnt`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>pragma:</name>
-                            <txt>${($_info._req_headers[`pragma`] !== null) ? $_info._req_headers[`pragma`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`pragma`] !== null) ? data._req_headers[`pragma`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <txt>referer:</txt>
-                            <txt>${($_info._req_headers[`referer`] !== null) ? $_info._req_headers[`referer`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`referer`] !== null) ? data._req_headers[`referer`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-ch-ua:</name>
-                            <txt>${($_info._req_headers[`sec-ch-ua`] !== null) ? $_info._req_headers[`sec-ch-ua`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-ch-ua`] !== null) ? data._req_headers[`sec-ch-ua`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-ch-ua-mobile:</name>
-                            <txt>${($_info._req_headers[`sec-ch-ua-mobile`] !== null) ? $_info._req_headers[`sec-ch-ua-mobile`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-ch-ua-mobile`] !== null) ? data._req_headers[`sec-ch-ua-mobile`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-ch-ua-platform:</name>
-                            <txt>${($_info._req_headers[`sec-ch-ua-platform`] !== null) ? $_info._req_headers[`sec-ch-ua-platform`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-ch-ua-platform`] !== null) ? data._req_headers[`sec-ch-ua-platform`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-fetch-dest:</name>
-                            <txt>${($_info._req_headers[`sec-fetch-dest`] !== null) ? $_info._req_headers[`sec-fetch-dest`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-fetch-dest`] !== null) ? data._req_headers[`sec-fetch-dest`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-fetch-mode:</name>
-                            <txt>${($_info._req_headers[`sec-fetch-mode`] !== null) ? $_info._req_headers[`sec-fetch-mode`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-fetch-mode`] !== null) ? data._req_headers[`sec-fetch-mode`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-fetch-site:</name>
-                            <txt>${($_info._req_headers[`sec-fetch-site`] !== null) ? $_info._req_headers[`sec-fetch-site`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-fetch-site`] !== null) ? data._req_headers[`sec-fetch-site`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>sec-fetch-user:</name>
-                            <txt>${($_info._req_headers[`sec-fetch-user`] !== null) ? $_info._req_headers[`sec-fetch-user`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`sec-fetch-user`] !== null) ? data._req_headers[`sec-fetch-user`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>upgrade-insecure-requests:</name>
-                            <txt>${($_info._req_headers[`upgrade-insecure-requests`] !== null) ? $_info._req_headers[`upgrade-insecure-requests`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`upgrade-insecure-requests`] !== null) ? data._req_headers[`upgrade-insecure-requests`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>x-forwarded-for:</name>
-                            <txt>${($_info._req_headers[`x-forwarded-for`] !== null) ? $_info._req_headers[`x-forwarded-for`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`x-forwarded-for`] !== null) ? data._req_headers[`x-forwarded-for`] : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>x-forwarded-proto:</name>
-                            <txt>${($_info._req_headers[`x-forwarded-proto`] !== null) ? $_info._req_headers[`x-forwarded-proto`] : 'NULL'}</txt>
+                            <txt>${(data._req_headers[`x-forwarded-proto`] !== null) ? data._req_headers[`x-forwarded-proto`] : 'NULL'}</txt>
                         </item>
                     </box>
                     <foot>

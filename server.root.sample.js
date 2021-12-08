@@ -5,45 +5,39 @@ const app = express();
 
 var compression = require('compression');
 
-const v_debugger = require('./v_debugger');
+const v_pages = require('./v_pages');
+
+
+
 
 
 const v = {
 
+    // Some info to provide
     info: {
         version: '1.0.1',
     },
 
-    config : {
+    // Settings for the app
+    config: {
         v_debugger: true,
         charset: "UTF-8",
         lang: 'en',
-        port : process.env.PORT || 2500,
-        viewport : "width=device-width",
+        port: process.env.PORT || 2500,
+        viewport: "width=device-width",
         compression: true,
-        ContentSecurityPolicy : "script-src 'unsafe-inline'", // 'none'
-        ObjectSecurityPolicy : "object-src 'unsafe-inline'" // 'none'
+        ContentSecurityPolicy: "script-src 'unsafe-inline'", // 'none'
+        ObjectSecurityPolicy: "object-src 'unsafe-inline'" // 'none'
     },
 
-    //? isBot loading and async check
-    isBot : require('isbot'),
 
-    bot_check : async (agent) => {
-        return v.isBot(agent);
-    },
-    //!_eo_isBot
 
-    //? GeoIP loading and async checking
-    geoip : require('geoip-lite'),
 
-    geoip_check : async (ip) => {
-        return v.geoip.lookup(ip);
-    },
-    //!_eo_GeoIP
-
-    $_pages : {
+    // Application Pages
+    $_pages: {
 
         _list: [
+
             {
                 path: `/`,
                 alt_paths: [
@@ -56,15 +50,10 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v.$_pages._render_(req, res, {
-                        title: "Home",
-                        meta: {
-                            description: "Welcome to V-core9.com"
-                        }
-                    });
+                    await v_pages.render(req, res, {page_name : 'index', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
-    
+
             {
                 path: `/login`,
                 alt_paths: [
@@ -76,15 +65,10 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v.$_pages._render_(req, res, {
-                        title: "Login/Sign-in",
-                        meta: {
-                            description: "LOGIN TO V-core9.com"
-                        }
-                    });
+                    await v_pages.render(req, res, {page_name : 'login', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
-    
+
             {
                 path: `/register`,
                 alt_paths: [
@@ -94,15 +78,10 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v.$_pages._render_(req, res, {
-                        title: "Register / Sign-up",
-                        meta: {
-                            description: "Register new account at V-core9.com"
-                        }
-                    });
+                    await v_pages.render(req, res, {page_name : 'register', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
-    
+
             {
                 path: `/about-us`,
                 alt_paths: [
@@ -114,15 +93,10 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v.$_pages._render_(req, res, {
-                        title: "About Us",
-                        meta: {
-                            description: "Learn More with V-core9.com"
-                        }
-                    });
+                    await v_pages.render(req, res, {page_name : 'about', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
-    
+
             {
                 path: `/contact`,
                 alt_paths: [
@@ -134,147 +108,52 @@ const v = {
                 ],
                 type: `get`,
                 exec: async (req, res) => {
-                    await v.$_pages._render_(req, res, {
-                        title: "Contact Us",
-                        meta: {
-                            description: "Send few signals to V-core9.com"
-                        }
-                    });
+                    await v_pages.render(req, res, {page_name : 'contact', info: v.info, config: v.config, $_pages: v.$_pages});
                 }
             },
+
+            {
+                path: `/system_status`,
+                alt_paths: [
+                    `/system_status.html`,
+                    `/system-status`,
+                    `/system-status.html`
+                ],
+                type: `get`,
+                exec: async (req, res) => {
+                    await v_pages.render(req, res, {page_name : 'system_status', info: v.info, config: v.config, $_pages: v.$_pages});
+                }
+            },
+
         ],
-    
-        _render_: async (req, res, data) => {
-    
-            var bot_status = await v.bot_check(req.headers['user-agent']);
-    
-            var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    
-            //if (bot_status === true) console.log(req.headers['user-agent']);
-    
-            var user_info = {
-                ts: Date.now(),
-                lookup: await v.geoip_check(ip),
-                ip: ip,
-                bot: bot_status,
-                api_version: v.info.version,
-                app_config: v.config,
-                _pages: v.$_pages._list,
-                _req_headers: req.headers || {},
-            };
-    
-            res.end(`
-                    <!DOCTYPE html>
-                        <html lang="${v.config.lang}">
-                        <head>
-                            <title>${data.title}</title>
-                            <meta charset="${v.config.charset}">
-                            <meta http-equiv="Content-Security-Policy" content="${v.config.ContentSecurityPolicy}">
-                            <meta http-equiv="Object-Security-Policy" content="${v.config.ObjectSecurityPolicy}">
-                            <meta name="viewport" content="${v.config.viewport}">
-                            <meta name="description" content="${data.meta.description}" />
-                            <style>
-                                * {
-                                    margin: 0;
-                                    padding: 0;
-                                    line-height: 1em;
-                                }
-    
-                                body {
-                                    background: #102030;
-                                    color: white;
-                                }
-                                v_block {
-                                    margin: 1em;
-                                    display: flex;
-                                    flex-direction: column;
-                                    box-shadow: 0 5px 5px #10203010;
-                                }
-                                
-                                v_block header {
-                                    padding: 0.5em 1em;
-                                    font-size: 1.25em;
-                                    background: #ebebeb;
-                                    color: #545454;
-                                    z-index: 10;
-                                }
-                                
-                                v_block box {
-                                    display: flex;
-                                    flex-direction: column;
-                                    padding: 1em;
-                                    gap: 0.25em;
-                                    background: #80808014;
-                                    /* box-shadow: 0 0 10px black; */
-                                }
-                                
-                                v_block box item {
-                                    background: #ebebeb;
-                                    padding: 0.5em 1em;
-                                    color: #505050;
-                                }
-    
-                                v_block box item name {
-                                    font-weight: bold;
-                                    overflow-wrap: break-word;
-                                }
-    
-    
-                                v_block box item txt {
-                                    overflow-wrap: break-word;
-                                }
-                                
-                                v_page {
-                                    padding: 1em;
-                                    display: flex;
-                                    flex-direction: column;
-                                    align-items: center;
-                                    justify-content: center;
-                                    min-height: 100vh;
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            ${(v.config.v_debugger === true) ? await v_debugger(req, res, user_info) : ``}
-                            <v_page> 
-                                <hero>
-                                    <h1>${data.title}</h1>
-                                    <h2>${data.meta.description}</h2>
-                                    <h3>IP: ${ip}</h3>
-                                </hero>
-                            </v_page>
-                        </body>
-                        </html>
-                    `);
-    
-        },
 
         init() {
             v.$_pages._list.forEach(page => {
                 app[page.type](page.path, page.exec);
-    
-                page.alt_paths.forEach(alt_path => {
-                    app[page.type](alt_path, page.exec);
-                });
+
+                if (page.alt_paths !== undefined) {
+                    page.alt_paths.forEach(alt_path => {
+                        app[page.type](alt_path, page.exec);
+                    });
+                }
             });
         }
 
     },
 
-    init(){
+    init() {
         if (v.config.compression === true) app.use(compression());
 
         app.use(bodyParser.urlencoded({
             extended: true
         }));
-        
+
         app.use(bodyParser.json());
 
         v.$_pages.init();
-        
 
         app.listen(v.config.port, () => {
-            console.log('Website started on port '+v.config.port);
+            console.log('Website started on port ' + v.config.port);
         });
     }
 
