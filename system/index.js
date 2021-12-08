@@ -4,7 +4,7 @@ const v_render = require('./modules/vPages/v_render');
 
 const v_pages = require('./modules/vPages');
 
-const $_pages = {
+const actions = {
     'index': async (req, res) => {
         v_render(req, res, { page_name: 'index' });
     },
@@ -48,11 +48,11 @@ const v = {
         console.log(v_pages);
         Object.keys(v_pages._list).forEach(page => {
             var item = v_pages._list[page];
-            v.app[item.type](item.path, $_pages[page]);
+            v.app[item.type](item.path, actions[page]);
 
             if (item.alt_paths !== undefined) {
                 item.alt_paths.forEach(alt_path => {
-                    v.app[item.type](alt_path, $_pages[page]);
+                    v.app[item.type](alt_path, actions[page]);
                 });
             }
         });
