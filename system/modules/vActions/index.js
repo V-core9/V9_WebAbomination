@@ -1,6 +1,6 @@
-const v_render = require('../modules/vPages/v_render');
+const v_render = require('../vPages/v_render');
 
-const route_actions = {
+const v_action = {
     index: async (req, res) => {
         v_render(req, res, { page_name: 'index' });
     },
@@ -27,4 +27,4 @@ const route_actions = {
     },
 };
 
-module.exports = route_actions;
+module.exports = v_action;

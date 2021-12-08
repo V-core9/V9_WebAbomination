@@ -1,10 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
 const v_pages = require('./modules/vPages');
-
-const route_actions = require('./route_actions');
+const v_action = require('./vActions');
 
 const v = {
 
@@ -23,11 +21,11 @@ const v = {
         console.log(v_pages);
         Object.keys(v_pages._list).forEach(page => {
             var item = v_pages._list[page];
-            v.app[item.type](item.path, route_actions[page]);
+            v.app[item.type](item.path, v_action[page]);
 
             if (item.alt_paths !== undefined) {
                 item.alt_paths.forEach(alt_path => {
-                    v.app[item.type](alt_path, route_actions[page]);
+                    v.app[item.type](alt_path, v_action[page]);
                 });
             }
         });
