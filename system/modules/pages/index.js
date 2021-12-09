@@ -25,8 +25,9 @@ const v_pages = {
 
     print_all(){
         return console.log(v_pages._list);
-    }
+    },
 
+    render : require('./render')
 };
 
 v_pages.load();

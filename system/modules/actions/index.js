@@ -1,4 +1,4 @@
-const v_render = require('../vPages/v_render');
+const v_render = require('../pages/v_render');
 
 const v_action = {
     index: async (req, res) => {

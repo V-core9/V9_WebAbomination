@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const v_pages = require('./modules/vPages');
-const v_action = require('./modules/vActions');
+const v_pages = require('./modules/pages');
+const v_action = require('./modules/actions');
 
 const v = {
 
