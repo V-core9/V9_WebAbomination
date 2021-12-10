@@ -12,7 +12,7 @@ const v_pages = {
         return v_pages._list[name];
     },
 
-    load() {
+    load_v1() {
         console.log(data_dir);
         v_fs.listDirSy(data_dir).forEach((page) => {
             var name = page.replace('.json','');
@@ -33,7 +33,7 @@ const v_pages = {
     render : require('./render')
 };
 
-v_pages.load();
+v_pages.load_v1();
 //v_pages.print_all();
 
 module.exports = v_pages;
