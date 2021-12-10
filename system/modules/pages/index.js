@@ -1,6 +1,8 @@
 const v_fs = require('v_file_system');
 const path = require('path');
 
+const data_dir = path.join(__dirname,'data');
+
 const v_pages = {
 
     _list: {},
@@ -11,9 +13,10 @@ const v_pages = {
     },
 
     load() {
-        v_fs.listDirSy(path.join(__dirname,'_pages')).forEach((page) => {
+        console.log(data_dir);
+        v_fs.listDirSy(data_dir).forEach((page) => {
             var name = page.replace('.json','');
-            v_pages._list[name] = require(path.join(__dirname,'_pages',page));
+            v_pages._list[name] = require(path.join(data_dir,page));
         });
     }, 
 

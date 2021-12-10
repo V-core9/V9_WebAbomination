@@ -1,15 +1,17 @@
+
+const config = require('../../../config');
 const v_debugger = require('../../debugger');
 
 module.exports = async (req, res, data) => {
     res.end(`
         <!DOCTYPE html>
-            <html lang="${data.config.lang}">
+            <html lang="${config.lang}">
             <head>
                 <title>${data.page.title}</title>
-                <meta charset="${data.config.charset}">
-                <meta http-equiv="Content-Security-Policy" content="${data.config.ContentSecurityPolicy}">
-                <meta http-equiv="Object-Security-Policy" content="${data.config.ObjectSecurityPolicy}">
-                <meta name="viewport" content="${data.config.viewport}">
+                <meta charset="${config.charset}">
+                <meta http-equiv="Content-Security-Policy" content="${config.ContentSecurityPolicy}">
+                <meta http-equiv="Object-Security-Policy" content="${config.ObjectSecurityPolicy}">
+                <meta name="viewport" content="${config.viewport}">
                 <meta name="description" content="${data.page.meta.description}" />
                 <style>
                     * {
@@ -66,7 +68,7 @@ module.exports = async (req, res, data) => {
                 </style>
             </head>
             <body>
-                ${(data.config.v_debugger === true) ? await v_debugger(data) : ``}
+                ${(config.v_debugger === true) ? await v_debugger(data) : ``}
                 <v_page> 
                     <hero>
                         <h3>Render_Mode: <strong style='color: orange;'><] SSR [></strong></h3>
