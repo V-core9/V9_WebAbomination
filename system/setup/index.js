@@ -1,4 +1,4 @@
-const v_db = require('../../v_db');
+const { v_db } = require('../../v_db');
 
 v_db.type.new('users');
 v_db.type.new('pages');

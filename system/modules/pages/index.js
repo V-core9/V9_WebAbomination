@@ -1,5 +1,6 @@
 const v_fs = require('v_file_system');
 const path = require('path');
+const v_db = require('../../../v_db/');
 
 const data_dir = path.join(__dirname,'data');
 
@@ -7,9 +8,12 @@ const v_pages = {
 
     _list: {},
 
-    get: async (name)=> {
-        if (Object.keys(v_pages._list).indexOf(name) === -1) return false; 
-        return v_pages._list[name];
+    get_list: async () => {
+        return await v_db.item.view('pages');
+    },
+
+    get_single: async (id) => {
+        return await v_db.item.view('pages',id);
     },
 
     load_v1() {
