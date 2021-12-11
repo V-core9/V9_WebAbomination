@@ -1,10 +1,11 @@
 const { geoip_check, bot_check } = require('../../helpers');
+const config = require('../../config');
 const v_pages = require('.');
 const { ssr, spa } = require('./render');
 
 
 module.exports = async (req, res, data) => {
-    data.page = await v_pages.get(data.page_name);
+    data.page = await v_pages.get_single(data.page_name);
 
     data.ts = Date.now();
 

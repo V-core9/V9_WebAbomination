@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const v_pages = require('./modules/pages');
+
+
+
 const v_action = require('./modules/actions');
 
 const v = {
@@ -17,8 +20,6 @@ const v = {
 
     // Application Pages
     set_routes : () => {
-
-        console.log(v_pages);
         Object.keys(v_pages._list).forEach(page => {
             var item = v_pages._list[page];
             v.app[item.type](item.path, v_action[page]);
@@ -31,7 +32,9 @@ const v = {
         });
     },
 
-    init: () =>{
+    init: async () =>{
+        await v_pages.load(); 
+
         if (v.config.compression === true) {
             var compression = require('compression');
             v.app.use(compression());
