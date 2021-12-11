@@ -16,10 +16,10 @@ module.exports = async (req, res, data) => {
     data._req_headers = req.headers;
 
     if (data.bot === true && config.bot_ssr_render === true) {
-        console.log(`SSR Page [ ${data.page_name} ] Load.`);
+        //console.log(`SSR Page [ ${data.page_name} ] Load.`);
         ssr(req, res, data);
     } else {
-        console.log(`SPA Page [ ${data.page_name} ] Load.`);
+        //console.log(`SPA Page [ ${data.page_name} ] Load.`);
         spa(req, res, data);
     }
 };

@@ -9,8 +9,7 @@ const v_pages = {
     },
 
     get_single: async (name) => {
-        if (name === undefined) return false;
-        return await v_db.item.view('pages', name);
+        return (name !== undefined) ? await v_db.item.view('pages', name) : false;
     },
 
     load: async () => {
@@ -20,7 +19,7 @@ const v_pages = {
             v_pages._list[resp[i]] = await v_pages.get_single(resp[i]);
         }
 
-        return ;
+        return v_pages._list;
     },
 
     render: require('./render')
