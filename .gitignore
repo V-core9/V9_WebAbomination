@@ -108,4 +108,7 @@ dist
 package-lock.json
 
 
-v_db
+v_db/*
+v_db/.gitignore
+!v_db/$_DATA
+!v_db/$_DATA/*
