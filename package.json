@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install" : "bash -c \" git clone https://github.com/V-core9/v_db.git v_db ; cd v_db ; npm install ; rm -f -r .git .github .vscode .gitignore ; cd .. ; node system/setup/index.js ;\" ",
+    "install": "bash -c \" git clone https://github.com/V-core9/v_db.git v_db ; cd v_db ; npm install ; rm -f -r .git .github .vscode .gitignore ; cd .. ; node system/setup/index.js ;\" ",
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node system/"
   },
@@ -32,6 +32,7 @@
     "isbot": "^3.3.4",
     "mysql": "^2.18.1",
     "node-sass": "^6.0.1",
+    "v_database": "^0.0.17",
     "v_file_system": "^1.0.3",
     "v_scrolls": "^0.1.12"
   }
