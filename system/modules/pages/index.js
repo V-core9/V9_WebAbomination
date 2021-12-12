@@ -1,15 +1,15 @@
-const { v_db } = require('../../../v_db/');
+const v_database = require('v_database');
 
 const v_pages = {
 
     _list: {},
 
     get_list: async () => {
-        return await v_db.item.view('pages');
+        return await v_database.item.view('pages');
     },
 
     get_single: async (name) => {
-        return (name !== undefined) ? await v_db.item.view('pages', name) : false;
+        return (name !== undefined) ? await v_database.item.view('pages', name) : false;
     },
 
     load: async () => {
