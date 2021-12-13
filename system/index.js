@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const v_pages = require('./modules/pages');
 const v_action = require('./modules/actions');
 
+const v_middle = require('./middlewares');
 
 const v = {
 
@@ -40,6 +41,8 @@ const v = {
 
     init: async () => {
         await v_pages.load();
+
+        v.app.use(v_middle.redirectToHttps);
 
         if (v.config.compression === true) {
             var compression = require('compression');
