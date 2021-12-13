@@ -1,6 +1,6 @@
 module.exports = {
     auto_init: true,
-    bot_ssr_render : true,
+    bot_ssr_render : false,
     v_debugger: true,
     encoding: `utf8`,
     charset: `UTF-8`,

@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 
 const v_pages = require('./modules/pages');
 const v_action = require('./modules/actions');
 
-const v_middle = require('./middlewares');
+//const v_middle = require('./middlewares');
 
 const v = {
 
@@ -42,22 +43,22 @@ const v = {
     init: async () => {
         await v_pages.load();
 
-        v.app.use(v_middle.redirectToHttps);
+        //v.app.use(v_middle.print_to_console);
+
+        v.app.use(express.static(path.join(__dirname, '../public/static')));
 
         if (v.config.compression === true) {
             var compression = require('compression');
             v.app.use(compression());
         }
 
-        v.app.use(bodyParser.urlencoded({
-            extended: true
-        }));
+        v.app.use(bodyParser.urlencoded({extended: true}));
 
         v.app.use(bodyParser.json());
 
         v.set_routes();
 
-        v.app.listen(v.config.port, () => {
+        v.app.listen(v.config.port, async () => {
             console.log('Website started on port ' + v.config.port);
         });
     }

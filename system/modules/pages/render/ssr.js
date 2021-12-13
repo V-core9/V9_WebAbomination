@@ -1,18 +1,24 @@
 
 const config = require('../../../config');
 const v_debugger = require('../../debugger');
+const render_head = require('./head');
 
 module.exports = async (req, res, data) => {
+    data.config = config;
     res.end(`
         <!DOCTYPE html>
             <html lang="${config.lang}">
-            <head>
-                <title>${data.page.title}</title>
-                <meta charset="${config.charset}">
-                <meta http-equiv="Content-Security-Policy" content="${config.ContentSecurityPolicy}">
-                <meta http-equiv="Object-Security-Policy" content="${config.ObjectSecurityPolicy}">
-                <meta name="viewport" content="${config.viewport}">
-                <meta name="description" content="${data.page.meta.description}" />
+            ${await render_head(data)}
+            <body>
+                ${(config.v_debugger === true) ? await v_debugger(data) : ``}
+                <v_page> 
+                    <hero>
+                        <h3>Render_Mode: <strong style='color: orange;'><] SSR [></strong></h3>
+                        <h1>${data.page.title}</h1>
+                        <h2>${data.page.meta.description}</h2>
+                        <h3>IP: ${data.ip}</h3>
+                    </hero>
+                </v_page>
                 <style>
                     * {
                         margin: 0;
@@ -66,17 +72,6 @@ module.exports = async (req, res, data) => {
                         min-height: 100vh;
                     }
                 </style>
-            </head>
-            <body>
-                ${(config.v_debugger === true) ? await v_debugger(data) : ``}
-                <v_page> 
-                    <hero>
-                        <h3>Render_Mode: <strong style='color: orange;'><] SSR [></strong></h3>
-                        <h1>${data.page.title}</h1>
-                        <h2>${data.page.meta.description}</h2>
-                        <h3>IP: ${data.ip}</h3>
-                    </hero>
-                </v_page>
             </body>
             </html>
         `);

@@ -1,4 +1,5 @@
 const v_render = require('../pages/v_render');
+const generate_sitemap = require('./generate_sitemap');
 
 const v_action = {
     index: async (req, res) => {
@@ -25,9 +26,12 @@ const v_action = {
     terms_policy: async (req, res) => {
         v_render(req, res, 'terms_policy');
     },
-    /*statistics: async (req, res) => {
+    statistics: async (req, res) => {
         v_render(req, res, { page_name: 'statistics' });
-    },*/
+    },
+    sitemap: async (req, res) => {
+        generate_sitemap(req, res);
+    },
 };
 
 module.exports = v_action;

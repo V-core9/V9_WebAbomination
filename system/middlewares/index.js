@@ -1,3 +1,3 @@
 module.exports = {
-    redirectToHttps : require('./redirect_to_https')
+    print_to_console : require('./print_to_console')
 };
