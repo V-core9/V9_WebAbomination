@@ -1,29 +1,7 @@
 const v_database = require('v_database');
+const v_cache = require('./v_cache');
 
-const v_cache = {
-    _items : {},
-    cacheTime : 500,
-    findByName: (name) => {
-        try {
-            var res = v_cache._items[name];
-            return (res !== undefined) ? res : false;
-        } catch (e) {
-            return false;
-        }
-    },
-    newItem: (name, item) => {
-        v_cache._items[name] = item;
-    },
-    clear: () => {
-        v_cache._items = {};
-    }
-};
 
-var sitemap = {
-    string: '',
-    cacheTime: 10000,
-    lastUpdate: 0
-};
 
 single_url_string = async (url, lastmod, changefreq, priority) => {
     return `<url><loc>https://v-core9.com${url}</loc>
@@ -33,17 +11,30 @@ single_url_string = async (url, lastmod, changefreq, priority) => {
 };
 
 const generate_sitemap = async (req, res, type) => {
-    var resp = '<?xml version="1.0" encoding="UTF-8"?>';
-    var in_type = (type !== undefined) ? type : 'index';
+    var in_type = (typeof type === 'undefined') ? 'index' : type;
 
-        if ( v_cache.cacheTime < Date.now() - ( v_cache.findByName(in_type) !== false ? v_cache.findByName(in_type).lastUpdate : 0 )) {
-            const pages = await v_database.type.view(in_type);
+    var cache_item  = await v_cache.findByName(type);
 
+    var resp = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//'+req.headers.host+'/style/XSL/sitemap.xsl"?>';
 
+    if (cache_item !== false ? await v_cache.cache_time_check(cache_item) : true) {
+        
+        if (in_type === 'index') {
+
+            const sitemaps = await v_database.type.view('sys_sitemaps');
+            resp += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+            for (let i = 0; i < sitemaps.length; i++) {
+                const sitemap = await v_database.item.view('sys_sitemaps', sitemaps[i]);
+                resp += '<sitemap><loc>https://v-core9.com' + sitemap.path + '</loc></sitemap>';
+            }
+            resp += `</sitemapindex>`;
+
+        } else {
+
+            const pages = await v_database.type.view(type);
             resp += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-
             for (let i = 0; i < pages.length; i++) {
-                const page = await v_database.item.view(in_type, pages[i]);
+                const page = await v_database.item.view(type, pages[i]);
                 resp += await single_url_string(page.path, '2021-12-12', 'monthly', '1');
 
                 for (let j = 0; j < page.alt_paths.length; j++) {
@@ -51,13 +42,18 @@ const generate_sitemap = async (req, res, type) => {
                 }
             }
             resp += `</urlset>`;
-            sitemap.lastUpdate = Date.now();
-            sitemap.string = resp;
-            v_cache.newItem(in_type, sitemap);
+
         }
 
-    res.setHeader('Content-Type', 'text/xml');
-    res.end(v_cache.findByName(in_type).string);
+        v_cache.newItem(in_type, {string: resp, lastUpdate: Date.now()});
+        res.setHeader('Content-Type', 'text/xml');
+        res.end(resp);
+    } else {
+        resp = await v_cache.findByName(in_type);
+        res.setHeader('Content-Type', 'text/xml');
+        res.end(resp.string);
+    }
+
 };
 
 module.exports = generate_sitemap;

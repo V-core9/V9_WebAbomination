@@ -29,5 +29,5 @@ module.exports = async (req, res, name) => {
         spa(req, res, data);
     }
     */
-   ssr(req, res, data);
+    ssr(req, res, data);
 };

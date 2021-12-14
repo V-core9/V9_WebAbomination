@@ -21,14 +21,14 @@ const v_action = {
     privacy_policy: async (req, res) => {
         v_render(req, res, 'privacy_policy');
     },
+    terms_policy: async (req, res) => {
+        v_render(req, res, 'terms_policy');
+    },
     register: async (req, res) => {
         v_render(req, res, 'register');
     },
     system_status: async (req, res) => {
         v_render(req, res, 'system_status');
-    },
-    terms_policy: async (req, res) => {
-        v_render(req, res, 'terms_policy');
     },
     statistics: async (req, res) => {
         v_render(req, res, { page_name: 'statistics' });
