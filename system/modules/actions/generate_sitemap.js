@@ -1,6 +1,7 @@
 const v_database = require('v_database');
 const v_cache = require('./v_cache');
 
+const sitemap_style = '/style/XSL/sitemap.xsl';
 
 
 single_url_string = async (url, lastmod, changefreq, priority) => {
@@ -15,7 +16,7 @@ const generate_sitemap = async (req, res, type) => {
 
     var cache_item  = await v_cache.findByName(type);
 
-    var resp = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//'+req.headers.host+'/style/XSL/sitemap.xsl"?>';
+    var resp = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//'+req.headers.host+sitemap_style+'"?>';
 
     if (cache_item !== false ? await v_cache.cache_time_check(cache_item) : true) {
         
