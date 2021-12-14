@@ -1,6 +1,4 @@
 const v_render = require('../pages/v_render');
-const generate_sitemap_index = require('./generate_sitemap_index');
-const generate_sitemap_pages = require('./generate_sitemap_pages');
 const generate_sitemap = require('./generate_sitemap');
 const blog = require('./blog');
 
@@ -36,7 +34,7 @@ const v_action = {
         v_render(req, res, { page_name: 'statistics' });
     },
     sitemap: async (req, res) => {
-        generate_sitemap_index(req, res);
+        generate_sitemap(req, res);
     },
     sitemap_pages: async (req, res) => {
         generate_sitemap(req, res, 'pages');
