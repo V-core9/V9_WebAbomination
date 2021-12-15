@@ -6,8 +6,8 @@ const port = 2004;
 const express = require('express');
 const v = express();
 
-const vApi = require('./$_api');
-const vPage = require('./$_app.page');
+const vApi = require('./system/_API');
+const vPage = require('./system/_APP/page');
 
 
 const api_path = '/api/';
