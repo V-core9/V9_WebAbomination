@@ -1,7 +1,7 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 
 // Default port
-const port = 2004;
+const port = 2500;
 
 // Express and setup
 const express = require('express');
