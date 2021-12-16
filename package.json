@@ -9,7 +9,7 @@
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node system/",
     "start_hosting": " start bash -c \" npm run start \" && start bash -c \"cd ~/.cloudflared/ ; cloudflared tunnel run ; \"",
-    "devStart": "nodemon http2.js"
+    "dev": "nodemon $.js"
   },
   "repository": {
     "type": "git",
