@@ -7,9 +7,15 @@ const port = 2500;
 const express = require('express');
 const v = express();
 
+const bodyParser = require('body-parser');
 //Compression
 var compression = require('compression');
 v.use(compression());
+
+
+v.use(bodyParser.urlencoded({ extended: true }));
+v.use(bodyParser.json());
+
 
 // vAPI and vPAGE 
 const vApi = require('./$_API');
@@ -21,13 +27,34 @@ const api_v1 = api_root + '/v1';
 
 start = async () => {
 
-    // API V1 Root
+    //? API V1 Root
     v.get(api_root, vApi.root);
-    v.get(api_v1, vApi.type);
-    v.get(api_v1 + '/:type', vApi.all);
-    v.get(api_v1 + '/:type/:name', vApi.one);
 
-    //_________________________
+    //* Types List
+    v.get(api_v1, vApi.list);
+
+    //* All Items of a type
+    v.get(api_v1 + '/:type', vApi.all);
+    //* One Item
+    v.get(api_v1 + '/:type/:name', vApi.one);
+    //* Make New Item
+    v.post(api_v1 + '/:type', vApi.mk);
+    //* Update Item
+    v.put(api_v1 + '/:type/:name', vApi.up);
+    //* Delete Item
+    v.delete(api_v1 + '/:type/:name', vApi.rm);
+
+    v.post(api_v1, vApi.mk_type);
+
+
+    //? [ AUTH ]>- - - - - -
+    // Login POST 
+    v.post('/login', vApi.login);
+    v.post('/logout', vApi.logout);
+
+    //! EOF_[ AUTH ]
+
+
     // GET Public Pages
     v.get('/', vPage.root);
     v.get('/:name', vPage.page);
