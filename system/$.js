@@ -26,23 +26,23 @@ v.get(vApi.api_root, vApi.root);
 //* GET - List of Types
 v.get(vApi.api_v1, vApi.$jwt, vApi.list);
 //* POST - Create Type
-v.post(vApi.api_v1, vApi.mk_type);
+v.post(vApi.api_v1, vApi.$jwt, vApi.mk_type);
 //* DELETE - Remove Type
-v.delete(vApi.api_v1, vApi.mk_type);
+v.delete(vApi.api_v1, vApi.$jwt, vApi.mk_type);
 //! EOF_TYPES
 
 
 //? ITEMS
 //* [all] - Items in a type
-v.get(vApi.api_v1 + '/:type',  vApi.all);
+v.get(vApi.api_v1 + '/:type',  vApi.$jwt, vApi.all);
 //* [one] - Single Item
-v.get(vApi.api_v1 + '/:type/:name', vApi.one);
+v.get(vApi.api_v1 + '/:type/:name', vApi.$jwt, vApi.one);
 //* [mk]  - New Item
-v.post(vApi.api_v1 + '/:type', vApi.mk);
+v.post(vApi.api_v1 + '/:type', vApi.$jwt, vApi.mk);
 //* [up]  - Update Item
-v.put(vApi.api_v1 + '/:type/:name', vApi.up);
+v.put(vApi.api_v1 + '/:type/:name', vApi.$jwt, vApi.up);
 //* [rm]  - Delete Item
-v.delete(vApi.api_v1 + '/:type/:name', vApi.rm);
+v.delete(vApi.api_v1 + '/:type/:name', vApi.$jwt, vApi.rm);
 //! EOF_ITEMS
 
 
