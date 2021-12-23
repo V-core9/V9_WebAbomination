@@ -24,7 +24,7 @@ v.get(vApi.api_root, vApi.root);
 
 //? TYPES
 //* GET - List of Types
-v.get(vApi.api_v1, vApi.list);
+v.get(vApi.api_v1, vApi.$jwt, vApi.list);
 //* POST - Create Type
 v.post(vApi.api_v1, vApi.mk_type);
 //* DELETE - Remove Type
@@ -34,7 +34,7 @@ v.delete(vApi.api_v1, vApi.mk_type);
 
 //? ITEMS
 //* [all] - Items in a type
-v.get(vApi.api_v1 + '/:type', vApi.all);
+v.get(vApi.api_v1 + '/:type',  vApi.all);
 //* [one] - Single Item
 v.get(vApi.api_v1 + '/:type/:name', vApi.one);
 //* [mk]  - New Item

@@ -85,5 +85,9 @@ module.exports = async (req, res) => {
         response.errors = { username: username_valid, email: (email_valid === true) ? 'OK' : email_valid, password: (pass_valid === true) ? 'OK' : pass_valid };
     }
 
-    res.send(response);
+    res.status(response.status).json({
+        message: response.msg,
+        code: response.code,
+        errors: response.errors,
+    });
 };
