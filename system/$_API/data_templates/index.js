@@ -1,3 +1,4 @@
+
 module.exports = {
-    register_user: require('./register_user')
+    register: require('./register_user'),
 };

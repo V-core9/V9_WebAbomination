@@ -1,3 +1,6 @@
+
+const v_to_sha256 = require('v_to_sha256');
+
 module.exports = async (username, email, password) => {
     return {
         username: username,
