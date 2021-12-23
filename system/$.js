@@ -47,8 +47,9 @@ v.delete(vApi.api_v1 + '/:type/:name', vApi.rm);
 
 
 //? [ AUTH ]>- - - - - -
-v.post('/login', vApi.login);
-v.post('/logout', vApi.logout);
+v.post(vApi.api_v1 + '/auth/register', vApi.register);
+v.post(vApi.api_v1 + '/auth/login', vApi.login);
+v.post(vApi.api_v1 + '/auth/logout', vApi.logout);
 //! EOF_[ AUTH ]
 
 

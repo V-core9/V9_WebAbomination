@@ -1,6 +1,6 @@
 
 const { mk_type, list, all, one, mk, up, rm } = require('./data.model');
-const { login, logout } = require('./auth');
+const { login, logout, register } = require('./auth');
 const { api_root, api_v1 } = require('./config');
 
 const vApi = {
@@ -15,7 +15,8 @@ const vApi = {
     up,
     rm,
     login,
-    logout
+    logout,
+    register
 };
 
 module.exports = vApi;

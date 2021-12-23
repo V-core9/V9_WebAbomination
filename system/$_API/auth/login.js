@@ -1,11 +1,12 @@
 const refreshTokens = require('./_ref-tokens');
+const vDB = require('v_database');
 
 module.exports = async (req, res) => {
     // read username and password from request body
     const { username, password } = req.body;
 
     // filter user from the users array by username and password
-    const user = await v_database.item.view('users', username);
+    const user = await vDB.item.view('users', username);
 
     console.log(username, password);
     console.log(user);
