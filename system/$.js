@@ -28,7 +28,7 @@ v.get(vApi.api_v1, vApi.$jwt, vApi.list);
 //* POST - Create Type
 v.post(vApi.api_v1, vApi.$jwt, vApi.$admin, vApi.mk_type);
 //* DELETE - Remove Type
-v.delete(vApi.api_v1, vApi.$jwt, vApi.$admin, vApi.mk_type);
+v.delete(vApi.api_v1, vApi.$jwt, vApi.$admin, vApi.rm_type);
 //! EOF_TYPES
 
 
