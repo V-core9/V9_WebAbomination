@@ -1,0 +1,27 @@
+{
+    "exec": "v_render",
+    "name": "system_status",
+    "path": "/system_status",
+    "alt_paths": [
+        "/system_status.html",
+        "/system-status",
+        "/system-status.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "System Status V-core9",
+    "meta": {
+        "description": "Hopefully will provide more then some random text. Stats like server info, uptime...etc."
+    },
+    "$_page": [
+        {
+            "type": "hero",
+            "title": "System Status V-core9",
+            "subtitle": "Hopefully will provide more then some random text. Stats like server info, uptime...etc.",
+            "image": "https://v-core9.com/images/v-core9-logo.png",
+            "image_alt": "V-core9 Logo",
+            "image_width": 350,
+            "image_height": 350
+        }
+    ]
+}

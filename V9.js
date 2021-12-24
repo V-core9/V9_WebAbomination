@@ -6,6 +6,7 @@ const static_dirs = [
     './public'
 ];
 
+const vTables = require('./system/config/tables');
 
 // Custom things
 const vApi = require('./system/$_API');
@@ -51,9 +52,9 @@ start_on = async ($port = port) => {
 
 
     //? [ PAGES ]>- - - - - -
-    var pages = await vDB.item.view('pages');
+    var pages = await vDB.item.view(vTables.pages);
     pages.forEach(async page => {
-        var data = await vDB.item.view('pages', page);
+        var data = await vDB.item.view(vTables.pages, page);
 
         v[data.type](data.path, v_action[data.name]);
         v.get(data.path+'/*', vPage.$404);

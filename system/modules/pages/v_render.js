@@ -1,12 +1,14 @@
 const { geoip_check, bot_check } = require('../../helpers');
-const config = require('../../config');
+const config_loader = require('../../config');
 const v_pages = require('.');
 const { ssr, spa } = require('./render');
 
 
 module.exports = async (req, res, name) => {
 
+    const config = await config_loader();
 
+    console.log(config);
 
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 

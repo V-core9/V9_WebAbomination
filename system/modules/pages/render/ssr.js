@@ -1,10 +1,11 @@
 
-const config = require('../../../config');
+const config_load = require('../../../config');
 const v_debugger = require('../../debugger');
 const render_head = require('./head');
 
 module.exports = async (req, res, data) => {
-    data.config = config;
+    data.config = await config_load();
+    var config = data.config;
     res.end(`
         <!DOCTYPE html>
             <html lang="${config.lang}">

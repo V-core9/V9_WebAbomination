@@ -1,0 +1,16 @@
+{
+    "exec": "v_render",
+    "name": "blog",
+    "path": "/blog",
+    "alt_paths": [
+        "/blog.html",
+        "/posts",
+        "/posts.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Blog Page",
+    "meta": {
+        "description": "Learn More with V-core9.com"
+    }
+}

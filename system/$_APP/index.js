@@ -1,6 +1,8 @@
 const v_database = require('v_database');
 const v_cache = require('./v_cache');
 
+const vTables = require('../config/tables');
+
 const actions = require('./actions');
 
 page_render = async (res, data) => {
@@ -16,7 +18,7 @@ const vPage = {
         var cache_item = await v_cache.get(req.params.name);
         
         if (Date.now() - (cache_item !== false ? cache_item.time : 0) > v_cache.refresh_time) {
-            var page = JSON.stringify(await v_database.item.view('pages', req.params.name), true, 4);
+            var page = JSON.stringify(await v_database.item.view(vTables.pages, req.params.name), true, 4);
             await v_cache.save(req.params.name, `<h2>PATH: ${req.params.name}</h2><pre>${page}</pre>`);
         } 
         page_render(res, (await v_cache.get(req.params.name)).value);

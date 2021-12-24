@@ -1,6 +1,15 @@
 const vDB = require('v_database');
+const vTables = require('./tables');
 
-module.exports = {
+module.exports = async () => {
+    return await vDB.item.view(vTables.settings, 'sys_settings');
+}; 
+
+
+/*
+
+{
+    cleanInstall: true,
     auto_init: true,
     bot_ssr_render : false,
     forced_ssr_render: true,
@@ -12,5 +21,7 @@ module.exports = {
     viewport: `width=device-width`,
     compression: true,
     ContentSecurityPolicy: `script-src 'unsafe-inline' *.vercel.app 'self'`, 
-    ObjectSecurityPolicy: `object-src 'unsafe-inline'` 
+    ObjectSecurityPolicy: `object-src 'unsafe-inline'` ,
+    tables: require('./tables')
 };
+*/

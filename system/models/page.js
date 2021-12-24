@@ -1,4 +1,4 @@
-const v_database = require('v_database');
+const vDB = require('v_database');
 
 const page = {
 
@@ -11,11 +11,11 @@ const page = {
     },
 
     one: async (name) => {
-        return await v_database.item.view('pages', name);
+        return await vDB.item.view('pages', name);
     },
 
     all: async () => {
-        return await v_database.type.view('pages');
+        return await vDB.type.view('pages');
     },
 
     create: async (data) => {
@@ -29,11 +29,11 @@ const page = {
                 message: 'Page already exists'
             };
         }
-        return await v_database.item.new('pages', content, name);
+        return await vDB.item.new('pages', content, name);
     },
 
     remove: async (name) => {
-        return await v_database.item.del('pages', name);
+        return await vDB.item.del('pages', name);
     }
     
 };
