@@ -1,8 +1,8 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 
 // vAPI and vPAGE 
-const vApi = require('./$_API');
-const vPage = require('./$_APP');
+const vApi = require('./system/$_API');
+const vPage = require('./system/$_APP');
 
 // Default port
 const port = 2500;
@@ -63,12 +63,12 @@ v.get('/sitemap/:map_name', vPage.sitemap);
 v.get('/:name', vPage.page);
 
 
-//! 404
-v.get('*', vPage.$404);
-
-
 //? Static Folder
 v.use(express.static('./public/static'));
+
+
+//! 404
+v.get('*', vPage.$404);
 
 
 //? Start Server on Port

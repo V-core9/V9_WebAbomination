@@ -1,8 +1,4 @@
-const refreshTokens = require('./_ref-tokens');
-
 const userModel = require('../models/user');
-
-
 
 module.exports = async (req, res) => {
 

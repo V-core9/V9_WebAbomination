@@ -1,7 +1,7 @@
 const v_database = require('v_database');
 const v_cache = require('./v_cache');
 
-
+const actions = require('./actions');
 
 page_render = async (res, data) => {
     res.setHeader('Content-Type', 'text/html');
@@ -22,9 +22,12 @@ const vPage = {
         page_render(res, (await v_cache.get(req.params.name)).value);
 
     },
+    sitemap: async (req, res) => {
+        await actions.sitemap(req, res);
+    },
     $404: async (req, res) => {
         page_render(res, '<h2>NOT FOUND : 404</h2><h3>PATH: ' + req.path + '</h3>');
-    }
+    },
 };
 
 module.exports = vPage;
