@@ -20,14 +20,9 @@ module.exports = async (req, res, name) => {
         _req_headers: req.headers
     };
 
-    /*
-    if (data.bot === true && config.bot_ssr_render === true) {
-        //console.log(`SSR Page [ ${data.page_name} ] Load.`);
+    if (data.bot === true && config.bot_ssr_render === true || config.forced_ssr_render === true) {
         ssr(req, res, data);
     } else {
-        //console.log(`SPA Page [ ${data.page_name} ] Load.`);
         spa(req, res, data);
     }
-    */
-    ssr(req, res, data);
 };

@@ -1,15 +1,16 @@
-const v_database = require('v_database');
 
-v_database.type.new('users');
-v_database.type.new('pages');
-v_database.type.new('posts');
-v_database.type.new('comments');
-v_database.type.new('tags');
-v_database.type.new('categories');
-v_database.type.new('settings');
-v_database.type.new('roles');
-v_database.type.new('permissions');
-v_database.type.new('blacklist_ip');
-v_database.type.new('whitelist_ip');
+const vDB = require('v_database');
 
 
+const sysTables = require('./list.tables');
+
+install = async () => {
+    var errList = [];
+
+    for (let i = 0; i < sysTables.length; i++) {
+        const element = await vDB.type.new(sysTables[i]);
+        if (element === false) errList.push({ type: 'table_fail', name: sysTables[i] });
+    }
+};
+
+install();

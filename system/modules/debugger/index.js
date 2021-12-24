@@ -1,11 +1,11 @@
-const appInfo = require('../../info');
+const version = '1.0.1';
 
 module.exports = async (data) => {
     return `
     <script>
     const v_debugger = { 
 
-        api_version: "${appInfo.version}",
+        api_version: "${version}",
 
         timestamp: ${Date.now()},
 
@@ -105,7 +105,7 @@ module.exports = async (data) => {
                     <box>
                         <item>
                             <name>API Version:</name>
-                            <txt>${(appInfo.version !== undefined) ? appInfo.version : 'NULL'}</txt>
+                            <txt>${(version !== undefined) ? version : 'NULL'}</txt>
                         </item>
                         <item>
                             <name>Request Timestamp:</name>

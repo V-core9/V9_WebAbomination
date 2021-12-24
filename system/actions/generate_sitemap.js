@@ -22,7 +22,7 @@ const generate_sitemap = async (req, res, type) => {
         
         if (in_type === 'index') {
 
-            const sitemaps = await v_database.type.view('sys_sitemaps');
+            const sitemaps = await v_database.item.view('sys_sitemaps');
             resp += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
             for (let i = 0; i < sitemaps.length; i++) {
                 const sitemap = await v_database.item.view('sys_sitemaps', sitemaps[i]);
@@ -32,7 +32,7 @@ const generate_sitemap = async (req, res, type) => {
 
         } else {
 
-            const pages = await v_database.type.view(type);
+            const pages = await v_database.item.view(type);
             resp += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
             for (let i = 0; i < pages.length; i++) {
                 const page = await v_database.item.view(type, pages[i]);

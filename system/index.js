@@ -4,7 +4,7 @@ const path = require('path');
 
 
 const v_pages = require('./modules/pages');
-const v_action = require('./modules/actions');
+const v_action = require('./actions');
 
 //const v_middle = require('./middlewares');
 
@@ -12,9 +12,6 @@ const v = {
 
     // App <> EXPRESS 
     app: express(),
-
-    // Some info to provide
-    info: require('./info'),
 
     // Settings for the app
     config: require('./config'),

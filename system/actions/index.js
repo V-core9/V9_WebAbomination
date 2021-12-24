@@ -1,4 +1,4 @@
-const v_render = require('../pages/v_render');
+const v_render = require('../modules/pages/v_render');
 const generate_sitemap = require('./generate_sitemap');
 const blog = require('./blog');
 
