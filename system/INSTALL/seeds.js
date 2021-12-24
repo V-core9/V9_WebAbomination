@@ -67,9 +67,16 @@ const vSeeds = [
         content: './pages/blog.json'
     },
     {
-        table: vTables.settings,
-        name: 'sys_settings',
-        content: './settings/sys_settings.json'
+        table: vTables.sitemaps,
+        content: './sitemaps/authors.json'
+    },
+    {
+        table: vTables.sitemaps,
+        content: './sitemaps/pages.json'
+    },
+    {
+        table: vTables.sitemaps,
+        content: './sitemaps/posts.json'
     }
 ];
 

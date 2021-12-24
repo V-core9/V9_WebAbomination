@@ -1,14 +1,5 @@
-const vDB = require('v_database');
-const vTables = require('./tables');
 
-module.exports = async () => {
-    return await vDB.item.view(vTables.settings, 'sys_settings');
-}; 
-
-
-/*
-
-{
+module.exports = {
     cleanInstall: true,
     auto_init: true,
     bot_ssr_render : false,
@@ -24,4 +15,3 @@ module.exports = async () => {
     ObjectSecurityPolicy: `object-src 'unsafe-inline'` ,
     tables: require('./tables')
 };
-*/

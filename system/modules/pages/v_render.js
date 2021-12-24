@@ -1,20 +1,22 @@
 const { geoip_check, bot_check } = require('../../helpers');
-const config_loader = require('../../config');
+const config = require('../../config');
 const v_pages = require('.');
 const { ssr, spa } = require('./render');
-
+const v_cache = require('../v_cache');
 
 module.exports = async (req, res, name) => {
 
-    const config = await config_loader();
 
-    console.log(config);
+    var cache_item  = await v_cache.get(name);
+    if (cache_item !== false ? await v_cache.cache_time_check(cache_item) : true) {
+        await v_cache.save(name, await v_pages.get_single(name));
+    } 
 
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
     var data = {
         name: name,
-        page: await v_pages.get_single(name),
+        page: (await v_cache.get(name)).data,
         ts: Date.now(),
         ip: ip,
         lookup: await geoip_check(ip),

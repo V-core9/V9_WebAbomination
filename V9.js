@@ -10,7 +10,9 @@ const vTables = require('./system/config/tables');
 
 // Custom things
 const vApi = require('./system/$_API');
-const vPage = require('./system/$_APP');
+const $404 = async (req, res) => {
+    page_render(res, '<h2>NOT FOUND : 404</h2><h3>PATH: ' + req.path + '</h3>');
+};
 const vDB = require('v_database');
 const v_action = require('./system/actions');
 // Express and setup
@@ -57,12 +59,12 @@ start_on = async ($port = port) => {
         var data = await vDB.item.view(vTables.pages, page);
 
         v[data.type](data.path, v_action[data.name]);
-        v.get(data.path+'/*', vPage.$404);
-        
+        v.get(data.path + '/*', $404);
+
         if (data.alt_paths !== undefined) {
             data.alt_paths.forEach(alt_path => {
                 v[data.type](alt_path, v_action[data.name]);
-                v.get(alt_path+'/*', vPage.$404);
+                v.get(alt_path + '/*', $404);
             });
         }
     });

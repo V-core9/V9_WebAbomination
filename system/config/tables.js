@@ -8,6 +8,7 @@ const tables = {
     users : typePrefix+'_users',
     emails : typePrefix+'_emails',
     settings : typePrefix+'_settings',
+    sitemaps: typePrefix+'_sitemaps',
 };
 
 module.exports = tables;

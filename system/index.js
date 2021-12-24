@@ -13,10 +13,8 @@ const v = {
     // App <> EXPRESS 
     app: express(),
 
-    config: null,
-
     // Settings for the app
-    config_loader: require('./config'),
+    config: require('./config'),
 
     // Application Routing
     set_routes: () => {
@@ -42,35 +40,27 @@ const v = {
     init: async () => {
         await v_pages.load();
 
-        v.config = await v.config_loader();
-
         //v.app.use(v_middle.print_to_console);
 
-        if (v.config.auto_init === true) {
-            v.app.use(express.static(path.join(__dirname, '../public/static')));
+        v.app.use(express.static(path.join(__dirname, '../public/static')));
 
-            if (v.config.compression === true) {
-                var compression = require('compression');
-                v.app.use(compression());
-            }
-
-            v.app.use(bodyParser.urlencoded({ extended: true }));
-
-            v.app.use(bodyParser.json());
-
-            v.set_routes();
-
-            v.app.listen(v.config.port, async () => {
-                console.log('Website started on port ' + v.config.port);
-            });
-        } else {
-            return false;
+        if (v.config.compression === true) {
+            var compression = require('compression');
+            v.app.use(compression());
         }
+
+        v.app.use(bodyParser.urlencoded({extended: true}));
+
+        v.app.use(bodyParser.json());
+
+        v.set_routes();
+
+        v.app.listen(v.config.port, async () => {
+            console.log('Website started on port ' + v.config.port);
+        });
     }
 
 };
-
-
 
 if (v.config.auto_init === true) v.init();
 
