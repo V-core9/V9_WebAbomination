@@ -21,7 +21,7 @@ module.exports = {
         api_resp(res, data);
     },
     all: async (req, res) => {
-        const data = await v_database.type.view(req.params.type);
+        const data = await v_database.item.view(req.params.type);
         api_resp(res, data);
     },
     one: async (req, res) => {

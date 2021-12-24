@@ -2,6 +2,8 @@ const refreshTokens = require('./_ref-tokens');
 const vDB = require('v_database');
 const v_to_sha256 = require('v_to_sha256');
 
+const vTables = require('../../config/tables');
+
 const jwt = require('jsonwebtoken');
 const jwtConfig = require('./config.jwt');
 
@@ -10,7 +12,7 @@ module.exports = async (req, res) => {
     const { username, password } = req.body;
 
     // filter user from the users array by username and password
-    const user = await vDB.item.view('users', username);
+    const user = await vDB.item.view(vTables.users, username);
 
     if (user) {
         const pass_check = await v_to_sha256(password);

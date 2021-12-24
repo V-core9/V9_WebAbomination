@@ -1,6 +1,7 @@
 const v_database = require('v_database');
 const vDB = require('v_database');
 const vRF = require('v_rifier');
+const vTables = require('../../config/tables')
 
 const {register} = require('../data_templates');
 
@@ -26,15 +27,15 @@ const userModel = {
 
         if (username_valid === true && email_valid === true && pass_valid === true) {
 
-            const user = await vDB.item.view('users', username);
-            const user_email = await vDB.item.view('user_emails', email);
+            const user = await vDB.item.view(vTables.users, username);
+            const user_email = await vDB.item.view(vTables.emails, email);
 
             if (user === false && user_email === false) {
 
-                const register_user_status = await vDB.item.new('users', await register.user(username, email, password), username);
+                const register_user_status = await vDB.item.new(vTables.users, await register.user(username, email, password), username);
 
                 if (register_user_status === true) {
-                    const register_email_status = await vDB.item.new('user_emails', await register.email(username, email), email);
+                    const register_email_status = await vDB.item.new(vTables.emails, await register.email(username, email), email);
                     if (register_email_status === true) {
                         response.status = 200;
                         response.msg = "User registered successfully";
@@ -68,11 +69,11 @@ const userModel = {
     },
 
     all: async () => {
-        return await v_database.type.view('users');
+        return await v_database.type.view(vTables.users);
     },
 
     one: async (options) => {
-        return await v_database.item.view('users', options);
+        return await v_database.item.view(vTables.users, options);
     }
 
 };
