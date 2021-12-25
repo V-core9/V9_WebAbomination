@@ -32,9 +32,9 @@ items_setup = async () => {
 
 
 install = async () => {
+    await vDB.install();
     const types_status = await tables_setup();
     console.log(types_status.length === 0 ? 'Types Setup Successful': types_status );
-
     const items_status = await items_setup();
     console.log(items_status.length === 0 ? 'Items Seeds Successful Setup': items_status );
 };
