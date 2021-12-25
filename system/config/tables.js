@@ -3,12 +3,12 @@ const typePrefix = 'v9';
 
 const tables = {
     prefix :  typePrefix,
-    pages : typePrefix+'_pages',
-    posts : typePrefix+'_posts',
-    users : typePrefix+'_users',
-    emails : typePrefix+'_emails',
-    settings : typePrefix+'_settings',
-    sitemaps: typePrefix+'_sitemaps',
+    pages : 'pages',
+    posts : 'posts',
+    users : 'users',
+    emails : 'emails',
+    settings : 'settings',
+    sitemaps: 'sitemaps',
 };
 
 module.exports = tables;

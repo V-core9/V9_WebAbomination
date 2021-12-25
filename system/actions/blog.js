@@ -1,5 +1,3 @@
-const blog = (req, res) => {
-    res.send('blog');
+module.exports = async (req, res) => {
+    res.send('Blog Page Example Action Trigger');
 };
-
-module.exports = blog;
