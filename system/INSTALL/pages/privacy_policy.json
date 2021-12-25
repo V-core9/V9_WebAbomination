@@ -1,0 +1,27 @@
+{
+    "exec": "v_render",
+    "name": "privacy_policy",
+    "path": "/privacy_policy",
+    "alt_paths": [
+        "/privacy_policy.html",
+        "/privacy-policy",
+        "/privacy-policy.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Website Privacy Policy",
+    "meta": {
+        "description": "V-core9 Privacy Policy page to show some data about this."
+    },
+    "$_page": [
+        {
+            "type": "hero",
+            "title": "Website Privacy Policy",
+            "subtitle": "V-core9 Privacy Policy page to show some data about this.",
+            "image": "https://v-core9.com/images/v-core9-logo.png",
+            "image_alt": "V-core9 Logo",
+            "image_width": 350,
+            "image_height": 350
+        }
+    ]
+}

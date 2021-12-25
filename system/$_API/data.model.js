@@ -7,6 +7,11 @@ api_resp = async (res, data) => {
 };
 
 module.exports = {
+    rm_type: async (req, res) => {
+        const data = await v_database.type.del(req.body.name);
+        api_resp(res, data);
+
+    },
     mk_type: async (req, res) => {
         const data = await v_database.type.new(req.body.name);
         api_resp(res, data);
@@ -16,7 +21,7 @@ module.exports = {
         api_resp(res, data);
     },
     all: async (req, res) => {
-        const data = await v_database.type.view(req.params.type);
+        const data = await v_database.item.view(req.params.type);
         api_resp(res, data);
     },
     one: async (req, res) => {

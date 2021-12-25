@@ -3,7 +3,7 @@ const jwtConfig = {
         access: "tokenSecret.access123456",
         refresh: "tokenSecret.refresh1234567890"
     },
-    expires: "20m"
+    expires: "5m"
 };
 
 module.exports = jwtConfig;

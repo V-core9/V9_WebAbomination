@@ -9,7 +9,7 @@
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node system/",
     "start_hosting": " start bash -c \" npm run start \" && start bash -c \"cd ~/.cloudflared/ ; cloudflared tunnel run ; \"",
-    "dev": "nodemon $.js"
+    "dev": "nodemon v9.js"
   },
   "repository": {
     "type": "git",
@@ -36,8 +36,10 @@
     "mysql": "^2.18.1",
     "node-sass": "^6.0.1",
     "spdy": "^4.0.2",
-    "v_database": "^0.0.23",
-    "v_file_system": "^1.0.3",
-    "v_scrolls": "^0.1.12"
+    "v_database": "^0.1.6",
+    "v_file_system": "^1.0.5",
+    "v_rifier": "^0.0.8",
+    "v_scrolls": "^0.1.13",
+    "v_to_sha256": "^1.0.9"
   }
 }

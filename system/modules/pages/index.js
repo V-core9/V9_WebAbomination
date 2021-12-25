@@ -1,4 +1,6 @@
-const v_database = require('v_database');
+const vDB = require('v_database');
+
+const vTables = require('../../config/tables');
 
 const v_pages = {
 
@@ -7,12 +9,12 @@ const v_pages = {
 
     // Gets a list of pages
     get_list: async () => {
-        return await v_database.item.view('pages');
+        return await vDB.item.view(vTables.pages);
     },
 
     // Gets a single page by name/id
     get_single: async (name) => {
-        return (name !== undefined) ? await v_database.item.view('pages', name) : false;
+        return (name !== undefined) ? await vDB.item.view(vTables.pages, name) : false;
     },
 
     // Loads all pages into _list for rendering

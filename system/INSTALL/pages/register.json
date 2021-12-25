@@ -1,0 +1,27 @@
+{
+    "exec": "v_render",
+    "name": "register",
+    "path": "/register",
+    "alt_paths": [
+        "/sign-up",
+        "/sign-up.html",
+        "/register.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Register / Sign-up",
+    "meta": {
+        "description": "Register new account at V-core9.com"
+    },
+    "$_page": [
+        {
+            "type": "hero",
+            "title": "Register / Sign-up",
+            "subtitle": "Register new account at V-core9.com",
+            "image": "https://v-core9.com/images/v-core9-logo.png",
+            "image_alt": "V-core9 Logo",
+            "image_width": 350,
+            "image_height": 350
+        }
+    ]
+}
