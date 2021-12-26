@@ -9,7 +9,8 @@
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node system/",
     "start_hosting": " start bash -c \" npm run start \" && start bash -c \"cd ~/.cloudflared/ ; cloudflared tunnel run ; \"",
-    "dev": "nodemon v9.js"
+    "dev": "nodemon v9.host.js",
+    "webapp_pack": "bash -c \" node-sass application/style/SCSS/app.scss public/style/CSS/app.css ; npx webpack --config webpack.config.js ; \""
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/V-core9/V-core9.com#readme",
   "devDependencies": {
-    "webpack": "^5.63.0",
+    "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {

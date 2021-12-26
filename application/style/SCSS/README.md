@@ -12,4 +12,4 @@ npm install -g node-sass
 - run build command from command line:
 
 ```bash
-node-sass system/static/style/SCSS/app.scss public/style/CSS/app.css
+node-sass application/style/SCSS/app.scss public/style/CSS/app.css
