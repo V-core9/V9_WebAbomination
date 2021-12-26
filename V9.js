@@ -63,7 +63,7 @@ start_on = async ($port = config.port) => {
     pages.forEach(async page => {
         var data = await vDB.item.view(config.tables.pages, page);
 
-        console.log(data);
+        //console.log(data);
         v[data.type](data.path, v_action[data.name]);
 
         if (data.alt_paths !== undefined) {

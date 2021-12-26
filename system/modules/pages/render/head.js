@@ -62,6 +62,7 @@ const render_head = async (data) => {
             min-height: 100vh;
         }
     </style>
+    <link rel="stylesheet" href="/style/css/app.css">
 </head>`;
 };
 
