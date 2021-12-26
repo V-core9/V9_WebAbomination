@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
     entry: './application/index.js',
-    mode: 'development',
+    mode: 'production',
     target: 'web',
     output: {
-        filename: 'main.js',
+        filename: 'v_app.js',
         path: path.resolve(__dirname, 'public/js'),
     },
 };

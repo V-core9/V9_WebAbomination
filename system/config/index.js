@@ -19,8 +19,8 @@ module.exports = {
     port: process.env.PORT || 2500,
     viewport: `width=device-width`,
     compression: true,
-    ContentSecurityPolicy: `script-src 'unsafe-inline' *.vercel.app 'self'`, 
-    ObjectSecurityPolicy: `object-src 'unsafe-inline'` ,
+    ContentSecurityPolicy: `script-src 'self'`, 
+    ObjectSecurityPolicy: `object-src 'self'` ,
     tables: require('./tables'),
     static_dirs : [
         './public'

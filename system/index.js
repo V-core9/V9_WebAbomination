@@ -16,14 +16,20 @@ var compression = require('compression');
 
 const v = express();
 
-v.use(v_action.setXPoweredBy);
-
 v.use(bodyParser.urlencoded({ extended: true }));
 v.use(bodyParser.json());
 
 v.disable('etag');
 
-
+v.use(async (req, res, next) => {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    res.setHeader("Content-Security-Policy", "default-src 'self'");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-XSS-Protection", "1; mode=block");
+    res.setHeader('X-Powered-By', config.info.name + '.' + config.info.version + '.' + config.info.codename);
+    next();
+});
 
 vServer = async ($port = config.port) => {
 
@@ -78,7 +84,7 @@ vServer = async ($port = config.port) => {
 
     //? [ STATIC-DIRS ]>- - - - - -
     config.static_dirs.forEach(dir => {
-        v.use(express.static(dir, { etag: false }));
+        v.use(express.static(dir, { etag: false , maxAge: 3600 }));
     });
     //! EOF_STATIC-DIRS
 

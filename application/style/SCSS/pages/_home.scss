@@ -1,3 +1,62 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+
+v_page {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+
+    v_block {
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 5px #10203010;
+
+        header {
+            padding: 0.5em 1em;
+            font-size: 1.25em;
+            background: #ebebeb;
+            color: #545454;
+            z-index: 10;
+        }
+
+        box {
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+            gap: 0.25em;
+            background: #80808014;
+
+            item {
+                background: #ebebeb;
+                padding: 0.5em 1em;
+                color: #505050;
+
+                name {
+                    font-weight: bold;
+                    overflow-wrap: break-word;
+                }
+
+                txt {
+                    overflow-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+hero strong {
+    color: orange;
+}
