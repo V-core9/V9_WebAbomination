@@ -71,7 +71,7 @@ const vDisplayDriver = {
             if (testItems.length > 0) {
                 testItems.forEach((element) => {
                     var helpElem = document.getElementById(element.elemID);
-                    if (vDisplayDriver.isInUserView('#' + element.elemID)) {
+                    if ((vDisplayDriver.isInUserView('#' + element.elemID) &&  !element.done ) || (vDisplayDriver.isInUserView('#' + element.elemID) &&!element.onloadDone)) {
                         if (!element.done) {
                             if ((typeof element.render === 'undefined') || (element.lastUpdate > element.timeOfRender)) {
                                 element.render = vDomPrinter.getTemplate(element);
@@ -89,19 +89,16 @@ const vDisplayDriver = {
                         if (!element.onloadDone) {
                             element.onload = vDomPrinter.getOnLoad(element.type);
                             if (typeof element.onload === "function") {
-                                console.log(element.onload);
                                 console.log(element);
-                                element.render = element.onload();
-                                console.log(element);
-                                element.timeOfRender = Date.now();
+                                element.onload();
                             }
                             element.onLoadDone = true;
                         }
 
                     } else {
-                        element.onLoadDone = false;
-                        element.done = false;
-                        helpElem.innerHTML = "";
+                        //element.onLoadDone = false;
+                        //element.done = false;
+                        //helpElem.innerHTML = "";
                         //console.log('Is ' + element.elemID + ' visible? NO')
                         notYetDone++;
                     }
@@ -109,7 +106,7 @@ const vDisplayDriver = {
             }
         }
 
-        if (notYetDone === -1) {
+        if (notYetDone === 0) {
             console.log('Done! Detaching scroll event listener...');
             window.removeEventListener("scroll", this.handler);
         }
@@ -191,7 +188,7 @@ const vDisplayDriver = {
 
                 this.maybeLoadStyle(section.type);
 
-                document.getElementById(uid).innerHTML = section.render;
+                //document.getElementById(uid).innerHTML = section.render;
 
 
                 if (!section.onloadDone) {
@@ -205,10 +202,10 @@ const vDisplayDriver = {
 
                 document.getElementById(uid).style.minHeight = document.getElementById(uid).clientHeight + "px";
                 section.timeOfRender = Date.now();
-                if (!vDisplayDriver.isInUserView("#" + uid)) {
-                    stopPrint = true;
-                    console.log("stopPrint = TRUE");
-                }
+                //if (!vDisplayDriver.isInUserView("#" + uid)) {
+                //    stopPrint = true;
+                //    console.log("stopPrint = TRUE");
+                //}
             }
         });
     },
