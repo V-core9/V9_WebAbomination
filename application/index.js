@@ -1,20 +1,18 @@
-const { svgPointer, displayDriver, vDebugger, V_Logo } = require('./core/modules');
+const { svgPointer, displayDriver, vSidebar, V_Logo } = require('./core/modules');
 
 
 
 (async () => {
     console.log('DEBUGGER INIT');
-    vDebugger.init();
+    vSidebar.init();
 
     console.log('LOGO PRINT');
     V_Logo.printLogo("v_logo");
 
-    console.log('PAGE DATA FROM META JSON');
-    vDebugger.page_data = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
 
     console.log('PAGE DATA TO DISPLAY DRIVER');
-    displayDriver.page = vDebugger.page_data;
-    
+    displayDriver.page = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
+
     console.log('DISPLAY DRIVER LOAD PAGE');
     displayDriver.loadPage();
 })();

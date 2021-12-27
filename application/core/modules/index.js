@@ -1,5 +1,5 @@
 module.exports = {
-    vDebugger : require('./debugger'),
+    vSidebar : require('./vSidebar'),
     V_Logo : require('./V_Logo'),
     domPrinter : require('./domPrinter'),
     displayDriver : require('./displayDriver'),

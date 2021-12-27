@@ -30,7 +30,7 @@
                 "image": {
                     "width": 360,
                     "height": 360,
-                    "url": "/assets/logo.png",
+                    "url": "/logo.svg",
                     "alt": "YEAAA MIKI"
                 },
                 "background": {
@@ -47,7 +47,7 @@
                 "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
                 "background": {
                     "type": "image",
-                    "url": "/assets/logo.png"
+                    "url": "/logo.svg"
                 }
             }
         },
@@ -69,11 +69,11 @@
                 "image": {
                     "width": 50,
                     "height": 50,
-                    "url": "/assets/logo.png"
+                    "url": "/logo.svg"
                 },
                 "background": {
                     "type": "image",
-                    "url": "/assets/logo.png"
+                    "url": "/logo.svg"
                 }
             }
         },
@@ -89,7 +89,7 @@
                 "image": {
                     "width": 800,
                     "height": 450,
-                    "url": "/assets/images/vWebDemo2021.png",
+                    "url": "/nodejs.png",
                     "alt": "vWebDemo App 2021"
                 },
                 "background": {
@@ -115,12 +115,12 @@
                 "image": {
                     "width": 650,
                     "height": 400,
-                    "url": "/assets/pageBuilder_LoadTest1.png",
+                    "url": "/logo.svg",
                     "alt": "YEAAA MIKI"
                 },
                 "background": {
                     "type": "image",
-                    "url": "/assets/logo.png"
+                    "url": "/logo.svg"
                 }
             }
         },
@@ -136,7 +136,7 @@
                 "image": {
                     "width": 360,
                     "height": 360,
-                    "url": "/assets/logo.png",
+                    "url": "/nodejs.png",
                     "alt": "YEAAA MIKI"
                 },
                 "background": {
@@ -153,7 +153,7 @@
                 "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
                 "background": {
                     "type": "image",
-                    "url": "/assets/logo.png"
+                    "url": "/test.svg"
                 }
             }
         }

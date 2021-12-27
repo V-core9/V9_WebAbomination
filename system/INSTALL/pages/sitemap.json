@@ -12,16 +12,5 @@
     "title": "SITEMAP INDEX",
     "meta": {
         "description": "Sitemap of website"
-    },
-    "$_page": [
-        {
-            "type": "hero",
-            "title": "STATISTICS",
-            "subtitle": "STATISTICS More STATISTICS V-core9.com",
-            "image": "https://v-core9.com/images/v-core9-logo.png",
-            "image_alt": "V-core9 Logo",
-            "image_width": 350,
-            "image_height": 350
-        }
-    ]
+    }
 }

@@ -1,4 +1,4 @@
-const vDebugger = {
+const vSidebar = {
 
     page_data : null,
 
@@ -23,17 +23,17 @@ const vDebugger = {
     },
 
     init() {
-        console.log("vDebugger init");
+        console.log("vSidebar init");
 
-        document.querySelector('body').innerHTML += '<div class="v_block" id="' + vDebugger.settings.elem_id + '" ui_pos="' + vDebugger.settings.ui_pos + '" status="'+(vDebugger.settings.open === true ? 'open' : 'closed') + '"><div class="header"><h2>V FrontEnd Debugger Tool</h2></div><v_dbg_box></v_dbg_box></div>';
+        document.querySelector('body').innerHTML += '<div class="v_block" id="' + vSidebar.settings.elem_id + '" ui_pos="' + vSidebar.settings.ui_pos + '" status="'+(vSidebar.settings.open === true ? 'open' : 'closed') + '"><div class="header"><h2>Sidebar</h2></div><v_dbg_box></v_dbg_box></div>';
 
         
         window.onclick = () => {
-            vDebugger.toggleUI();
+            vSidebar.toggleUI();
         };
     }
 
 };
 
 
-module.exports = vDebugger;
+module.exports = vSidebar;
