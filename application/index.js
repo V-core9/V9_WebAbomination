@@ -1,36 +1,33 @@
 const { svgPointer, displayDriver, vSidebar, V_Logo } = require('./core/modules');
 
 
-
-(async () => {
-    console.log('DEBUGGER INIT');
-    vSidebar.init();
-
-    console.log('LOGO PRINT');
-    V_Logo.printLogo("v_logo");
-
-
-    console.log('PAGE DATA TO DISPLAY DRIVER');
-    displayDriver.page = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
-
-    console.log('DISPLAY DRIVER LOAD PAGE');
-    displayDriver.loadPage();
-})();
-
-
-const vApp = () => {
+vApp = async () => {
     if (typeof this.bootStatus === "undefined") this.bootStatus = null;
     this.displayDriver = displayDriver;
     this.svgPointer = svgPointer;
 
-    this.boot = () => {
+    this.boot = async () => {
         console.log("[-IN_PROGRESS-] :: V_Application Boot Starting >->-> ");
+    
+        console.log('PAGE DATA TO DISPLAY DRIVER');
+        displayDriver.page = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
+    
+        console.log('DISPLAY DRIVER LOAD PAGE');
+        displayDriver.loadPage();
+        
+        console.log('Sidebar INIT');
+        svgPointer.init();
+        
+        console.log('Sidebar INIT');
+        vSidebar.init();
+    
 
         vApp.bootStatus = true;
         console.log("[-COMPLETED-] :: V_Application Boot Completed >->-> ");
+
     };
 
     if (this.bootStatus === null) this.boot();
 };
 
-vApp();
+const V = vApp();

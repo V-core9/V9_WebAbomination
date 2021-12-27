@@ -2,6 +2,7 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
+const {mainColorScheme} = require('../../config');
 
 const vColorsScheme = require('./color_scheme');
 
@@ -18,7 +19,7 @@ const V_Logo = {
     options: {
         strokeWidth: 2,
         elem_id: "v_logo",        // [ <string> ]      * just an ID to add to elem
-        color_scheme: vColorsScheme.green,     // [ light || dark || custom ]
+        color_scheme: vColorsScheme[mainColorScheme],     // [ light || dark || custom ]
         drawing_delay: 100,       // [ miliseconds ] 
         size: "custom",           // [ parent || custom ]   
         disable_animated_part: false
@@ -132,7 +133,7 @@ const V_Logo = {
         if (parentElementSelector === null) {
             console.log('cant be empty');
             return false;
-        };
+        }
         
         var parentElemTEMP = document.querySelector(parentElementSelector);
         

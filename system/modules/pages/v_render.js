@@ -32,9 +32,10 @@ module.exports = async (req, res, name) => {
             <html lang="${config.lang}">
             ${await render_head(data)}
             <body>
-
+            <v_page class="container"> 
             ${(data.bot === true && config.bot_ssr_render === true || config.forced_ssr_render === true) ? await render_page(req, res, data) : ''}
 
+            </v_page>
                 
             <script type="text/javascript" src="/js/v_app.js"></script>
             </body>

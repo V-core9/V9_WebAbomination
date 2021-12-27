@@ -189,6 +189,10 @@ const vDisplayDriver = {
 
                 section.render = vDomPrinter.getTemplate(section);
 
+                this.maybeLoadStyle(section.type);
+
+                document.getElementById(uid).innerHTML = section.render;
+
 
                 if (!section.onloadDone) {
                     section.onload = vDomPrinter.getOnLoad(section);
@@ -198,10 +202,6 @@ const vDisplayDriver = {
                     }
                     section.onLoadDone = true;
                 }
-
-                this.maybeLoadStyle(section.type);
-
-                document.getElementById(uid).innerHTML = section.render;
 
                 document.getElementById(uid).style.minHeight = document.getElementById(uid).clientHeight + "px";
                 section.timeOfRender = Date.now();

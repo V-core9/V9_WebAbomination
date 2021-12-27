@@ -1,18 +1,20 @@
-const base_hero_01 = {
-    name: "base_hero_01",
-    view: (section = { title: null, subtitle: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null } }) => {
+const V_Logo  = require("../../../V_Logo");
+
+const base_hero_00 = {
+    name: "base_hero_00",
+    view: (section = { title: null, subtitle: null, button: { do: null, text: null } }) => {
         return `<div class="section_side">
                     <h1>${section.title}</h1>
                     <h2>${section.subtitle}</h2>
                     <button id="mainButtonClick" onclick="${section.button.do}">${section.button.text}</button>
                 </div>
                 <div class="section_side">
-                    <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}"/>
+                    <v_logo></v_logo>
                 </div>`;
     },
     css: () => {
         return `<style>
-                    .base_hero_01 {
+                    .base_hero_00 {
                         background: #101525;
                         color: white;
                     }
@@ -21,8 +23,11 @@ const base_hero_01 = {
     disabled: false,
     author: "-v-",
     onload: () => {
-        console.log('[base_hero_01 :: onload]');
-    },
+        console.log('[base_hero_00 :: onload]');
+        setTimeout(() => {
+            V_Logo.printLogo('v_logo');
+        }, 250);
+    }
 };
 
-module.exports = base_hero_01;
+module.exports = base_hero_00;

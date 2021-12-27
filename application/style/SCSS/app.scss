@@ -10,10 +10,10 @@
 @import "base/base", "base/fonts", "base/typography", "base/helpers";
 
 // 4. Layout-related sections
-@import "layout/header", "layout/footer";
+@import "layout/header", "layout/page", "layout/footer";
 
 // 5. Components
-@import "components/svg_pointer", "components/svg_logo", "components/button", "components/debugger";
+@import "components/svg_pointer", "components/svg_logo", "components/button", "components/sidebar";
 
 // 6. Page-specific styles
 @import "pages/home";

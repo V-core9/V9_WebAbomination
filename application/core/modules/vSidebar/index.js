@@ -9,12 +9,12 @@ const vSidebar = {
     settings: {
         ui: true,
         ui_pos: "right",
-        elem_id: "v_debugger_block",
+        elem_id: "vSidebar",
         open: false
     },
 
     toggleUI() {
-        var item = document.getElementById('v_debugger_block');
+        var item = document.getElementById(vSidebar.settings.elem_id);
         if (item.getAttribute('status') == 'open') {
             item.setAttribute('status', '');
         } else {

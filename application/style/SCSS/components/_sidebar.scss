@@ -4,7 +4,7 @@
     line-height: 1em;
 }
 
-#v_debugger_block {
+#vSidebar {
     position: fixed;
     min-height: 200px;
     width: 25%;
@@ -15,10 +15,43 @@
     display: flex;
     flex-direction: column;
 
+
+    &[status="open"] {
+        bottom: 0;
+        width: calc(100% - 2em);
+        margin: 1em;
+    }
+    
+    &[ui_pos="left"] {
+        top: 0;
+        bottom: auto;
+        height: calc(100% - 2em);
+        left: -100%;
+        width: auto;
+    }
+    
+    &[ui_pos="left"][status="open"] {
+        left: 0;
+    }
+    
+    &[ui_pos="top"] {
+        top: -100%;
+        left: 0;
+        width: calc(100% - 2em);
+        height: 200px;
+    
+        
+    }
+    
+    &[ui_pos="top"][status="open"] {
+        top: 0;
+    }
+    
     &[ui_pos="right"] {
         right: -25%;
         height: calc(100% - 1.2em);
         top: 0.5em;
+        width: auto;
     }
 
     &[ui_pos="right"][status="open"] {

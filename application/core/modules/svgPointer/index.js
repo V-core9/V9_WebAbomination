@@ -76,6 +76,4 @@ const svgPointer = {
 
 };
 
-svgPointer.init();
-
 module.exports = svgPointer;
