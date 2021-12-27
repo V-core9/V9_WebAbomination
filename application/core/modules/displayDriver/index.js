@@ -8,6 +8,7 @@ raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || wind
 const vDisplayDriver = {
 
     config: {
+        selector: 'v_page',
         mode: "hiding",
         debug: true
     },
@@ -21,7 +22,6 @@ const vDisplayDriver = {
         if (page === null) return false;
         try {
             this.data.page = page;
-            //console.log(this);
             this.initPrint();
             return true;
         } catch (error) {
@@ -29,6 +29,9 @@ const vDisplayDriver = {
         }
     },
 
+    get page() {
+        return this.data.page;
+    },
 
     listenForEvents() {
         //Self addig on dom load
@@ -49,21 +52,13 @@ const vDisplayDriver = {
         };
 
         window.addEventListener('vDisplayDriver_Ready', (e) => {
-
             console.log('EventListener got:[> vDisplayDriver_Ready <]');
-
             try {
                 vDisplayDriver.init();
-            } catch (error) {
-                console.error(error);
-            }
-
-            try {
                 window.removeEventListener('vDisplayDriver_Ready', this);
             } catch (error) {
                 console.error(error);
             }
-
         });
     },
 
@@ -127,19 +122,7 @@ const vDisplayDriver = {
 
     loadPage() {
         this.canPrintPage();
-        var meta = this.data.page.meta;
-        var title = this.data.page.title;
-        var sections = this.data.page.sections;
-        console.log(meta);
-        document.title = title;
-        var desc = document.createElement("meta");
-        desc.setAttribute("content", meta.description);
-        desc.setAttribute("name", "description");
-        document.head.appendChild(desc);
-        var keyW = document.createElement("meta");
-        keyW.setAttribute("content", meta.keywords);
-        keyW.setAttribute("name", "keywords");
-        document.head.appendChild(keyW);
+        console.log(this.data.page);
     },
 
     isInUserView(el) {
@@ -196,7 +179,7 @@ const vDisplayDriver = {
                 }
             }
 
-            document.body.innerHTML += `<div id="${uid}" class="page_section ${section.type}"></div>`;
+            document.querySelector(vDisplayDriver.config.selector).innerHTML += `<div id="${uid}" class="page_section ${section.type}"></div>`;
 
             section.elemID = uid;
             section.lastUpdate = Date.now();
@@ -222,8 +205,6 @@ const vDisplayDriver = {
 
                 document.getElementById(uid).style.minHeight = document.getElementById(uid).clientHeight + "px";
                 section.timeOfRender = Date.now();
-                //console.log(section.render);
-                //console.log("EEEE #" + uid)
                 if (!vDisplayDriver.isInUserView("#" + uid)) {
                     stopPrint = true;
                     console.log("stopPrint = TRUE");
@@ -244,6 +225,10 @@ const vDisplayDriver = {
             return true;
         }
         return false;
+    },
+
+    get styles () {
+        return this.data.styles;
     },
 
     maybeLoadStyle(type) {

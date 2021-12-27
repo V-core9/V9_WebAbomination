@@ -52,22 +52,6 @@ line {
     animation-delay: 5s;
 }
 
-#v_logo {
-    transform: scale(1.25);
-    animation: re_grow 2.5s linear;
-    animation-fill-mode: forwards;
-    animation-delay: 5s;
-}
-
-@keyframes re_grow {
-    0% {
-        transform: scale(2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 
 @for $i from 1 through 25 {

@@ -17,7 +17,6 @@ const V_Logo = {
     
     options: {
         strokeWidth: 2,
-        mode: "dev",             // [ dev  ||  live ] * dev is the one adding debug lines
         elem_id: "v_logo",        // [ <string> ]      * just an ID to add to elem
         color_scheme: vColorsScheme.green,     // [ light || dark || custom ]
         drawing_delay: 100,       // [ miliseconds ] 
@@ -51,28 +50,25 @@ const V_Logo = {
     },
     
     template() {
-        var response =  `<svg id="${V_Logo.options.elem_id}"width="${V_Logo.data.width}" height="${V_Logo.data.height}" viewBox="0 0 ${V_Logo.data.width} ${V_Logo.data.height}" xmlns="http://www.w3.org/2000/svg" >`;
-        
         var width = V_Logo.options.strokeWidth;
         var boxColor = V_Logo.options.color_scheme.box;
         var lineColor = V_Logo.options.color_scheme.line;
-        
-        if (V_Logo.options.mode === "dev") {
-            response += `<rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" stroke='${boxColor}' fill='transparent'  stroke-width="${width}%"/>
-                <rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" x="${V_Logo.data.width08}"  stroke='${boxColor}' fill='transparent' stroke-width='${width}%'/>
-                <rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" x="${V_Logo.data.width04}" y="${V_Logo.data.height08}"  stroke='${boxColor}' fill='transparent' stroke-width='${width}%'/>
-    
-                <line class="borderline" x1="0" y1="0" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width='${width}%'/>
-                <line class="borderline" x1="0" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height}" stroke="${lineColor}" stroke-width='${width}%' />
-                <line class="borderline" x1="${V_Logo.data.width02}" y1="0" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height08}" stroke="${lineColor}" stroke-width='${width}%' />
-                <line class="borderline" x1="${V_Logo.data.width02}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height}" stroke="${lineColor}"  stroke-width="${width}%" />
-    
-                <line class="borderline" x1="${V_Logo.data.width08}" y1="0" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width="${width}%" />
-                <line class="borderline" x1="${V_Logo.data.width08}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height}" stroke="${lineColor}" stroke-width="${width}%" />
-                <line class="borderline" x1="${V_Logo.data.width}" y1="0" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width="${width}%" />
-                <line class="borderline" x1="${V_Logo.data.width}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height}" stroke="${lineColor}"  stroke-width="${width}%"/>`;
-        }
-        response += `</svg>`;
+
+        var response =  `<svg id="${V_Logo.options.elem_id}"width="${V_Logo.data.width}" height="${V_Logo.data.height}" viewBox="0 0 ${V_Logo.data.width} ${V_Logo.data.height}" xmlns="http://www.w3.org/2000/svg" >
+                            <rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" stroke='${boxColor}' fill='transparent'  stroke-width="${width}%"/>
+                            <rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" x="${V_Logo.data.width08}"  stroke='${boxColor}' fill='transparent' stroke-width='${width}%'/>
+                            <rect class="box" width="${V_Logo.data.width02}" height="${V_Logo.data.height02}" x="${V_Logo.data.width04}" y="${V_Logo.data.height08}"  stroke='${boxColor}' fill='transparent' stroke-width='${width}%'/>
+
+                            <line class="borderline" x1="0" y1="0" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width='${width}%'/>
+                            <line class="borderline" x1="0" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height}" stroke="${lineColor}" stroke-width='${width}%' />
+                            <line class="borderline" x1="${V_Logo.data.width02}" y1="0" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height08}" stroke="${lineColor}" stroke-width='${width}%' />
+                            <line class="borderline" x1="${V_Logo.data.width02}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height}" stroke="${lineColor}"  stroke-width="${width}%" />
+
+                            <line class="borderline" x1="${V_Logo.data.width08}" y1="0" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width="${width}%" />
+                            <line class="borderline" x1="${V_Logo.data.width08}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width04}" y2="${V_Logo.data.height}" stroke="${lineColor}" stroke-width="${width}%" />
+                            <line class="borderline" x1="${V_Logo.data.width}" y1="0" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height08}" stroke="${lineColor}"  stroke-width="${width}%" />
+                            <line class="borderline" x1="${V_Logo.data.width}" y1="${V_Logo.data.height02}" x2="${V_Logo.data.width06}" y2="${V_Logo.data.height}" stroke="${lineColor}"  stroke-width="${width}%"/>
+                        </svg>`;
         return response;
     },
     
@@ -110,15 +106,16 @@ const V_Logo = {
                 temp_x2 = V_Logo.data.width08 + getRandomInt(V_Logo.data.width02);
                 temp_y2 = 0 + getRandomInt(V_Logo.data.height02);
                 maybeAlterDirection = "alter_direction_animation";
-            };
+            }
             console.log(`x1:${temp_x1}|y1:${temp_y1}|:|x2:${temp_x2}|y2:${temp_y2}`);
-            V_Logo._elem.insertAdjacentHTML('afterbegin', `<line ${(maybeAlterDirection !== "") ? ("class='"+maybeAlterDirection+"'") : ""} x1="${temp_x1}" y1="${temp_y1}" x2="${temp_x2}" y2="${temp_y2}" stroke="${V_Logo.options.color_scheme.main}" stroke-width="${getRandomInt(4)}" stroke-dasharray="${getRandomInt(100)} ${getRandomInt(50)} ${getRandomInt(200)} ${getRandomInt(100)} ${getRandomInt(50)} ${getRandomInt(50)} ${getRandomInt(100)} ${getRandomInt(200)} ${getRandomInt(200)} " opacity="0.${getRandomInt(100)}" animation-duration="${(getRandomInt(5)+0.5)*2}s" />` );
+            
+            document.querySelector('#'+V_Logo.options.elem_id).insertAdjacentHTML('afterbegin', `<line ${(maybeAlterDirection !== "") ? ("class='"+maybeAlterDirection+"'") : ""} x1="${temp_x1}" y1="${temp_y1}" x2="${temp_x2}" y2="${temp_y2}" stroke="${V_Logo.options.color_scheme.main}" stroke-width="${getRandomInt(4)}" stroke-dasharray="${getRandomInt(100)} ${getRandomInt(50)} ${getRandomInt(200)} ${getRandomInt(100)} ${getRandomInt(50)} ${getRandomInt(50)} ${getRandomInt(100)} ${getRandomInt(200)} ${getRandomInt(200)} " opacity="0.${getRandomInt(100)}" animation-duration="${(getRandomInt(5)+0.5)*2}s" />` );
 
-        }; 
+        }
     },
     
     drawAnimationStop() {
-        console.log("Done Drawing :: Interval STOP")
+        console.log("Done Drawing :: Interval STOP");
         clearInterval(V_Logo.animation_interval);
         V_Logo.animation_interval = null;
     },

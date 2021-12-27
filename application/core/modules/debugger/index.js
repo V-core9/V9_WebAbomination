@@ -27,9 +27,6 @@ const vDebugger = {
 
         document.querySelector('body').innerHTML += '<div class="v_block" id="' + vDebugger.settings.elem_id + '" ui_pos="' + vDebugger.settings.ui_pos + '" status="'+(vDebugger.settings.open === true ? 'open' : 'closed') + '"><div class="header"><h2>V FrontEnd Debugger Tool</h2></div><v_dbg_box></v_dbg_box></div>';
 
-        vDebugger.page_data = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
-
-        document.querySelector('hero').innerHTML += '<h4> PAGE FOUND : ' +vDebugger.page_data.name + '</h4>';
         
         window.onclick = () => {
             vDebugger.toggleUI();

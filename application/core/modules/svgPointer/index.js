@@ -2,8 +2,9 @@ const svgPointer = {
 
     config: {
         id_string: "svgPointer",
-        debug: true
     },
+
+    data : {},
 
     customCursor: null,
 
@@ -36,10 +37,25 @@ const svgPointer = {
     },
 
     mouseMove: (e) => {
-        console.log(e.clientX + " " + e.clientY);
-        svgPointer.customCursor.style.top = (e.clientY + window.scrollY || window.pageYOffset) + 'px';
-        svgPointer.customCursor.style.left = e.clientX + 'px';
+        svgPointer.data = {
+            x: (e.clientY + window.scrollY || window.pageYOffset),
+            y: e.clientX,
+            offset: window.pageYOffset,
+        };
+        svgPointer.customCursor.style.top = svgPointer.data.x + 'px';
+        svgPointer.customCursor.style.left = svgPointer.data.y + 'px';
     },
+    
+    scroll: (e) => {
+        svgPointer.data = {
+            x: (svgPointer.data.x - svgPointer.data.offset + window.pageYOffset),
+            y: e.clientX,
+            offset: window.pageYOffset,
+        };
+        svgPointer.customCursor.style.top = svgPointer.data.x + 'px';
+        svgPointer.customCursor.style.left = svgPointer.data.y + 'px';
+    },
+
 
     init: () => {
         try {
@@ -50,6 +66,7 @@ const svgPointer = {
             window.addEventListener("mousemove", svgPointer.mouseMove);
             window.addEventListener("mousedown", svgPointer.mouseClickStart);
             window.addEventListener("mouseup", svgPointer.mouseClickStop);
+            window.addEventListener("scroll", svgPointer.scroll);
             return true;
         } catch (error) {
             console.log(error);

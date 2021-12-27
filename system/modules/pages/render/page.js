@@ -3,7 +3,7 @@ const config = require('../../../config');
 
 module.exports = async (req, res, data) => {
     data.config = config;
-    return `<v_page> 
+    return `<v_page class="container"> 
                 <hero>
                     <v_logo></v_logo>
                     <h3>Render_Mode: <strong><] SSR [></strong></h3>
