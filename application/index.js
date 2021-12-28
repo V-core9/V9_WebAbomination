@@ -1,4 +1,4 @@
-const { svgPointer, displayDriver, vSidebar, V_Logo } = require('./core/modules');
+const { svgPointer, displayDriver, vSidebar } = require('./core/modules');
 
 
 vApp = async () => {

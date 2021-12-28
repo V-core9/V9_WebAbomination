@@ -6,7 +6,7 @@ const base_hero_00 = {
         return `<div class="section_side">
                     <h1>${section.title}</h1>
                     <h2>${section.subtitle}</h2>
-                    <button id="mainButtonClick" onclick="${section.button.do}">${section.button.text}</button>
+                    <button id="mainButtonClick" action="${section.button.do}">${section.button.text}</button>
                 </div>
                 <div class="section_side">
                     <v_logo></v_logo>
@@ -17,10 +17,10 @@ const base_hero_00 = {
                     .base_hero_00 {
                         align-items: center;
                         color: #fff;
-                        height: calc(100vh - 2em);
                         align-items: center;
                         flex-direction: column-reverse;
                         gap: 1em;
+                        padding: 1em;
                     }
                     .base_hero_00 .section_side {
                         display: flex;
@@ -37,23 +37,37 @@ const base_hero_00 = {
                     }
 
                     .base_hero_00 .section_side h1 {
-                        font-size: 2em;
+                        font-size: 1.65em;
+                        margin:  0;
+                        line-height: 1.25em;
                     }
                     
                     .base_hero_00 .section_side h2 {
-                        font-size: 1.25em;
-                        line-height: 1.25em;
+                        font-size: 1.05em;
+                        line-height: 1.15em;
                     }
 
                     v_logo {
-                        width: 100%;
-                        height: 100%;
+                        width: 75vw;
+                        height: 75vw;
                     }
-                    
+
+                    .base_hero_00 author {
+                        color: white;
+                        background: #2196f3;
+                        padding: .1em .25em;
+                    }
 
                 @media screen and (min-width: 768px) {
                     .base_hero_00 {
                         flex-direction: row;
+                        height: calc(100vh - 2em);
+                    }
+
+                    
+                    v_logo {
+                        width: 90%;
+                        height: auto;
                     }
                 }
 
@@ -68,7 +82,7 @@ const base_hero_00 = {
             //V_Logo.setWidth(size/2);
             //V_Logo.setHeight(size/2);
             V_Logo.printLogo('v_logo');
-        }, 250);
+        }, 100);
     }
 };
 

@@ -4,7 +4,7 @@ const base_hero_01 = {
         return `<div class="section_side">
                     <h1>${section.title}</h1>
                     <h2>${section.subtitle}</h2>
-                    <button id="mainButtonClick" onclick="${section.button.do}">${section.button.text}</button>
+                    <button action="${section.button.do}">${section.button.text}</button>
                 </div>
                 <div class="section_side">
                     <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}"/>

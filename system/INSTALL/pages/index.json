@@ -22,8 +22,6 @@
             "type": "head_navigation_01",
             "boxed" : false,
             "data": {
-                "title": "Welcome to V-core9.com!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "SUPPORT",
                     "do": "mainNavigationToggle"
@@ -34,11 +32,11 @@
             "type": "base_hero_00",
             "boxed" : true,
             "data": {
-                "title": "Welcome to V-core9.com!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
+                "title": "<author>V9_WEB</author> Abomination.",
+                "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
                 "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction"
+                    "text": "Register",
+                    "do": "mainNavigationToggle"
                 },
                 "image": {
                     "width": 360,
