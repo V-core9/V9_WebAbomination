@@ -38,6 +38,7 @@ module.exports = async (req, res, name) => {
             </v_page>
                 
             <script type="text/javascript" src="/js/v_app.js"></script>
+            <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7f9e2ed989846079d9c494b70e87bb0"}'></script><!-- End Cloudflare Web Analytics -->
             </body>
             </html>
         `);
