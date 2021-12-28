@@ -18,7 +18,7 @@ module.exports = {
     port: process.env.PORT || 2500,
     viewport: `width=device-width`,
     compression: true,
-    ContentSecurityPolicy: `script-src 'self'`, 
+    ContentSecurityPolicy: `script-src 'self' 'unsafe-inline' *.googletagmanager.com `, 
     ObjectSecurityPolicy: `object-src 'self'` ,
     tables: require('./tables'),
     static_dirs : [

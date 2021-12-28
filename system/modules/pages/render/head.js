@@ -15,6 +15,16 @@ const render_head = async (data) => {
     <link rel="apple-touch-icon" href="/logo.svg">
     <meta name="theme-color" content="lime"/>
     <link rel="stylesheet" href="/style/css/app.css"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNS24XQB29"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FNS24XQB29');
+    </script>
 </head>`;
 };
 
