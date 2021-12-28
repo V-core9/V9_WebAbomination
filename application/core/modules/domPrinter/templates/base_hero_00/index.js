@@ -15,9 +15,48 @@ const base_hero_00 = {
     css: () => {
         return `<style>
                     .base_hero_00 {
-                        background: #101525;
-                        color: white;
+                        align-items: center;
+                        color: #fff;
+                        height: calc(100vh - 2em);
+                        align-items: center;
+                        flex-direction: column-reverse;
+                        gap: 1em;
                     }
+                    .base_hero_00 .section_side {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1em;
+                        flex: 1;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                    
+                    .base_hero_00 .section_side button {
+                        margin: 0;
+                    }
+
+                    .base_hero_00 .section_side h1 {
+                        font-size: 2em;
+                    }
+                    
+                    .base_hero_00 .section_side h2 {
+                        font-size: 1.25em;
+                        line-height: 1.25em;
+                    }
+
+                    v_logo {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+
+                @media screen and (min-width: 768px) {
+                    .base_hero_00 {
+                        flex-direction: row;
+                    }
+                }
+
                 </style>`;
     },
     disabled: false,
@@ -25,6 +64,9 @@ const base_hero_00 = {
     onload: () => {
         console.log('[base_hero_00 :: onload]');
         setTimeout(() => {
+            //const size = document.querySelector('v_page').getBoundingClientRect().width;
+            //V_Logo.setWidth(size/2);
+            //V_Logo.setHeight(size/2);
             V_Logo.printLogo('v_logo');
         }, 250);
     }

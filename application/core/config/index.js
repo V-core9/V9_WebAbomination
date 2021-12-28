@@ -1,3 +1,3 @@
 module.exports = {
-    mainColorScheme  : "dark"
+    mainColorScheme  : "custom_alt"
 };

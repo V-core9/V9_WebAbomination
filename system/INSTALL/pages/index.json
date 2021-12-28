@@ -19,13 +19,26 @@
     "layout": "boxed",
     "sections": [
         {
-            "type": "base_hero_00",
+            "type": "head_navigation_01",
+            "boxed" : false,
             "data": {
-                "title": "XXXXXXXXXXXXXX!",
+                "title": "Welcome to V-core9.com!",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
+                    "do": "mainNavigationToggle"
+                }
+            }
+        },
+        {
+            "type": "base_hero_00",
+            "boxed" : true,
+            "data": {
+                "title": "Welcome to V-core9.com!",
+                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
+                "button": {
+                    "text": "SUPPORT",
+                    "do": "testCallbackFunction"
                 },
                 "image": {
                     "width": 360,
@@ -41,16 +54,17 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "Welcome to the WebTech Demo!",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
+                    "do": "testCallbackFunction"
                 },
                 "image": {
-                    "width": 360,
-                    "height": 360,
+                    "width": 300,
+                    "height": 300,
                     "url": "/logo.svg",
                     "alt": "YEAAA MIKI"
                 },
@@ -62,6 +76,7 @@
         },
         {
             "type": "base_about_us_01",
+            "boxed" : true,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",
@@ -74,13 +89,14 @@
         },
         {
             "type": "base_newsletter_01",
+            "boxed" : true,
             "data": {
                 "title": "Join Our NEWSLETTER >>",
                 "subtitle": "Get hot info about latest features, updates, and much more.",
                 "text": "Of course, the design of your newsletter will depend on your brand, as well as the message. For instance, you might want to create a colorful, attention-grabbing newsletter!",
                 "button": {
                     "text": "Joi3n Today3!",
-                    "do": "testCallbackFunction()",
+                    "do": "testCallbackFunction",
                     "style": {
                         "background": "orange",
                         "color": "red",
@@ -100,16 +116,17 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "Checkout the Web_DEMO App",
                 "subtitle": "Running using Vanilla JS exported through WebPack...",
                 "button": {
                     "text": "Open Demo",
-                    "do": "testCallbackFunction()"
+                    "do": "testCallbackFunction"
                 },
                 "image": {
-                    "width": 800,
-                    "height": 450,
+                    "width": 320,
+                    "height": 180,
                     "url": "/nodejs.png",
                     "alt": "vWebDemo App 2021"
                 },
@@ -121,6 +138,7 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "3333 SECTION 3333 TITLE",
                 "subtitle": "3333333S3pace3 hold3e3r3 33for subtit3e..3..",
@@ -131,11 +149,11 @@
                         "color": "red",
                         "size": "L"
                     },
-                    "do": "testCallbackFunction()"
+                    "do": "testCallbackFunction"
                 },
                 "image": {
-                    "width": 650,
-                    "height": 400,
+                    "width": 300,
+                    "height": 185,
                     "url": "/logo.svg",
                     "alt": "YEAAA MIKI"
                 },
@@ -147,6 +165,7 @@
         },
         {
             "type": "base_hero_alt_01",
+            "boxed" : true,
             "data": {
                 "title": "Welcome to the WebTech Demo!",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
@@ -155,8 +174,8 @@
                     "do": "testCallbackFunction()"
                 },
                 "image": {
-                    "width": 360,
-                    "height": 360,
+                    "width": 300,
+                    "height": 300,
                     "url": "/nodejs.png",
                     "alt": "YEAAA MIKI"
                 },
@@ -168,6 +187,7 @@
         },
         {
             "type": "base_about_us_01",
+            "boxed" : true,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",

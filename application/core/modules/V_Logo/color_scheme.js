@@ -20,7 +20,7 @@ module.exports = {
         mainBg: "#000000",
     },
     custom_alt: {
-        main: "#FFFFFF",
+        main: "#03A9F4",
         box: "#FFFFFF",
         line: "#FFFFFF",
         mainBg: "#005a9e",

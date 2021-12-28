@@ -13,15 +13,14 @@ const base_newsletter_01 = {
     css() {
         return `<style>
                 
-                .page_section.base_newsletter_01 {
+                .base_newsletter_01 {
                     background: repeating-linear-gradient(219deg, #252939, transparent 100px);
                     box-shadow: 0 0 10px inset black;
                     padding: 2em;
-                    max-width: 760px;
                     margin: 0 auto;
                 }
                 
-                .page_section.base_newsletter_01 .section_side {
+                .base_newsletter_01 .section_side {
                     max-width: 50%;
                     display: flex;
                     flex-direction: column;
@@ -29,7 +28,7 @@ const base_newsletter_01 = {
                     flex: 1;
                 }
                 
-                .page_section.base_newsletter_01 h3 {
+                .base_newsletter_01 h3 {
                     font-size: 1.25em;
                     color: #03A9F4;
                     display: inline-flex;
@@ -38,14 +37,14 @@ const base_newsletter_01 = {
                     box-shadow: 0 5px 10px black;
                 }
                 
-                .page_section.base_newsletter_01 p {
+                .base_newsletter_01 p {
                     display: inline-flex;
                     background: #ffffff1a;
                     width: fit-content;
                     box-shadow: 0 5px 10px black;
                 }
                 
-                input[type="text"] {
+                .base_newsletter_01 input[type="text"] {
                     font-size: 1em;
                     padding: 1em;
                     background: #00000042;
@@ -56,7 +55,7 @@ const base_newsletter_01 = {
                     font-weight: bold;
                 }
                 
-                button {
+                .base_newsletter_01 button {
                     width: fit-content;
                     margin: 0 auto;
                     font-size: 1.15em;

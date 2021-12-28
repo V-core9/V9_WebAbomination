@@ -150,7 +150,7 @@
     ry: 3.5;
     cx: 12.5;
     cy: 12;
-    stroke: lime;
+    stroke: #03A9F4;
     transform-origin: calc(50% + 2.5px) calc(50% + 2px);
     animation: mymove 2.5s infinite linear;
     stroke-dasharray: 2, 1, 2, 1, 2, 1;
@@ -158,7 +158,7 @@
   
   #svgPointer polyline, #svgPointer line, #svgPointer path {
     fill: none;
-    stroke: lime;
+    stroke: #03A9F4;
     stroke-linecap: round;
     stroke-linejoin: round;
     -webkit-transition: 0.1s;
@@ -166,12 +166,12 @@
   }
   
   #svgPointer path.outline {
-    fill: rgba(31, 244, 3, 0.25);
+    fill: rgba(3, 79, 244, 0.25);
   }
   
   #svgPointer.clicking path.outline {
     fill: black;
-    stroke: lime;
+    stroke: #03A9F4;
   }
   
   #svgPointer.clicking ellipse#svg_14 {

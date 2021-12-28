@@ -29,7 +29,6 @@ const base_hero_alt_01 = {
                 .base_hero_alt_01 {
                     gap: 1em;
                     position: relative;
-                    max-width: 960px;
                     margin: 0 auto;
                     align-items: stretch;
                     padding: 1em;

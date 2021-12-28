@@ -176,7 +176,7 @@ const vDisplayDriver = {
                 }
             }
 
-            document.querySelector(vDisplayDriver.config.selector).innerHTML += `<div id="${uid}" class="page_section ${section.type}"></div>`;
+            document.querySelector(vDisplayDriver.config.selector).innerHTML += `<div id="${uid}" class="${section.boxed ? 'page_section' : ''} ${section.type}"></div>`;
 
             section.elemID = uid;
             section.lastUpdate = Date.now();

@@ -18,6 +18,7 @@
     "sections": [
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "COMING SOON!",
                 "subtitle": "<author>V-core9</author> about us page spaceholder. Stay tuned there is bunch of stuff to add.",
@@ -39,6 +40,7 @@
         },
         {
             "type": "base_about_us_01",
+            "boxed" : true,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",
@@ -51,6 +53,7 @@
         },
         {
             "type": "base_newsletter_01",
+            "boxed" : true,
             "data": {
                 "title": "Join Our NEWSLETTER >>",
                 "subtitle": "Get hot info about latest features, updates, and much more.",
@@ -77,6 +80,7 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "Checkout the Web_DEMO App",
                 "subtitle": "Running using Vanilla JS exported through WebPack...",
@@ -95,65 +99,6 @@
                     "url": "#302010"
                 }
             }
-        },
-        {
-            "type": "base_hero_01",
-            "data": {
-                "title": "3333 SECTION 3333 TITLE",
-                "subtitle": "3333333S3pace3 hold3e3r3 33for subtit3e..3..",
-                "button": {
-                    "text": "Joi3n Today3!",
-                    "style": {
-                        "background": "orange",
-                        "color": "red",
-                        "size": "L"
-                    },
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 650,
-                    "height": 400,
-                    "url": "/logo.svg",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
-                }
-            }
-        },
-        {
-            "type": "base_hero_alt_01",
-            "data": {
-                "title": "Welcome to the WebTech Demo!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 360,
-                    "height": 360,
-                    "url": "/nodejs.png",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
-        },
-        {
-            "type": "base_about_us_01",
-            "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
-                "background": {
-                    "type": "image",
-                    "url": "/test.svg"
-                }
-            }
-        }
+        }        
     ]
 }

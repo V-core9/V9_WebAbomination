@@ -21,7 +21,7 @@ const V_Logo = {
         elem_id: "v_logo",        // [ <string> ]      * just an ID to add to elem
         color_scheme: vColorsScheme[mainColorScheme],     // [ light || dark || custom ]
         drawing_delay: 100,       // [ miliseconds ] 
-        size: "custom",           // [ parent || custom ]   
+        size: "parent",           // [ parent || custom ]   
         disable_animated_part: false
     },
     

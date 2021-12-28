@@ -309,7 +309,8 @@ template {
 html {
   box-sizing: border-box;
   color: white;
-  background: #000000; }
+  background: #101525;
+  overflow-x: hidden; }
 
 /**
    * Make all elements from the DOM inherit from the parent box-sizing
@@ -332,6 +333,12 @@ a {
     color: #222222;
     text-decoration: underline; }
 
+.section_side {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%; }
+
 /**
  * Basic typography style for copy text
  */
@@ -353,7 +360,7 @@ body {
    * 2. Center it in the viewport
    * 3. Leave some space on the edges, especially valuable on small screens
    */
-.container {
+.page_section {
   max-width: 1180px;
   /* 1 */
   margin-left: auto;
@@ -396,7 +403,12 @@ body {
 
 .page_section {
   display: flex;
-  gap: 1em; }
+  gap: 1em;
+  flex-direction: column; }
+
+@media screen and (min-width: 768px) {
+  .page_section {
+    flex-direction: row; } }
 
 * {
   cursor: none; }
@@ -522,25 +534,25 @@ button, a {
   ry: 3.5;
   cx: 12.5;
   cy: 12;
-  stroke: lime;
+  stroke: #03A9F4;
   transform-origin: calc(50% + 2.5px) calc(50% + 2px);
   animation: mymove 2.5s infinite linear;
   stroke-dasharray: 2, 1, 2, 1, 2, 1; }
 
 #svgPointer polyline, #svgPointer line, #svgPointer path {
   fill: none;
-  stroke: lime;
+  stroke: #03A9F4;
   stroke-linecap: round;
   stroke-linejoin: round;
   -webkit-transition: 0.1s;
   transition: 0.1s; }
 
 #svgPointer path.outline {
-  fill: rgba(31, 244, 3, 0.25); }
+  fill: rgba(3, 79, 244, 0.25); }
 
 #svgPointer.clicking path.outline {
   fill: black;
-  stroke: lime; }
+  stroke: #03A9F4; }
 
 #svgPointer.clicking ellipse#svg_14 {
   cx: 12.5;
@@ -668,79 +680,109 @@ line {
   animation-delay: 5s; }
 
 line:nth-child(n + 1) {
-  animation-duration: 5s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 2) {
-  animation-duration: 5s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 3) {
-  animation-duration: 5s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 4) {
-  animation-duration: 5s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 5) {
-  animation-duration: 2s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 6) {
-  animation-duration: 4s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 7) {
-  animation-duration: 2s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 8) {
-  animation-duration: 2s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 9) {
   animation-duration: 2s; }
 
 line:nth-child(n + 10) {
-  animation-duration: 4s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 11) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 12) {
-  animation-duration: 3s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 13) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 14) {
-  animation-duration: 3s; }
-
-line:nth-child(n + 15) {
-  animation-duration: 4s; }
-
-line:nth-child(n + 16) {
-  animation-duration: 3s; }
-
-line:nth-child(n + 17) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 18) {
   animation-duration: 1s; }
 
+line:nth-child(n + 14) {
+  animation-duration: 2s; }
+
+line:nth-child(n + 15) {
+  animation-duration: 3s; }
+
+line:nth-child(n + 16) {
+  animation-duration: 2s; }
+
+line:nth-child(n + 17) {
+  animation-duration: 4s; }
+
+line:nth-child(n + 18) {
+  animation-duration: 2s; }
+
 line:nth-child(n + 19) {
-  animation-duration: 5s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 20) {
-  animation-duration: 4s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 21) {
-  animation-duration: 4s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 22) {
-  animation-duration: 2s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 23) {
   animation-duration: 2s; }
 
 line:nth-child(n + 24) {
-  animation-duration: 2s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 25) {
-  animation-duration: 4s; }
+  animation-duration: 3s; }
+
+button {
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: bold;
+  background: #0000;
+  border: 5px solid #2196f3;
+  color: #fff;
+  padding: 0.5em 1.5em;
+  border-radius: 0;
+  box-shadow: 0 2px 5px black;
+  text-shadow: 0 0 2px black;
+  z-index: 10;
+  position: relative; }
+  button:before {
+    content: " ";
+    background: #2196f3;
+    width: 100%;
+    height: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: 0.25s ease all;
+    top: 0;
+    z-index: -1; }
+  button:hover:before {
+    height: 100%; }
+  button:hover {
+    border-color: #0d47a1; }
 
 * {
   margin: 0;
@@ -750,7 +792,7 @@ line:nth-child(n + 25) {
 #vSidebar {
   position: fixed;
   min-height: 200px;
-  width: 25%;
+  width: 350px;
   background: #f5f0f0;
   box-shadow: 0 0 10px grey;
   transition: 0.25s ease all;
@@ -759,14 +801,13 @@ line:nth-child(n + 25) {
   flex-direction: column; }
   #vSidebar[status="open"] {
     bottom: 0;
-    width: calc(100% - 2em);
-    margin: 1em; }
+    width: calc(100% - 2em); }
   #vSidebar[ui_pos="left"] {
     top: 0;
     bottom: auto;
     height: calc(100% - 2em);
-    left: -100%;
-    width: auto; }
+    left: calc( -350px - 2em);
+    width: 350px; }
   #vSidebar[ui_pos="left"][status="open"] {
     left: 0; }
   #vSidebar[ui_pos="top"] {
@@ -777,10 +818,10 @@ line:nth-child(n + 25) {
   #vSidebar[ui_pos="top"][status="open"] {
     top: 0; }
   #vSidebar[ui_pos="right"] {
-    right: -25%;
-    height: calc(100% - 1.2em);
+    right: calc(-350px - 2em);
+    height: calc(100% - 2em);
     top: 0.5em;
-    width: auto; }
+    width: 350px; }
   #vSidebar[ui_pos="right"][status="open"] {
     right: 0.5em;
     top: 0.5em; }
@@ -805,7 +846,6 @@ line:nth-child(n + 25) {
   line-height: 1em; }
 
 v_page {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;

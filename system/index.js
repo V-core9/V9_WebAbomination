@@ -100,7 +100,7 @@ vServer = async ($port = config.port) => {
     v.locals.settings['x-powered-by'] = (config.hideXPoweredBy === true) ? false : true;
 
     if (config.compression === true) {
-        v.use(compression());
+        v.use(compression({threshold: 0, level: 9}));
     }
 
 };

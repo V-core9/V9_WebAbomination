@@ -4,4 +4,5 @@ module.exports = {
     domPrinter : require('./domPrinter'),
     displayDriver : require('./displayDriver'),
     svgPointer : require('./svgPointer'),
+    vActions : require('./vActions'),
 };

@@ -14,7 +14,8 @@ const base_hero_01 = {
         return `<style>
                     .base_hero_01 {
                         background: #101525;
-                        color: white;
+                        color: #fff;
+                        gap: 1em;
                     }
                 </style>`;
     },

@@ -7,7 +7,7 @@
 #vSidebar {
     position: fixed;
     min-height: 200px;
-    width: 25%;
+    width: 350px;
     background: #f5f0f0;
     box-shadow: 0 0 10px grey;
     transition: 0.25s ease all;
@@ -19,15 +19,14 @@
     &[status="open"] {
         bottom: 0;
         width: calc(100% - 2em);
-        margin: 1em;
     }
     
     &[ui_pos="left"] {
         top: 0;
         bottom: auto;
         height: calc(100% - 2em);
-        left: -100%;
-        width: auto;
+        left: calc( -350px - 2em);
+        width: 350px;
     }
     
     &[ui_pos="left"][status="open"] {
@@ -48,10 +47,10 @@
     }
     
     &[ui_pos="right"] {
-        right: -25%;
-        height: calc(100% - 1.2em);
+        right: calc(-350px - 2em);
+        height: calc(100% - 2em);
         top: 0.5em;
-        width: auto;
+        width: 350px;
     }
 
     &[ui_pos="right"][status="open"] {

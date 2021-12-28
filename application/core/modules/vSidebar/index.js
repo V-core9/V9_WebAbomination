@@ -27,10 +27,6 @@ const vSidebar = {
 
         document.querySelector('body').innerHTML += '<div class="v_block" id="' + vSidebar.settings.elem_id + '" ui_pos="' + vSidebar.settings.ui_pos + '" status="'+(vSidebar.settings.open === true ? 'open' : 'closed') + '"><div class="header"><h2>Sidebar</h2></div><v_dbg_box></v_dbg_box></div>';
 
-        
-        window.onclick = () => {
-            vSidebar.toggleUI();
-        };
     }
 
 };

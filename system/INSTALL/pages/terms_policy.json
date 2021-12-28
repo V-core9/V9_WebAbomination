@@ -16,6 +16,7 @@
     "sections": [
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "Welcome to the WebTech Demo!",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
@@ -37,6 +38,7 @@
         },
         {
             "type": "base_about_us_01",
+            "boxed" : true,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",
@@ -49,6 +51,7 @@
         },
         {
             "type": "base_newsletter_01",
+            "boxed" : true,
             "data": {
                 "title": "Join Our NEWSLETTER >>",
                 "subtitle": "Get hot info about latest features, updates, and much more.",
@@ -75,6 +78,7 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "Checkout the Web_DEMO App",
                 "subtitle": "Running using Vanilla JS exported through WebPack...",
@@ -96,6 +100,7 @@
         },
         {
             "type": "base_hero_01",
+            "boxed" : true,
             "data": {
                 "title": "3333 SECTION 3333 TITLE",
                 "subtitle": "3333333S3pace3 hold3e3r3 33for subtit3e..3..",
@@ -122,8 +127,9 @@
         },
         {
             "type": "base_hero_alt_01",
+            "boxed" : true,
             "data": {
-                "title": "Welcome to the WebTech Demo!",
+                "title": "Terms and Conditions",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "SUPPORT",
@@ -143,6 +149,7 @@
         },
         {
             "type": "base_about_us_01",
+            "boxed" : true,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",
