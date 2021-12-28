@@ -680,7 +680,7 @@ line {
   animation-delay: 5s; }
 
 line:nth-child(n + 1) {
-  animation-duration: 4s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 2) {
   animation-duration: 5s; }
@@ -689,70 +689,70 @@ line:nth-child(n + 3) {
   animation-duration: 2s; }
 
 line:nth-child(n + 4) {
-  animation-duration: 5s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 5) {
   animation-duration: 1s; }
 
 line:nth-child(n + 6) {
-  animation-duration: 5s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 7) {
-  animation-duration: 4s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 8) {
-  animation-duration: 3s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 9) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 10) {
   animation-duration: 1s; }
 
 line:nth-child(n + 11) {
-  animation-duration: 2s; }
+  animation-duration: 1s; }
 
 line:nth-child(n + 12) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 13) {
-  animation-duration: 4s; }
-
-line:nth-child(n + 14) {
-  animation-duration: 3s; }
-
-line:nth-child(n + 15) {
-  animation-duration: 4s; }
-
-line:nth-child(n + 16) {
-  animation-duration: 1s; }
-
-line:nth-child(n + 17) {
   animation-duration: 2s; }
 
-line:nth-child(n + 18) {
+line:nth-child(n + 14) {
   animation-duration: 4s; }
+
+line:nth-child(n + 15) {
+  animation-duration: 3s; }
+
+line:nth-child(n + 16) {
+  animation-duration: 3s; }
+
+line:nth-child(n + 17) {
+  animation-duration: 5s; }
+
+line:nth-child(n + 18) {
+  animation-duration: 5s; }
 
 line:nth-child(n + 19) {
   animation-duration: 4s; }
 
 line:nth-child(n + 20) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 21) {
-  animation-duration: 3s; }
-
-line:nth-child(n + 22) {
   animation-duration: 4s; }
 
+line:nth-child(n + 22) {
+  animation-duration: 2s; }
+
 line:nth-child(n + 23) {
-  animation-duration: 3s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 24) {
   animation-duration: 3s; }
 
 line:nth-child(n + 25) {
-  animation-duration: 3s; }
+  animation-duration: 2s; }
 
 button {
   width: fit-content;
@@ -831,15 +831,26 @@ button {
     flex-direction: column;
     overflow: auto; }
   #vSidebar .header {
-    padding: 1em;
     background: #ebebeb;
-    color: white;
-    box-shadow: 0 0 5px gray;
-    z-index: 25; }
+    color: #fff;
+    box-shadow: 0 0 5px grey;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
     #vSidebar .header h2 {
       font-size: 1.125em;
       font-family: monospace;
-      color: #545454; }
+      color: #545454;
+      padding: 0.25em 0.5em; }
+    #vSidebar .header button[action='mainNavigationToggle'] {
+      color: #2196f3;
+      border: 1px solid gray;
+      border-left: 4px #9b9b9b dashed;
+      box-shadow: none; }
+      #vSidebar .header button[action='mainNavigationToggle']:hover {
+        color: white;
+        border-color: #fefefe; }
 
 * {
   margin: 0;

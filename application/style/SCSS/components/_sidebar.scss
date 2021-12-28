@@ -65,17 +65,34 @@
         overflow: auto;
     }
 
-    .header {
-        padding: 1em;
+    .header { 
         background: #ebebeb;
-        color: white;
-        box-shadow: 0 0 5px gray;
+        color: #fff;
+        box-shadow: 0 0 5px grey;
         z-index: 25;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         h2 {
             font-size: 1.125em;
             font-family: monospace;
             color: #545454;
+            padding: 0.25em 0.5em;
+        }
+
+        
+        button[action='mainNavigationToggle'] {
+            color: #2196f3;
+            border: 1px solid gray;
+            border-left: 4px #9b9b9b dashed;
+            box-shadow: none;
+            
+            &:hover {
+                color: white;
+                border-color: #fefefe;
+            }
         }
     }
 }
+

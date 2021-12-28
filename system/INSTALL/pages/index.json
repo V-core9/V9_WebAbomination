@@ -23,7 +23,7 @@
             "boxed" : false,
             "data": {
                 "button": {
-                    "text": "SUPPORT",
+                    "text": "[=]",
                     "do": "mainNavigationToggle"
                 }
             }
