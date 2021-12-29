@@ -23,6 +23,8 @@ const vDD = {
         try {
             this.data.page = page;
             this.initPrint();
+            console.log('DISPLAY DRIVER LOAD PAGE');
+            this.loadPage();
             return true;
         } catch (error) {
             return error;
@@ -100,7 +102,8 @@ const vDD = {
                         //console.log('Is ' + element.elemID + ' visible? NO')
                         //element.onLoadDone = false;
                         element.done = false;
-                        helpElem.style.minHeight = helpElem.getBoundingClientRect().height + "px";
+                        var helperHeight = helpElem.getBoundingClientRect().height;
+                        helpElem.style.minHeight = (helperHeight !== 0)? helperHeight : 50 + "px";
                         helpElem.innerHTML = "";
                         notYetDone++;
                     }

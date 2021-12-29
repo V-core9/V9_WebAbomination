@@ -1,38 +1,21 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 
-const vDB = require('v_database');
-
-// Configs
 const config = require('./config');
 
+const vDB = require('v_database');
 const vApi = require('./$_API');
 const v_action = require('./actions');
+const {headMiddleware} = require('./helpers');
 
-
+// Express Things
 const express = require('express');
 const bodyParser = require('body-parser');
 var compression = require('compression');
 
-
 const v = express();
 
-v.use(bodyParser.urlencoded({ extended: true }));
-v.use(bodyParser.json());
-
-v.disable('etag');
-
-v.use(async (req, res, next) => {
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-    res.setHeader("Content-Security-Policy", "default-src 'self' 'unsafe-inline' ; connect-src https://cloudflareinsights.com/cdn-cgi/rum  https://www.google-analytics.com/* ; script-src 'self' 'unsafe-inline' *.googletagmanager.com  ");
-    res.setHeader("X-Frame-Options", "SAMEORIGIN");
-    res.setHeader("X-Content-Type-Options", "nosniff");
-    res.setHeader("X-XSS-Protection", "1; mode=block");
-    res.setHeader('X-Powered-By', config.info.name + '.' + config.info.version + '.' + config.info.codename);
-    next();
-});
 
 vServer = async ($port = config.port) => {
-
 
     //? API V1 Root
     v.get(vApi.api_root, vApi.root);
@@ -81,6 +64,21 @@ vServer = async ($port = config.port) => {
 
     //! EOF_PAGES
 
+    
+    v.use(headMiddleware);
+    
+    if (config.compression === true) {
+        v.use(compression({threshold: 0, level: 9}));
+    }    
+
+    v.use(bodyParser.urlencoded({ extended: true }));
+    v.use(bodyParser.json());
+    v.disable('etag');
+
+    v._router.strict = (config.strictRouter === true) ? true : false;
+    v.locals.settings.env = (config.env === 'production' || config.env === 'development') ? config.env : 'production';
+    v.locals.settings['x-powered-by'] = (config.hideXPoweredBy === true) ? false : true;
+
 
     //? [ STATIC-DIRS ]>- - - - - -
     config.static_dirs.forEach(dir => {
@@ -88,22 +86,10 @@ vServer = async ($port = config.port) => {
     });
     //! EOF_STATIC-DIRS
 
-
     //! START
     v.listen($port, async () => {
         console.log(`Example app listening at http://localhost:${$port}`);
     });
-
-
-    v._router.strict = (config.strictRouter === true) ? true : false;
-    v.locals.settings.env = (config.env === 'production' || config.env === 'development') ? config.env : 'production';
-    v.locals.settings['x-powered-by'] = (config.hideXPoweredBy === true) ? false : true;
-
-    if (config.compression === true) {
-        v.use(compression({threshold: 0, level: 9}));
-    }
-
 };
-
 
 module.exports = vServer;

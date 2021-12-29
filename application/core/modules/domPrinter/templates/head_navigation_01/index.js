@@ -1,3 +1,5 @@
+const vSidebar = require('../../../vSidebar');
+
 const head_navigation_01 = {
     name: "head_navigation_01",
     view: (section = { title: null, subtitle: null, button: { do: null, text: null } }) => {
@@ -56,6 +58,9 @@ const head_navigation_01 = {
     author: "-v-",
     onload: () => {
         console.log('[head_navigation_01 :: onload]');
+        
+        console.log('Sidebar INIT');
+        vSidebar.init();
     },
 };
 
