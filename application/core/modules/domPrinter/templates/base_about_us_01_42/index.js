@@ -8,7 +8,7 @@ const base_about_us_01_42 = {
                     </div>
                     <div class="section_side inline_items">
                         <ultra>${section.text}</ultra>
-                        <button action='mainNavigationToggle'>${section.linkText}</button>
+                        <button action='mainNavToggle'>${section.linkText}</button>
                     </div>
                 </div>`;
     },

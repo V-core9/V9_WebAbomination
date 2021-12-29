@@ -22,6 +22,8 @@ const head_navigation_01 = {
                     justify-content: space-between;
                     width: 100%;
                     align-items: center;
+                    position: fixed;
+                    top: 0;
                 }
 
                 .head_navigation_01 h1 {

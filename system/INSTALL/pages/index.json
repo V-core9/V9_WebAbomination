@@ -24,7 +24,7 @@
             "data": {
                 "button": {
                     "text": "[=]",
-                    "do": "mainNavigationToggle"
+                    "do": "mainNavToggle"
                 }
             }
         },
@@ -36,7 +36,7 @@
                 "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
                 "button": {
                     "text": "Register",
-                    "do": "mainNavigationToggle"
+                    "do": "mainNavToggle"
                 },
                 "image": {
                     "width": 360,
@@ -164,7 +164,7 @@
         },
         {
             "type": "base_about_us_01",
-            "boxed" : true,
+            "boxed" : false,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",

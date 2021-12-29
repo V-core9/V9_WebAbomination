@@ -8,7 +8,7 @@
     position: fixed;
     min-height: 200px;
     width: 350px;
-    background: #f5f0f0;
+    background: #101525f2;
     box-shadow: 0 0 10px grey;
     transition: 0.25s ease all;
     overflow: hidden;
@@ -65,10 +65,10 @@
         overflow: auto;
     }
 
-    .header { 
-        background: #ebebeb;
-        color: #fff;
-        box-shadow: 0 0 5px grey;
+    .header {
+        background: #0e121e;
+        color: #fff; 
+        border-bottom: 2px solid #000;
         z-index: 25;
         display: flex;
         align-items: center;
@@ -85,14 +85,14 @@
         h2 {
             font-size: 1.125em;
             font-family: monospace;
-            color: #545454;
+            color: White;
             padding: 0.25em 0.5em;
         }
 
         
         button {
             color: #787878;
-            border: 1px solid #808080;
+            border: none;
             box-shadow: none;
             padding: .5em;
             text-shadow: none;

@@ -28,7 +28,7 @@ const vSidebar = {
                                                             </branding>
                                                             <actions>
                                                                 <button action="fullscreenToggle">💻</button>
-                                                                <button action="mainNavigationToggle">✖</button>
+                                                                <button action="mainNavToggle">✖</button>
                                                             </actions>
                                                         </div>
                                                         <content></content>

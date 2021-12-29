@@ -22,7 +22,7 @@
             "data": {
                 "button": {
                     "text": "[=]",
-                    "do": "mainNavigationToggle"
+                    "do": "mainNavToggle"
                 }
             }
         },

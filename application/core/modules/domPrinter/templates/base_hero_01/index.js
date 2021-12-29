@@ -13,7 +13,6 @@ const base_hero_01 = {
     css: () => {
         return `
                 .base_hero_01 {
-                    background: #101525;
                     color: #fff;
                     gap: 1em;
                     padding: 5em 0;

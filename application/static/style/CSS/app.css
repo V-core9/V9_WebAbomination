@@ -848,14 +848,14 @@ button {
       font-family: monospace;
       color: #545454;
       padding: 0.25em 0.5em; }
-    #vSidebar .header button[action='mainNavigationToggle'] {
+    #vSidebar .header button[action='mainNavToggle'] {
       color: #787878;
       border: 1px solid #808080;
       border-left: 4px #9b9b9b dashed;
       box-shadow: none;
       padding: .5em;
       text-shadow: none; }
-      #vSidebar .header button[action='mainNavigationToggle']:hover {
+      #vSidebar .header button[action='mainNavToggle']:hover {
         color: white;
         border-color: #fefefe; }
 
