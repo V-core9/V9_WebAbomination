@@ -1,4 +1,5 @@
 const vSidebar = require('../vSidebar');
+const cookieMonster = require('../cookieMonster');
 
 const vActions = {
     mainNavToggle: vSidebar.toggleUI,
@@ -65,7 +66,12 @@ const vActions = {
         
         fetch("https://v-core9.com/api/v1/auth/login", requestOptions)
             .then(response => response.text())
-            .then(result => alert(result))
+            .then(result => {
+                result = JSON.parse(result);
+                alert(result.accessToken);
+                cookieMonster.setCookie('accessToken', result.accessToken, 5);
+                cookieMonster.setCookie('refreshToken', result.refreshToken, 262800);
+            })
             .catch(error => console.log('error', error));
     }
 };

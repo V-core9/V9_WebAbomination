@@ -5,4 +5,5 @@ module.exports = {
     vDD : require('./vDD'),
     svgPointer : require('./svgPointer'),
     vActions : require('./vActions'),
+    cookieMonster : require('./cookieMonster'),
 };
