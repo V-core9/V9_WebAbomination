@@ -28,12 +28,9 @@ const login_base_01 = {
                     gap: 1em;
                     padding: 0;
                     justify-content: space-evenly;
-                    height: calc(100vh - 3em);
+                    flex: 1;
                 }
 
-                v_block[type="row"] {
-                    flex-direction: row;
-                }
                 
                 .login_base_01 h1 {
                     margin: 0;
@@ -42,9 +39,9 @@ const login_base_01 = {
                     text-align: center;
                     display: flex;
                     align-items: center;
-                    gap: .25em;
                     box-shadow: 0 0 65px #2196f3 inset;
-                    padding-bottom: 1em;
+                    padding: 2em;
+                    gap: 1em;
                 }
                 
                 .login_base_01 .section_side input {

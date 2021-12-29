@@ -7,10 +7,26 @@ const register_base_01 = {
                 </div>
                 <div class="section_side form">
                     <h1>${section.title}</h1>
-                    <input type="text" placeholder="Username" name="username" required/>
-                    <input type="password" placeholder="Password" name="password" required/>
-                    <input type="password" placeholder="Confirm Password" name="confirm_password" required/>
-                    <input type="email" placeholder="Email" name="email" required/>
+                    <v_block>
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="Username" name="username" required/>
+                    </v_block>
+                    <v_block>
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="Password" name="password" required/>
+                    </v_block>
+                    <v_block>
+                        <label for="confirm_password">Confirmation Password</label>
+                        <input type="password" placeholder="Confirm Password" name="confirm_password" required/>
+                    </v_block>
+                    <v_block>
+                        <label for="Email">Email</label>
+                        <input type="email" placeholder="Email" name="email" required/>
+                    </v_block>
+                    <v_block type='row'>
+                        <input type="checkbox" id="accepts_terms" name="accepts_terms" >
+                        <label for="accepts_terms">Accept Terms of Use</label>
+                    </v_block>
                     <button action="newUserRegister">Register</button>
                 </div>`;
     },
@@ -19,8 +35,9 @@ const register_base_01 = {
                 .register_base_01 {
                     color: #fff;
                     gap: 1em;
-                    padding: 5em 0;
                     justify-content: space-evenly;
+                    flex-direction: column-reverse;
+                    padding: 0;
                 }
 
                 .register_base_01 .section_side {
@@ -31,9 +48,10 @@ const register_base_01 = {
                     flex: 0;
                 }
                 .register_base_01 .section_side.form {
-                    padding: 2em;
                     box-shadow: 0 0 65px #2196f3 inset;
                     outline: .5em #0d101c solid;
+                    height: calc(100% - 3em);
+                    padding: 1em 0;
                 }
                 
                 .register_base_01 .section_side.form input {

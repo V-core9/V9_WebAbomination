@@ -13,7 +13,6 @@ v_page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     color: white;
     padding-top: 3em;
@@ -25,7 +24,11 @@ v_page {
         align-items: baseline;
         gap: .25em;
         margin: 0;
-        padding: .5em 1em;
+        padding: .15em 1em;
+        
+        &[type="row"] {
+            flex-direction: row;
+        }
 
         header {
             padding: 0.5em 1em;
