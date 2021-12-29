@@ -2,7 +2,7 @@ module.exports = {
     vSidebar : require('./vSidebar'),
     V_Logo : require('./V_Logo'),
     domPrinter : require('./domPrinter'),
-    displayDriver : require('./displayDriver'),
+    vDD : require('./vDD'),
     svgPointer : require('./svgPointer'),
     vActions : require('./vActions'),
 };

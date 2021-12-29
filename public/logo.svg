@@ -1,4 +1,4 @@
-<svg id="v_logo" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<svg id="v_logo" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" >
   <rect width="4" height="4" stroke="#FFFFFF" fill="transparent"></rect>
   <rect width="4" height="4" x="16" stroke="#FFFFFF" fill="transparent"></rect>
   <rect width="4" height="4" x="8" y="16" stroke="#FFFFFF" fill="transparent"></rect>

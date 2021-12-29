@@ -9,48 +9,48 @@ const head_navigation_01 = {
                 </div>`;
     },
     css: () => {
-        return `<style>
-                    .head_navigation_01 {
-                        background: #070a14;
-                        padding: .5em;
-                        color: #fff;
-                        gap: 1em;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        width: 100%;
-                        align-items: center;
-                    }
+        return `
+                .head_navigation_01 {
+                    background: #070a14;
+                    padding: .5em;
+                    color: #fff;
+                    gap: 1em;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+                    align-items: center;
+                }
 
-                    .head_navigation_01 h1 {
-                        margin: 0;
-                        font-size: 18px;
-                    }
+                .head_navigation_01 h1 {
+                    margin: 0;
+                    font-size: 18px;
+                }
 
-                    .head_navigation_01 button {
-                        margin: 0;
-                        padding: 0.25em;
-                        font-size: 16px;
-                    }
+                .head_navigation_01 button {
+                    margin: 0;
+                    padding: 0.25em;
+                    font-size: 16px;
+                }
 
-                    .head_navigation_01 .no_flex {
-                        flex:0;
-                    }
+                .head_navigation_01 .no_flex {
+                    flex:0;
+                }
 
-                    .logo_link {
-                        display: flex;
-                        gap: .5em;
-                        align-items: center;
-                        color: #fff;
-                        padding: 0.25em;
-                        width: fit-content;
-                    }
+                .logo_link {
+                    display: flex;
+                    gap: .5em;
+                    align-items: center;
+                    color: #fff;
+                    padding: 0.25em;
+                    width: fit-content;
+                }
 
-                    .logo_link:hover, .logo_link:active, .logo_link:focus {
-                        color: white;
-                        background: #2196f3;
-                    }
-                </style>`;
+                .logo_link:hover, .logo_link:active, .logo_link:focus {
+                    color: white;
+                    background: #2196f3;
+                }
+                `;
     },
     disabled: false,
     author: "-v-",

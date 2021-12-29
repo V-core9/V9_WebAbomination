@@ -13,7 +13,7 @@ const base_hero_00 = {
                 </div>`;
     },
     css: () => {
-        return `<style>
+        return `
                     .base_hero_00 {
                         align-items: center;
                         color: #fff;
@@ -71,18 +71,15 @@ const base_hero_00 = {
                     }
                 }
 
-                </style>`;
+                `;
     },
     disabled: false,
     author: "-v-",
     onload: () => {
         console.log('[base_hero_00 :: onload]');
         setTimeout(() => {
-            //const size = document.querySelector('v_page').getBoundingClientRect().width;
-            //V_Logo.setWidth(size/2);
-            //V_Logo.setHeight(size/2);
             V_Logo.printLogo('v_logo');
-        }, 100);
+        }, 300);
     }
 };
 

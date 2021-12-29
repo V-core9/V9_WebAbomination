@@ -1,19 +1,17 @@
-const { svgPointer, displayDriver, vSidebar } = require('./core/modules');
+const { svgPointer, vDD, vSidebar } = require('./core/modules');
 
 
 vApp = async () => {
     if (typeof this.bootStatus === "undefined") this.bootStatus = null;
-    this.displayDriver = displayDriver;
-    this.svgPointer = svgPointer;
 
     this.boot = async () => {
         console.log("[-IN_PROGRESS-] :: V_Application Boot Starting >->-> ");
     
         console.log('PAGE DATA TO DISPLAY DRIVER');
-        displayDriver.page = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
+        vDD.page = JSON.parse(document.querySelector("meta[name='Vc9_Page']").getAttribute("content"));
     
         console.log('DISPLAY DRIVER LOAD PAGE');
-        displayDriver.loadPage();
+        vDD.loadPage();
         
         console.log('Sidebar INIT');
         svgPointer.init();

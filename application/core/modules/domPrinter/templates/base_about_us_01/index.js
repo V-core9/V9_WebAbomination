@@ -8,7 +8,17 @@ const base_about_us_01 = {
                 </div>`;
     },
     css() {
-        return `<style>
+        return `
+                .base_about_us_01 {
+                    width: 100%;
+                    background: #0d101c;
+                    border-top: 10px dashed #101525;
+                    border-bottom: 10px dashed #101525;
+                    margin: 5em 0;
+                    box-shadow: 0 0 5em black;
+                    padding: 2em 0;
+                }
+                
                 .base_about_us_01 .section_full {
                     align-items: center;
                     justify-content: center;
@@ -40,7 +50,7 @@ const base_about_us_01 = {
                     letter-spacing: 1px;
                     text-shadow: 0 0 10px #03a9f4;
                 }
-            </style>`;
+                `;
     },
     disabled: false,
     author: "-v-"

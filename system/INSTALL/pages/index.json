@@ -51,37 +51,16 @@
             }
         },
         {
-            "type": "base_hero_01",
-            "boxed" : true,
+            "type": "base_about_us_01_42",
+            "boxed" : false,
             "data": {
-                "title": "Welcome to the WebTech Demo!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction"
-                },
-                "image": {
-                    "width": 300,
-                    "height": 300,
-                    "url": "/logo.svg",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
-        },
-        {
-            "type": "base_about_us_01",
-            "boxed" : true,
-            "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
+                "title": "Who we are?",
+                "subtitle": "What is the meaning of life?",
+                "text": "42",
+                "linkText": "Read more",
                 "background": {
                     "type": "image",
-                    "url": "/logo.svg"
+                    "url": "/test.svg"
                 }
             }
         },

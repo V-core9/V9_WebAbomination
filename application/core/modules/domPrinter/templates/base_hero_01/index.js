@@ -11,13 +11,22 @@ const base_hero_01 = {
                 </div>`;
     },
     css: () => {
-        return `<style>
-                    .base_hero_01 {
-                        background: #101525;
-                        color: #fff;
-                        gap: 1em;
-                    }
-                </style>`;
+        return `
+                .base_hero_01 {
+                    background: #101525;
+                    color: #fff;
+                    gap: 1em;
+                    padding: 5em 0;
+                }
+
+                .base_hero_01 .section_side {
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                    padding: 2em;
+                }
+                `;
     },
     disabled: false,
     author: "-v-",

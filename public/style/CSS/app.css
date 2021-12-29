@@ -680,37 +680,37 @@ line {
   animation-delay: 5s; }
 
 line:nth-child(n + 1) {
-  animation-duration: 3s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 2) {
-  animation-duration: 5s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 3) {
-  animation-duration: 2s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 4) {
-  animation-duration: 1s; }
+  animation-duration: 4s; }
 
 line:nth-child(n + 5) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 6) {
-  animation-duration: 1s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 7) {
-  animation-duration: 5s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 8) {
-  animation-duration: 1s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 9) {
-  animation-duration: 5s; }
+  animation-duration: 3s; }
 
 line:nth-child(n + 10) {
-  animation-duration: 1s; }
+  animation-duration: 4s; }
 
 line:nth-child(n + 11) {
-  animation-duration: 1s; }
+  animation-duration: 2s; }
 
 line:nth-child(n + 12) {
   animation-duration: 5s; }
@@ -722,37 +722,37 @@ line:nth-child(n + 14) {
   animation-duration: 4s; }
 
 line:nth-child(n + 15) {
-  animation-duration: 3s; }
+  animation-duration: 4s; }
 
 line:nth-child(n + 16) {
-  animation-duration: 3s; }
+  animation-duration: 5s; }
 
 line:nth-child(n + 17) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 18) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 19) {
-  animation-duration: 4s; }
-
-line:nth-child(n + 20) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 21) {
-  animation-duration: 4s; }
-
-line:nth-child(n + 22) {
-  animation-duration: 2s; }
-
-line:nth-child(n + 23) {
-  animation-duration: 5s; }
-
-line:nth-child(n + 24) {
   animation-duration: 3s; }
 
-line:nth-child(n + 25) {
+line:nth-child(n + 18) {
+  animation-duration: 3s; }
+
+line:nth-child(n + 19) {
   animation-duration: 2s; }
+
+line:nth-child(n + 20) {
+  animation-duration: 1s; }
+
+line:nth-child(n + 21) {
+  animation-duration: 2s; }
+
+line:nth-child(n + 22) {
+  animation-duration: 5s; }
+
+line:nth-child(n + 23) {
+  animation-duration: 4s; }
+
+line:nth-child(n + 24) {
+  animation-duration: 2s; }
+
+line:nth-child(n + 25) {
+  animation-duration: 1s; }
 
 button {
   width: fit-content;
@@ -808,7 +808,7 @@ button {
     bottom: auto;
     height: calc(100% - 1em);
     left: calc( -350px - 2em);
-    width: 350px; }
+    width: calc(100% - 1em); }
   #vSidebar[ui_pos="left"][status="open"] {
     left: 0; }
   #vSidebar[ui_pos="top"] {
@@ -819,10 +819,10 @@ button {
   #vSidebar[ui_pos="top"][status="open"] {
     top: 0; }
   #vSidebar[ui_pos="right"] {
-    right: calc(-350px - 2em);
-    height: calc(100% - 1em);
     top: 0.5em;
-    width: 350px; }
+    right: calc(-100% - 2em);
+    height: calc(100% - 1em);
+    width: calc(100% - 1em); }
   #vSidebar[ui_pos="right"][status="open"] {
     right: 0.5em;
     top: 0.5em; }
@@ -838,16 +838,23 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between; }
+    #vSidebar .header branding {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.5em; }
     #vSidebar .header h2 {
       font-size: 1.125em;
       font-family: monospace;
       color: #545454;
       padding: 0.25em 0.5em; }
     #vSidebar .header button[action='mainNavigationToggle'] {
-      color: #2196f3;
-      border: 1px solid gray;
+      color: #787878;
+      border: 1px solid #808080;
       border-left: 4px #9b9b9b dashed;
-      box-shadow: none; }
+      box-shadow: none;
+      padding: .5em;
+      text-shadow: none; }
       #vSidebar .header button[action='mainNavigationToggle']:hover {
         color: white;
         border-color: #fefefe; }

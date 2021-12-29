@@ -17,6 +17,16 @@
     },
     "sections": [
         {
+            "type": "head_navigation_01",
+            "boxed" : false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavigationToggle"
+                }
+            }
+        },
+        {
             "type": "base_hero_01",
             "boxed" : true,
             "data": {
@@ -24,7 +34,7 @@
                 "subtitle": "<author>V-core9</author> about us page spaceholder. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "Contact Us",
-                    "do": "testCallbackFunction()"
+                    "do": "testCallbackFunction"
                 },
                 "image": {
                     "width": 360,
@@ -40,7 +50,7 @@
         },
         {
             "type": "base_about_us_01",
-            "boxed" : true,
+            "boxed" : false,
             "data": {
                 "title": "Example About Us Section",
                 "subtitle": "Some Random Text To Fill In Data",
@@ -60,7 +70,7 @@
                 "text": "Of course, the design of your newsletter will depend on your brand, as well as the message. For instance, you might want to create a colorful, attention-grabbing newsletter!",
                 "button": {
                     "text": "Joi3n Today3!",
-                    "do": "testCallbackFunction()",
+                    "do": "testCallbackFunction",
                     "style": {
                         "background": "orange",
                         "color": "red",

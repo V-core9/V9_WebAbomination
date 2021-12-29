@@ -11,11 +11,12 @@ const base_hero_alt_01 = {
                 </div>`;
     },
     css: () => {
-        return `<style>
+        return `
                 .base_hero_alt_01 {
                     background: #101525;
                     color: white;
                 }
+                
                 .base_hero_alt_01 author {
                     background: #0000006e;
                 }
@@ -62,7 +63,7 @@ const base_hero_alt_01 = {
                     background: #c30000;
                     box-shadow: 0 5px 5px black;
                 }
-            </style>`;
+                `;
     },
     disabled: false,
     author: "-v-"

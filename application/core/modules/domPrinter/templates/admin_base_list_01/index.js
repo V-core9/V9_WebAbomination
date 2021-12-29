@@ -9,7 +9,7 @@ const admin_base_list_01 = {
                 <div class="section_side onload_data"></div>`;
     },
     css: () => {
-        return `<style>
+        return `
                 .admin_base_list_01 {
                     background: #101525;
                     color: white;
@@ -43,7 +43,7 @@ const admin_base_list_01 = {
                     background: #ffffff05;
                     box-shadow: 0 1.5px 4px #008eff1f;
                 }
-            </style>`;
+                `;
     },
     onload: () => {
         var dataList = (typeof appConfigPageInfo !== "undefined") ? appConfigPageInfo : null;

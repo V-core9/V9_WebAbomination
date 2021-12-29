@@ -11,15 +11,14 @@ const base_newsletter_01 = {
                 </div>`;
     },
     css() {
-        return `<style>
-                
+        return `                
                 .base_newsletter_01 {
                     background: repeating-linear-gradient(219deg, #252939, transparent 100px);
                     box-shadow: 0 0 10px inset black;
                     padding: 2em;
                     margin: 0 auto;
                 }
-                
+
                 .base_newsletter_01 .section_side {
                     max-width: 50%;
                     display: flex;
@@ -27,7 +26,7 @@ const base_newsletter_01 = {
                     gap: 1em;
                     flex: 1;
                 }
-                
+
                 .base_newsletter_01 h3 {
                     font-size: 1.25em;
                     color: #03A9F4;
@@ -36,14 +35,14 @@ const base_newsletter_01 = {
                     width: fit-content;
                     box-shadow: 0 5px 10px black;
                 }
-                
+
                 .base_newsletter_01 p {
                     display: inline-flex;
                     background: #ffffff1a;
                     width: fit-content;
                     box-shadow: 0 5px 10px black;
                 }
-                
+
                 .base_newsletter_01 input[type="text"] {
                     font-size: 1em;
                     padding: 1em;
@@ -54,7 +53,7 @@ const base_newsletter_01 = {
                     border: 1px solid #03A9F4;
                     font-weight: bold;
                 }
-                
+
                 .base_newsletter_01 button {
                     width: fit-content;
                     margin: 0 auto;
@@ -67,7 +66,7 @@ const base_newsletter_01 = {
                     box-shadow: 0 2px 5px black;
                     text-shadow: 0 0 2px black;
                 }
-            </style>`;
+                `;
     },
     disabled: false,
     author: "-v-"
