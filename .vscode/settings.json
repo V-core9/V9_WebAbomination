@@ -11,7 +11,13 @@
         ".editorconfig": true,
         ".jshintrc": true,
         ".gitignore": true,
-        "package-lock.json": true
+        "package-lock.json": true,
+        ".github": true,
+        "nodemon.json": true,
+        "webpack.config.js": true,
+        "README.md": true,
+        "$_HELP": true,
+        "public": true
     },
     "explorerExclude.backup": null
 }
