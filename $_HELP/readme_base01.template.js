@@ -4,8 +4,8 @@ const install = require('./readme_base01.install');
 
 const main_readme_template = {
     file_name: "README.md",
-    scroll_title: "🧾 V_Scrolls - README.md",
-    scroll_info: "Basically generates MD files...so a Markdown generator...pack data where ever you want and just use this to organize it how file will be printed.",
+    scroll_title: "🚀 V9_WebAbomination",
+    scroll_info: "Custom solution that uses bunch of custom stuff just to show custom things. Yea! :D ",
     layout: [
         description,
         install,

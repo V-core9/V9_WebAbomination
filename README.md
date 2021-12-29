@@ -1,7 +1,7 @@
-# **🧾 V_Scrolls - README.md**    
+# **🚀 V9_WebAbomination**    
  
 
- **Description**: _Basically generates MD files...so a Markdown generator...pack data where ever you want and just use this to organize it how file will be printed._  
+ **Description**: _Custom solution that uses bunch of custom stuff just to show custom things. Yea! :D _  
   
 >---  
 >### 🚧 **WARNING: APPLICATION STILL IN 🧱 [ALPHA] **  🚧  
@@ -28,12 +28,30 @@ Currently only through the github repo can be installed...
 Look into system folder for more info about project structure. 
     
     These are some important folders that are used when generating this document:
+
+    Application: 
+      📁 application /
+      📁 application / core /
+      📁 application / static /
+      📁 application / style /
+      
+    Created on the run...
+      📁 public /
+
+    Server and API:
       📁 system /
+      📁 system / $_API /
+      📁 system / actions /
       📁 system / config /
       📁 system / helpers /
-      📁 system / info_pages /
+
+    Installation, seeds that provide pages:
+      📁 system / INSTALL /
+      📁 system / INSTALL / pages /
+      📁 system / INSTALL / sitemaps /
+
+    Modules:
       📁 system / modules /
-      📁 system / modules / vDebugger /
       📁 system / modules / vPages /         
 
 ---
@@ -41,4 +59,4 @@ Look into system folder for more info about project structure.
 > ⛔ Any Edits Done To Generated Files Will Be Overwritten Next Time These Files Get Re-Generated!  
 >  
 > _Made 💖 using [v_scrolls]("https://github.com/V-core9/v_scrolls")_      
-> Last Updated:  2021/12/10 09:51:47 
+> Last Updated:  2021/12/29 12:41:30 
