@@ -1,7 +1,9 @@
 # **🚀 V9_WebAbomination**    
  
 
- **Description**: _Custom solution that uses bunch of custom stuff just to show custom things. Yea! :D _  
+ **Description**: _Custom solution that uses bunch of custom stuff just to show custom things. Yea! :D  
+##Badges 
+[![CodeQL](https://github.com/V-core9/V9_WebAbomination/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/V-core9/V9_WebAbomination/actions/workflows/codeql-analysis.yml) [![OSSAR](https://github.com/V-core9/V9_WebAbomination/actions/workflows/ossar-analysis.yml/badge.svg)](https://github.com/V-core9/V9_WebAbomination/actions/workflows/ossar-analysis.yml) [![njsscan sarif](https://github.com/V-core9/V9_WebAbomination/actions/workflows/njsscan-analysis.yml/badge.svg)](https://github.com/V-core9/V9_WebAbomination/actions/workflows/njsscan-analysis.yml)_  
   
 >---  
 >### 🚧 **WARNING: APPLICATION STILL IN 🧱 [ALPHA] **  🚧  
@@ -59,4 +61,4 @@ Look into system folder for more info about project structure.
 > ⛔ Any Edits Done To Generated Files Will Be Overwritten Next Time These Files Get Re-Generated!  
 >  
 > _Made 💖 using [v_scrolls]("https://github.com/V-core9/v_scrolls")_      
-> Last Updated:  2021/12/29 12:41:30 
+> Last Updated:  2021/12/29 13:02:56 
