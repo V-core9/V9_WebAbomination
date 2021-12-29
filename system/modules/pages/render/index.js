@@ -1,4 +1,4 @@
 module.exports = {
-    spa : require('./spa'),
-    ssr : require('./ssr')
+    render_page : require('./page'),
+    render_head : require('./head')
 };

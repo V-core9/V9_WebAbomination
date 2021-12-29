@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+#vSidebar {
+    position: fixed;
+    min-height: 200px;
+    width: 350px;
+    background: #f5f0f0;
+    box-shadow: 0 0 10px grey;
+    transition: 0.25s ease all;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+
+
+    &[status="open"] {
+        bottom: 0;
+        width: calc(100% - 2em);
+    }
+    
+    &[ui_pos="left"] {
+        top: 0;
+        bottom: auto;
+        height: calc(100% - 1em);
+        left: calc( -350px - 2em);
+        width: calc(100% - 1em);
+    }
+    
+    &[ui_pos="left"][status="open"] {
+        left: 0;
+    }
+    
+    &[ui_pos="top"] {
+        top: -100%;
+        left: 0;
+        width: calc(100% - 2em);
+        height: 200px;
+    
+        
+    }
+    
+    &[ui_pos="top"][status="open"] {
+        top: 0;
+    }
+    
+    &[ui_pos="right"] {
+        top: 0.5em;
+        right: calc(-100% - 2em);
+        height: calc(100% - 1em);
+        width: calc(100% - 1em);
+    }
+
+    &[ui_pos="right"][status="open"] {
+        right: 0.5em;
+        top: 0.5em;
+    }
+
+    v_dbg_box {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    .header { 
+        background: #ebebeb;
+        color: #fff;
+        box-shadow: 0 0 5px grey;
+        z-index: 25;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        branding {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.5em;
+        }
+        
+        h2 {
+            font-size: 1.125em;
+            font-family: monospace;
+            color: #545454;
+            padding: 0.25em 0.5em;
+        }
+
+        
+        button[action='mainNavigationToggle'] {
+            color: #787878;
+            border: 1px solid #808080;
+            border-left: 4px #9b9b9b dashed;
+            box-shadow: none;
+            padding: .5em;
+            text-shadow: none;
+            
+            &:hover {
+                color: white;
+                border-color: #fefefe;
+            }
+        }
+    }
+}
+

@@ -15,15 +15,55 @@
     "meta": {
         "description": "Send few signals to V-core9.com"
     },
-    "$_page": [
+    "sections": [
         {
-            "type": "hero",
-            "title": "Contact Us",
-            "subtitle": "Contact More Contact V-core9.com",
-            "image": "https://v-core9.com/images/v-core9-logo.png",
-            "image_alt": "V-core9 Logo",
-            "image_width": 350,
-            "image_height": 350
+            "type": "base_newsletter_01",
+            "boxed" : true,
+            "data": {
+                "title": "Join Our NEWSLETTER >>",
+                "subtitle": "Get hot info about latest features, updates, and much more.",
+                "text": "Of course, the design of your newsletter will depend on your brand, as well as the message. For instance, you might want to create a colorful, attention-grabbing newsletter!",
+                "button": {
+                    "text": "Joi3n Today3!",
+                    "do": "testCallbackFunction()",
+                    "style": {
+                        "background": "orange",
+                        "color": "red",
+                        "size": "L"
+                    }
+                },
+                "image": {
+                    "width": 50,
+                    "height": 50,
+                    "url": "/logo.svg"
+                },
+                "background": {
+                    "type": "image",
+                    "url": "/logo.svg"
+                }
+            }
+        },
+        {
+            "type": "base_hero_01",
+            "boxed" : true,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction()"
+                },
+                "image": {
+                    "width": 800,
+                    "height": 450,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
         }
     ]
 }

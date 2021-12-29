@@ -3,7 +3,6 @@ const generate_sitemap = require('./generate_sitemap');
 const blog = require('./blog');
 
 const v_action = {
-    setXPoweredBy: require('./setXPoweredBy'),
     blog: require('./blog'),
     index: async (req, res) => {
         v_render(req, res, 'index');
