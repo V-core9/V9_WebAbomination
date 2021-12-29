@@ -2,6 +2,13 @@ const vSidebar = require('../vSidebar');
 
 const vActions = {
     mainNavigationToggle: vSidebar.toggleUI,
+    fullscreenToggle: () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
+    },
 };
 
 

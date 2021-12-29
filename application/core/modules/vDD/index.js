@@ -79,13 +79,12 @@ const vDD = {
                                 element.render = vDomPrinter.getTemplate(element);
                                 element.timeOfRender = Date.now();
                                 helpElem.innerHTML = element.render;
-                                helpElem.style.minHeight = helpElem.clientHeight + "px";
+                                //helpElem.style.minHeight = helpElem.clientHeight + "px";
                                 vDD.maybeLoadStyle(element.type);
-                                element.done = true;
                             } else {
                                 helpElem.innerHTML = element.render;
-                                element.done = true;
                             }
+                            element.done = true;
                         }
 
                         if (!element.onloadDone) {
@@ -97,23 +96,15 @@ const vDD = {
                             element.onLoadDone = true;
                         }
 
-                    } else {
-                        if (element.done) element.render = helpElem.innerHTML;
-                        //console.log('Is ' + element.elemID + ' visible? NO')
-                        //element.onLoadDone = false;
-                        element.done = false;
-                        var helperHeight = helpElem.getBoundingClientRect().height;
-                        helpElem.style.minHeight = (helperHeight !== 0)? helperHeight : 50 + "px";
-                        helpElem.innerHTML = "";
-                        notYetDone++;
-                    }
+                    } 
+                    if (element.done !== true) notYetDone++;
                 });
             }
         }
 
         if (notYetDone === 0) {
             console.log('Done! Detaching scroll event listener...');
-            //window.removeEventListener("scroll", this.handler);
+            window.removeEventListener("scroll", vDD.handler);
         }
     },
 
@@ -181,7 +172,7 @@ const vDD = {
                 }
             }
 
-            document.querySelector(vDD.config.selector).innerHTML += `<div id="${uid}" class="${section.boxed ? 'page_section' : ''} ${section.type}"></div>`;
+            document.querySelector(vDD.config.selector).innerHTML += `<div id="${uid}" class="${section.boxed ? 'page_section' : ''} ${section.type}" style='min-height: 50px'></div>`;
 
             section.elemID = uid;
             section.lastUpdate = Date.now();

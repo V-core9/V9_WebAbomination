@@ -59,7 +59,7 @@
         top: 0.5em;
     }
 
-    v_dbg_box {
+    content {
         display: flex;
         flex-direction: column;
         overflow: auto;
@@ -90,10 +90,9 @@
         }
 
         
-        button[action='mainNavigationToggle'] {
+        button {
             color: #787878;
             border: 1px solid #808080;
-            border-left: 4px #9b9b9b dashed;
             box-shadow: none;
             padding: .5em;
             text-shadow: none;
