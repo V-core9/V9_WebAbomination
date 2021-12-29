@@ -3,10 +3,20 @@ const login_base_01 = {
     view: (section = { title: null, subtitle: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null } }) => {
         return `
                 <div class="section_side">
-                    <img src="${section.image.url}" width="65%" height="100%" alt="${section.image.alt}"/>
+                    <img src="${section.image.url}" width="35%" height="100%" alt="${section.image.alt}"/>
                     <h1>${section.title}</h1>
-                    <input type="text" placeholder="Username" name="username" required/>
-                    <input type="password" placeholder="Password" name="password" required/>
+                    <v_block>
+                        <label for="perm_login">Username</label>
+                        <input type="text" placeholder="V_core9" name="username" required/>
+                    </v_block>
+                    <v_block>
+                        <label for="perm_login">Password</label>
+                        <input type="password" placeholder="AzQ1@4488B" name="password" required/>
+                    </v_block>
+                    <v_block type='row'>
+                        <input type="checkbox" id="perm_login" name="perm_login" >
+                        <label for="perm_login">Remember Me</label>
+                    </v_block>
                     <button action="loginUser">Login</button>
                 </div>
                 `;
@@ -18,17 +28,23 @@ const login_base_01 = {
                     gap: 1em;
                     padding: 0;
                     justify-content: space-evenly;
+                    height: calc(100vh - 3em);
                 }
 
+                v_block[type="row"] {
+                    flex-direction: row;
+                }
+                
+                .login_base_01 h1 {
+                    margin: 0;
+                }
                 .login_base_01 .section_side {
                     text-align: center;
                     display: flex;
                     align-items: center;
-                    gap: 1em;
-                    flex: 0;
-                    padding: 1em;
+                    gap: .25em;
                     box-shadow: 0 0 65px #2196f3 inset;
-                    outline: .5em #0d101c solid;
+                    padding-bottom: 1em;
                 }
                 
                 .login_base_01 .section_side input {
@@ -44,6 +60,29 @@ const login_base_01 = {
                 .login_base_01 .section_side input:hover {
                     background: #2196f3;
                 }
+
+                @media screen and (min-width: 768px) {
+                    
+                    .login_base_01 {
+                        color: #fff;
+                        gap: 1em;
+                        padding: 0;
+                        justify-content: space-evenly;
+                        height: auto;
+                    }
+
+                    .login_base_01 .section_side {
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        gap: 1em;
+                        flex: 0;
+                        padding: 1em;
+                        box-shadow: 0 0 65px #2196f3 inset;
+                        outline: .5em #0d101c solid;
+                    }
+                }
+
                 `;
     },
     disabled: false,

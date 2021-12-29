@@ -31,7 +31,13 @@ const vSidebar = {
                                                                 <button action="mainNavToggle">✖</button>
                                                             </actions>
                                                         </div>
-                                                        <content></content>
+                                                        <content>
+                                                            <a href="/home">🚗 Home</a>
+                                                            <a href="/about">🌈 About us</a>
+                                                            <a href="/contact">💌 Contact</a>
+                                                            <a href="/login">🔐 Login</a>
+                                                            <a href="/register">🆔 Register</a>
+                                                        </content>
                                                         </div>`;
     }
 

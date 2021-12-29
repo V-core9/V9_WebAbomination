@@ -1,9 +1,39 @@
 const vSidebar = require('../vSidebar');
 const cookieMonster = require('../cookieMonster');
 
+login_success = async (result) => {
+    alert(result.accessToken);
+    cookieMonster.setCookie('accessToken', result.accessToken, 5);
+    cookieMonster.setCookie('refreshToken', result.refreshToken, 262800);
+};
+
+register_success = async (result) => {
+    alert(JSON.stringify(result));
+};
+
+api_req = async (path, data, type, callback) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var requestOptions = {
+        method: type,
+        headers: myHeaders,
+        body: data,
+        redirect: 'follow'
+    };
+    
+    fetch(path, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            result = JSON.parse(result);
+            callback(result);
+        })
+        .catch(error => console.log('error', error));
+};
+
 const vActions = {
     mainNavToggle: vSidebar.toggleUI,
-    fullscreenToggle: () => {
+    fullscreenToggle: async () => {
         if (document.fullscreenElement) {
             document.exitFullscreen();
         } else {
@@ -11,73 +41,39 @@ const vActions = {
         }
     },
 
-    gotoRegister: () => {
+    gotoRegister: async () => {
         window.location.href = '/register';
     },
 
-    newUserRegister: () => {
-        const username = document.querySelector("input[name='username']").value;
-        const password = document.querySelector("input[name='password']").value;
-        const confirmation = document.querySelector("input[name='confirm_password']").value;
-        const email = document.querySelector("input[name='email']").value;
-
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        
-        var raw = JSON.stringify({
-            "username": username,
-            "email": email,
-            "password": password,
-            "confirmation": confirmation
-        });
-        
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-        
-        fetch("https://v-core9.com/api/v1/auth/register", requestOptions)
-            .then(response => response.text())
-            .then(result => alert(result))
-            .catch(error => console.log('error', error));
+    gotoLogin: async () => {
+        window.location.href = '/login';
     },
 
-    loginUser : () => {
-        const username = document.querySelector("input[name='username']").value;
-        const password = document.querySelector("input[name='password']").value;
+    gotoHome: async () => {
+        window.location.href = '/home';
+    },
 
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        
+    newUserRegister: async () => {
         var raw = JSON.stringify({
-            "username": username,
-            "password": password
+            "username": document.querySelector("input[name='username']").value,
+            "email": document.querySelector("input[name='email']").value,
+            "password": document.querySelector("input[name='password']").value,
+            "confirmation": document.querySelector("input[name='confirm_password']").value
         });
-        
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-        
-        fetch("https://v-core9.com/api/v1/auth/login", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                result = JSON.parse(result);
-                alert(result.accessToken);
-                cookieMonster.setCookie('accessToken', result.accessToken, 5);
-                cookieMonster.setCookie('refreshToken', result.refreshToken, 262800);
-            })
-            .catch(error => console.log('error', error));
+        api_req("https://v-core9.com/api/v1/auth/register", raw, 'POST', register_success);
+    },
+
+    loginUser : async () => {
+        var raw = JSON.stringify({
+            "username": document.querySelector("input[name='username']").value,
+            "password": document.querySelector("input[name='password']").value
+        });
+        api_req("https://v-core9.com/api/v1/auth/login", raw, 'POST', login_success);
     }
 };
 
 
-window.onclick = (e) => {
+window.onclick = async (e) => {
     const actionName = e.target.getAttribute('action');
     if (typeof vActions[actionName] === 'function') {
         vActions[e.target.getAttribute('action')]();

@@ -19,10 +19,13 @@ v_page {
     padding-top: 3em;
 
     v_block {
-        margin: 1em;
         display: flex;
         flex-direction: column;
         box-shadow: 0 5px 5px #10203010;
+        align-items: baseline;
+        gap: .25em;
+        margin: 0;
+        padding: .5em 1em;
 
         header {
             padding: 0.5em 1em;

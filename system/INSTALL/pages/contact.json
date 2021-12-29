@@ -17,6 +17,16 @@
     },
     "sections": [
         {
+            "type": "head_navigation_01",
+            "boxed" : false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
             "type": "base_newsletter_01",
             "boxed" : true,
             "data": {
