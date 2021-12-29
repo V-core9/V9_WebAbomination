@@ -12,7 +12,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var compression = require('compression');
 
+
 const v = express();
+
+    
+v.use(headMiddleware);
+    
+if (config.compression === true) {
+    v.use(compression({threshold: 0, level: 9}));
+}    
+
+v.use(bodyParser.urlencoded({ extended: true }));
+v.use(bodyParser.json());
+v.disable('etag');
 
 
 vServer = async ($port = config.port) => {
@@ -63,17 +75,6 @@ vServer = async ($port = config.port) => {
     });
 
     //! EOF_PAGES
-
-    
-    v.use(headMiddleware);
-    
-    if (config.compression === true) {
-        v.use(compression({threshold: 0, level: 9}));
-    }    
-
-    v.use(bodyParser.urlencoded({ extended: true }));
-    v.use(bodyParser.json());
-    v.disable('etag');
 
     v._router.strict = (config.strictRouter === true) ? true : false;
     v.locals.settings.env = (config.env === 'production' || config.env === 'development') ? config.env : 'production';

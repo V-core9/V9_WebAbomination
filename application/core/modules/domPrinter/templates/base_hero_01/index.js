@@ -23,7 +23,6 @@ const base_hero_01 = {
                     display: flex;
                     align-items: center;
                     gap: 1em;
-                    padding: 2em;
                 }
                 `;
     },

@@ -36,7 +36,7 @@
                 "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
                 "button": {
                     "text": "Register",
-                    "do": "mainNavToggle"
+                    "do": "gotoRegister"
                 },
                 "image": {
                     "width": 360,

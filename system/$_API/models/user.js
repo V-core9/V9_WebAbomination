@@ -1,7 +1,7 @@
 const v_database = require('v_database');
 const vDB = require('v_database');
 const vRF = require('v_rifier');
-const vTables = require('../../config/tables')
+const vTables = require('../../config/tables');
 
 const {register} = require('../data_templates');
 
