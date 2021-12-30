@@ -2,12 +2,56 @@ const v_database = require('v_database');
 const vDB = require('v_database');
 const vRF = require('v_rifier');
 const vTables = require('../../config/tables');
+const refreshTokens = require('../auth/_ref-tokens');
+const v_to_sha256 = require('v_to_sha256');
+
+
+const jwt = require('jsonwebtoken');
+const jwtConfig = require('../auth/config.jwt');
 
 const {register} = require('../data_templates');
 
 const userModel = {
-    login: async(data) => {
+    login: async (data) => {
 
+        const response = {
+            status: 400,
+            msg: "",
+            code: "",
+            errors: [],
+        };
+        // read username and password from request body
+        const { username, password } = data;
+    
+        // filter user from the users array by username and password
+        const user = await vDB.item.view(vTables.users, username);
+    
+        if (user) {
+            const pass_check = await v_to_sha256(password);
+            if (pass_check === user.password) {
+                // generate an access token
+                const accessToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
+                const refreshToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.refresh);
+    
+                refreshTokens.push(refreshToken);
+
+                response.status = 200;
+                response.msg = "Login Success";
+                response.code = "LOGIN_SUCCESS";
+                response.accessToken = accessToken;
+                response.refreshToken = refreshToken;
+    
+            } else {
+                response.status = 401;
+                response.msg = "Wrong Password";
+                response.code = "LOGIN_PASS";
+            }
+        } else {
+            response.status = 401;
+            response.msg = "User Not Found";
+            response.code = "LOGIN_USER";
+        }
+        return response;
     },
     register: async (data) => {
 
