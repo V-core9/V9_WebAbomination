@@ -58,6 +58,28 @@
                     "url": "/logo.svg"
                 }
             }
-        }     
+        },
+        {
+            "type": "footer_01",
+            "boxed" : true,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
+        }    
     ]
 }

@@ -95,28 +95,6 @@
             "type": "base_hero_01",
             "boxed" : true,
             "data": {
-                "title": "Checkout the Web_DEMO App",
-                "subtitle": "Running using Vanilla JS exported through WebPack...",
-                "button": {
-                    "text": "Open Demo",
-                    "do": "testCallbackFunction"
-                },
-                "image": {
-                    "width": 320,
-                    "height": 180,
-                    "url": "/nodejs.png",
-                    "alt": "vWebDemo App 2021"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#302010"
-                }
-            }
-        },
-        {
-            "type": "base_hero_01",
-            "boxed" : true,
-            "data": {
                 "title": "3333 SECTION 3333 TITLE",
                 "subtitle": "3333333S3pace3 hold3e3r3 33for subtit3e..3..",
                 "button": {
@@ -141,28 +119,6 @@
             }
         },
         {
-            "type": "base_hero_alt_01",
-            "boxed" : true,
-            "data": {
-                "title": "Welcome to the WebTech Demo!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 300,
-                    "height": 300,
-                    "url": "/nodejs.png",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
-        },
-        {
             "type": "base_about_us_01",
             "boxed" : false,
             "data": {
@@ -172,6 +128,28 @@
                 "background": {
                     "type": "image",
                     "url": "/test.svg"
+                }
+            }
+        },
+        {
+            "type": "footer_01",
+            "boxed" : true,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
                 }
             }
         }

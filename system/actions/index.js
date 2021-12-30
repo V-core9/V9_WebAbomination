@@ -3,7 +3,9 @@ const generate_sitemap = require('./generate_sitemap');
 const blog_post = require('./blog_post');
 
 const v_action = {
-    blog: require('./blog'),
+    blog: async (req, res) => {
+        v_render(req, res, 'blog');
+    },
     index: async (req, res) => {
         v_render(req, res, 'index');
     },
@@ -29,7 +31,7 @@ const v_action = {
         v_render(req, res, 'system_status');
     },
     statistics: async (req, res) => {
-        v_render(req, res, { page_name: 'statistics' });
+        v_render(req, res, 'statistics' );
     },
     sitemap: async (req, res) => {
         generate_sitemap(req, res);

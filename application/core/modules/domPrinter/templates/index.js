@@ -1,4 +1,5 @@
 const base_hero_01 = require("./base_hero_01");
+const footer_01 = require("./footer_01");
 const register_base_01 = require("./register_base_01");
 const head_navigation_01 = require("./head_navigation_01");
 const base_hero_00 = require("./base_hero_00");
@@ -21,5 +22,6 @@ module.exports = [
     admin_base_list_files_01,
     base_about_us_01_42,
     register_base_01,
-    login_base_01
+    login_base_01,
+    footer_01
 ];

@@ -29,10 +29,10 @@ module.exports = async (req, res, name) => {
     res.end(`
         <!DOCTYPE html>
             <html lang="${config.lang}">
-            ${await v_pages.render.render_head(data)}
+            ${await v_pages.render.head(data)}
             <body>
             <v_page> 
-            ${(data.bot === true && config.bot_ssr_render === true || config.forced_ssr_render === true) ? await v_pages.render.render_page(req, res, data) : ''}
+            ${(data.bot === true && config.bot_ssr_render === true || config.forced_ssr_render === true) ? await v_pages.render.page(req, res, data) : ''}
 
             </v_page>
                 
