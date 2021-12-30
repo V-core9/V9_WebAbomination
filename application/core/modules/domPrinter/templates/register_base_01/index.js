@@ -25,7 +25,7 @@ const register_base_01 = {
                     </v_block>
                     <v_block type='row'>
                         <input type="checkbox" id="accepts_terms" name="accepts_terms" >
-                        <label for="accepts_terms">Accept Terms of Use</label>
+                        <label for="accepts_terms">Accept <a href="/terms-policy">Terms of Use</a></label>
                     </v_block>
                     <button action="newUserRegister">Register</button>
                 </div>`;
@@ -66,6 +66,13 @@ const register_base_01 = {
                 
                 .register_base_01 .section_side.form input:hover {
                     background: #2196f3;
+                }
+
+                @media screen and (min-width: 768px) {
+                    .register_base_01 {
+                        flex-direction: row;
+                        padding: 2em 0;
+                    }
                 }
                 `;
     },

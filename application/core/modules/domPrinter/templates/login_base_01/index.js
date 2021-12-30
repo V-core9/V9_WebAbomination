@@ -3,7 +3,7 @@ const login_base_01 = {
     view: (section = { title: null, subtitle: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null } }) => {
         return `
                 <div class="section_side">
-                    <img src="${section.image.url}" width="35%" height="100%" alt="${section.image.alt}"/>
+                    <img src="${section.image.url}" width="35%"  alt="${section.image.alt}"/>
                     <h1>${section.title}</h1>
                     <v_block>
                         <label for="perm_login">Username</label>
@@ -31,10 +31,10 @@ const login_base_01 = {
                     flex: 1;
                 }
 
-                
                 .login_base_01 h1 {
                     margin: 0;
                 }
+
                 .login_base_01 .section_side {
                     text-align: center;
                     display: flex;
@@ -66,6 +66,8 @@ const login_base_01 = {
                         padding: 0;
                         justify-content: space-evenly;
                         height: auto;
+                        flex: 0;
+                        padding: 2em 0;
                     }
 
                     .login_base_01 .section_side {
