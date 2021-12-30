@@ -66,11 +66,20 @@ const vSeeds = [
         name: 'terms_policy',
         content: './pages/terms_policy.json'
     },
+    // BLOG ROOT
     {
         table: vTables.pages,
         name: 'blog',
         content: './pages/blog.json'
     },
+    // AUTHORS
+    {
+        table: vTables.pages,
+        name: 'authors',
+        content: './pages/authors.json'
+    },
+
+    // SITEMAPS
     {
         table: vTables.sitemaps,
         content: './sitemaps/authors.json'
@@ -91,6 +100,8 @@ const vSeeds = [
         table: vTables.authors,
         content: './authors/v9_admin.json'
     },
+
+    // BLOG POSTS
     {
         table: vTables.posts,
         name: "big_opening",
