@@ -53,6 +53,11 @@ const vSeeds = [
     },
     {
         table: vTables.pages,
+        name: 'sitemap_authors',
+        content: './pages/sitemap_authors.json'
+    },
+    {
+        table: vTables.pages,
         name: 'privacy_policy',
         content: './pages/privacy_policy.json'
     },
@@ -77,6 +82,24 @@ const vSeeds = [
     {
         table: vTables.sitemaps,
         content: './sitemaps/posts.json'
+    },
+    {
+        table: vTables.authors,
+        content: './authors/v-core9.json'
+    },
+    {
+        table: vTables.authors,
+        content: './authors/v9_admin.json'
+    },
+    {
+        table: vTables.posts,
+        name: "big_opening",
+        content: './posts/big_opening.json'
+    },
+    {
+        table: vTables.posts,
+        name: "sample_post",
+        content: './posts/sample_post.json'
     }
 ];
 

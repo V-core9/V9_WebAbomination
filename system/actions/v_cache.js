@@ -2,7 +2,7 @@
 const v_cache = {
     _items: {},
     cacheTime: 2500,
-    findByName: async (name) => {
+    get: async (name) => {
         try {
             var res = v_cache._items[name];
             return (res !== undefined) ? res : false;
@@ -10,7 +10,7 @@ const v_cache = {
             return false;
         }
     },
-    newItem: async (name, item) => {
+    save: async (name, item) => {
         v_cache._items[name] = item;
     },
     cache_time_check: async (item) => {

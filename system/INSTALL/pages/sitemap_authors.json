@@ -1,0 +1,16 @@
+{
+    "exec": "v_render",
+    "name": "sitemap_authors",
+    "path": "/author-sitemap.xml",
+    "alt_paths": [
+        "/author-sitemap",
+        "/author_sitemap",
+        "/author_sitemap.xml"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Authors Sitemap Index",
+    "meta": {
+        "description": "Sitemap of website Authors"
+    }
+}

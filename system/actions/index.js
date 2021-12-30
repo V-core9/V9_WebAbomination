@@ -1,6 +1,6 @@
 const v_render = require('../modules/pages/v_render');
 const generate_sitemap = require('./generate_sitemap');
-const blog = require('./blog');
+const blog_post = require('./blog_post');
 
 const v_action = {
     blog: require('./blog'),
@@ -43,6 +43,7 @@ const v_action = {
     sitemap_authors: async (req, res) => {
         generate_sitemap(req, res, 'authors');
     },
+    blog_post: blog_post,
 };
 
 module.exports = v_action;

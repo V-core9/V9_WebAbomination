@@ -3,6 +3,7 @@ const typePrefix = 'v9';
 
 const tables = {
     prefix :  typePrefix,
+    authors: 'authors',
     pages : 'pages',
     posts : 'posts',
     users : 'users',

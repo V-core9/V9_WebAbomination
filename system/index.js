@@ -74,6 +74,21 @@ vServer = async ($port = config.port) => {
         }
     });
 
+    //? POSTS
+    var posts = await vDB.item.view(config.tables.posts);
+    console.log(posts);
+    posts.forEach(async post => {
+        var data = await vDB.item.view(config.tables.posts, post);
+
+        //console.log(data);
+        v[data.type](data.path, v_action[data.name]);
+
+        if (data.alt_paths !== undefined) {
+            data.alt_paths.forEach(alt_path => {
+                v[data.type](alt_path, v_action[data.name]);
+            });
+        }
+    });
     //! EOF_PAGES
 
     v._router.strict = (config.strictRouter === true) ? true : false;
