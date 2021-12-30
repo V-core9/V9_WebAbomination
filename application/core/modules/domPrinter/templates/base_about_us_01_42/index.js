@@ -16,11 +16,7 @@ const base_about_us_01_42 = {
         return `
                 .base_about_us_01_42 {
                     width: 100%;
-                    background: #0d101c;
-                    border-top: 10px dashed #070a14;
-                    border-bottom: 10px dashed #070a14;
                     margin: 5em 0;
-                    box-shadow: 0 0 5em black;
                 }
 
                 .base_about_us_01_42 .section_side {

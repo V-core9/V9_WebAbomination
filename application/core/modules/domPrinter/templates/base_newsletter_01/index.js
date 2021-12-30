@@ -13,8 +13,6 @@ const base_newsletter_01 = {
     css() {
         return `                
                 .base_newsletter_01 {
-                    background: repeating-linear-gradient(219deg, #252939, transparent 100px);
-                    box-shadow: 0 0 10px inset black;
                     padding: 2em;
                     margin: 0 auto;
                 }
