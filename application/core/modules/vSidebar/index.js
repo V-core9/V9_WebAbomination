@@ -34,6 +34,10 @@ const vSidebar = {
                                                         <content>
                                                             <a href="/home">🚗 Home</a>
                                                             <a href="/about">🌈 About us</a>
+                                                            <a href="/blog">📰 Blog</a>
+                                                            <a href="/authors">🤼 Authors</a>
+                                                            <a href="/statistics">📊 Statistics</a>
+                                                            <a href="/system_status">🚀 System Status</a>
                                                             <a href="/contact">💌 Contact</a>
                                                             <a href="/login">🔐 Login</a>
                                                             <a href="/register">🆔 Register</a>

@@ -2,20 +2,16 @@ const footer_01 = {
     name: "footer_01",
     view: (section = { title: null, subtitle: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null } }) => {
         return `<div class="section_side">
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <h1>${section.title}</h1>
-                    <h2>${section.subtitle}</h2>
-                    <button action="${section.button.do}">${section.button.text}</button>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
                 </div>
                 <div class="section_side">
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <h1>Footer</h1>
-                    <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}"/>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
+                    <h4>Footer</h4>
                 </div>`;
     },
     css: () => {

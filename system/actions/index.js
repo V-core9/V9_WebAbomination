@@ -6,6 +6,9 @@ const v_action = {
     blog: async (req, res) => {
         v_render(req, res, 'blog');
     },
+    authors: async (req, res) => {
+        v_render(req, res, 'authors');
+    },
     index: async (req, res) => {
         v_render(req, res, 'index');
     },
