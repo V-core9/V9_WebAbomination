@@ -9,7 +9,7 @@
     ],
     "type": "get",
     "status": "published",
-    "title": "Blog Page",
+    "title": "Authors Page",
     "meta": {
         "description": "Learn More with V-core9.com"
     },
@@ -28,7 +28,7 @@
             "type": "base_hero_01",
             "boxed" : true,
             "data": {
-                "title": "BLOG PAGE!",
+                "title": "AUTHORS PAGE!",
                 "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
                 "button": {
                     "text": "SUPPORT",

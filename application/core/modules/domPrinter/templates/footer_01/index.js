@@ -8,10 +8,10 @@ const footer_01 = {
                     <h4>Footer</h4>
                 </div>
                 <div class="section_side">
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
+                    <h4><a href='/sitemap_index.xml'>Sitemap Index</a></h4>
+                    <h4><a href='/page-sitemap.xml'>Pages Sitemap</a></h4>
+                    <h4><a href='/post-sitemap.xml'>Posts Sitemap</a></h4>
+                    <h4><a href='/author-sitemap.xml'>Authors Sitemap</a></h4>
                 </div>`;
     },
     css: () => {
