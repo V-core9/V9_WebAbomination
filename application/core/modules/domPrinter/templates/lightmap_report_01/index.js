@@ -188,7 +188,7 @@ const lightmap_report_01 = {
         results.pageRes.forEach(item => {
             console.log(item);
             domRes += `<item>
-                        <name>${item.name}</name>
+                        <name><a href="${item.name}">${item.name}</a></name>
                         <score>
                             <perf type="${score_to_word(item.perf)}">${item.perf}</perf>
                             <bp type="${score_to_word(item.bp)}">${item.bp}</bp>
