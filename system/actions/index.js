@@ -49,6 +49,9 @@ const v_action = {
         generate_sitemap(req, res, 'authors');
     },
     blog_post: blog_post,
+    lightmap: async (req, res) => {
+        v_render(req, res, 'lightmap');
+    }
 };
 
 module.exports = v_action;

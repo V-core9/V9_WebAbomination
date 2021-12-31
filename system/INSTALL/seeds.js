@@ -72,6 +72,12 @@ const vSeeds = [
         name: 'blog',
         content: './pages/blog.json'
     },
+    // LIGHTMAP
+    {
+        table: vTables.pages,
+        name: 'lightmap',
+        content: './pages/lightmap.json'
+    },
     // AUTHORS
     {
         table: vTables.pages,
