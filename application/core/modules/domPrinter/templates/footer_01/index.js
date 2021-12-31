@@ -20,6 +20,11 @@ const footer_01 = {
                     color: #fff;
                     gap: 1em;
                     padding: 5em 0;
+                    background: linear-gradient(60deg, #080e18, #161f2f, #080e18);
+                    box-shadow: 0 0 20px black inset;
+                    flex: 1;
+                    display: flex;
+                    width: 100%;
                 }
 
                 .footer_01 .section_side {

@@ -29,30 +29,13 @@
             }
         },
         {
-            "type": "html_content_elem",
+            "type": "lightmap_report_01",
             "boxed" : true,
-            "data": {
-                "title": "LIGHTMAP PAGE!",
-                "subtitle": "<author>V-core9</author> about us page spaceholder. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "Contact Us",
-                    "do": "testCallbackFunction"
-                },
-                "image": {
-                    "width": 360,
-                    "height": 360,
-                    "url": "/logo.svg",
-                    "alt": "v-core9.com logo"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
+            "data": "{%_LIGHTMAP_REPORT_%}"
         },
         {
             "type": "footer_01",
-            "boxed" : true,
+            "boxed" : false,
             "data": {
                 "title": "Checkout the Web_DEMO App",
                 "subtitle": "Running using Vanilla JS exported through WebPack...",
