@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lightmap": "bash -c \"node vLm.map.js\"",
+    "lightmap": "bash -c \"node vLm.map.js ; mv vLM_reportsmapViewTemplate-v-core9.com.html public/lightmap.html ; rm vLM_reportsmapViewTemplate-v-core9.com ; \"",
     "install": "bash -c \"node system/INSTALL/ ; npm install -g node-sass ; mkdir vLM_reports ; \" ",
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node v9.host.js",

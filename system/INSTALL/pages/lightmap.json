@@ -29,7 +29,7 @@
             }
         },
         {
-            "type": "base_hero_01",
+            "type": "html_content_elem",
             "boxed" : true,
             "data": {
                 "title": "LIGHTMAP PAGE!",
