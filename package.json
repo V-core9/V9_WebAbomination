@@ -34,12 +34,11 @@
     "geoip-lite": "^1.4.2",
     "is-online": "^9.0.1",
     "isbot": "^3.3.4",
-    "jsdom": "^19.0.0",
     "jsonwebtoken": "^8.5.1",
     "node-sass": "^6.0.1",
     "v_database": "^0.1.7",
     "v_file_system": "^1.0.5",
-    "v_lightmapper": "^0.0.8",
+    "v_lightmapper": "^0.0.9",
     "v_rifier": "^0.0.8",
     "v_scrolls": "^0.1.13",
     "v_to_sha256": "^1.0.9"
