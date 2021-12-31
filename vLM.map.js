@@ -11,7 +11,7 @@ const config = {
     reportsDir : path.join(__dirname, `vLM_reports`),
     save_to_file: false,
     disableHeadlessMode: false,
-    onlyCategories : ["performance"]
+    //onlyCategories : ["performance"]
 };
 
 (async() => {
