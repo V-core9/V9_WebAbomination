@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lightmap": "bash -c \"node vLm.map.js\"",
     "install": "bash -c \"node system/INSTALL/ ; npm install -g node-sass ;\" ",
     "generate_readme": "node $_HELP/generate_base01.js",
     "start": "node v9.host.js",
@@ -37,6 +38,7 @@
     "node-sass": "^6.0.1",
     "v_database": "^0.1.6",
     "v_file_system": "^1.0.5",
+    "v_lightmapper": "^0.0.7",
     "v_rifier": "^0.0.8",
     "v_scrolls": "^0.1.13",
     "v_to_sha256": "^1.0.9"
