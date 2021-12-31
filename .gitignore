@@ -111,3 +111,4 @@ package-lock.json
 v_db/*
 !v_db/$_DATA
 public/*
+.v_database/

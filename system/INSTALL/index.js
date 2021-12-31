@@ -1,15 +1,13 @@
-
 const vDB = require('v_database');
 const vFS = require('v_file_system');
-
 const path = require('path');
-
-const cleanInstall = true;
-
 
 const vTables = require('../config/tables');
 
 const vSeeds = require('./seeds');
+
+const cleanInstall = true;
+
 
 tables_setup = async () => {
     var errList = [];
@@ -29,7 +27,6 @@ items_setup = async () => {
     }
     return errList;
 };
-
 
 install = async () => {
     await vDB.install();
