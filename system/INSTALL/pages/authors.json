@@ -68,7 +68,7 @@
         },
         {
             "type": "footer_01",
-            "boxed": true,
+            "boxed": false,
             "data": {
                 "title": "Checkout the Web_DEMO App",
                 "subtitle": "Running using Vanilla JS exported through WebPack...",
