@@ -32,87 +32,76 @@ const author_hero_01 = {
     },
     css: () => {
         return `
-                * {
-                box-sizing: border-box;
+                .author_hero_list_01 {
+                    padding: 1em;
+                    gap: 2em;
+                    flex-direction: column;
                 }
-                
-                body {
-                    background-color: #28223f;
-                    font-family: Montserrat, sans- serif;
-                    
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    
-                    min-height: 100vh;
-                    margin: 0;
-                } 
-                    
-                h3 {
-                    margin: 10px 0;
-                }
-                    
-                h6 {
-                    margin: 5px 0;
-                    text-transform: uppercase;
-                }
-                    
-                p {
-                    font-size: 14px;
-                    line-height: 21px;
-                }
-                
+
                 .card-container {
-                    background-color: #231e39;
-                    border-radius: 5px;
-                    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-                    color: #b3b8cd; 
-                    padding-top: 30px;
+                    background-color: #131b2a;
+                    border-radius: 1em;
+                    box-shadow: 0px 10px 20px -10px rgb(0 0 0 / 75%);
+                    padding: 2em;
                     position: relative;
-                    width: 350px;
-                    max-width: 100%;
                     text-align: center;
+                    gap: 1em;
+                    display: flex;
+                    flex-direction: column;
                 } 
-                
+                authors {
+                    padding: 1em;
+                    gap: 4em;
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-row: auto;
+                    grid-column-gap: 2em;
+                    grid-row-gap: 2em;
+                }
                 .card-container .pro {
-                    colnor: #231e39;
-                    background-color; #febb0b;
+                    color: #e8e8e9;
+                    padding: .25em .5em;
+                    background: #2196f3;
                     border-radius: 3px;
                     font-size: 14px;
                     font-weight: bold;
-                    padding: 3px 7px;
                     position: absolute;
                     top: 30px;
-                    left: 30px; 
-                
+                    left: 30px;                
                 }
                 
                 .card-container .round {
-                    border: 1px solid #03bfcb;
+                    border: 1px solid #2196f3;
                     border-radius: 50%;
-                    padding: 7px;
+                    width: 50%;
+                    padding: 1em;
+                    align-self: center;
+                    background: #070a14;
                 }
                 
                 button.primary {
-                    background-color: #03bfcb;
-                    border: 1px solid #03bfcb;
+                    background-color: #2196f3;
+                    border: 1px solid #2196f3;
                     border-radius: 3px;
-                    color: #231e39;
-                    font-family: Montserrat, sans-serif;
+                    color: #fff;
                     font-weight: 500;
                     padding: 10px 25px;
                 }
                 
                 button.primary.ghost {
-                    background-color: transparent;
-                    color: #02899c;
+                    background-color: #0000;
+                    color: #fff;
                 }
                 
                 .skills {
-                    background-color: #1f1a36;
                     text-align: left;
-                    padding: 15px;
-                    margin-top: 30px; 
+                    padding: 1em;
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    background: #111826;
+                    border-radius: 1em;
                 }
                 .skills ul {
                     
@@ -122,12 +111,35 @@ const author_hero_01 = {
                 }
                 
                 .skills ul li {
-                    border: 1px solid #2d2747;
+                    border: 1px solid #2196f3;
                     border-radius: 2px;
                     display: inline-block;
                     font-size: 12px;
                     margin: 0 7px 7px 0;
-                    padding: 7px;
+                    padding: 1em;
+                }
+
+                .card-container p {
+                    font-size: .75em;
+                    line-height: 1.5em;
+                }
+
+                .buttons {
+                    gap: 1em;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                @media screen and (min-width: 768px) {
+                    
+                    .author_hero_list_01 {
+                        padding: 2em;
+                        gap: 2em;
+                    }
+
+                    .buttons {
+                        flex-direction: row;
+                    }
                 }
             `;
     },
