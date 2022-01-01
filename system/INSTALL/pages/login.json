@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "login",
     "path": "/login",
     "alt_paths": [

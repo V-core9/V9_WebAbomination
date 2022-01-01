@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "statistics",
     "path": "/statistics",
     "alt_paths": [

@@ -1,9 +1,8 @@
 {
-    "exec": "v_render",
     "name": "v9_Ana",
-    "path": "/v9_Ana",
+    "path": "/authors/v9_Ana",
     "alt_paths": [
-        "/v9_Ana.html"
+        "/authors/v9_Ana.html"
     ],
     "type": "get",
     "status": "published",

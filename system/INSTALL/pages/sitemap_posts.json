@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "sitemap_posts",
     "path": "/post-sitemap.xml",
     "alt_paths": [

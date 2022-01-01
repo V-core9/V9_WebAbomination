@@ -1,10 +1,8 @@
 {
-    "exec": "v_render",
     "name": "v9_admin",
-    "path": "/v9_admin",
+    "path": "/authors/v9_admin",
     "alt_paths": [
-        "/v9_admin",
-        "/v9_admin.html"
+        "/authors/v9_admin.html"
     ],
     "type": "get",
     "status": "published",

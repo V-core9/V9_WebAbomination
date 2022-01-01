@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "lightmap",
     "path": "/lightmap",
     "alt_paths": [

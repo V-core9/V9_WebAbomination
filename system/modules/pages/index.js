@@ -13,8 +13,8 @@ const v_pages = {
     },
 
     // Gets a single page by name/id
-    one: async (name) => {
-        return (name !== undefined) ? await vDB.item.view(vTables.pages, name) : false;
+    one: async (type, name) => {
+        return (name !== undefined) ? await vDB.item.view(type, name) : false;
     },
 
     // Loads all pages into _list for rendering

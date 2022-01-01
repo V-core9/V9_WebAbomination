@@ -1,9 +1,8 @@
 {
-    "exec": "v_render",
     "name": "v-core9",
-    "path": "/v-core9",
+    "path": "/authors/v-core9",
     "alt_paths": [
-        "/v-core9.html"
+        "/authors/v-core9.html"
     ],
     "type": "get",
     "status": "published",

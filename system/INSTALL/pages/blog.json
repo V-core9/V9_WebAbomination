@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "blog",
     "path": "/blog",
     "alt_paths": [

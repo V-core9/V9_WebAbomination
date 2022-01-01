@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "system_status",
     "path": "/system_status",
     "alt_paths": [

@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "authors",
     "path": "/authors",
     "alt_paths": [

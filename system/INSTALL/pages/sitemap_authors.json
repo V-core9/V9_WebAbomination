@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "sitemap_authors",
     "path": "/author-sitemap.xml",
     "alt_paths": [

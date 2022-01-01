@@ -4,37 +4,37 @@ const blog_post = require('./blog_post');
 
 const v_action = {
     blog: async (req, res) => {
-        v_render(req, res, 'blog');
+        v_render(req, res, 'blog', 'pages');
     },
     authors: async (req, res) => {
-        v_render(req, res, 'authors');
+        v_render(req, res, 'authors', 'pages');
     },
     index: async (req, res) => {
-        v_render(req, res, 'index');
+        v_render(req, res, 'index', 'pages');
     },
     about: async (req, res) => {
-        v_render(req, res, 'about');
+        v_render(req, res, 'about', 'pages');
     },
     contact: async (req, res) => {
-        v_render(req, res, 'contact');
+        v_render(req, res, 'contact', 'pages');
     },
     login: async (req, res) => {
-        v_render(req, res, 'login');
+        v_render(req, res, 'login', 'pages');
     },
     privacy_policy: async (req, res) => {
-        v_render(req, res, 'privacy_policy');
+        v_render(req, res, 'privacy_policy', 'pages');
     },
     terms_policy: async (req, res) => {
-        v_render(req, res, 'terms_policy');
+        v_render(req, res, 'terms_policy', 'pages');
     },
     register: async (req, res) => {
-        v_render(req, res, 'register');
+        v_render(req, res, 'register', 'pages');
     },
     system_status: async (req, res) => {
-        v_render(req, res, 'system_status');
+        v_render(req, res, 'system_status', 'pages');
     },
     statistics: async (req, res) => {
-        v_render(req, res, 'statistics' );
+        v_render(req, res, 'statistics', 'pages' );
     },
     sitemap: async (req, res) => {
         generate_sitemap(req, res);
@@ -50,8 +50,18 @@ const v_action = {
     },
     blog_post: blog_post,
     lightmap: async (req, res) => {
-        v_render(req, res, 'lightmap');
-    }
+        v_render(req, res, 'lightmap', 'pages');
+    },
+    v9_Ana: async (req, res) => {
+        v_render(req, res, 'v9_Ana', 'authors');
+    },
+    'v-core9': async (req, res) => {
+        v_render(req, res, 'v-core9', 'authors');
+    },
+    v9_admin: async (req, res) => {
+        v_render(req, res, 'v9_admin', 'authors');
+    },
+
 };
 
 module.exports = v_action;

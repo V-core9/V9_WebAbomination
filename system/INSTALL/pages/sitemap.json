@@ -1,5 +1,4 @@
 {
-    "exec": "v_render",
     "name": "sitemap",
     "path": "/sitemap.xml",
     "alt_paths": [
