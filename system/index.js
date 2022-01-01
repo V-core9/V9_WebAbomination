@@ -5,7 +5,7 @@ const config = require('./config');
 const vDB = require('v_database');
 const vApi = require('./$_API');
 const v_action = require('./actions');
-const {headMiddleware} = require('./helpers');
+const { headMiddleware } = require('./helpers');
 
 // Express Things
 const express = require('express');
@@ -15,12 +15,12 @@ var compression = require('compression');
 
 const v = express();
 
-    
+
 v.use(headMiddleware);
-    
+
 if (config.compression === true) {
-    v.use(compression({threshold: 0, level: 9}));
-}    
+    v.use(compression({ threshold: 0, level: 9 }));
+}
 
 v.use(bodyParser.urlencoded({ extended: true }));
 v.use(bodyParser.json());
@@ -34,9 +34,7 @@ vServer = async ($port = config.port) => {
 
     //? [ TYPES ]>- - - - - -
     v.get(vApi.api_v1, vApi.$jwt, vApi.list);
-    // ADMIN Create Type
     v.post(vApi.api_v1, vApi.$jwt, vApi.$admin, vApi.mk_type);
-    // ADMIN Remove Type
     v.delete(vApi.api_v1, vApi.$jwt, vApi.$admin, vApi.rm_type);
     //! EOF_TYPES
 
@@ -57,38 +55,27 @@ vServer = async ($port = config.port) => {
     //! EOF_AUTH
 
 
+    //? PAGES
+    const path_types = [config.tables.pages, config.tables.posts, config.tables.authors ];
+    console.log(path_types);
 
-    //? [ PAGES ]>- - - - - -
-    var pages = await vDB.item.view(config.tables.pages);
-    console.log(pages);
-    pages.forEach(async page => {
-        var data = await vDB.item.view(config.tables.pages, page);
-
-        //console.log(data);
-        v[data.type](data.path, v_action[data.name]);
-
-        if (data.alt_paths !== undefined) {
-            data.alt_paths.forEach(alt_path => {
-                v[data.type](alt_path, v_action[data.name]);
-            });
-        }
+    path_types.forEach(async (type) => {
+        var data = await vDB.item.view(config.tables.pages);
+        console.log(data);
+        data.forEach(async item => {
+            var data = await vDB.item.view(config.tables.pages, item);
+    
+            //console.log(data);
+            v[data.type](data.path, v_action[data.name]);
+    
+            if (data.alt_paths !== undefined) {
+                data.alt_paths.forEach(alt_path => {
+                    v[data.type](alt_path, v_action[data.name]);
+                });
+            }
+        });
     });
-
-    //? POSTS
-    var posts = await vDB.item.view(config.tables.posts);
-    console.log(posts);
-    posts.forEach(async post => {
-        var data = await vDB.item.view(config.tables.posts, post);
-
-        //console.log(data);
-        v[data.type](data.path, v_action[data.name]);
-
-        if (data.alt_paths !== undefined) {
-            data.alt_paths.forEach(alt_path => {
-                v[data.type](alt_path, v_action[data.name]);
-            });
-        }
-    });
+    
     //! EOF_PAGES
 
     v._router.strict = (config.strictRouter === true) ? true : false;
@@ -98,7 +85,7 @@ vServer = async ($port = config.port) => {
 
     //? [ STATIC-DIRS ]>- - - - - -
     config.static_dirs.forEach(dir => {
-        v.use(express.static(dir, { etag: false , maxAge: 3600 }));
+        v.use(express.static(dir, { etag: false, maxAge: 3600 }));
     });
     //! EOF_STATIC-DIRS
 

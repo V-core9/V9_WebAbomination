@@ -8,9 +8,9 @@
     ],
     "type": "get",
     "status": "published",
-    "title": "Home",
+    "title": "v9_admin Author",
     "meta": {
-        "description": "Welcome to V-core9.com"
+        "description": "Author Info Page: v9_admin"
     },
     "layout": "boxed",
     "sections": [
@@ -28,7 +28,7 @@
             "type": "base_hero_00",
             "boxed" : true,
             "data": {
-                "title": "<author>V9_WEB</author> Abomination.",
+                "title": "<author>v9_admin</author> Author Page.",
                 "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
                 "button": {
                     "text": "Register",

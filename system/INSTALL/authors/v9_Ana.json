@@ -1,15 +1,15 @@
 {
     "exec": "v_render",
-    "name": "v-core9",
-    "path": "/v-core9",
+    "name": "v9_Ana",
+    "path": "/v9_Ana",
     "alt_paths": [
-        "/v-core9.html"
+        "/v9_Ana.html"
     ],
     "type": "get",
     "status": "published",
-    "title": "v-core9 Author",
+    "title": "v9_Ana Author",
     "meta": {
-        "description": "Author Info Page: v-core9"
+        "description": "Author Info Page: v9_Ana"
     },
     "layout": "boxed",
     "sections": [
@@ -27,7 +27,7 @@
             "type": "base_hero_00",
             "boxed" : true,
             "data": {
-                "title": "<author>V-core9</author> Author Page.",
+                "title": "<author>v9_Ana</author> Author Page.",
                 "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
                 "button": {
                     "text": "Register",

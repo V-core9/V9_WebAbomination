@@ -4,7 +4,7 @@ const vTables = require('./system/config/tables');
 const vFS = require('v_file_system');
 const vDB = require('v_database');
 
-const config = {
+const vlm_cfg = {
     protocol: "https",
     host: "v-core9.com",
     path: "sitemap_index.xml",
@@ -16,10 +16,10 @@ const config = {
 
 (async() => {
 
-    const cfgFilePath = config.reportsDir+'/v-core9.com.json';
-    if (await vFS.isFile(cfgFilePath)) await vFS.deleteFile(config.reportsDir+'/v-core9.com.json');
+    const cfgFilePath = vlm_cfg.reportsDir+'/v-core9.com.json';
+    if (await vFS.isFile(cfgFilePath)) await vFS.deleteFile(vlm_cfg.reportsDir+'/v-core9.com.json');
 
-    await v_lightmapper(config);
+    await v_lightmapper(vlm_cfg);
 
     var waitForJSON_Interval = setInterval(async() => {
         console.log("IS DONE?");
