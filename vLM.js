@@ -1,6 +1,8 @@
 const path = require('path');
 const v_lightmapper = require('v_lightmapper');
-const vTables = require('./system/config/tables');
+
+//? Tables
+const {tables} = require('./system/config/');
 const vFS = require('v_file_system');
 const vDB = require('v_database');
 
@@ -16,7 +18,7 @@ const vlm_cfg = {
 
 (async() => {
 
-    const cfgFilePath = vlm_cfg.reportsDir+'/v-core9.com.json';
+    const cfgFilePath = vlm_cfg.reportsDir+'/'+vlm_cfg.host+'.json';
     if (await vFS.isFile(cfgFilePath)) await vFS.deleteFile(vlm_cfg.reportsDir+'/v-core9.com.json');
 
     await v_lightmapper(vlm_cfg);
@@ -26,7 +28,7 @@ const vlm_cfg = {
         if (await vFS.isFile(cfgFilePath)) {
             const data = JSON.parse(await vFS.read('./system/INSTALL/pages/lightmap.json'));
             data.sections[1].data = JSON.parse(await vFS.read(cfgFilePath));
-            await vDB.item.new(vTables.pages, data, 'lightmap');
+            await vDB.item.new(tables.pages, data, 'lightmap');
             console.log('YEA');
             clearInterval(waitForJSON_Interval);
             waitForJSON_Interval = null;
