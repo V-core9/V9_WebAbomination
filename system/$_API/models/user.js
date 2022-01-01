@@ -1,10 +1,15 @@
 const vDB = require('v_database');
 const vRF = require('v_rifier');
+
 const vTables = require('../../config/tables');
 const refreshTokens = require('../auth/_ref-tokens');
+
 const v_to_sha256 = require('v_to_sha256');
+
 const jwt = require('jsonwebtoken');
+
 const jwtConfig = require('../auth/config.jwt');
+
 const {register} = require('../data_templates');
 
 const userModel = {
@@ -47,6 +52,7 @@ const userModel = {
             response.msg = "User Not Found";
             response.code = "LOGIN_USER";
         }
+
         return response;
     },
     register: async (data) => {
