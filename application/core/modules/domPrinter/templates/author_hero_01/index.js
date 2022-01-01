@@ -4,7 +4,6 @@ const author_hero_01 = {
     name: "author_hero_01",
     view: (data) => {
         return `    
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
                 <div class="resume">
                 <div class="top">
                     <div class="container_top">
@@ -25,21 +24,20 @@ const author_hero_01 = {
                         <div class="text">Improve your ability to find and apply for the right jobs, develop your interview skills and learn how to perform in the workplace with confidence. <br><br>At each level, tutor videos and workplace scenarios guide you through the materials, explain key language and grammar points and give you vocabulary that you can use in everyday business life.</div>
                         </div>
                         <div class="left_content contact">
-                        <div class="icons"><i class="fa fa-phone"></i><i class="fa fa-envelope"></i><i class="fa fa-globe"></i><i class="fa fa-twitter"></i></div>
                         <div class="inform">
-                            <h6 class="info_title">PHONE</h6>
+                            <h6 class="info_title">📞 PHONE</h6>
                             <div class="info_text">0123-456-789</div>
-                            <h6 class="info_title">EMAIL</h6>
+                            <h6 class="info_title">📩 EMAIL</h6>
                             <div class="info_text">slavko.vuletic92@gmail.com</div>
-                            <h6 class="info_title">WEBSITE</h6>
+                            <h6 class="info_title">🌍 WEBSITE</h6>
                             <div class="info_text">https://v-core9.com/</div>
-                            <h6 class="info_title">GITHUB</h6>
+                            <h6 class="info_title">📂 GITHUB</h6>
                             <div class="info_text">https://github.com/</div>
-                            <h6 class="info_title">FACEBOOK</h6>
+                            <h6 class="info_title">📢 FACEBOOK</h6>
                             <div class="info_text">https://www.facebook.com/</div>
-                            <h6 class="info_title">TWITTER</h6>
+                            <h6 class="info_title">🦜 TWITTER</h6>
                             <div class="info_text">https://www.twitter.com/</div>
-                            <h6 class="info_title">LINKEDIN</h6>
+                            <h6 class="info_title">🏢 LINKEDIN</h6>
                             <div class="info_text">https://www.linkedin.com/</div>
                         </div>
                         </div>
@@ -240,7 +238,7 @@ const author_hero_01 = {
                         </div>
                         <h3>INTERESTS &amp; HOBBY</h3>
                         </div>
-                        <div class="right_content hobby"><i class="fa fa-film"></i><i class="fa fa-bicycle"></i><i class="fa fa-plane"></i><i class="fa fa-headphones"></i><i class="fa fa-camera-retro"></i></div>
+                        <div class="right_content hobby"><i>🐛</i><i>🔐</i><i>🚀</i><i>⛲</i><i>🤼</i></div>
                     </div>
                     </div>
                 </div>
