@@ -3,7 +3,7 @@ const V_Logo = require("../../../V_Logo");
 const author_hero_list_01 = {
     name: "author_hero_list_01",
     view: (data) => {
-        var resp = '';
+        var resp = '<h2>V-core9 Authors</h2>';
         data.forEach(item => {
             resp += `    
             <div class="card-container">
@@ -124,7 +124,7 @@ const author_hero_list_01 = {
                     display: flex;
                     flex-direction: column;
                 }
-                
+
                 @media screen and (min-width: 768px) {
                     
                     .author_hero_list_01 {

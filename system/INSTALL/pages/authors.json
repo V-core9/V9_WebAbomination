@@ -25,28 +25,6 @@
             }
         },
         {
-            "type": "base_hero_01",
-            "boxed": true,
-            "data": {
-                "title": "AUTHORS PAGE!",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 360,
-                    "height": 360,
-                    "url": "/logo.svg",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
-        },
-        {
             "type": "author_hero_list_01",
             "boxed": true,
             "data": [
