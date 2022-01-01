@@ -3,7 +3,7 @@ const V_Logo = require("../../../V_Logo");
 const author_hero_list_01 = {
     name: "author_hero_list_01",
     view: (data) => {
-        var resp = '<h2>V-core9 Authors</h2>';
+        var resp = '<h2>List of Authors: </h2><authors>';
         data.forEach(item => {
             resp += `    
             <div class="card-container">
@@ -32,6 +32,7 @@ const author_hero_list_01 = {
             </div>
             `;
         });
+        resp += '</authors>';
         return resp;
     },
     css: () => {
@@ -39,6 +40,7 @@ const author_hero_list_01 = {
                 .author_hero_list_01 {
                     padding: 1em;
                     gap: 2em;
+                    flex-direction: column;
                 }
 
                 .card-container {
@@ -52,7 +54,15 @@ const author_hero_list_01 = {
                     display: flex;
                     flex-direction: column;
                 } 
-                
+                authors {
+                    padding: 1em;
+                    gap: 4em;
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-row: auto;
+                    grid-column-gap: 2em;
+                    grid-row-gap: 2em;
+                }
                 .card-container .pro {
                     color: #e8e8e9;
                     padding: .25em .5em;
@@ -128,8 +138,12 @@ const author_hero_list_01 = {
                 @media screen and (min-width: 768px) {
                     
                     .author_hero_list_01 {
-                        padding: 3em;
-                        gap: 3em;
+                        padding: 2em;
+                        gap: 2em;
+                    }
+
+                    .buttons {
+                        flex-direction: row;
                     }
                 }
             `;

@@ -13,7 +13,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    z-index: 100;
+    z-index: 500;
 
     &[status="open"] {
         bottom: 0;

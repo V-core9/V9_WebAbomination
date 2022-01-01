@@ -25,6 +25,7 @@ const footer_01 = {
                     flex: 1;
                     display: flex;
                     width: 100%;
+                    min-height: 0!important;
                 }
 
                 .footer_01 .section_side {
