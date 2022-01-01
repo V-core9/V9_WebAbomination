@@ -157,6 +157,12 @@ const lightmap_report_01 = {
     disabled: false,
     author: "-v-",
     onload: () => {
+        const scores = {
+            good: 90,
+            avg: 70,
+            bad: 50
+        };
+        
         console.log('[lightmap_report_01 :: onload]');
 
         const results = JSON.parse(document.querySelector('meta[name="Vc9_Page"]').getAttribute('content')).sections[1].data;
@@ -173,13 +179,6 @@ const lightmap_report_01 = {
                             <pwa>PWA</pwa>
                         </score>
                     </item>`;
-
-
-        const scores = {
-            good: 90,
-            avg: 70,
-            bad: 50
-        };
 
         score_to_word = (numb) => {
             return (numb > scores.avg) ? (numb > scores.good) ? 'good' : 'avg' : 'bad';
