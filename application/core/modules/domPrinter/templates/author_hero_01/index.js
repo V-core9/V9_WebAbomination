@@ -7,8 +7,13 @@ const author_hero_01 = {
                 <div class="resume">
                 <div class="top">
                     <div class="container_top">
-                    <h3 class="title">${data.name}</h3>
-                    <h6 class="sub_title">${data.sub_title}</h6>
+                        <div class="img">
+                            <img width="100" height="100" src="/logo.svg">
+                        </div>
+                        <info>
+                            <h3 class="title">${data.name}</h3>
+                            <h6 class="sub_title">${data.sub_title}</h6>
+                        </info>
                     </div>
                 </div>
                 <div class="bottom">
@@ -238,7 +243,13 @@ const author_hero_01 = {
                         </div>
                         <h3>INTERESTS &amp; HOBBY</h3>
                         </div>
-                        <div class="right_content hobby"><i>🐛</i><i>🔐</i><i>🚀</i><i>⛲</i><i>🤼</i></div>
+                        <div class="right_content hobby">
+                            <icon>🐛</icon>
+                            <icon>🔐</icon>
+                            <icon>🚀</icon>
+                            <icon>⛲</icon>
+                            <icon>🤼</icon>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -287,12 +298,12 @@ const author_hero_01 = {
                 .top {
                     background: #1b2737;
                     border: .5em solid #263b50;
+                    border-radius: 4em 0 0 4em;
                 }
                 
                 .top .container_top {
                     display: flex;
-                    flex-direction: column;
-                    padding: 1em 2em;
+                    flex-direction: row;
                 }
                 
                 .top .title {
@@ -556,10 +567,14 @@ const author_hero_01 = {
                     margin: 0;
                     display: flex;
                     justify-content: space-between;
+                    padding: 1em;
                 }
                 
-                .bottom .container_bottom .right .right_content.hobby i {
+                .bottom .container_bottom .right .right_content.hobby icon {
                     font-size: 40px;
+                    padding: 0.25em;
+                    background: #2077be;
+                    border: 1px solid #0f1620;
                 }
 
                 .inform {
@@ -572,6 +587,28 @@ const author_hero_01 = {
                     background: #070a14!important;
                     padding: .5em 1em!important;
                     width: fit-content;
+                }
+
+                .img img {
+                    border-radius: 50%;
+                    padding: 10px;
+                    outline: .5em solid #263b50;
+                    background: #263b50;
+                    border: .25em solid #1f2e3e;
+                }
+                
+                .top .container_top info {
+                    display: flex;
+                    padding-left: 2em;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                
+                div.img {
+                    border: 1px solid #000000;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    outline: 1em solid #263b50;
                 }
             `;
     },
