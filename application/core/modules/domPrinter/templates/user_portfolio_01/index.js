@@ -1,7 +1,7 @@
 const V_Logo = require("../../../V_Logo");
 
-const author_hero_01 = {
-    name: "author_hero_01",
+const user_portfolio_01 = {
+    name: "user_portfolio_01",
     view: (data) => {
         return `    
                 <div class="resume">
@@ -615,11 +615,11 @@ const author_hero_01 = {
     disabled: false,
     author: "-v-",
     onload: () => {
-        console.log('[author_hero_01 :: onload]');
+        console.log('[user_portfolio_01 :: onload]');
         setTimeout(() => {
             V_Logo.printLogo('v_logo');
         }, 300);
     }
 };
 
-module.exports = author_hero_01;
+module.exports = user_portfolio_01;
