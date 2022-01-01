@@ -24,6 +24,7 @@ const head_navigation_01 = {
                     align-items: center;
                     position: fixed;
                     top: 0;
+                    z-index: 200;
                 }
 
                 .head_navigation_01 h1 {

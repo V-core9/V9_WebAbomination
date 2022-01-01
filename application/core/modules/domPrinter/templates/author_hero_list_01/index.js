@@ -37,8 +37,8 @@ const author_hero_list_01 = {
     css: () => {
         return `     
                 .author_hero_list_01 {
-                    padding: 3em;
-                    gap: 3em;
+                    padding: 1em;
+                    gap: 2em;
                 }
 
                 .card-container {
@@ -112,6 +112,25 @@ const author_hero_list_01 = {
                     font-size: 12px;
                     margin: 0 7px 7px 0;
                     padding: 1em;
+                }
+
+                .card-container p {
+                    font-size: .75em;
+                    line-height: 1.5em;
+                }
+
+                .buttons {
+                    gap: 1em;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                @media screen and (min-width: 768px) {
+                    
+                    .author_hero_list_01 {
+                        padding: 3em;
+                        gap: 3em;
+                    }
                 }
             `;
     },
