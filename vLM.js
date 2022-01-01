@@ -24,16 +24,18 @@ const vlm_cfg = {
     await v_lightmapper(vlm_cfg);
 
     var waitForJSON_Interval = setInterval(async() => {
-        console.log("IS DONE?");
         if (await vFS.isFile(cfgFilePath)) {
+
             const data = JSON.parse(await vFS.read('./system/INSTALL/pages/lightmap.json'));
             data.sections[1].data = JSON.parse(await vFS.read(cfgFilePath));
+
             await vDB.item.new(tables.pages, data, 'lightmap');
-            console.log('YEA');
+
+            console.log('DONE ALL!');
+
             clearInterval(waitForJSON_Interval);
+            
             waitForJSON_Interval = null;
-        } else {
-            console.log('NOPE');
         }
     }, 5000);
 })();
