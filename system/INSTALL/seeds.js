@@ -105,11 +105,6 @@ const vSeeds = [
     },
     {
         table: vTables.authors,
-        name: 'v9_admin',
-        content: './authors/v9_admin.json'
-    },
-    {
-        table: vTables.authors,
         name: 'v9_Ana',
         content: './authors/v9_Ana.json'
     },

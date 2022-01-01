@@ -1,4 +1,5 @@
 {
+    "exec": "register",
     "name": "register",
     "path": "/register",
     "alt_paths": [

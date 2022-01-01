@@ -1,4 +1,5 @@
 {
+    "exec": "system_status",
     "name": "system_status",
     "path": "/system_status",
     "alt_paths": [

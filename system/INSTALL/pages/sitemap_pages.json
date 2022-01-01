@@ -1,4 +1,5 @@
 {
+    "exec": "sitemap_pages",
     "name": "sitemap_pages",
     "path": "/page-sitemap.xml",
     "alt_paths": [

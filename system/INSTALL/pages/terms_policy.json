@@ -1,4 +1,5 @@
 {
+    "exec": "terms_policy",
     "name": "terms_policy",
     "path": "/terms_policy",
     "alt_paths": [

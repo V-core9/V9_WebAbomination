@@ -1,4 +1,5 @@
 {
+    "exec": "lightmap",
     "name": "lightmap",
     "path": "/lightmap",
     "alt_paths": [

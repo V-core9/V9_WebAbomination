@@ -1,4 +1,5 @@
 {
+    "exec": "statistics",
     "name": "statistics",
     "path": "/statistics",
     "alt_paths": [

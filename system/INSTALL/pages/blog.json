@@ -1,4 +1,5 @@
 {
+    "exec": "blog",
     "name": "blog",
     "path": "/blog",
     "alt_paths": [

@@ -1,4 +1,5 @@
 {
+    "exec": "login",
     "name": "login",
     "path": "/login",
     "alt_paths": [

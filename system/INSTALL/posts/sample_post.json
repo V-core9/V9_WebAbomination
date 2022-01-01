@@ -1,5 +1,5 @@
 {
-    "exec": "v_render",
+    "exec": "blog_post",
     "name": "sample_post",
     "path": "/blog/sample_post",
     "alt_paths": [

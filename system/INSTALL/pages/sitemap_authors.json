@@ -1,4 +1,5 @@
 {
+    "exec": "sitemap_authors",
     "name": "sitemap_authors",
     "path": "/author-sitemap.xml",
     "alt_paths": [

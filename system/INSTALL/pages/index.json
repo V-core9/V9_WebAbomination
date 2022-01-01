@@ -1,4 +1,5 @@
 {
+    "exec": "index",
     "name": "index",
     "path": "/",
     "alt_paths": [

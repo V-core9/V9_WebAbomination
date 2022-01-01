@@ -1,4 +1,5 @@
 {
+    "exec": "about",
     "name": "about",
     "path": "/about-us",
     "alt_paths": [

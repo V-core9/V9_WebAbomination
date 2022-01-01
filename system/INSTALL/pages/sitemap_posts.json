@@ -1,4 +1,5 @@
 {
+    "exec": "sitemap_posts",
     "name": "sitemap_posts",
     "path": "/post-sitemap.xml",
     "alt_paths": [

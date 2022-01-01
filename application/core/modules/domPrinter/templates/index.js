@@ -11,6 +11,8 @@ const admin_base_list_01 = require("./admin_base_list_01");
 const admin_base_list_files_01 = require("./admin_base_list_files_01");
 const login_base_01 = require("./login_base_01");
 const lightmap_report_01 = require("./lightmap_report_01");
+const author_hero_01 = require("./author_hero_01");
+const author_hero_list_01 = require("./author_hero_list_01");
 
 module.exports = [
     head_navigation_01,
@@ -25,5 +27,7 @@ module.exports = [
     register_base_01,
     login_base_01,
     footer_01,
-    lightmap_report_01
+    lightmap_report_01,
+    author_hero_01,
+    author_hero_list_01
 ];
