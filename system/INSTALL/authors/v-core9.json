@@ -28,9 +28,9 @@
             "boxed" : true,
             "data": {
                 "name": "Slavko Vuletic",
-                "description": "Slavko Vuletic Placeholder Author Description.",
+                "sub_title": "Full Stack Web Developer",
                 "img": "/logo.svg",
-                "location": "New York"
+                "location": "Sombor"
             }
         }
     ]
