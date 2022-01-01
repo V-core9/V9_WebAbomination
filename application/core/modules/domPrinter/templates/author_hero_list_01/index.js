@@ -119,9 +119,6 @@ const author_hero_list_01 = {
     author: "-v-",
     onload: () => {
         console.log('[author_hero_list_01 :: onload]');
-        setTimeout(() => {
-            V_Logo.printLogo('v_logo');
-        }, 300);
     }
 };
 
