@@ -13,8 +13,8 @@ const author_hero_list_01 = {
                 <h6>${item.location}</h6>
                 <p>${item.description}</p>
                 <div class="buttons">
-                <button class="primary">Message</button>
-                <button class="primary ghost">Following</button>
+                    <button class="primary">Message</button>
+                    <button class="primary ghost" href='/authors/${item.name}>View Profile</button>
                 </div>
                 <div class="skills">
                 <h6>Skills</h6>

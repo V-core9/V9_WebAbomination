@@ -8,7 +8,7 @@ const user_portfolio_01 = {
                 <div class="top">
                     <div class="container_top">
                         <div class="img">
-                            <img width="100" height="100" src="${data.img}">
+                            <img width="150" height="150" src="${data.img}">
                         </div>
                         <info>
                             <h3 class="title">${data.name}</h3>
@@ -591,8 +591,6 @@ const user_portfolio_01 = {
 
                 .img img {
                     border-radius: 50%;
-                    padding: 10px;
-                    outline: .5em solid #263b50;
                     background: #263b50;
                     border: .25em solid #1f2e3e;
                 }
@@ -605,10 +603,11 @@ const user_portfolio_01 = {
                 }
                 
                 div.img {
-                    border: 1px solid #000000;
+                    border: 5px solid #1b2737;
                     overflow: hidden;
                     border-radius: 50%;
-                    outline: 1em solid #263b50;
+                    outline: .75em solid #263b50;
+                    background: #263b50;
                 }
             `;
     },
