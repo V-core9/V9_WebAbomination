@@ -34,10 +34,9 @@
             "boxed" : true,
             "data": {
                 "name": "Aleksandra Blagojevic",
-                "job_title": "Content Team Manager",
-                "sub_title": "Aleksandra Blagojevic Placeholder Author Description.",
+                "sub_title": "Content Team Manager",
                 "location": "Novi Sad, RS",
-                "img": "/nodejs.png"
+                "img": "/assets/logo.old.png"
             }
         }
     ]
