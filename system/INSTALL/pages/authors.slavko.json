@@ -1,0 +1,41 @@
+{
+    "exec": "v-core9",
+    "name": "v-core9",
+    "path": "/authors/v-core9",
+    "alt_paths": [
+        "/authors/v-core9.html",
+        "/authors/v_core9",
+        "/authors/v_core9.html",
+        "/authors/Vcore9",
+        "/authors/Vcore9.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Slavko Vuletic @ V-core9.com Main Developer",
+    "meta": {
+        "description": "Author Info Page: v-core9"
+    },
+    "layout": "boxed",
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed" : false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "user_portfolio_01",
+            "boxed" : true,
+            "data": {
+                "name": "Slavko Vuletic",
+                "sub_title": "Full Stack Web Developer",
+                "img": "/assets/pRick.png",
+                "location": "Sombor"
+            }
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "exec": "v9_Ana",
+    "name": "v9_Ana",
+    "path": "/authors/Aleksandra-v9",
+    "alt_paths": [
+        "/authors/Aleksandra-v9.html",
+        "/authors/Aleksandra",
+        "/authors/Aleksandra.html",
+        "/authors/Aleksandra_v9",
+        "/authors/Aleksandra_v9.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Aleksandra Blagojevic V-core9.com Main Writer",
+    "meta": {
+        "description": "Author Info Page: v9_Ana"
+    },
+    "layout": "boxed",
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed" : false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "user_portfolio_01",
+            "boxed" : true,
+            "data": {
+                "name": "Aleksandra Blagojevic",
+                "sub_title": "Content Team Manager",
+                "location": "Novi Sad, RS",
+                "img": "/assets/logo.old.png"
+            }
+        }
+    ]
+}
