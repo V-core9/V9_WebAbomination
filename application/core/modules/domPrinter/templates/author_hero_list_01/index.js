@@ -8,11 +8,11 @@ const author_hero_list_01 = {
                 <span class="pro">${item.pro}</span>
                 <img class="round" src="${item.img}" alt="user"/>
                 <h3>${item.name}</h3>
-                <h6>${item.location}</h6>
                 <p>${item.description}</p>
+                <h6>${item.location}</h6>
                 <div class="buttons">
                     <button class="primary">Message</button>
-                    <button class="primary ghost" href='/authors/${item.}>View Profile</button>
+                    <button class="primary ghost" href='/authors/${item.description}>View Profile</button>
                 </div>
                 <div class="skills">
                 <h6>Skills</h6>
