@@ -8,7 +8,7 @@ const user_portfolio_01 = {
                 <div class="top">
                     <div class="container_top">
                         <div class="img">
-                            <img width="100" height="100" src="/logo.svg">
+                            <img width="100" height="100" src="${data.img}">
                         </div>
                         <info>
                             <h3 class="title">${data.name}</h3>
