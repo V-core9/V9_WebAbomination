@@ -1,5 +1,3 @@
-const V_Logo = require("../../../V_Logo");
-
 const author_hero_list_01 = {
     name: "author_hero_list_01",
     view: (data) => {
@@ -14,7 +12,7 @@ const author_hero_list_01 = {
                 <p>${item.description}</p>
                 <div class="buttons">
                     <button class="primary">Message</button>
-                    <button class="primary ghost" href='/authors/${item.name}>View Profile</button>
+                    <button class="primary ghost" href='/authors/${item.}>View Profile</button>
                 </div>
                 <div class="skills">
                 <h6>Skills</h6>

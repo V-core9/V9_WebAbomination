@@ -615,9 +615,6 @@ const user_portfolio_01 = {
     author: "-v-",
     onload: () => {
         console.log('[user_portfolio_01 :: onload]');
-        setTimeout(() => {
-            V_Logo.printLogo('v_logo');
-        }, 300);
     }
 };
 
