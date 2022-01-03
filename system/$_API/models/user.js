@@ -1,14 +1,21 @@
 const vDB = require('v_database');
 const vRF = require('v_rifier');
 const v_to_sha256 = require('v_to_sha256');
-const {tables} = require('../../config');
+const { tables } = require('../../config');
 let refreshTokens = require('../auth/_ref-tokens');
 
 const jwt = require('jsonwebtoken');
 
 const jwtConfig = require('../auth/config.jwt');
 
-const {register} = require('../data_templates');
+const { register } = require('../data_templates');
+
+
+api_resp = async (res, rez) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(rez, true, 2));
+};
+
 
 const userModel = {
 
@@ -23,19 +30,12 @@ const userModel = {
             res.send("Logout successful");
         }
     },
-    
+
     // LOGIN
     login: async (data) => {
-        
-        const response = {
-            status: 400,
-            msg: "",
-            code: "",
-            errors: [],
-        };
-        
-        const { username, password } = data;    
-        const user = await vDB.item.view(tables.users, username);  
+
+        const { username, password } = data;
+        const user = await vDB.item.view(tables.users, username);
 
         if (user) {
             const pass_check = await v_to_sha256(password);
@@ -43,41 +43,22 @@ const userModel = {
                 // generate an access token
                 const accessToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
                 const refreshToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.refresh);
-    
-                refreshTokens.push(refreshToken);
 
-                response.status = 200;
-                response.msg = "Login Success";
-                response.code = "LOGIN_SUCCESS";
-                response.accessToken = accessToken;
-                response.refreshToken = refreshToken;
-    
+                refreshTokens.push(refreshToken);
+                api_resp(res, { status: 200, msg: 'Login successful', accessToken, refreshToken });
             } else {
-                response.status = 401;
-                response.msg = "Wrong Password";
-                response.code = "LOGIN_PASS";
+                api_resp(res, { status: 401, msg: 'Wrong Password' });
             }
         } else {
-            response.status = 401;
-            response.msg = "User Not Found";
-            response.code = "LOGIN_USER";
+            api_resp(res, { status: 401, msg: 'User Not Found' });
         }
-
-        return response;
     },
 
     // REGISTER NEW USER
     register: async (data) => {
 
-        const response = {
-            status: 400,
-            msg: "",
-            code: "",
-            errors: [],
-        };
-        // read username and password from request body
+        var errors = [];
         const { username, email, password, confirmation } = data;
-
 
         var username_valid = await vRF.username(username);
         var email_valid = await vRF.email(email);
@@ -95,35 +76,24 @@ const userModel = {
                 if (register_user_status === true) {
                     const register_email_status = await vDB.item.new(tables.emails, await register.email(username, email), email);
                     if (register_email_status === true) {
-                        response.status = 200;
-                        response.msg = "User registered successfully";
-                        response.code = "REGISTER_SUCCESS";
+                        api_resp(res, { status: 200, msg: 'REGISTER_SUCCESS' });
                     } else {
-                        response.status = 400;
-                        response.msg = "User registered but email not registered";
-                        response.code = "REGISTER_EMAIL_FAIL";
+                        api_resp(res, { status: 400, msg: 'REGISTER_EMAIL_FAIL_TO_SAVE' });
                     }
                 } else {
-                    response.status = 400;
-                    response.msg = "User not registered";
-                    response.code = "REGISTER_FAIL";
+                    api_resp(res, { status: 400, msg: 'REGISTER_FAIL_TO_SAVE' });
                 }
-
             } else {
 
-                var err = [];
-                if (user !== false) response.errors.push('username');
-                if (user_email !== false) response.errors.push('email');
+                if (user !== false) errors.push('username');
+                if (user_email !== false) errors.push('email');
 
-                response.msg = 'Already Exists.';
+                api_resp(res, { status: 401, msg: 'REG_FAIL_EXISTS', errors });
             }
         } else {
-            response.msg = 'Data Validation Failed.';
-            response.code = 'REG_FAIL_DATA';
-            response.errors = { username: username_valid, email: (email_valid === true) ? 'OK' : email_valid, password: (pass_valid === true) ? 'OK' : pass_valid };
+            errors = { username: username_valid, email: (email_valid === true) ? 'OK' : email_valid, password: (pass_valid === true) ? 'OK' : pass_valid };
+            api_resp(res, { status: 405, msg: 'REG_FAIL_DATA', errors });
         }
-
-        return response;
     },
 
     // LIST ALL USERS
