@@ -1,8 +1,10 @@
 {
-    "exec": "v-core9",
+    "exec": "-v-",
     "name": "v-core9",
-    "path": "/authors/v-core9",
+    "path": "/authors/-v-",
     "alt_paths": [
+        "/authors/-v-.html",
+        "/authors/v-core9",
         "/authors/v-core9.html",
         "/authors/v_core9",
         "/authors/v_core9.html",
@@ -13,7 +15,7 @@
     "status": "published",
     "title": "Slavko Vuletic @ V-core9.com Main Developer",
     "meta": {
-        "description": "Author Info Page: v-core9"
+        "description": "Author Info Page: [ v-core9 ]"
     },
     "layout": "boxed",
     "sections": [

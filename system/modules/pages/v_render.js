@@ -5,10 +5,10 @@ const v_cache = require('../v_cache');
 
 module.exports = async (req, res, name, dataType) => {
 
-
     var cache_item = await v_cache.get(name);
+
     if (cache_item !== false ? await v_cache.cache_time_check(cache_item) : true) {
-        await v_cache.save(name, await v_pages.one(dataType, name));
+        await v_cache.save(name, await v_pages.one(config.tables.pages, name));
     }
 
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
@@ -24,7 +24,7 @@ module.exports = async (req, res, name, dataType) => {
         _req_headers: req.headers
     };
 
-
+    console.log(data);
 
     res.end(`
         <!DOCTYPE html>

@@ -1,10 +1,10 @@
 {
-    "username": "-v-",
-    "email": "slavko.vuletic92@gmail.com",
+    "username": "DjM_GM",
+    "email": "djuro_demo@djuro.demo",
     "password": "7c46fe6a17bbecb8aa0e4b08d3b9c7b8b5bb0dc87bee988d06f13c95411e00bd",
     "created_at": "2022-01-02T15:22:10.720Z",
     "updated_at": "2022-01-02T15:22:10.720Z",
-    "role": "admin",
+    "role": "user",
     "status": "active",
     "verified": false,
     "firstName": null,

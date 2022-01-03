@@ -1,4 +1,4 @@
-const cookieMonster = {
+const miniCake = {
     getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -22,4 +22,4 @@ const cookieMonster = {
     }
 };
 
-module.exports = cookieMonster;
+module.exports = miniCake;

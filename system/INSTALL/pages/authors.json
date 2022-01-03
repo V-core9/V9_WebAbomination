@@ -29,6 +29,26 @@
             "boxed": true,
             "data": [
                 {
+                    "name": "Aleksandra Blagojevic",
+                    "description": "Marketing Lead, Manager, Content/Ghost writer with more than 4 years of experience in the field.",
+                    "img": "/logo.svg",
+                    "location": "New York",
+                    "pro": "Marketing"
+                },
+                {
+                    "name": "Slavko Vuletic",
+                    "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
+                    "img": "/logo.svg",
+                    "location": "London",
+                    "pro": "Development"
+                },{
+                    "name": "Aleksandra Blagojevic",
+                    "description": "Marketing Lead, Manager, Content/Ghost writer with more than 4 years of experience in the field.",
+                    "img": "/logo.svg",
+                    "location": "New York",
+                    "pro": "Marketing"
+                },
+                {
                     "name": "Slavko Vuletic",
                     "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
                     "img": "/logo.svg",
@@ -41,6 +61,13 @@
                     "img": "/logo.svg",
                     "location": "New York",
                     "pro": "Marketing"
+                },
+                {
+                    "name": "Slavko Vuletic",
+                    "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
+                    "img": "/logo.svg",
+                    "location": "London",
+                    "pro": "Development"
                 }
             ]
         },

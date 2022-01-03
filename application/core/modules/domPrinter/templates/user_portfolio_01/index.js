@@ -448,11 +448,14 @@ const user_portfolio_01 = {
                     font-size: 14px;
                 }
                 
-                .bottom .container_bottom .right .right_content .ex_block .inform .inform_top .date {
+                .bottom .container_bottom .right .right_content .date {
                     font-size: 12px;
-                    background-color: rgba(33, 150, 243, 0.6);
-                    padding: 0 3px;
+                    background-color: #1b2737;
+                    padding: .25em .5em;
                     color: #eee;
+                    border: 1px solid #070a14;
+                    text-shadow: 0 0 2px black;
+                    max-width: fit-content;
                 }
                 
                 .bottom .container_bottom .right .right_content .ex_block .inform .inform_bottom .sub_title {
@@ -496,13 +499,6 @@ const user_portfolio_01 = {
                     line-height: 15px;
                 }
                 
-                .bottom .container_bottom .right .right_content.edu .edu_block .inform .date {
-                    display: inline-block;
-                    font-size: 12px;
-                    background-color: rgba(33, 150, 243, 0.4);
-                    padding: 0 3px;
-                    color: #eee;
-                }
                 
                 .bottom .container_bottom .right .right_content.skills {
                     display: flex;
@@ -581,12 +577,6 @@ const user_portfolio_01 = {
                     display: flex;
                     flex-direction: column;
                     gap: .5em;
-                }
-
-                .date {
-                    background: #070a14!important;
-                    padding: .5em 1em!important;
-                    width: fit-content;
                 }
 
                 .img img {

@@ -1,21 +1,21 @@
 {
-    "exec": "v9_Ana",
-    "name": "v9_Ana",
-    "path": "/authors/v9_ana",
+    "exec": "ana_v9",
+    "name": "ana_v9",
+    "path": "/authors/ana_v9",
     "alt_paths": [
-        "/authors/v9_ana.html",
-        "/authors/ana-v9",
-        "/authors/ana-v9.html",
-        "/authors/v9_aleksandra",
-        "/authors/v9_aleksandra.html",
-        "/authors/v9-aleksandra",
-        "/authors/v9-aleksandra.html"
+        "/authors/ana_v9.html",
+        "/authors/Aleksandra-v9",
+        "/authors/Aleksandra-v9.html",
+        "/authors/Aleksandra",
+        "/authors/Aleksandra.html",
+        "/authors/Aleksandra_v9",
+        "/authors/Aleksandra_v9.html"
     ],
     "type": "get",
     "status": "published",
     "title": "Aleksandra Blagojevic V-core9.com Main Writer",
     "meta": {
-        "description": "Author Info Page: v9_Ana"
+        "description": "Author Info Page: [ ana_v9 ]"
     },
     "layout": "boxed",
     "sections": [

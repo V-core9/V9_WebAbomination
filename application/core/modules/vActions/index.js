@@ -1,10 +1,10 @@
 const vSidebar = require('../vSidebar');
-const cookieMonster = require('../cookieMonster');
+const miniCake = require('../miniCake');
 
 login_success = async (result) => {
     alert(result.accessToken);
-    cookieMonster.setCookie('accessToken', result.accessToken, 5);
-    cookieMonster.setCookie('refreshToken', result.refreshToken, 262800);
+    miniCake.setCookie('accessToken', result.accessToken, 5);
+    miniCake.setCookie('refreshToken', result.refreshToken, 262800);
 };
 
 register_success = async (result) => {

@@ -2,5 +2,9 @@
     "user_id": "-v-",
     "job_title": "V9 Developer",
     "short_bio": "Random text as job description filler or a space-holder.",
-    "status": "active"
+    "status": "active",
+    "name": "Slavko Vuletic",
+    "img": "/logo.svg",
+    "location": "New York",
+    "category": "Web Development"
 }

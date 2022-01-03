@@ -56,20 +56,15 @@ vServer = async ($port = config.port) => {
 
 
     //? PAGES
-    //const path_types = [config.tables.pages, config.tables.posts, config.tables.authors ];
-    const path_types = [config.tables.pages];
-    path_types.forEach(async (type) => {
-        var dataL = await vDB.item.view(type);
-        dataL.forEach(async item => {
-            var data = await vDB.item.view(type, item);
-            console.log(data);
-            v[data.type](data.path, v_action[data.exec]);
-            if (data.alt_paths !== undefined) {
-                data.alt_paths.forEach(alt_path => {
-                    v[data.type](alt_path, v_action[data.exec]);
-                });
-            }
-        });
+    (await vDB.item.view(config.tables.pages)).forEach(async item => {
+        var data = await vDB.item.view(config.tables.pages, item);
+        console.log(data);
+        v[data.type](data.path, v_action[data.exec]);
+        if (data.alt_paths !== undefined) {
+            data.alt_paths.forEach(alt_path => {
+                v[data.type](alt_path, v_action[data.exec]);
+            });
+        }
     });
     
     //! EOF_PAGES

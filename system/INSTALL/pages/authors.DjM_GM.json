@@ -1,0 +1,41 @@
+{
+    "exec": "DjM_GM",
+    "name": "DjM_GM",
+    "path": "/authors/DjM_GM",
+    "alt_paths": [
+        "/authors/DjM_GM.html",
+        "/authors/djuro_v9",
+        "/authors/djuro_v9.html",
+        "/authors/djCORE",
+        "/authors/djCORE.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Djuro Mraovic @ V-core9.com General Manager",
+    "meta": {
+        "description": "Author Info Page: [ DjM_GM ]"
+    },
+    "layout": "boxed",
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed" : false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "user_portfolio_01",
+            "boxed" : true,
+            "data": {
+                "name": "Djuro Mraovic",
+                "sub_title": "General Manager & Company Coordinator",
+                "img": "/assets/logo.png",
+                "location": "Subotica"
+            }
+        }
+    ]
+}
