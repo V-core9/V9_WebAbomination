@@ -1,11 +1,8 @@
 const v_render = require('../modules/pages/v_render');
 const generate_sitemap = require('./generate_sitemap');
-const blog_post = require('./blog_post');
 
 const v_action = {
-    blog: async (req, res) => {
-        v_render(req, res, 'blog');
-    },
+    blog: require('./blog'),
     authors: async (req, res) => {
         v_render(req, res, 'authors');
     },
@@ -34,22 +31,20 @@ const v_action = {
         v_render(req, res, 'system_status');
     },
     statistics: async (req, res) => {
-        v_render(req, res, 'statistics' );
+        v_render(req, res, 'statistics');
     },
     sitemap: async (req, res) => {
         generate_sitemap(req, res);
     },
     sitemap_pages: async (req, res) => {
-        generate_sitemap(req, res);
+        generate_sitemap(req, res, 'pages');
     },
     sitemap_posts: async (req, res) => {
-        generate_sitemap(req, res);
+        generate_sitemap(req, res, 'posts');
     },
     sitemap_authors: async (req, res) => {
-        generate_sitemap(req, res);
+        generate_sitemap(req, res, 'authors');
     },
-
-    blog_post: blog_post,
 
     lightmap: async (req, res) => {
         v_render(req, res, 'lightmap');

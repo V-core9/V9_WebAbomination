@@ -1,10 +1,8 @@
 const vDB = require('v_database');
 const vRF = require('v_rifier');
-
-const vTables = require('../../config/tables');
-const refreshTokens = require('../auth/_ref-tokens');
-
 const v_to_sha256 = require('v_to_sha256');
+const {tables} = require('../../config');
+let refreshTokens = require('../auth/_ref-tokens');
 
 const jwt = require('jsonwebtoken');
 
@@ -13,20 +11,32 @@ const jwtConfig = require('../auth/config.jwt');
 const {register} = require('../data_templates');
 
 const userModel = {
-    login: async (data) => {
 
+    // LOGIN
+    logout: async (req, res) => {
+        const { token } = req.body;
+        if (refreshTokens.indexOf(token) === -1) {
+            res.send("You are already logged out.");
+        } else {
+            refreshTokens = refreshTokens.filter(t => t !== token);
+            console.log(refreshTokens);
+            res.send("Logout successful");
+        }
+    },
+    
+    // LOGIN
+    login: async (data) => {
+        
         const response = {
             status: 400,
             msg: "",
             code: "",
             errors: [],
         };
-        // read username and password from request body
-        const { username, password } = data;
-    
-        // filter user from the users array by username and password
-        const user = await vDB.item.view(vTables.users, username);
-    
+        
+        const { username, password } = data;    
+        const user = await vDB.item.view(tables.users, username);  
+
         if (user) {
             const pass_check = await v_to_sha256(password);
             if (pass_check === user.password) {
@@ -55,6 +65,8 @@ const userModel = {
 
         return response;
     },
+
+    // REGISTER NEW USER
     register: async (data) => {
 
         const response = {
@@ -73,15 +85,15 @@ const userModel = {
 
         if (username_valid === true && email_valid === true && pass_valid === true) {
 
-            const user = await vDB.item.view(vTables.users, username);
-            const user_email = await vDB.item.view(vTables.emails, email);
+            const user = await vDB.item.view(tables.users, username);
+            const user_email = await vDB.item.view(tables.emails, email);
 
             if (user === false && user_email === false) {
 
-                const register_user_status = await vDB.item.new(vTables.users, await register.user(username, email, password), username);
+                const register_user_status = await vDB.item.new(tables.users, await register.user(username, email, password), username);
 
                 if (register_user_status === true) {
-                    const register_email_status = await vDB.item.new(vTables.emails, await register.email(username, email), email);
+                    const register_email_status = await vDB.item.new(tables.emails, await register.email(username, email), email);
                     if (register_email_status === true) {
                         response.status = 200;
                         response.msg = "User registered successfully";
@@ -114,12 +126,14 @@ const userModel = {
         return response;
     },
 
+    // LIST ALL USERS
     all: async () => {
-        return await vDB.type.view(vTables.users);
+        return await vDB.type.view(tables.users);
     },
 
-    one: async (options) => {
-        return await vDB.item.view(vTables.users, options);
+    // Return Single User
+    one: async (id) => {
+        return (id !== undefined) ? await vDB.item.view(tables.users, id) : false;
     }
 
 };
