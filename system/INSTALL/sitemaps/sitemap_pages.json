@@ -1,1 +1,18 @@
-{"exec":"sitemap_pages","name":"sitemap_pages","path":"/page-sitemap.xml","alt_paths":["/page-sitemap","/page_sitemap","/page_sitemap.xml","/page_sitemap_index","/page_sitemap_index.xml"],"type":"get","status":"published","title":"Pages Sitemap Index","meta":{"description":"Sitemap of website pages"}}
+{
+    "exec": "sitemap_pages",
+    "name": "sitemap_pages",
+    "path": "/page-sitemap.xml",
+    "alt_paths": [
+        "/page-sitemap",
+        "/page_sitemap",
+        "/page_sitemap.xml",
+        "/page_sitemap_index",
+        "/page_sitemap_index.xml"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Pages Sitemap Index",
+    "meta": {
+        "description": "Sitemap of website pages"
+    }
+}

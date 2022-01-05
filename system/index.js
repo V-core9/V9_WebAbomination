@@ -170,6 +170,7 @@ const v_routes = {
         await v_routes.load_authors_routes();
         await v_routes.load_sitemaps_routes();
         
+        console.log(v_routes._list);
         //? [ ROUTES ]>- - - - - -
         for (let i = 0; i < v_routes._list.length; i++) {
             v[v_routes._list[i].type](v_routes._list[i].path, v_routes._list[i].handle);
