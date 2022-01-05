@@ -2,20 +2,15 @@ const vDB = require('v_database');
 const vRF = require('v_rifier');
 const v_to_sha256 = require('v_to_sha256');
 const { tables } = require('../../config');
-let refreshTokens = require('../auth/_ref-tokens');
-
+let { refreshTokens } = require('../auth/jwt');
 const jwt = require('jsonwebtoken');
-
-const jwtConfig = require('../auth/config.jwt');
-
+const { jwtConfig } = require('../auth/jwt');
 const { register } = require('../data_templates');
-
 
 api_resp = async (res, rez) => {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(rez, true, 2));
 };
-
 
 const userModel = {
 
@@ -45,12 +40,12 @@ const userModel = {
                 const refreshToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.refresh);
 
                 refreshTokens.push(refreshToken);
-                api_resp(res, { status: 200, msg: 'Login successful', accessToken, refreshToken });
+                res.status(200).send({ accessToken, refreshToken });
             } else {
-                api_resp(res, { status: 401, msg: 'Wrong Password' });
+                res.status(401).send('Wrong Password');
             }
         } else {
-            api_resp(res, { status: 401, msg: 'User Not Found' });
+            res.status(401).send('User Not Found');
         }
     },
 
@@ -76,23 +71,23 @@ const userModel = {
                 if (register_user_status === true) {
                     const register_email_status = await vDB.item.new(tables.emails, await register.email(username, email), email);
                     if (register_email_status === true) {
-                        api_resp(res, { status: 200, msg: 'REGISTER_SUCCESS' });
+                        res.status(200).send('REGISTER_SUCCESS');
                     } else {
-                        api_resp(res, { status: 400, msg: 'REGISTER_EMAIL_FAIL_TO_SAVE' });
+                        res.status(400).send('REGISTER_EMAIL_FAIL_TO_SAVE');
                     }
                 } else {
-                    api_resp(res, { status: 400, msg: 'REGISTER_FAIL_TO_SAVE' });
+                    res.status(400).send('REGISTER_FAIL_TO_SAVE');
                 }
             } else {
 
                 if (user !== false) errors.push('username');
                 if (user_email !== false) errors.push('email');
 
-                api_resp(res, { status: 401, msg: 'REG_FAIL_EXISTS', errors });
+                res.status(400).send({msg : 'REG_FAIL_EXISTS', errors: errors });
             }
         } else {
             errors = { username: username_valid, email: (email_valid === true) ? 'OK' : email_valid, password: (pass_valid === true) ? 'OK' : pass_valid };
-            api_resp(res, { status: 405, msg: 'REG_FAIL_DATA', errors });
+            res.status(405).send({msg: 'REG_FAIL_DATA', errors: errors });
         }
     },
 

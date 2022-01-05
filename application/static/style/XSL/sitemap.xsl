@@ -12,18 +12,13 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<style type="text/css">
 				body {
-					font-family: Helvetica, Arial, sans-serif;
-					font-size: 13px;
+					font-family: monospace;
+					font-size: 14px;
 					background: linear-gradient(225deg, #000, #4a5462,#4a5462, #000);
-					position: fixed;
-					top: 0;
-					left: 0;
-					display: flex;
-					height: calc(100% - 2em);
-					width: calc(100% - 2em);
-					text-shadow: 0 0 2px black;
-					margin: 0;
+					margin: 0 auto;
 					padding: 1em;
+					color: #fff;
+					max-width: 1280px;
 				}
 				a {
 					color: #fff;
@@ -35,42 +30,34 @@
 				}
 				
 				a:visited {
-					color: red;
+					color: #2196f3;
 				}
 				table {
 					border: none;
 					border-collapse: collapse;
 				}
 				#sitemap tr:nth-child(odd) td {
-					background-color: #eeeeee21 !important;
-				}
-				#sitemap tbody tr:hover td {
-					background-color: #ccc;
+					background-color: #eeeeee21;
 				}
 				#sitemap tbody tr:hover td, #sitemap tbody tr:hover td a {
 					color: #000;
 				}
 				#content {
-					margin: 0 auto;
-					overflow: auto;
-					width: 100%;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
+					
 				}
 				.expl {
 					margin: 18px 3px;
 					line-height: 1.2em;
 				}
 				.expl a {
-					color: #4dc8ff;
-					font-weight: 600;
+					color: #607d8b;
 				}
 				.expl a:visited {
-					color: #da3114;
+					color: #9e9e9e;
 				}
 				td {
 					font-size:14px;
+    				padding: .5em;
 				}
 				th {
 					text-align:left;
@@ -79,6 +66,9 @@
 				}
 				thead th {
 					border-bottom: 1px solid #000;
+				}
+				#sitemap tbody tr:hover td {
+					background-color: #ccc;
 				}
 			</style>
 		</head>
@@ -121,7 +111,9 @@
 				<table id="sitemap" cellpadding="3">
 					<thead>
 					<tr>
-						<th width="80%">URL</th>
+						<th width="60%">URL</th>
+						<th title="Change Frequency" width="15%">Change Frequency</th>
+						<th width="5%">Priority</th>
 						<th width="5%">Images</th>
 						<th title="Last Modification Time" width="15%">Last Mod.</th>
 					</tr>
@@ -138,6 +130,12 @@
 								<a href="{$itemURL}">
 									<xsl:value-of select="sitemap:loc"/>
 								</a>
+							</td>
+							<td>
+								<xsl:value-of select="concat(substring(sitemap:changefreq,0,11),concat(' ', substring(sitemap:changefreq,12,5)),concat(' ', substring(sitemap:changefreq,20,6)))"/>
+							</td>
+							<td>
+								<xsl:value-of select="concat(substring(sitemap:priority,0,11),concat(' ', substring(sitemap:priority,12,5)),concat(' ', substring(sitemap:priority,20,6)))"/>
 							</td>
 							<td>
 								<xsl:value-of select="count(image:image)"/>
