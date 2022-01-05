@@ -147,12 +147,28 @@ const v_routes = {
         }
         //! EOF_PAGES
     },
+    load_sitemaps_routes: async () => {
+        //? [ PAGES ]>- - - - - -
+        const pages = await vDB.item.view(config.tables.sitemaps);
+        for (let i = 0; i < pages.length; i++) {
+            var data = await vDB.item.view(config.tables.sitemaps, pages[i]);
+            v_routes._list.push({ type: data.type, path: data.path, handle: v_action[data.exec] });
+
+            if (data.alt_paths !== undefined) {
+                for (let j = 0; j < data.alt_paths.length; j++) {
+                    v_routes._list.push({ type: data.type, path: data.alt_paths[j], handle: v_action[data.exec] });
+                }
+            }
+        }
+        //! EOF_PAGES
+    },
 
     init: async () => {
         
         await v_routes.load_pages_routes();
         await v_routes.load_posts_routes();
         await v_routes.load_authors_routes();
+        await v_routes.load_sitemaps_routes();
         
         //? [ ROUTES ]>- - - - - -
         for (let i = 0; i < v_routes._list.length; i++) {

@@ -118,32 +118,35 @@ const vSeeds = [
     // SITEMAPS
     {
         table: vTables.sitemaps,
-        content: './sitemaps/authors.json'
+        name: 'sitemap_authors',
+        content: './sitemaps/sitemap_authors.json'
     },
     {
         table: vTables.sitemaps,
-        content: './sitemaps/pages.json'
+        name: 'sitemap_pages',
+        content: './sitemaps/sitemap_pages.json'
     },
     {
         table: vTables.sitemaps,
-        content: './sitemaps/posts.json'
+        name: 'sitemap_posts',
+        content: './sitemaps/sitemap_posts.json'
     },
 
     // Author pages
     {
-        table: vTables.pages,
+        table: vTables.authors,
         name: '-v-',
-        content: './pages/authors.-v-.json'
+        content: './authors/-v-.json'
     },
     {
-        table: vTables.pages,
+        table: vTables.authors,
         name: 'DjM_GM',
-        content: './pages/authors.DjM_GM.json'
+        content: './authors/DjM_GM.json'
     },
     {
-        table: vTables.pages,
+        table: vTables.authors,
         name: 'ana_v9',
-        content: './pages/authors.ana_v9.json'
+        content: './authors/ana_v9.json'
     },
     // Users [authors use them]
     {
