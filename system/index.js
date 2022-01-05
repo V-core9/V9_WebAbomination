@@ -102,9 +102,7 @@ const v_routes = {
         }
         //! EOF_ITEMS
     ],
-
     load_pages_routes: async () => {
-
         //? [ PAGES ]>- - - - - -
         const pages = await vDB.item.view(config.tables.pages);
         for (let i = 0; i < pages.length; i++) {
@@ -119,17 +117,49 @@ const v_routes = {
         }
         //! EOF_PAGES
     },
+    load_posts_routes: async () => {
+        //? [ PAGES ]>- - - - - -
+        const pages = await vDB.item.view(config.tables.posts);
+        for (let i = 0; i < pages.length; i++) {
+            var data = await vDB.item.view(config.tables.posts, pages[i]);
+            v_routes._list.push({ type: data.type, path: data.path, handle: v_action[data.exec] });
+
+            if (data.alt_paths !== undefined) {
+                for (let j = 0; j < data.alt_paths.length; j++) {
+                    v_routes._list.push({ type: data.type, path: data.alt_paths[j], handle: v_action[data.exec] });
+                }
+            }
+        }
+        //! EOF_PAGES
+    },
+    load_authors_routes: async () => {
+        //? [ PAGES ]>- - - - - -
+        const pages = await vDB.item.view(config.tables.authors);
+        for (let i = 0; i < pages.length; i++) {
+            var data = await vDB.item.view(config.tables.authors, pages[i]);
+            v_routes._list.push({ type: data.type, path: data.path, handle: v_action[data.exec] });
+
+            if (data.alt_paths !== undefined) {
+                for (let j = 0; j < data.alt_paths.length; j++) {
+                    v_routes._list.push({ type: data.type, path: data.alt_paths[j], handle: v_action[data.exec] });
+                }
+            }
+        }
+        //! EOF_PAGES
+    },
 
     init: async () => {
         
         await v_routes.load_pages_routes();
+        await v_routes.load_posts_routes();
+        await v_routes.load_authors_routes();
+        
         //? [ ROUTES ]>- - - - - -
         for (let i = 0; i < v_routes._list.length; i++) {
             v[v_routes._list[i].type](v_routes._list[i].path, v_routes._list[i].handle);
         }
         //! EOF_ROUTES
     }
-
 };
 
 
@@ -145,7 +175,7 @@ vServer = async ($port = config.port) => {
     });
     
     v.listen($port, async () => {
-        console.log(`Example app listening at http://localhost:${$port}`);
+        console.log(`V_APP Started >> http://localhost:${$port}`);
     });
 };
 

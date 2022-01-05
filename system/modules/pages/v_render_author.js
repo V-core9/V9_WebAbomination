@@ -8,7 +8,7 @@ module.exports = async (req, res, name) => {
     var cache_item = await v_cache.get(name);
 
     if (cache_item !== false ? await v_cache.cache_time_check(cache_item) : true) {
-        await v_cache.save(name, await v_pages.one(config.tables.pages, name));
+        await v_cache.save(name, await v_pages.one(config.tables.authors, name));
     }
 
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;

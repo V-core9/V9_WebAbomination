@@ -1,8 +1,11 @@
 const v_render = require('../modules/pages/v_render');
+const v_render_author = require('../modules/pages/v_render_author');
+const v_render_post = require('../modules/pages/v_render_post');
 const generate_sitemap = require('./generate_sitemap');
 
 const v_action = {
     blog: require('./blog'),
+
     authors: async (req, res) => {
         v_render(req, res, 'authors');
     },
@@ -33,6 +36,12 @@ const v_action = {
     statistics: async (req, res) => {
         v_render(req, res, 'statistics');
     },
+
+    lightmap: async (req, res) => {
+        v_render(req, res, 'lightmap');
+    },
+
+
     sitemap: async (req, res) => {
         generate_sitemap(req, res);
     },
@@ -46,20 +55,23 @@ const v_action = {
         generate_sitemap(req, res, 'authors');
     },
 
-    lightmap: async (req, res) => {
-        v_render(req, res, 'lightmap');
-    },
 
     ana_v9: async (req, res) => {
-        v_render(req, res, 'ana_v9');
+        v_render_author(req, res, 'ana_v9');
     },
-
     '-v-': async (req, res) => {
-        v_render(req, res, '-v-');
+        v_render_author(req, res, '-v-');
+    },
+    DjM_GM: async (req, res) => {
+        v_render_author(req, res, 'DjM_GM');
     },
 
-    DjM_GM: async (req, res) => {
-        v_render(req, res, 'DjM_GM');
+
+    big_opening: async (req, res) => {
+        v_render_post(req, res, 'big_opening');
+    },
+    sample_post: async (req, res) => {
+        v_render_post(req, res, 'sample_post');
     },
 
 };
