@@ -54,7 +54,6 @@ const vWebsite = {
     pageByID: async (req, res) => {
         res.send(await vDB.item.view('pages', req.params.page_id));
     },
-
     //? Find page by slug 
     pageBySlug: async (req, res) => {
         v_render(req, res, await vWebsite.findByPath(vWebsite.pages, req.params.page_slug)) ;
@@ -64,7 +63,6 @@ const vWebsite = {
     postByID: async (req, res) => {
         res.send(await vDB.item.view('posts', req.params.post_id));
     },
-
     //? Find post by slug [path/alt_paths]
     postBySlug: async (req, res) => {
         v_render(req, res, await vWebsite.findByPath(vWebsite.posts, req.params.post_slug)) ;
@@ -74,7 +72,6 @@ const vWebsite = {
     authorByID: async (req, res) => {
         res.send(await vDB.item.view('authors', req.params.post_id));
     },
-
     //? Find author by slug [path/alt_paths]
     authorBySlug: async (req, res) => {
         v_render(req, res, await vWebsite.findByPath(vWebsite.authors, req.params.author_slug)) ;

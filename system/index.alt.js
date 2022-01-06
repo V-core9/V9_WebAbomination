@@ -2,7 +2,6 @@
 
 const config = require('./config');
 
-const vDB = require('v_database');
 const vApi = require('./$_API');
 
 // Express Things
@@ -25,34 +24,7 @@ v.use(bodyParser.json());
 v.disable('etag');
 
 const vWebsite = require('./v_website');
-
-generate_sitemap = async (type, output, index)=>{
-    const v_sitemap = require('v_sitemap');
-    const pages = await vDB.item.view(type);
-    var DEMO_DATA = [];
-    for (var i = 0; i < pages.length; i++) {
-        DEMO_DATA.push(await vDB.item.view(type, pages[i]));
-    }
-
-    //? Example styled map
-    const myStyledMap = {
-        data: DEMO_DATA,
-        index: index,
-        output: output,
-        stylesheet:  "localhost:3000/style/XSL/sitemap.xsl"
-    };
-    // Guess It has to be online to work with stylesheet cuz it's working once I put it online.
-    console.log(await v_sitemap(myStyledMap));
-    
-};
-
-page_sitemap = async ()=>{
-    await generate_sitemap('pages', "public/pages_sitemap.xml", false);
-};
-
-post_sitemap = async ()=>{
-    await generate_sitemap('posts', "public/posts_sitemap.xml", false);
-};
+const regenerate_sitemap = require('./v_sitemap');
 
 
 const vServer = {
@@ -159,14 +131,17 @@ const vServer = {
             path: '/post_id/:post_id',
             handle: [vWebsite.postByID]
         },
+        {
+            type: 'get',
+            path: '/admin/regenerate_sitemap',
+            handle: [regenerate_sitemap]
+        }
     ],
 
     init: async ($port = config.port) => {
         
         await vWebsite.load();
 
-        await page_sitemap();
-        await post_sitemap();
 
         v._router.strict = (config.strictRouter === true) ? true : false;
         v.locals.settings.env = (config.env === 'production' || config.env === 'development') ? config.env : 'production';
