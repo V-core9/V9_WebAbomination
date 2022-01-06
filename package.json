@@ -42,6 +42,7 @@
     "v_lightmapper": "^0.0.9",
     "v_rifier": "^0.0.8",
     "v_scrolls": "^0.1.13",
+    "v_sitemap": "^0.0.2",
     "v_to_sha256": "^1.0.9"
   }
 }

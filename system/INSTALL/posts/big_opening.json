@@ -1,11 +1,11 @@
 {
     "exec": "big_opening",
     "name": "big_opening",
-    "path": "/blog/big_opening",
+    "path": "big_opening",
     "alt_paths": [
-        "/blog/big_opening.html",
-        "/blog/big-opening",
-        "/blog/big-opening.html"
+        "big_opening.html",
+        "big-opening",
+        "big-opening.html"
     ],
     "type": "get",
     "status": "published",
@@ -172,5 +172,8 @@
                 }
             }
         }
-    ]
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
 }

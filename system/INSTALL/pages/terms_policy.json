@@ -1,11 +1,11 @@
 {
     "exec": "terms_policy",
     "name": "terms_policy",
-    "path": "/terms_policy",
+    "path": "terms_policy",
     "alt_paths": [
-        "/terms_policy.html",
-        "/terms-policy",
-        "/terms-policy.html"
+        "terms_policy.html",
+        "terms-policy",
+        "terms-policy.html"
     ],
     "type": "get",
     "status": "published",
@@ -108,5 +108,8 @@
                 }
             }
         }
-    ]
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
 }

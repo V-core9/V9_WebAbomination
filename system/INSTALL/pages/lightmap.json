@@ -1,1 +1,62 @@
-{"exec":"lightmap","name":"lightmap","path":"/lightmap","alt_paths":["/lightmap.html","/v_lightmapper-report","/v_lightmapper-report.html","/lightmapper-report","/lightmapper-report.html","/lightmapper","/lightmapper.html"],"type":"get","status":"published","title":"System Lightmap","meta":{"description":"Learn More with V-core9.com"},"sections":[{"type":"head_navigation_01","boxed":false,"data":{"button":{"text":"[=]","do":"mainNavToggle"}}},{"type":"lightmap_report_01","boxed":true,"data":"{%_LIGHTMAP_REPORT_%}"},{"type":"footer_01","boxed":false,"data":{"title":"Checkout the Web_DEMO App","subtitle":"Running using Vanilla JS exported through WebPack...","button":{"text":"Open Demo","do":"testCallbackFunction"},"image":{"width":320,"height":180,"url":"/nodejs.png","alt":"vWebDemo App 2021"},"background":{"type":"color","url":"#302010"}}}]}
+{
+    "exec": "lightmap",
+    "name": "lightmap",
+    "path": "lightmap",
+    "alt_paths": [
+        "lightmap.html",
+        "v_lightmapper-report",
+        "v_lightmapper-report.html",
+        "lightmapper-report",
+        "lightmapper-report.html",
+        "lightmapper",
+        "lightmapper.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "System Lightmap",
+    "meta": {
+        "description": "Learn More with V-core9.com"
+    },
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed": false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "lightmap_report_01",
+            "boxed": true,
+            "data": "{%_LIGHTMAP_REPORT_%}"
+        },
+        {
+            "type": "footer_01",
+            "boxed": false,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
+        }
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
+}

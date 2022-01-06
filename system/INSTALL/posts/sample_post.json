@@ -1,11 +1,11 @@
 {
     "exec": "sample_post",
     "name": "sample_post",
-    "path": "/blog/sample_post",
+    "path": "sample_post",
     "alt_paths": [
-        "/blog/sample_post.html",
-        "/blog/sample-post",
-        "/blog/sample-post.html"
+        "sample_post.html",
+        "sample-post",
+        "sample-post.html"
     ],
     "type": "get",
     "status": "published",
@@ -172,5 +172,8 @@
                 }
             }
         }
-    ]
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
 }
