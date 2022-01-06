@@ -1,5 +1,6 @@
 const miniCake = {
-    getCookie(cname) {
+
+    get(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
         let ca = decodedCookie.split(';');
@@ -14,12 +15,14 @@ const miniCake = {
         }
         return "";
     },
-    setCookie(cname, cvalue, minutes) {
+
+    set(cname, cvalue, minutes) {
         const d = new Date();
         d.setTime(d.getTime() + (minutes * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
+
 };
 
 module.exports = miniCake;

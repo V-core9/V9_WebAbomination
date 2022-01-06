@@ -58,26 +58,6 @@ const vSeeds = [
         content: './pages/sitemap.json'
     },
     
-    // SITEMAP - [Static Pages] 
-    {
-        table: vTables.pages,
-        name: 'sitemap_pages',
-        content: './pages/sitemap_pages.json'
-    },
-    
-    // SITEMAP - [Blog Posts Listing]
-    {
-        table: vTables.pages,
-        name: 'sitemap_posts',
-        content: './pages/sitemap_posts.json'
-    },
-    
-    // SITEMAP - [Authors Listing]
-    {
-        table: vTables.pages,
-        name: 'sitemap_authors',
-        content: './pages/sitemap_authors.json'
-    },
     
     // Privacy Policy Page
     {
@@ -118,33 +98,32 @@ const vSeeds = [
     // SITEMAPS
     {
         table: vTables.sitemaps,
-        content: './sitemaps/authors.json'
+        name: 'sitemap_authors',
+        content: './sitemaps/sitemap_authors.json'
     },
     {
         table: vTables.sitemaps,
-        content: './sitemaps/pages.json'
+        name: 'sitemap_pages',
+        content: './sitemaps/sitemap_pages.json'
     },
     {
         table: vTables.sitemaps,
-        content: './sitemaps/posts.json'
+        name: 'sitemap_posts',
+        content: './sitemaps/sitemap_posts.json'
     },
 
     // Author pages
     {
-        table: vTables.pages,
+        table: vTables.authors,
         name: '-v-',
-        content: './pages/authors.-v-.json'
+        content: './authors/-v-.json'
     },
     {
-        table: vTables.pages,
-        name: 'DjM_GM',
-        content: './pages/authors.DjM_GM.json'
-    },
-    {
-        table: vTables.pages,
+        table: vTables.authors,
         name: 'ana_v9',
-        content: './pages/authors.ana_v9.json'
+        content: './authors/ana_v9.json'
     },
+    
     // Users [authors use them]
     {
         table: vTables.users,
@@ -153,13 +132,19 @@ const vSeeds = [
     },
     {
         table: vTables.users,
-        name: 'DjM_GM',
-        content: './users/DjM_GM.json'
-    },
-    {
-        table: vTables.users,
         name: 'ana_v9',
         content: './users/ana_v9.json'
+    },
+    // emails [Users use them]
+    {
+        table: vTables.emails,
+        name: 'slavko_vuletic@hotmail.com.json',
+        content: './emails/slavko_vuletic@hotmail.com.json'
+    },
+    {
+        table: vTables.emails,
+        name: 'slavko.vuletic92@gmail.com.json',
+        content: './emails/slavko.vuletic92@gmail.com.json'
     },
 
     // BLOG POSTS

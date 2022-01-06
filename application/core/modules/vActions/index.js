@@ -3,8 +3,8 @@ const miniCake = require('../miniCake');
 
 login_success = async (result) => {
     alert(result.accessToken);
-    miniCake.setCookie('accessToken', result.accessToken, 5);
-    miniCake.setCookie('refreshToken', result.refreshToken, 262800);
+    miniCake.set('accessToken', result.accessToken, 5);
+    miniCake.set('refreshToken', result.refreshToken, 262800);
 };
 
 register_success = async (result) => {
