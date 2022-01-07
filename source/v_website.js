@@ -39,6 +39,16 @@ const vWebsite = {
         v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'index')) ;
     },
 
+    //? Blog Page
+    blog: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'blog')) ;
+    },
+
+    //? Authors Page
+    authors_page: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'authors')) ;
+    },
+
     //? Find any by path/slug [alt_paths]
     //* returns object or false
     findByPath: async(itemList, itemPath) => {
@@ -79,6 +89,11 @@ const vWebsite = {
 
     sitemap: async (req, res) => {
         res.send('sitemap');
+    },
+
+    //? 404
+    e404: async (req, res) => {
+        v_render(req, res, false) ;
     }
 };
 

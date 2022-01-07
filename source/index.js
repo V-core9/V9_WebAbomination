@@ -105,6 +105,16 @@ const vServer = {
         },
         {
             type: 'get',
+            path: '/blog/',
+            handle: [vWebsite.blog]
+        },
+        {
+            type: 'get',
+            path: '/authors/',
+            handle: [vWebsite.authors_page]
+        },
+        {
+            type: 'get',
             path: '/:page_slug',
             handle: [vWebsite.pageBySlug]
         },
@@ -132,7 +142,12 @@ const vServer = {
             type: 'get',
             path: '/admin/regenerate_sitemap',
             handle: [sitemapGenerator.regenerate]
-        }
+        },
+        {
+            type: 'get',
+            path: '*',
+            handle: [vWebsite.e404]
+        },
     ],
 
     init: async ($port = config.port) => {
