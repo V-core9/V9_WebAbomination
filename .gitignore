@@ -108,6 +108,5 @@ dist
 package-lock.json
 
 
-.v_database
 public
 vLM_reports

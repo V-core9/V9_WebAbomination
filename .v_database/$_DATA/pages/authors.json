@@ -1,0 +1,101 @@
+{
+    "exec": "authors",
+    "name": "authors",
+    "path": "authors",
+    "alt_paths": [
+        "authors.html",
+        "contributors",
+        "contributors.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Authors Page",
+    "meta": {
+        "description": "Learn More with V-core9.com"
+    },
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed": false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "author_hero_list_01",
+            "boxed": true,
+            "data": [
+                {
+                    "name": "Aleksandra Blagojevic",
+                    "description": "Marketing Lead, Manager, Content/Ghost writer with more than 4 years of experience in the field.",
+                    "img": "/logo.svg",
+                    "location": "New York",
+                    "pro": "Marketing"
+                },
+                {
+                    "name": "Slavko Vuletic",
+                    "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
+                    "img": "/logo.svg",
+                    "location": "London",
+                    "pro": "Development"
+                },
+                {
+                    "name": "Aleksandra Blagojevic",
+                    "description": "Marketing Lead, Manager, Content/Ghost writer with more than 4 years of experience in the field.",
+                    "img": "/logo.svg",
+                    "location": "New York",
+                    "pro": "Marketing"
+                },
+                {
+                    "name": "Slavko Vuletic",
+                    "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
+                    "img": "/logo.svg",
+                    "location": "London",
+                    "pro": "Development"
+                },
+                {
+                    "name": "Aleksandra Blagojevic",
+                    "description": "Marketing Lead, Manager, Content/Ghost writer with more than 4 years of experience in the field.",
+                    "img": "/logo.svg",
+                    "location": "New York",
+                    "pro": "Marketing"
+                },
+                {
+                    "name": "Slavko Vuletic",
+                    "description": "Consultant, Gamer, Tech Enthusiast, Developer with more than 7 years of experience in the industry.",
+                    "img": "/logo.svg",
+                    "location": "London",
+                    "pro": "Development"
+                }
+            ]
+        },
+        {
+            "type": "footer_01",
+            "boxed": false,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
+        }
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
+}
