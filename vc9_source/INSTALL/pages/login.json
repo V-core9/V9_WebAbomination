@@ -1,0 +1,77 @@
+{
+    "exec": "login",
+    "name": "login",
+    "path": "login",
+    "alt_paths": [
+        "sign-in",
+        "verify-user",
+        "login.html",
+        "sign-in.html",
+        "verify-user.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "Login/Sign-in",
+    "meta": {
+        "description": "LOGIN TO V-core9.com"
+    },
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed": false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "login_base_01",
+            "boxed": true,
+            "data": {
+                "title": "Login",
+                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
+                "button": {
+                    "text": "SUPPORT",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 360,
+                    "height": 360,
+                    "url": "/logo.svg",
+                    "alt": "V-core9 Logo SVG"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#152030"
+                }
+            }
+        },
+        {
+            "type": "footer_01",
+            "boxed": false,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
+        }
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
+}

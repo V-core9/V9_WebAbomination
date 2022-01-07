@@ -1,0 +1,5 @@
+{
+    "type": "posts",
+    "path": "posts_sitemap.xml",
+    "prefix": "/blog/"
+}
