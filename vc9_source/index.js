@@ -1,31 +1,25 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
-
 const config = require('./config');
-
 const vApi = require('./$_API');
+const { head, csp, xPoweredBy } = require('./middlewares');
+const vWebsite = require('./v_website');
+const { sitemapGenerator } = require('./modules');
 
 // Express Things
 const express = require('express');
 const bodyParser = require('body-parser');
 var compression = require('compression');
-const { headMiddleware } = require('./helpers');
-
 
 const v = express();
 
+v.use(head);
+v.use(csp);
+v.use(xPoweredBy);
 
-v.use(headMiddleware);
-
-if (config.compression === true) {
-    v.use(compression({ threshold: 0, level: 9 }));
-}
-
+v.use(compression({ threshold: 0, level: 9 }));
 v.use(bodyParser.urlencoded({ extended: true }));
 v.use(bodyParser.json());
 v.disable('etag');
-
-const vWebsite = require('./v_website');
-const sitemapGenerator = require('./sitemapGenerator');
 
 
 const vServer = {
@@ -140,7 +134,7 @@ const vServer = {
     ],
 
     init: async ($port = config.port) => {
-        
+
         await vWebsite.load();
 
 

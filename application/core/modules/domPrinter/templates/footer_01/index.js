@@ -2,16 +2,17 @@ const footer_01 = {
     name: "footer_01",
     view: (section = { title: null, subtitle: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null } }) => {
         return `<div class="section_side">
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
-                    <h4>Footer</h4>
+                    <h4>Home</h4>
+                    <h4>About</h4>
+                    <h4>Blog</h4>
+                    <h4>Contact</h4>
+                    <h4>Help</h4>
                 </div>
                 <div class="section_side">
                     <h4><a href='/sitemap_index.xml'>Sitemap Index</a></h4>
-                    <h4><a href='/page-sitemap.xml'>Pages Sitemap</a></h4>
-                    <h4><a href='/post-sitemap.xml'>Posts Sitemap</a></h4>
-                    <h4><a href='/author-sitemap.xml'>Authors Sitemap</a></h4>
+                    <h4><a href='/pages_sitemap.xml'>Pages Sitemap</a></h4>
+                    <h4><a href='/posts_sitemap.xml'>Posts Sitemap</a></h4>
+                    <h4><a href='/authors_sitemap.xml'>Authors Sitemap</a></h4>
                 </div>`;
     },
     css: () => {

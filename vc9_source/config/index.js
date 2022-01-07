@@ -17,8 +17,7 @@ module.exports = {
     lang: `en`,
     port: process.env.PORT || 2500,
     viewport: `width=device-width`,
-    compression: true,
-    ContentSecurityPolicy: `script-src 'self' 'unsafe-inline' *.googletagmanager.com `, 
+    ContentSecurityPolicy: "default-src 'self' 'unsafe-inline' ; connect-src 'self' https://cloudflareinsights.com/cdn-cgi/rum  https://www.google-analytics.com www.google-analytics.com; script-src 'self' https://www.google-analytics.com 'unsafe-inline' *.googletagmanager.com  ", 
     ObjectSecurityPolicy: `object-src 'self'` ,
     tables: require('./tables'),
     static_dirs : [

@@ -1,5 +1,8 @@
 {
     "type": "pages",
     "path": "pages_sitemap.xml",
-    "prefix": false
+    "prefix": false,
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
 }
