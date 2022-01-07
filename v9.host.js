@@ -1,3 +1,3 @@
-const v = require( './v9');
+const v9 = require( './v9');
 
-v(2500);
+v9.init(2500);

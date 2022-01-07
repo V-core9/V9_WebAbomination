@@ -12,7 +12,6 @@
     "start_hosting": " start bash -c \" npm run start \" && start bash -c \"cd ~/.cloudflared/ ; cloudflared tunnel run ; \"",
     "dev_core": "start bash -c \"nodemon v9.core.host.js\" && start bash -c \"nodemon --exec 'npm run build_webapp'\" ",
     "dev": "start bash -c \"nodemon v9.host.js\" && start bash -c \"nodemon --exec 'npm run build_webapp'\" ",
-    "dev9": "start bash -c \"nodemon vCore9.host.js\" && start bash -c \"nodemon --exec 'npm run build_webapp'\" ",
     "build_webapp": "bash -c \" rm -r -f public/ ; cp -r application/static/ public ;  node-sass application/style/SCSS/app.scss public/style/CSS/app.css ; npx webpack --config webpack.config.js ; \""
   },
   "repository": {
