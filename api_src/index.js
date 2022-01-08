@@ -1,6 +1,6 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 const config = require('./config');
-const vApi = require('./$_API');
+const vApi = require('./core');
 const { head, csp, xPoweredBy, isBot, geoip } = require('./middlewares');
 const vWebsite = require('./v_website');
 const { sitemapGenerator } = require('./modules');

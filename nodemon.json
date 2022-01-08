@@ -1,6 +1,6 @@
 {
   "watch": [
-    "system",
-    "application"
+    "api_src",
+    "app_src"
   ]
 }

@@ -2,7 +2,7 @@ const path = require('path');
 const v_lightmapper = require('v_lightmapper');
 
 //? Tables
-const {tables} = require('./config/');
+const {tables} = require('./config');
 const vFS = require('v_file_system');
 const vDB = require('v_database');
 

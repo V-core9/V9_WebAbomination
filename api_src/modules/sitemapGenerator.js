@@ -2,7 +2,7 @@
 const vDB = require('v_database');
 const v_sitemap = require('v_sitemap');
 
-const { location } = require('../config/');
+const { location } = require('../config');
 const mapType = [
     {
         type: "posts",
