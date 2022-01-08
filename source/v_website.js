@@ -3,35 +3,17 @@ const v_render = require('./modules/pages/v_render');
 
 const vWebsite = {
 
-    //? Actual Data after load
-    pages: [],
-    posts: [],
-    authors: [],
-
-    //? Loads all data from the database
-    loadPages: async() => {
-        var pages = await vDB.item.view('pages');
-        for (let i = 0; i < pages.length; i++) {
-            vWebsite.pages.push(await vDB.item.view('pages', pages[i]));
-        }
-    },
-    loadPosts: async() => {
-        var posts = await vDB.item.view('posts');
-        for (let i = 0; i < posts.length; i++) {
-            vWebsite.posts.push(await vDB.item.view('posts', posts[i]));
-        }
-    },
-    loadAuthors: async() => {
-        var authors = await vDB.item.view('authors');
-        for (let i = 0; i < authors.length; i++) {
-            vWebsite.authors.push(await vDB.item.view('authors', authors[i]));
-        }
-    },
-
+    post_types: [ 'authors', 'pages', 'posts'],
+    
     load: async () => {
-        await vWebsite.loadPages();
-        await vWebsite.loadPosts();
-        await vWebsite.loadAuthors();
+        for (let j = 0; j < vWebsite.post_types.length; j++) {
+            var hType = vWebsite.post_types[j];
+            vWebsite[hType] = [];
+            var helper = await vDB.item.view(hType);
+            for (let i = 0; i < helper.length; i++) {
+                vWebsite[hType].push( await vDB.item.view(hType, helper[i]));
+            }
+        }
     },
 
     //? Homepage

@@ -5,6 +5,7 @@ module.exports = {
         version: '00.01.02',
         codename : "prophecy",
     },
+    location: "https://v-core9.com/",
     env: "production",
     hideXPoweredBy: true,
     strictRouter: true,
