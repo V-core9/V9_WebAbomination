@@ -5,4 +5,5 @@ module.exports = {
     isBot: require('./is_bot'),
     geoip: require('./geoip'),
     reqLog: require('./reqLog'),
+    cookieJWT: require('./cookieJWT'),
 };

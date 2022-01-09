@@ -1,5 +1,6 @@
 const vDB = require('v_database');
 const v_render = require('./modules/pages/v_render');
+const {verify_jwt} = require('./core/auth/jwt');
 
 const vWebsite = {
 
@@ -76,7 +77,18 @@ const vWebsite = {
     //? 404
     e404: async (req, res) => {
         v_render(req, res, false) ;
+    },
+
+    //? Application
+    application: async (req, res) => {
+        v_render(req, res, await vDB.item.view('v9_system_pages', 'application')) ;
+    },  
+
+    //? Dashboard
+    dashboard: async (req, res) => {
+        v_render(req, res, await vDB.item.view('v9_system_pages', 'dashboard')) ;
     }
+
 };
 
 module.exports = vWebsite;

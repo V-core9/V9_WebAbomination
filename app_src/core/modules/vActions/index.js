@@ -1,35 +1,18 @@
 const vSidebar = require('../vSidebar');
 const miniCake = require('../miniCake');
+const apiReq = require('../apiReq');
 
-login_success = async (result) => {
-    alert(result.accessToken);
+login_resp = async (result) => {
+    console.log(result);
     miniCake.set('accessToken', result.accessToken, 5);
     miniCake.set('refreshToken', result.refreshToken, 262800);
+    window.location.href = '/application';
 };
 
-register_success = async (result) => {
+register_resp = async (result) => {
     alert(JSON.stringify(result));
 };
 
-api_req = async (path, data, type, callback) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    
-    var requestOptions = {
-        method: type,
-        headers: myHeaders,
-        body: data,
-        redirect: 'follow'
-    };
-    
-    fetch(path, requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            result = JSON.parse(result);
-            callback(result);
-        })
-        .catch(error => console.log('error', error));
-};
 
 const vActions = {
     mainNavToggle: vSidebar.toggleUI,
@@ -60,7 +43,7 @@ const vActions = {
             "password": document.querySelector("input[name='password']").value,
             "confirmation": document.querySelector("input[name='confirm_password']").value
         });
-        api_req("https://v-core9.com/api/v1/auth/register", raw, 'POST', register_success);
+        register_resp(await apiReq("https://v-core9.com/api/v1/auth/register", raw, 'POST'));
     },
 
     loginUser : async () => {
@@ -68,7 +51,7 @@ const vActions = {
             "username": document.querySelector("input[name='username']").value,
             "password": document.querySelector("input[name='password']").value
         });
-        api_req("https://v-core9.com/api/v1/auth/login", raw, 'POST', login_success);
+        login_resp(await apiReq("https://v-core9.com/api/v1/auth/login", raw, 'POST'));
     }
 };
 

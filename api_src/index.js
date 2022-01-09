@@ -1,7 +1,7 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 const config = require('./config');
 const vApi = require('./core');
-const { head, csp, xPoweredBy, isBot, geoip, reqLog } = require('./middlewares');
+const { head, csp, xPoweredBy, isBot, geoip, reqLog, cookieJWT } = require('./middlewares');
 const vWebsite = require('./v_website');
 const { sitemapGenerator } = require('./modules');
 
@@ -9,9 +9,17 @@ const { sitemapGenerator } = require('./modules');
 const express = require('express');
 const bodyParser = require('body-parser');
 var compression = require('compression');
+const cookieParser = require('cookie-parser');
 
 const v = express();
 
+v.use(cookieParser());
+v.use(compression({ threshold: 0, level: 9 }));
+v.use(bodyParser.urlencoded({ extended: true }));
+v.use(bodyParser.json());
+v.disable('etag');
+
+v.use(cookieJWT);
 v.use(isBot);
 v.use(geoip);
 v.use(head);
@@ -19,14 +27,19 @@ v.use(csp);
 v.use(xPoweredBy);
 v.use(reqLog);
 
-v.use(compression({ threshold: 0, level: 9 }));
-v.use(bodyParser.urlencoded({ extended: true }));
-v.use(bodyParser.json());
-v.disable('etag');
-
 
 const vServer = {
     routes: [
+        {
+            type: 'get',
+            path: '/application',
+            handle: [vApi.auth.jwt.verify_jwt, vWebsite.application]
+        },
+        {
+            type: 'get',
+            path: '/dashboard',
+            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, vWebsite.dashboard]
+        },
         // API ROOT
         {
             type: 'get',

@@ -3,7 +3,6 @@ const vDB = require('v_database');
 const reqInfoModel = {
     _tableName: 'v9_req_info',
     new:async (data) => {
-        console.log(data);
         return await vDB.item.new(reqInfoModel._tableName, data);
     },
     one: async (id) => {
