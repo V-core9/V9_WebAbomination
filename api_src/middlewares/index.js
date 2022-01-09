@@ -4,4 +4,5 @@ module.exports = {
     xPoweredBy: require('./x_powered_by'),
     isBot: require('./is_bot'),
     geoip: require('./geoip'),
+    reqLog: require('./reqLog'),
 };

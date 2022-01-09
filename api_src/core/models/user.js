@@ -2,9 +2,8 @@ const vDB = require('v_database');
 const vRF = require('v_rifier');
 const v_to_sha256 = require('v_to_sha256');
 const { tables } = require('../../config');
-let { refreshTokens } = require('../auth/jwt');
+let { refreshTokens, jwtConfig } = require('../auth/jwt');
 const jwt = require('jsonwebtoken');
-const { jwtConfig } = require('../auth/jwt');
 const { register } = require('../data_templates');
 
 const userModel = {
