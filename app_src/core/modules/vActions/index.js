@@ -46,12 +46,32 @@ const vActions = {
         register_resp(await apiReq("https://v-core9.com/api/v1/auth/register", raw, 'POST'));
     },
 
-    loginUser : async () => {
+    loginUser: async () => {
         var raw = JSON.stringify({
             "username": document.querySelector("input[name='username']").value,
             "password": document.querySelector("input[name='password']").value
         });
         login_resp(await apiReq("https://v-core9.com/api/v1/auth/login", raw, 'POST'));
+    },
+    toggleChat: async () => {
+        var element = document.getElementById("XcriptMain");
+        if (element.classList.contains("showXcriptChat") !== true) {
+            element.classList.add("showXcriptChat");
+        } else {
+            element.classList.remove("showXcriptChat");
+        }
+    },
+    demoMessage: async () => {  
+        var btn;
+        btn = '<div class="singleMessage owned"><div class="whoSent"><h3>UserName</h3><p>11:34</p></div><div class="content"><p>';
+        btn += document.getElementById("mainMessageContent").value;
+        btn += '</p></div></div>';
+        if (document.getElementById("mainMessageContent").value !== '') {
+            document.querySelector(".messagesArea").insertAdjacentHTML('beforeend', btn);
+            var objDiv = document.querySelector(".messagesArea");
+            objDiv.scrollTop = objDiv.scrollHeight;
+            document.getElementById("mainMessageContent").value = '';
+        }
     }
 };
 

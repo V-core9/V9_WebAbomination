@@ -13,6 +13,7 @@ const login_base_01 = require("./login_base_01");
 const lightmap_report_01 = require("./lightmap_report_01");
 const user_portfolio_01 = require("./user_portfolio_01");
 const author_hero_list_01 = require("./author_hero_list_01");
+const support_chat_01 = require("./support_chat_01");
 
 module.exports = [
     head_navigation_01,
@@ -29,5 +30,6 @@ module.exports = [
     footer_01,
     lightmap_report_01,
     user_portfolio_01,
-    author_hero_list_01
+    author_hero_list_01,
+    support_chat_01
 ];

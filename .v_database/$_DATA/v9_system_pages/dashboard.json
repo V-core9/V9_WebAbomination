@@ -23,6 +23,28 @@
             }
         },
         {
+            "type": "support_chat_01",
+            "boxed": true,
+            "data": {
+                "title": "<author>V9_WEB</author> Abomination.",
+                "subtitle": "Development, Code, Tech and Gaming Hints, Tricks, Suggestions and Stories.",
+                "button": {
+                    "text": "Register",
+                    "do": "gotoRegister"
+                },
+                "image": {
+                    "width": 360,
+                    "height": 360,
+                    "url": "/logo.svg",
+                    "alt": "YEAAA MIKI"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#152030"
+                }
+            }
+        },
+        {
             "type": "base_hero_01",
             "boxed": true,
             "data": {
