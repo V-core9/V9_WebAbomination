@@ -25,6 +25,23 @@
             }
         },
         {
+            "type": "support_chat_01",
+            "data": {
+                "title_text": "Trying to register?",
+                "title_text_hover": "Ask a question",
+                "button": {
+                    "do": "toggleChat"
+                },
+                "image": {
+                    "width": 64,
+                    "height": 64,
+                    "url": "/assets/gif.gif",
+                    "alt": "YEAAA MIKI"
+                },
+                "background": "#152030"
+            }
+        },
+        {
             "type": "register_base_01",
             "boxed": true,
             "data": {

@@ -155,7 +155,7 @@ const vServer = {
         {
             type: 'get',
             path: '/admin/regenerate_sitemap',
-            handle: [sitemapGenerator.regenerate]
+            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, sitemapGenerator.regenerate]
         },
         {
             type: 'get',

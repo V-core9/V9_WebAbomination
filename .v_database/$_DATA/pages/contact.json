@@ -54,6 +54,23 @@
             }
         },
         {
+            "type": "support_chat_01",
+            "data": {
+                "title_text": "Need Fast Replay?",
+                "title_text_hover": "Try Chatting",
+                "button": {
+                    "do": "toggleChat"
+                },
+                "image": {
+                    "width": 64,
+                    "height": 64,
+                    "url": "/assets/gif.gif",
+                    "alt": "YEAAA MIKI"
+                },
+                "background": "#152030"
+            }
+        },
+        {
             "type": "base_hero_01",
             "boxed": true,
             "data": {

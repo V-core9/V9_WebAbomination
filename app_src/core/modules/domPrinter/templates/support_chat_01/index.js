@@ -1,16 +1,17 @@
-const V_Logo = require("../../../V_Logo");
+
 
 const support_chat_01 = {
     name: "support_chat_01",
-    view: () => {
+    view: (section = { title_text: null, title_text_hover: null, button: { do: null, text: null }, image: { url: "#", width: "auto", height: "auto", alt: null }, background: '#000000'}) => {
         return `
             <div class="XcriptLiveChatHelp" id='XcriptMain' >
             <div class="frontPart">
                 <div class="defaultTemplate">
-                <p class="primary">Need Help?</p>
-                <p class="secondary" action="toggleChat">Open Chat</p>
+                <p class="primary">${section.title_text}</p>
+                <p class="secondary" action="toggleChat">${section.title_text_hover}</p>
                 <p class="opened"><span class="userName" title="IT Support - Level 1">Miki UserName</span><span class="companyName">YeaCompany</span><span class="minIcon" action="toggleChat" title="Minimize Chat">_</span></p>
-                <img src="/assets/gif.gif">
+                
+                <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}"/>
                 </div>
             </div>
             <div class="backPart">
@@ -135,7 +136,6 @@ const support_chat_01 = {
                 position: fixed;
                 bottom: 15px;
                 right: 15px;
-                max-width: 200px;
                 transition: .75s ease-in-out all;
                 font-family: monospace;
             }
@@ -155,6 +155,7 @@ const support_chat_01 = {
                 cursor: pointer;
                 position: relative;
                 min-height: 2.5em;
+                padding-right: 4em;
             }
             
             .frontPart .defaultTemplate img {
@@ -169,44 +170,36 @@ const support_chat_01 = {
             }
             
             .frontPart .defaultTemplate p.primary {
-                color: white;
+                color: #fff;
                 transition: 0s ease-in-out all;
-                width: 200px;
                 margin: 10px 0;
                 position: relative;
                 font-size: 20px;
                 white-space: nowrap;
             }
             .frontPart .defaultTemplate:hover p.primary{
-                width: 0;
                 opacity: 0;
-                overflow: hidden;
                 margin: 0;
                 transition: 0.35s ease-in-out all;
-                position: absolute;
                 white-space: nowrap;
-                color: transparent;
+                color: #0000;
             } 
             
             .frontPart .defaultTemplate:hover p.secondary {
-                color: white;
+                color: #fff;
                 opacity: 1;
-                width: 200px;
                 margin: 10px 0;
-                position: relative;
                 transition: 0s ease-in-out all;
             }
             .frontPart .defaultTemplate p.secondary{
                 color: transparent;
-                width: 0;
                 opacity: 0;
-                margin: 0;
                 display: block;
-                overflow: hidden;
                 transition: 0.35s ease-in-out all;
                 position: absolute;
                 font-size: 20px;
                 white-space: nowrap;
+            
             } 
             
             .frontPart .defaultTemplate:hover {
@@ -221,15 +214,13 @@ const support_chat_01 = {
             .backPart {
                 background: whitesmoke;
                 border-radius: 0 0 25px 25px;
-            }
-            .backPart{
                 height: 0px;
-                width: calc(100% - 2px);
                 opacity: 0;
                 display: block;
                 overflow: hidden;
                 transition: .25s ease-in-out all;
-                border: 1px solid transparent;
+                border: 1px solid #0000;
+                width: min-content;
             }
             
             .showXcriptChat .backPart {
@@ -239,6 +230,8 @@ const support_chat_01 = {
                 border-color: #070a14;
                 background: #070a147a;
                 box-shadow: 0 0 50px 40px #1c2939 inset;
+                width: calc(100% - 2px);
+                transition-delay: 0.25s;
             }
             
             
@@ -307,15 +300,10 @@ const support_chat_01 = {
                 display: block;
                 text-align: center;
                 border-radius: 0 25px 0 0;
-                cursor: pointer;
             }
             
             span.minIcon:hover {
                 background: rgba(0, 0, 0, 0.15);
-            }
-            
-            .showXcriptChat .frontPart .defaultTemplate {
-                cursor: auto;
             }
             
             .singleMessage {
@@ -377,13 +365,12 @@ const support_chat_01 = {
             
             .attachFileButton .uploadButton {
                 fill: #5694b5;
-                width: 30px;
-                height: 27px;
-                margin: 5px 0 5px 10px;
+                width: 2em;
+                height: 2em;
                 padding: 5px;
                 border-radius: 20px 0 0 20px;
-                border: 1px solid lightgray;
-                background: white;
+                border: 1px solid #d3d3d3;
+                background: #fff;
                 border-right: none;
             }
             .attachFileButton .uploadButton:hover {
@@ -391,6 +378,9 @@ const support_chat_01 = {
             }
             .XcriptChatForm {
                 display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: .5em;
             }
             
             .sendMessage > svg circle {
@@ -402,15 +392,35 @@ const support_chat_01 = {
             .sendMessage > svg path {
                 fill: #5694b5;
             }
+            .XcriptChatForm > * {
+                height: 2em;
+                border: none;
+                outline: none;
+            }
             
             button.sendMessage {
-                margin: 5px 10px 5px 0;
-                border-radius: 0 25px 25px 0;
-                border: 1px solid lightgray;
-                width: 40px;
-                height: 39px;
-                background: white;
+                margin: 0;
+                border-radius: inherit;
+                border: #ffdead;
+                width: 2em;
+                background: #fff;
                 border-left: none;
+                box-shadow: none;
+                padding: 0;
+                align-items: center;
+                font-size: 1em;
+                border: 1px solid #fff;
+                text-shadow: none;
+                border-radius: 0 2em 2em 0;
+                justify-content: center;
+                display: flex;
+                padding: 0.25em;
+            }
+            button.sendMessage:before {
+                content: none;
+            }
+            button.sendMessage > * {
+                pointer-events: none;
             }
             
             input[type="text"] {
@@ -423,6 +433,7 @@ const support_chat_01 = {
             }
             
             button.sendMessage svg {
+                height: 1.5em;
                 margin-top: 2.5px;
             }
             
@@ -432,19 +443,19 @@ const support_chat_01 = {
             
             
             #mainMessageContent{
-                padding: 5px 10px;
+                margin: 0;
                 line-height: 1em;
-                font-size: 18px;
-                height: 27px;
+                font-size: 1em;
+                height: 2em;
+                border: none;
+                outline: none;
+                width: 100%;
             }
             
             #mainMessageContent:focus {
                 outline: none;
             }
             
-            .attachFileButton .uploadButton:hover, button.sendMessage:hover {
-                cursor: pointer;
-            }
             
             .attachFileButton .uploadButton:focus, button.sendMessage:focus {
                 outline: none;
@@ -462,9 +473,6 @@ const support_chat_01 = {
     author: "-v-",
     onload: () => {
         console.log('[support_chat_01 :: onload]');
-        setTimeout(() => {
-            V_Logo.printLogo('v_logo');
-        }, 300);
     }
 };
 

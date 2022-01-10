@@ -1,1 +1,213 @@
-{"exec":"lightmap","name":"lightmap","path":"lightmap","alt_paths":["lightmap.html","v_lightmapper-report","v_lightmapper-report.html","lightmapper-report","lightmapper-report.html","lightmapper","lightmapper.html"],"type":"get","status":"published","title":"System Lightmap","meta":{"description":"Learn More with V-core9.com"},"sections":[{"type":"head_navigation_01","boxed":false,"data":{"button":{"text":"[=]","do":"mainNavToggle"}}},{"type":"lightmap_report_01","boxed":true,"data":{"startTime":1641590673704,"endTime":1641590799907,"execTime":126203,"pageRes":[{"name":"https://v-core9.com/author/-v-","perf":94,"bp":83,"seo":92,"acc":75,"pwa":40},{"name":"https://v-core9.com/author/ana_v9","perf":94,"bp":92,"seo":92,"acc":75,"pwa":40},{"name":"https://v-core9.com/about-us","perf":91,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/authors","perf":78,"bp":100,"seo":100,"acc":97,"pwa":90},{"name":"https://v-core9.com/blog","perf":90,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/contact-us","perf":88,"bp":100,"seo":100,"acc":83,"pwa":90},{"name":"https://v-core9.com/index","perf":99,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/lightmap","perf":92,"bp":100,"seo":100,"acc":92,"pwa":80},{"name":"https://v-core9.com/login","perf":94,"bp":100,"seo":100,"acc":98,"pwa":90},{"name":"https://v-core9.com/privacy_policy","perf":88,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/register","perf":86,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/statistics","perf":83,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/system_status","perf":90,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/terms_policy","perf":95,"bp":100,"seo":100,"acc":100,"pwa":90},{"name":"https://v-core9.com/blog/big_opening","perf":99,"bp":92,"seo":100,"acc":100,"pwa":40},{"name":"https://v-core9.com/blog/sample_post","perf":99,"bp":92,"seo":100,"acc":100,"pwa":40}]}},{"type":"footer_01","boxed":false,"data":{"title":"Checkout the Web_DEMO App","subtitle":"Running using Vanilla JS exported through WebPack...","button":{"text":"Open Demo","do":"testCallbackFunction"},"image":{"width":320,"height":180,"url":"/nodejs.png","alt":"vWebDemo App 2021"},"background":{"type":"color","url":"#302010"}}}],"lastmod":"2020-01-01","changefreq":"monthly","priority":0.6}
+{
+    "exec": "lightmap",
+    "name": "lightmap",
+    "path": "lightmap",
+    "alt_paths": [
+        "lightmap.html",
+        "v_lightmapper-report",
+        "v_lightmapper-report.html",
+        "lightmapper-report",
+        "lightmapper-report.html",
+        "lightmapper",
+        "lightmapper.html"
+    ],
+    "type": "get",
+    "status": "published",
+    "title": "System Lightmap",
+    "meta": {
+        "description": "Learn More with V-core9.com"
+    },
+    "sections": [
+        {
+            "type": "head_navigation_01",
+            "boxed": false,
+            "data": {
+                "button": {
+                    "text": "[=]",
+                    "do": "mainNavToggle"
+                }
+            }
+        },
+        {
+            "type": "lightmap_report_01",
+            "boxed": true,
+            "data": {
+                "startTime": 1641590673704,
+                "endTime": 1641590799907,
+                "execTime": 126203,
+                "pageRes": [
+                    {
+                        "name": "https://v-core9.com/author/-v-",
+                        "perf": 94,
+                        "bp": 83,
+                        "seo": 92,
+                        "acc": 75,
+                        "pwa": 40
+                    },
+                    {
+                        "name": "https://v-core9.com/author/ana_v9",
+                        "perf": 94,
+                        "bp": 92,
+                        "seo": 92,
+                        "acc": 75,
+                        "pwa": 40
+                    },
+                    {
+                        "name": "https://v-core9.com/about-us",
+                        "perf": 91,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/authors",
+                        "perf": 78,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 97,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/blog",
+                        "perf": 90,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/contact-us",
+                        "perf": 88,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 83,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/index",
+                        "perf": 99,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/lightmap",
+                        "perf": 92,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 92,
+                        "pwa": 80
+                    },
+                    {
+                        "name": "https://v-core9.com/login",
+                        "perf": 94,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 98,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/privacy_policy",
+                        "perf": 88,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/register",
+                        "perf": 86,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/statistics",
+                        "perf": 83,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/system_status",
+                        "perf": 90,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/terms_policy",
+                        "perf": 95,
+                        "bp": 100,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 90
+                    },
+                    {
+                        "name": "https://v-core9.com/blog/big_opening",
+                        "perf": 99,
+                        "bp": 92,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 40
+                    },
+                    {
+                        "name": "https://v-core9.com/blog/sample_post",
+                        "perf": 99,
+                        "bp": 92,
+                        "seo": 100,
+                        "acc": 100,
+                        "pwa": 40
+                    }
+                ]
+            }
+        },
+        {
+            "type": "support_chat_01",
+            "data": {
+                "title_text": "Got Question?",
+                "title_text_hover": "Ask a person",
+                "button": {
+                    "do": "toggleChat"
+                },
+                "image": {
+                    "width": 64,
+                    "height": 64,
+                    "url": "/assets/gif.gif",
+                    "alt": "YEAAA MIKI"
+                },
+                "background": "#152030"
+            }
+        },
+        {
+            "type": "footer_01",
+            "boxed": false,
+            "data": {
+                "title": "Checkout the Web_DEMO App",
+                "subtitle": "Running using Vanilla JS exported through WebPack...",
+                "button": {
+                    "text": "Open Demo",
+                    "do": "testCallbackFunction"
+                },
+                "image": {
+                    "width": 320,
+                    "height": 180,
+                    "url": "/nodejs.png",
+                    "alt": "vWebDemo App 2021"
+                },
+                "background": {
+                    "type": "color",
+                    "url": "#302010"
+                }
+            }
+        }
+    ],
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
+}
