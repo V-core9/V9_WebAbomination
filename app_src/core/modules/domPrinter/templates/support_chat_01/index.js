@@ -11,7 +11,7 @@ const support_chat_01 = {
                 <p class="secondary" action="toggleChat">${section.title_text_hover}</p>
                 <p class="opened"><span class="userName" title="IT Support - Level 1">Miki UserName</span><span class="companyName">YeaCompany</span><span class="minIcon" action="toggleChat" title="Minimize Chat">_</span></p>
                 
-                <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}"/>
+                <img src="${section.image.url}" width="${section.image.width}" height="${section.image.height}" alt="${section.image.alt}" action="toggleChat"/>
                 </div>
             </div>
             <div class="backPart">
@@ -149,10 +149,8 @@ const support_chat_01 = {
                 display: flex;
                 background: #070a14;
                 padding: 0 10px 0 15px;
-                border-radius: 25px;
                 font-family: monospace;
                 transition: 0.25s ease-in-out all;
-                cursor: pointer;
                 position: relative;
                 min-height: 2.5em;
                 padding-right: 4em;
@@ -162,7 +160,6 @@ const support_chat_01 = {
                 max-width: 60px;
                 max-height: 60px;
                 border: 3px solid #070a14;
-                border-radius: 50%;
                 transition: 0.25s ease-in-out all;
                 position: absolute;
                 top: -10px;
@@ -188,7 +185,7 @@ const support_chat_01 = {
             .frontPart .defaultTemplate:hover p.secondary {
                 color: #fff;
                 opacity: 1;
-                margin: 10px 0;
+                padding: 10px 0;
                 transition: 0s ease-in-out all;
             }
             .frontPart .defaultTemplate p.secondary{
@@ -207,13 +204,11 @@ const support_chat_01 = {
                 transform: scale(1.02);
             }
             .showXcriptChat .frontPart .defaultTemplate{
-                border-radius: 25px 25px 0px 0px;
                 transition: 0.25s ease-in-out all;
             }
             
             .backPart {
                 background: whitesmoke;
-                border-radius: 0 0 25px 25px;
                 height: 0px;
                 opacity: 0;
                 display: block;
@@ -228,8 +223,7 @@ const support_chat_01 = {
                 opacity: 1;
                 transition: .75s ease-in-out all;
                 border-color: #070a14;
-                background: #070a147a;
-                box-shadow: 0 0 50px 40px #1c2939 inset;
+                background: #1e2d3d;
                 width: calc(100% - 2px);
                 transition-delay: 0.25s;
             }
@@ -299,11 +293,10 @@ const support_chat_01 = {
                 height: 42px;
                 display: block;
                 text-align: center;
-                border-radius: 0 25px 0 0;
             }
             
             span.minIcon:hover {
-                background: rgba(0, 0, 0, 0.15);
+                background: #1e2d3d;
             }
             
             .singleMessage {
@@ -315,7 +308,6 @@ const support_chat_01 = {
                 border: 1px solid #0b0d17;
                 color: #fff;
                 margin: 7.5px;
-                border-radius: 25px;
                 float: left;
                 clear: both;
                 overflow: hidden;
@@ -368,7 +360,6 @@ const support_chat_01 = {
                 width: 2em;
                 height: 2em;
                 padding: 5px;
-                border-radius: 20px 0 0 20px;
                 border: 1px solid #d3d3d3;
                 background: #fff;
                 border-right: none;
@@ -411,7 +402,6 @@ const support_chat_01 = {
                 font-size: 1em;
                 border: 1px solid #fff;
                 text-shadow: none;
-                border-radius: 0 2em 2em 0;
                 justify-content: center;
                 display: flex;
                 padding: 0.25em;

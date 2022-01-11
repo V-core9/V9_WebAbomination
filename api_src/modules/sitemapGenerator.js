@@ -52,9 +52,17 @@ const sitemapGenerator = {
     },
 
     regenerate: async (req, res) => {
-        await sitemapGenerator.index();
-        await sitemapGenerator.types();
-        res.send('Sitemap Generate Successfully.');
+        res.send('Sitemap Generated: ['+(await sitemapGenerator.reGen())+'].');
+    },
+
+    reGen: async()=>{
+        try{
+            await sitemapGenerator.index();
+            await sitemapGenerator.types();
+            return true;
+        }   catch(e){
+            return false;
+        }
     }
 };
 
