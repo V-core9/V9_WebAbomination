@@ -47,42 +47,20 @@
             }
         },
         {
-            "type": "base_about_us_01",
+            "type": "dashboard_01",
             "boxed": true,
             "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
-                }
-            }
-        },
-        {
-            "type": "base_newsletter_01",
-            "boxed": true,
-            "data": {
-                "title": "Join Our NEWSLETTER >>",
-                "subtitle": "Get hot info about latest features, updates, and much more.",
-                "text": "Of course, the design of your newsletter will depend on your brand, as well as the message. For instance, you might want to create a colorful, attention-grabbing newsletter!",
+                "title": "Dashboard PAGE!",
+                "subtitle": "Dashboard Page V-core9 - Only Admin",
                 "button": {
-                    "text": "Joi3n Today3!",
-                    "do": "testCallbackFunction()",
-                    "style": {
-                        "background": "orange",
-                        "color": "red",
-                        "size": "L"
-                    }
+                    "text": "Dashboard",
+                    "do": "testCallbackFunction()"
                 },
-                "image": {
-                    "width": 50,
-                    "height": 50,
-                    "url": "/logo.svg"
-                },
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
+                "data": {
+                    "width": 360,
+                    "height": 360,
+                    "url": "/logo.svg",
+                    "alt": "YEAAA MIKI"
                 }
             }
         },

@@ -15,6 +15,8 @@ const user_portfolio_01 = require("./user_portfolio_01");
 const author_hero_list_01 = require("./author_hero_list_01");
 const support_chat_01 = require("./support_chat_01");
 const policy_01 = require("./policy_01");
+const dashboard_01 = require("./dashboard_01");
+const dashboard_02 = require("./dashboard_02");
 
 module.exports = [
     head_navigation_01,
@@ -33,5 +35,7 @@ module.exports = [
     user_portfolio_01,
     author_hero_list_01,
     support_chat_01,
-    policy_01
+    policy_01,
+    dashboard_01,
+    dashboard_02
 ];

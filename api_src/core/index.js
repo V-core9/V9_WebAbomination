@@ -1,4 +1,4 @@
-const { userModel } = require('../models');
+const { userModel, systemStatsModel } = require('../models');
 
 module.exports = {
     auth: require('./auth'),
@@ -19,6 +19,11 @@ module.exports = {
         const response = await userModel.login(req.body);
         res.status(response.status).json(response);
     },
+
+    systemStats: async (req, res) => {
+        const response = await systemStatsModel.all();
+        res.status(response.status).json(response);
+    }
 
 };
 

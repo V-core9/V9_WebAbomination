@@ -1,7 +1,7 @@
 
 const vWebsite = require('./v_website');
 const config = require('./config');
-const { auth, api_root, dataModel, logout, register, login } = require('./core');
+const { auth, api_root, dataModel, logout, register, login, systemStats } = require('./core');
 const { sitemapGenerator } = require('./modules');
 
 const routes= [
@@ -131,6 +131,11 @@ const routes= [
         type: 'get',
         path: '/admin/regenerate_sitemap',
         handle: [auth.verify_jwt, auth.verify_admin, sitemapGenerator.regenerate]
+    },
+    {
+        type: 'get',
+        path: '/admin/system_stats',
+        handle: [auth.verify_jwt, auth.verify_admin, systemStats]
     },
     {
         type: 'get',
