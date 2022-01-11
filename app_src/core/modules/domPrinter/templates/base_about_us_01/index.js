@@ -12,7 +12,6 @@ const base_about_us_01 = {
                 .base_about_us_01 {
                     width: 100%;
                     background: #0d101c;
-                    margin: 5em 0;
                     padding: 2em 0;
                 }
                 

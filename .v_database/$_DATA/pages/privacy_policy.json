@@ -25,141 +25,80 @@
             }
         },
         {
-            "type": "base_hero_01",
+            "type": "support_chat_01",
+            "boxed": false,
             "data": {
-                "title": "PRIVACY POLICY PAGE",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
+                "title_text": "Trying to register?",
+                "title_text_hover": "Ask a question",
                 "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
+                    "do": "toggleChat"
                 },
                 "image": {
-                    "width": 360,
-                    "height": 360,
-                    "url": "/logo.svg",
+                    "width": 64,
+                    "height": 64,
+                    "url": "/assets/gif.gif",
                     "alt": "YEAAA MIKI"
                 },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
+                "background": "#152030"
             }
         },
         {
-            "type": "base_about_us_01",
+            "type": "policy_01",
+            "boxed": true,
             "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
-                }
-            }
-        },
-        {
-            "type": "base_newsletter_01",
-            "data": {
-                "title": "Join Our NEWSLETTER >>",
-                "subtitle": "Get hot info about latest features, updates, and much more.",
-                "text": "Of course, the design of your newsletter will depend on your brand, as well as the message. For instance, you might want to create a colorful, attention-grabbing newsletter!",
-                "button": {
-                    "text": "Joi3n Today3!",
-                    "do": "testCallbackFunction()",
-                    "style": {
-                        "background": "orange",
-                        "color": "red",
-                        "size": "L"
+                "title": "Privacy Policy @ V-core9",
+                "blocks": [
+                    {
+                        "title":"Introduction",
+                        "text": "These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, Webiste Name accessible at v-core9.com.\nThese Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree with any of these Website Standard Terms and Conditions.\nMinors or people below 18 years old are not allowed to use this Website."
+                    },
+                    {
+                        "title":"Intellectual Property Rights",
+                        "text": "Other than the content you own, under these Terms, V-core9 and/or its licensors own all the intellectual property rights and materials contained in this Website.\nYou are granted limited license only for purposes of viewing the material contained on this Website."
+                    },
+                    {
+                        "title":"Restrictions",
+                        "text": "Certain areas of this Website are restricted from being access by you and V-core9 may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality as well."
+                    },
+                    {
+                        "title":"Your Content",
+                        "text": "In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant V-core9 a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media."
+                    },
+                    {
+                        "title":"No warranties",
+                        "text": "This Website is provided “as is,” with all faults, and V-core9 express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you."
+                    },
+                    {
+                        "title":"Limitation of liability",
+                        "text": "In no event shall V-core9, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract.  V-core9, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website."
                     }
-                },
-                "image": {
-                    "width": 50,
-                    "height": 50,
-                    "url": "/logo.svg"
-                },
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
-                }
+                ]
             }
         },
         {
             "type": "base_hero_01",
-            "data": {
-                "title": "Checkout the Web_DEMO App",
-                "subtitle": "Running using Vanilla JS exported through WebPack...",
-                "button": {
-                    "text": "Open Demo",
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 800,
-                    "height": 450,
-                    "url": "/nodejs.png",
-                    "alt": "vWebDemo App 2021"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#302010"
-                }
-            }
-        },
-        {
-            "type": "base_hero_01",
+            "boxed": true,
             "data": {
                 "title": "3333 SECTION 3333 TITLE",
                 "subtitle": "3333333S3pace3 hold3e3r3 33for subtit3e..3..",
                 "button": {
-                    "text": "Joi3n Today3!",
+                    "text": "Join Today!",
                     "style": {
                         "background": "orange",
                         "color": "red",
                         "size": "L"
                     },
-                    "do": "testCallbackFunction()"
+                    "do": "gotoRegister"
                 },
                 "image": {
-                    "width": 650,
-                    "height": 400,
+                    "width": 325,
+                    "height": 200,
                     "url": "/logo.svg",
-                    "alt": "YEAAA MIKI"
+                    "alt": "V-core9.com Logo"
                 },
                 "background": {
                     "type": "image",
                     "url": "/logo.svg"
-                }
-            }
-        },
-        {
-            "type": "base_hero_alt_01",
-            "data": {
-                "title": "PRIVACY POLICY",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
-                "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
-                },
-                "image": {
-                    "width": 360,
-                    "height": 360,
-                    "url": "/nodejs.png",
-                    "alt": "YEAAA MIKI"
-                },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
-            }
-        },
-        {
-            "type": "base_about_us_01",
-            "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
-                "background": {
-                    "type": "image",
-                    "url": "/test.svg"
                 }
             }
         },
