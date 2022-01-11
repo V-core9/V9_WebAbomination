@@ -1,3 +1,4 @@
 module.exports = {
-    reqInfoModel : require('./reqInfoModel')
+    reqInfoModel: require('./reqInfo'),
+    userModel: require('./user')
 };

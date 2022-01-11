@@ -1,14 +1,15 @@
+const jwt = require('jsonwebtoken');
+
 const vDB = require('v_database');
 const vRF = require('v_rifier');
 const v_to_sha256 = require('v_to_sha256');
-const { tables } = require('../../config');
-let { refreshTokens, jwtConfig } = require('../auth/jwt');
-const jwt = require('jsonwebtoken');
-const { register } = require('../data_templates');
+
+const { tables } = require('../config');
+let { refreshTokens, jwtConfig } = require('../core/auth/jwt');
+const { register } = require('../core/data_templates');
 
 const userModel = {
 
-    // LOGIN
     logout: async (req, res) => {
         const { token } = req.body;
         if (refreshTokens.indexOf(token) === -1) {
@@ -19,35 +20,29 @@ const userModel = {
             res.send("Logout successful");
         }
     },
-    
-    // LOGIN
+
     login: async (data) => {
-        
+
         const response = {
             status: 400,
             msg: "",
             code: "",
             errors: [],
         };
-        
-        const { username, password } = data;    
-        const user = await vDB.item.view(tables.users, username);  
+
+        const { username, password } = data;
+        const user = await vDB.item.view(tables.users, username);
 
         if (user) {
             const pass_check = await v_to_sha256(password);
             if (pass_check === user.password) {
-                // generate an access token
-                const accessToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
-                const refreshToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.refresh);
-    
-                refreshTokens.push(refreshToken);
-
                 response.status = 200;
                 response.msg = "Login Success";
                 response.code = "LOGIN_SUCCESS";
-                response.accessToken = accessToken;
-                response.refreshToken = refreshToken;
-    
+                response.accessToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
+                response.refreshToken = jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.refresh);
+                refreshTokens.push(response.refreshToken);
+
             } else {
                 response.status = 401;
                 response.msg = "Wrong Password";
@@ -62,7 +57,6 @@ const userModel = {
         return response;
     },
 
-    // REGISTER NEW USER
     register: async (data) => {
 
         const response = {
@@ -71,15 +65,10 @@ const userModel = {
             code: "",
             errors: [],
         };
-        // read username and password from request body
+
         const { username, email, password, confirmation } = data;
 
-
-        var username_valid = await vRF.username(username);
-        var email_valid = await vRF.email(email);
-        var pass_valid = await vRF.password(password, confirmation);
-
-        if (username_valid === true && email_valid === true && pass_valid === true) {
+        if ((await vRF.username(username) === true) && (await vRF.email(email) === true) && (await vRF.password(password, confirmation) === true)) {
 
             const user = await vDB.item.view(tables.users, username);
             const user_email = await vDB.item.view(tables.emails, email);

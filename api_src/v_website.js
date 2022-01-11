@@ -1,6 +1,5 @@
 const vDB = require('v_database');
 const v_render = require('./modules/pages/v_render');
-const {verify_jwt} = require('./core/auth/jwt');
 
 const vWebsite = {
 

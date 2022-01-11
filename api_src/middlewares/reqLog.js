@@ -25,6 +25,7 @@ module.exports = async (req, res, next) => {
         subdomains: req.subdomains,
         xhr: req.xhr,
     };
+
     data.accepts = req.accepts();
     data.acceptsCharsets = req.acceptsCharsets();
     data.acceptsEncodings = req.acceptsEncodings();
@@ -33,6 +34,8 @@ module.exports = async (req, res, next) => {
     data.is = req.is();
     data.param = req.param();
     data.range = req.range();
+
     reqInfoModel.new(data);
+    
     next();
 };

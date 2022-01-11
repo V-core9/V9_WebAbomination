@@ -1,6 +1,6 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 const config = require('./config');
-const vApi = require('./core');
+const { auth, api_root, dataModel, logout, register, login } = require('./core');
 const { head, csp, xPoweredBy, isBot, geoip, reqLog, cookieJWT } = require('./middlewares');
 const vWebsite = require('./v_website');
 const { sitemapGenerator } = require('./modules');
@@ -33,83 +33,83 @@ const vServer = {
         {
             type: 'get',
             path: '/application',
-            handle: [vApi.auth.jwt.verify_jwt, vWebsite.application]
+            handle: [auth.verify_jwt, vWebsite.application]
         },
         {
             type: 'get',
             path: '/dashboard',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, vWebsite.dashboard]
+            handle: [auth.verify_jwt, auth.verify_admin, vWebsite.dashboard]
         },
         // API ROOT
         {
             type: 'get',
-            path: vApi.config.api_root,
-            handle: [vApi.root]
+            path: config.api_root,
+            handle: [api_root]
         },
         //? [ TYPES ]>- - - - - -
         {
             type: 'get',
-            path: vApi.config.api_v1,
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.list]
+            path: config.api_v1,
+            handle: [auth.verify_jwt, dataModel.list]
         },
         {
             type: 'post',
-            path: vApi.config.api_v1,
-            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, vApi.dataModel.mk_type]
+            path: config.api_v1,
+            handle: [auth.verify_jwt, auth.verify_admin, dataModel.mk_type]
         },
         {
             type: 'delete',
-            path: vApi.config.api_v1,
-            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, vApi.dataModel.rm_type]
+            path: config.api_v1,
+            handle: [auth.verify_jwt, auth.verify_admin, dataModel.rm_type]
         },
         //! EOF_TYPES
         //? [ AUTH ]>- - - - - -
         {
             type: 'post',
-            path: vApi.config.api_v1 + '/auth/register',
-            handle: [vApi.auth.register]
+            path: config.api_v1 + '/auth/register',
+            handle: [register]
         },
         {
             type: 'post',
-            path: vApi.config.api_v1 + '/auth/login',
-            handle: [vApi.auth.login]
+            path: config.api_v1 + '/auth/login',
+            handle: [login]
         },
         {
             type: 'post',
-            path: vApi.config.api_v1 + '/auth/logout',
-            handle: [vApi.auth.logout]
+            path: config.api_v1 + '/auth/logout',
+            handle: [logout]
         },
         {
             type: 'post',
-            path: vApi.config.api_v1 + '/auth/token',
-            handle: [vApi.auth.jwt.refreshAccessToken]
+            path: config.api_v1 + '/auth/token',
+            handle: [auth.refreshAccessToken]
         },
         //! EOF_AUTH
         //? [ ITEMS ]>- - - - - -
         {
             type: 'get',
-            path: vApi.config.api_v1 + '/:type',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.all]
+            path: config.api_v1 + '/:type',
+            handle: [auth.verify_jwt, dataModel.all]
         },
         {
             type: 'post',
-            path: vApi.config.api_v1 + '/:type',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.mk]
+            path: config.api_v1 + '/:type',
+            handle: [auth.verify_jwt, dataModel.mk]
         },
         {
             type: 'get',
-            path: vApi.config.api_v1 + '/:type/:name',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.one]
+            path: config.api_v1 + '/:type/:name',
+            handle: [auth.verify_jwt, dataModel.one]
         },
         {
             type: 'put',
-            path: vApi.config.api_v1 + '/:type/:name',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.up]
+            path: config.api_v1 + '/:type/:name',
+            handle: [auth.verify_jwt, dataModel.up]
         },
         {
             type: 'delete',
-            path: vApi.config.api_v1 + '/:type/:name',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.dataModel.rm]
+            path: config.api_v1 + '/:type/:name',
+            handle: [auth.verify_jwt, dataModel.rm]
         },
         //! EOF_ITEMS
         {
@@ -155,7 +155,7 @@ const vServer = {
         {
             type: 'get',
             path: '/admin/regenerate_sitemap',
-            handle: [vApi.auth.jwt.verify_jwt, vApi.auth.jwt.verify_admin, sitemapGenerator.regenerate]
+            handle: [auth.verify_jwt, auth.verify_admin, sitemapGenerator.regenerate]
         },
         {
             type: 'get',
@@ -186,8 +186,9 @@ const vServer = {
         v.listen($port, async () => {
             console.log(`V_APP Started >> http://localhost:${$port}`);
         });
-    }
+    },
 };
+
 
 
 

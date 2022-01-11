@@ -8,11 +8,11 @@ const reqInfoModel = {
     one: async (id) => {
         return await vDB.item.one(reqInfoModel._tableName, id);
     },
-    all: async (where) => {
-        return await vDB.item.all(reqInfoModel._tableName, where);
+    all: async () => {
+        return await vDB.item.get(reqInfoModel._tableName);
     },
     up: async (id, data) => {
-        return await vDB.item.new(reqInfoModel._tableName, data, id);
+        return await vDB.item.save(reqInfoModel._tableName, data, id);
     },
     rm: async (id) => {
         return await vDB.item.del(reqInfoModel._tableName, id);
