@@ -1,6 +1,7 @@
 const miniCake = {
 
     get(cname) {
+        console.log(`🍰 miniCake [GET]: ${cname}`);
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
         let ca = decodedCookie.split(';');
@@ -16,11 +17,12 @@ const miniCake = {
         return "";
     },
 
-    set(cname, cvalue, minutes) {
+    set(name, value, minutes) {
+        console.log(`🍰 miniCake [SET]: ${name} , ${value} , ${minutes}`);
         const d = new Date();
         d.setTime(d.getTime() + (minutes * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
     }
 
 };

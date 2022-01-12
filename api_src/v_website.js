@@ -66,6 +66,11 @@ vWebsite.sitemap = async (req, res) => {
 
 //? 404
 vWebsite.e404 = async (req, res) => {
+    req.errorCode = 404;
+    v_render(req, res, false);
+};
+
+vWebsite.errorPage = async (req, res) => {
     v_render(req, res, false);
 };
 

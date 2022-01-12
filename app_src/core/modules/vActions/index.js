@@ -2,11 +2,13 @@ const vSidebar = require('../vSidebar');
 const miniCake = require('../miniCake');
 const apiReq = require('../apiReq');
 
+
 login_resp = async (result) => {
     console.log(result);
     miniCake.set('accessToken', result.accessToken, 5);
     miniCake.set('refreshToken', result.refreshToken, 262800);
     window.location.href = '/application';
+
 };
 
 register_resp = async (result) => {
@@ -43,7 +45,7 @@ const vActions = {
             "password": document.querySelector("input[name='password']").value,
             "confirmation": document.querySelector("input[name='confirm_password']").value
         });
-        register_resp(await apiReq("https://v-core9.com/api/v1/auth/register", raw, 'POST'));
+        register_resp(await apiReq.req("https://v-core9.com/api/v1/auth/register", raw, 'POST'));
     },
 
     loginUser: async () => {
@@ -51,7 +53,7 @@ const vActions = {
             "username": document.querySelector("input[name='username']").value,
             "password": document.querySelector("input[name='password']").value
         });
-        login_resp(await apiReq("https://v-core9.com/api/v1/auth/login", raw, 'POST'));
+        login_resp(await apiReq.req("https://v-core9.com/api/v1/auth/login", raw, 'POST'));
     },
     toggleChat: async () => {
         var element = document.getElementById("XcriptMain");
@@ -61,7 +63,7 @@ const vActions = {
             element.classList.remove("showXcriptChat");
         }
     },
-    demoMessage: async () => {  
+    demoMessage: async () => {
         var btn;
         btn = '<div class="singleMessage owned"><div class="whoSent"><h3>UserName</h3><p>11:34</p></div><div class="content"><p>';
         btn += document.getElementById("mainMessageContent").value;
@@ -82,5 +84,26 @@ window.onclick = async (e) => {
         vActions[e.target.getAttribute('action')]();
     }
 };
+
+(async () => {
+    // SETTINGS
+    const refreshMinutes = 4;
+
+    // CALCULATED FROM SETTINGS
+    const refreshInterval = refreshMinutes * 60 * 1000;
+
+    if (await miniCake.get('refreshToken') !== null) {
+        if (apiReq.refreshToken(miniCake.get('refreshToken')) === false) vActions.gotoLogin();
+
+        var tokenRefreshInterval = null;
+        tokenRefreshInterval = setInterval(async () => {
+            if (apiReq.refreshToken(miniCake.get('refreshToken')) === false) vActions.gotoLogin();
+        },  refreshInterval);
+
+    } else {
+        console.log('no token to refresh');
+    }
+})();
+
 
 module.exports = vActions;

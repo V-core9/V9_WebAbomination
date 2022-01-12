@@ -1,6 +1,8 @@
 const jwtConfig = require('./config');
 const jwt = require('jsonwebtoken');
 
+const vWebsite = require('../../../v_website');
+
 module.exports = (req, res, next) => {
     const authHeader = req.headers.authorization;
 
@@ -16,6 +18,8 @@ module.exports = (req, res, next) => {
             next();
         });
     } else {
-        res.sendStatus(401);
+        req.errorCode = 401;
+        vWebsite.errorPage(req, res);
+        //res.sendStatus(401);
     }
 };

@@ -31,7 +31,8 @@ const dashboard_01 = {
     author: "-v-",
     onload: async () => {
         setTimeout(async () => {
-            const stats = await apiReq("https://v-core9.com/admin/system_stats", undefined, 'get');
+            const stats = await apiReq.req("https://v-core9.com/admin/system_stats", undefined, 'get');
+            console.log('🙋‍♂️ '+ stats);
             document.querySelector("#system_stats").innerHTML = JSON.stringify(stats, true, 4);
         }, 500);
     },
