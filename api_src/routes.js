@@ -1,19 +1,22 @@
-
 const vWebsite = require('./v_website');
 const config = require('./config');
+
 const { auth, api_root, dataModel, logout, register, login, systemStats } = require('./core');
+const { verify_jwt, verify_admin } = auth;
+
 const { sitemapGenerator } = require('./modules');
 
-const routes= [
+
+const routes = [
     {
         type: 'get',
         path: '/application',
-        handle: [auth.verify_jwt, vWebsite.application]
+        handle: [verify_jwt, vWebsite.application]
     },
     {
         type: 'get',
         path: '/dashboard',
-        handle: [auth.verify_jwt, auth.verify_admin, vWebsite.dashboard]
+        handle: [verify_jwt, verify_admin, vWebsite.dashboard]
     },
     // API ROOT
     {
@@ -25,17 +28,17 @@ const routes= [
     {
         type: 'get',
         path: config.api_v1,
-        handle: [auth.verify_jwt, dataModel.list]
+        handle: [verify_jwt, dataModel.list]
     },
     {
         type: 'post',
         path: config.api_v1,
-        handle: [auth.verify_jwt, auth.verify_admin, dataModel.mk_type]
+        handle: [verify_jwt, verify_admin, dataModel.mk_type]
     },
     {
         type: 'delete',
         path: config.api_v1,
-        handle: [auth.verify_jwt, auth.verify_admin, dataModel.rm_type]
+        handle: [verify_jwt, verify_admin, dataModel.rm_type]
     },
     //! EOF_TYPES
     //? [ AUTH ]>- - - - - -
@@ -64,27 +67,27 @@ const routes= [
     {
         type: 'get',
         path: config.api_v1 + '/:type',
-        handle: [auth.verify_jwt, dataModel.all]
+        handle: [verify_jwt, dataModel.all]
     },
     {
         type: 'post',
         path: config.api_v1 + '/:type',
-        handle: [auth.verify_jwt, dataModel.mk]
+        handle: [verify_jwt, dataModel.mk]
     },
     {
         type: 'get',
         path: config.api_v1 + '/:type/:name',
-        handle: [auth.verify_jwt, dataModel.one]
+        handle: [verify_jwt, dataModel.one]
     },
     {
         type: 'put',
         path: config.api_v1 + '/:type/:name',
-        handle: [auth.verify_jwt, dataModel.up]
+        handle: [verify_jwt, dataModel.up]
     },
     {
         type: 'delete',
         path: config.api_v1 + '/:type/:name',
-        handle: [auth.verify_jwt, dataModel.rm]
+        handle: [verify_jwt, dataModel.rm]
     },
     //! EOF_ITEMS
     {
@@ -130,12 +133,12 @@ const routes= [
     {
         type: 'get',
         path: '/admin/regenerate_sitemap',
-        handle: [auth.verify_jwt, auth.verify_admin, sitemapGenerator.regenerate]
+        handle: [verify_jwt, verify_admin, sitemapGenerator.regenerate]
     },
     {
         type: 'get',
         path: '/admin/system_stats',
-        handle: [auth.verify_jwt, auth.verify_admin, systemStats]
+        handle: [verify_jwt, verify_admin, systemStats]
     },
     {
         type: 'get',

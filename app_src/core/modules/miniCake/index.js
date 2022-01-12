@@ -14,7 +14,7 @@ const miniCake = {
                 return c.substring(name.length, c.length);
             }
         }
-        return "";
+        return false;
     },
 
     set(name, value, minutes) {

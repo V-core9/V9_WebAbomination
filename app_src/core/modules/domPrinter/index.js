@@ -1,4 +1,6 @@
 const domPrinter = {
+
+    baseDom: require('./baseDom'),
     
     templates: require("./templates"),
     //MD: require("./MARKDOWN"),

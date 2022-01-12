@@ -11,7 +11,9 @@ module.exports = (req, res, next) => {
 
         jwt.verify(token, jwtConfig.secret.access, (err, user) => {
             if (err) {
-                return res.sendStatus(403);
+                //return res.sendStatus(403);
+                req.errorCode = 403;
+                vWebsite.errorPage(req, res);
             }
 
             req.user = user;

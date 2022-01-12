@@ -1,11 +1,12 @@
-const V_Logo  = require("../../../V_Logo");
+const V_Logo = require("../../../V_Logo");
+const baseDOM = require("../../baseDom");
 
 const base_hero_00 = {
     name: "base_hero_00",
     view: (section = { title: null, subtitle: null, button: { do: null, text: null } }) => {
         return `<div class="section_side">
-                    <h1>${section.title}</h1>
-                    <h2>${section.subtitle}</h2>
+                    ${baseDOM.h1(section.title)}
+                    ${baseDOM.h2(section.subtitle)}
                     <button id="mainButtonClick" action="${section.button.do}">${section.button.text}</button>
                 </div>
                 <div class="section_side">

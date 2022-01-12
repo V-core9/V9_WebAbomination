@@ -30,7 +30,13 @@ const vActions = {
         window.location.href = '/register';
     },
 
+    gotoApplication: async () => {
+        window.location.href = '/application';
+    },
+
     gotoLogin: async () => {
+        miniCake.set('accessToken', '', 0);
+        miniCake.set('refreshToken', '', 0);
         window.location.href = '/login';
     },
 
@@ -92,12 +98,19 @@ window.onclick = async (e) => {
     // CALCULATED FROM SETTINGS
     const refreshInterval = refreshMinutes * 60 * 1000;
 
-    if (await miniCake.get('refreshToken') !== null) {
-        if (apiReq.refreshToken(miniCake.get('refreshToken')) === false) vActions.gotoLogin();
+    if (await miniCake.get('refreshToken') !== false) {
+        if (await apiReq.refreshToken(miniCake.get('refreshToken')) === false) {
+            vActions.gotoLogin();
+        } else {
+            if (window.location.pathname.indexOf('login') > -1 || window.location.pathname.indexOf('register') > -1) {
+                vActions.gotoApplication();
+            }
+        }
+
 
         var tokenRefreshInterval = null;
         tokenRefreshInterval = setInterval(async () => {
-            if (apiReq.refreshToken(miniCake.get('refreshToken')) === false) vActions.gotoLogin();
+            if (await apiReq.refreshToken(miniCake.get('refreshToken')) === false) vActions.gotoLogin();
         },  refreshInterval);
 
     } else {

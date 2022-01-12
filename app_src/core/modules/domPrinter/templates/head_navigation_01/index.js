@@ -62,7 +62,6 @@ const head_navigation_01 = {
     onload: () => {
         console.log('[head_navigation_01 :: onload]');
         
-        console.log('Sidebar INIT');
         vSidebar.init();
     },
 };

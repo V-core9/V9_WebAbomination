@@ -1,6 +1,8 @@
+const miniCake = require('../miniCake');
+
 const vSidebar = {
 
-    page_data : null,
+    page_data: null,
 
     api_version: "11.0.147",
 
@@ -13,12 +15,37 @@ const vSidebar = {
         open: false
     },
 
-    toggleUI() {
+    toggleUI: async () => {
         var item = document.getElementById(vSidebar.settings.elem_id);
         item.setAttribute('status', (item.getAttribute('status') == 'open') ? '' : 'open');
     },
 
-    init() {
+    menu: {
+        public() {
+            return `<a href="/home">🚗 Home</a>
+                <a href="/about">🌈 About us</a>
+                <a href="/blog">📰 Blog</a>
+                <a href="/authors">🤼 Authors</a>
+                <a href="/statistics">📊 Statistics</a>
+                <a href="/system_status">🚀 System Status</a>
+                <a href="/contact">💌 Contact</a>
+                <a href="/login">🔐 Login</a>
+                <a href="/register">🆔 Register</a>`;
+        },
+
+        application() {
+            return `<a href="/application">👨‍💻 Application</a>
+                <a href="/home">🚗 Home</a>
+                <a href="/about">🌈 About us</a>
+                <a href="/blog">📰 Blog</a>
+                <a href="/authors">🤼 Authors</a>
+                <a href="/statistics">📊 Statistics</a>
+                <a href="/system_status">🚀 System Status</a>
+                <a href="/my_profile">🙋‍♂️ My Profile</a>
+                <a action="logout">🔐 Logout</a>`;
+        },
+    },
+    init () {
         console.log("vSidebar init");
         document.querySelector('body').innerHTML += `<div class="v_block" id="${vSidebar.settings.elem_id}" ui_pos="${vSidebar.settings.ui_pos}" status="${(vSidebar.settings.open === true ? 'open' : 'closed')}">
                                                         <div class="header">
@@ -32,15 +59,7 @@ const vSidebar = {
                                                             </actions>
                                                         </div>
                                                         <content>
-                                                            <a href="/home">🚗 Home</a>
-                                                            <a href="/about">🌈 About us</a>
-                                                            <a href="/blog">📰 Blog</a>
-                                                            <a href="/authors">🤼 Authors</a>
-                                                            <a href="/statistics">📊 Statistics</a>
-                                                            <a href="/system_status">🚀 System Status</a>
-                                                            <a href="/contact">💌 Contact</a>
-                                                            <a href="/login">🔐 Login</a>
-                                                            <a href="/register">🆔 Register</a>
+                                                            ${(miniCake.get('refreshToken') !== false) ? vSidebar.menu.application() : vSidebar.menu.public()}
                                                         </content>
                                                         </div>`;
     }
