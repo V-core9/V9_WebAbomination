@@ -33,6 +33,7 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
     "geoip-lite": "^1.4.2",
+    "is-mobile": "^3.0.0",
     "is-online": "^9.0.1",
     "isbot": "^3.3.4",
     "jsonwebtoken": "^8.5.1",
