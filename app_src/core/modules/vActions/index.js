@@ -39,6 +39,10 @@ const vActions = {
         miniCake.set('refreshToken', '', 0);
         window.location.href = '/login';
     },
+    
+    logout: async () => {
+        vActions.gotoLogin();
+    },
 
     gotoHome: async () => {
         window.location.href = '/home';
@@ -69,6 +73,7 @@ const vActions = {
             element.classList.remove("showXcriptChat");
         }
     },
+
     demoMessage: async () => {
         var btn;
         btn = '<div class="singleMessage owned"><div class="whoSent"><h3>UserName</h3><p>11:34</p></div><div class="content"><p>';
@@ -80,7 +85,7 @@ const vActions = {
             objDiv.scrollTop = objDiv.scrollHeight;
             document.getElementById("mainMessageContent").value = '';
         }
-    }
+    },
 };
 
 

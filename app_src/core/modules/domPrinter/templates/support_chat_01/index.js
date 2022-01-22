@@ -164,6 +164,7 @@ const support_chat_01 = {
                 position: absolute;
                 top: -10px;
                 left: calc(100% - 55px);
+                background: #070a14;
             }
             
             .frontPart .defaultTemplate p.primary {

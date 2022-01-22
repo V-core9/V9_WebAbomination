@@ -17,6 +17,9 @@ const support_chat_01 = require("./support_chat_01");
 const policy_01 = require("./policy_01");
 const dashboard_01 = require("./dashboard_01");
 const dashboard_02 = require("./dashboard_02");
+const uptime_summary_01 = require("./uptime_summary_01");
+const uptime_overall_01 = require("./uptime_overall_01");
+const uptime_systems_list_01 = require("./uptime_systems_list_01");
 
 module.exports = [
     head_navigation_01,
@@ -37,5 +40,8 @@ module.exports = [
     support_chat_01,
     policy_01,
     dashboard_01,
-    dashboard_02
+    dashboard_02,
+    uptime_summary_01,
+    uptime_overall_01,
+    uptime_systems_list_01
 ];

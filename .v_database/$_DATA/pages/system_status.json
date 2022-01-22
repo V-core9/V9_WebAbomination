@@ -25,39 +25,36 @@
             }
         },
         {
-            "type": "base_hero_01",
-            "boxed": true,
+            "type": "support_chat_01",
             "data": {
-                "title": "SYSTEM STATUS PAGE",
-                "subtitle": "<author>V-core9</author> presents this abomination to the world. Stay tuned there is bunch of stuff to add.",
+                "title_text": "Need Fast Replay?",
+                "title_text_hover": "Try Chatting",
                 "button": {
-                    "text": "SUPPORT",
-                    "do": "testCallbackFunction()"
+                    "do": "toggleChat"
                 },
                 "image": {
-                    "width": 360,
-                    "height": 360,
+                    "width": 64,
+                    "height": 64,
                     "url": "/logo.svg",
                     "alt": "YEAAA MIKI"
                 },
-                "background": {
-                    "type": "color",
-                    "url": "#152030"
-                }
+                "background": "#152030"
             }
         },
         {
-            "type": "base_about_us_01",
+            "type": "uptime_summary_01",
             "boxed": true,
-            "data": {
-                "title": "Example About Us Section",
-                "subtitle": "Some Random Text To Fill In Data",
-                "text": "starting start bash  npm run build && npm run start_server clean exit - waiting for changes before restart restarting due to changes...",
-                "background": {
-                    "type": "image",
-                    "url": "/logo.svg"
-                }
-            }
+            "data": {}
+        },
+        {
+            "type": "uptime_systems_list_01",
+            "boxed": true,
+            "data": {}
+        },
+        {
+            "type": "uptime_overall_01",
+            "boxed": true,
+            "data": {}
         },
         {
             "type": "footer_01",
