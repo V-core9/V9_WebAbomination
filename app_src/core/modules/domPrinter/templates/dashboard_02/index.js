@@ -476,7 +476,7 @@ const dashboard_02 = {
         console.log('[dashboard_02 :: onload]');
 
         setTimeout(async () => {
-            document.querySelector("#system_stats").innerHTML = JSON.stringify(await apiReq.req("https://v-core9.com/admin/system_stats", undefined, 'get'), true, 4);
+            document.querySelector("#system_stats").innerHTML = JSON.stringify(await apiReq.req("/admin/system_stats", undefined, 'get'), true, 4);
         }, 500);
         
         console.log('Sidebar INIT');

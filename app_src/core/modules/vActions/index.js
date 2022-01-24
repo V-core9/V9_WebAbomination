@@ -55,7 +55,7 @@ const vActions = {
             "password": document.querySelector("input[name='password']").value,
             "confirmation": document.querySelector("input[name='confirm_password']").value
         });
-        register_resp(await apiReq.req("https://v-core9.com/api/v1/auth/register", raw, 'POST'));
+        register_resp(await apiReq.req("/api/v1/auth/register", raw, 'POST'));
     },
 
     loginUser: async () => {
@@ -63,7 +63,7 @@ const vActions = {
             "username": document.querySelector("input[name='username']").value,
             "password": document.querySelector("input[name='password']").value
         });
-        login_resp(await apiReq.req("https://v-core9.com/api/v1/auth/login", raw, 'POST'));
+        login_resp(await apiReq.req("/api/v1/auth/login", raw, 'POST'));
     },
     toggleChat: async () => {
         var element = document.getElementById("XcriptMain");
