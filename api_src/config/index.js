@@ -24,8 +24,10 @@ module.exports = {
     lang: `en`,
     port: process.env.PORT || 2500,
     viewport: `width=device-width`,
-    ContentSecurityPolicy: "default-src 'self' 'unsafe-inline' ; connect-src 'self' https://cloudflareinsights.com/cdn-cgi/rum  https://www.google-analytics.com www.google-analytics.com; script-src 'self' https://www.google-analytics.com 'unsafe-inline' *.googletagmanager.com  ", 
+    ContentSecurityPolicy: "default-src 'self' 'unsafe-inline' ; connect-src 'self' https://cloudflareinsights.com/cdn-cgi/rum  ; script-src 'self' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com ", 
     ObjectSecurityPolicy: `object-src 'self'` ,
+    AccessControlAllowOrigin: `*`,
+    StrictTransportSecurity: 'max-age=31536000; includeSubDomains; preload',
     tables: require('./tables'),
     static_dirs : [
         './public'

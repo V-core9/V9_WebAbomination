@@ -9,6 +9,9 @@ const apiReq = {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
+        var accToken = miniCake.get('accessToken');
+        if (accToken !== false) myHeaders.append("Authorization", `Vc9_Token ${miniCake.get('accessToken')}`);
+
         var requestOptions = {
             method: type,
             headers: myHeaders,

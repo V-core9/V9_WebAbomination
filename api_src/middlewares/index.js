@@ -1,9 +1,11 @@
 module.exports = {
-    csp: require('./csp'),
-    head: require('./head'),
-    xPoweredBy: require('./x_powered_by'),
+    reqLog: require('./reqLog'),
+
+    header: require('./header'),
+    
     isBot: require('./is_bot'),
     geoip: require('./geoip'),
-    reqLog: require('./reqLog'),
     cookieJWT: require('./cookieJWT'),
+    
+    xPoweredBy: require('./x_powered_by'),
 };
