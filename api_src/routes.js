@@ -5,18 +5,19 @@ const { auth, api_root, dataModel, logout, register, login, systemStats } = requ
 const { verify_jwt, verify_admin } = auth;
 
 const { sitemapGenerator } = require('./modules');
+const { cookieJWT } = require('./middlewares');
 
 
 const routes = [
     {
         type: 'get',
         path: '/application',
-        handle: [verify_jwt, vWebsite.application]
+        handle: [cookieJWT, verify_jwt, vWebsite.application]
     },
     {
         type: 'get',
         path: '/dashboard',
-        handle: [verify_jwt, verify_admin, vWebsite.dashboard]
+        handle: [cookieJWT, verify_jwt, verify_admin, vWebsite.dashboard]
     },
     // API ROOT
     {

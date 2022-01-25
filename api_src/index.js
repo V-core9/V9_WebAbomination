@@ -1,6 +1,6 @@
 //! SHORTER VERSION OF SYSTEM/ FOLDER
 const config = require('./config');
-const { head, csp, xPoweredBy, isBot, geoip, reqLog, cookieJWT } = require('./middlewares');
+const { header,  xPoweredBy, isBot, geoip, reqLog, cookieJWT } = require('./middlewares');
 const vWebsite = require('./v_website');
 const { sitemapGenerator } = require('./modules');
 
@@ -18,11 +18,9 @@ v.use(bodyParser.urlencoded({ extended: true }));
 v.use(bodyParser.json());
 v.disable('etag');
 
-v.use(cookieJWT);
 v.use(isBot);
 v.use(geoip);
-v.use(head);
-v.use(csp);
+v.use(header);
 v.use(xPoweredBy);
 v.use(reqLog);
 

@@ -3,7 +3,11 @@ const v_render = require('./modules/pages/v_render');
 
 const vWebsite = {
 
-    post_types: ['authors', 'pages', 'posts'],
+    post_types: [
+        'authors',
+        'pages',
+        'posts'
+    ],
 
     load: async () => {
         for (let j = 0; j < vWebsite.post_types.length; j++) {
@@ -27,78 +31,75 @@ const vWebsite = {
         return false;
     },
 
-};
+    //? Homepage
+    index: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'index'));
+    },
 
+    //? Blog Page
+    blog: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'blog'));
+    },
 
-//? Homepage
-vWebsite.index = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'index'));
-};
+    //? Authors Page
+    authors_page: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'authors'));
+    },
 
-//? Blog Page
-vWebsite.blog = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'blog'));
-};
+    //? Find page by slug 
+    pageBySlug: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.pages, req.params.page_slug));
+    },
 
-//? Authors Page
-vWebsite.authors_page = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.pages, 'authors'));
-};
+    //? Find post by slug [path/alt_paths]
+    postBySlug: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.posts, req.params.post_slug));
+    },
 
-//? Find page by slug 
-vWebsite.pageBySlug = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.pages, req.params.page_slug));
-};
+    //? Find author by slug [path/alt_paths]
+    authorBySlug: async (req, res) => {
+        v_render(req, res, await vWebsite.findByPath(vWebsite.authors, req.params.author_slug));
+    },
 
-//? Find post by slug [path/alt_paths]
-vWebsite.postBySlug = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.posts, req.params.post_slug));
-};
+    sitemap: async (req, res) => {
+        res.send('sitemap');
+    },
 
-//? Find author by slug [path/alt_paths]
-vWebsite.authorBySlug = async (req, res) => {
-    v_render(req, res, await vWebsite.findByPath(vWebsite.authors, req.params.author_slug));
-};
+    //? 404
+    e404: async (req, res) => {
+        req.errorCode = 404;
+        v_render(req, res, false);
+    },
 
-vWebsite.sitemap = async (req, res) => {
-    res.send('sitemap');
-};
+    errorPage: async (req, res) => {
+        v_render(req, res, false);
+    },
 
-//? 404
-vWebsite.e404 = async (req, res) => {
-    req.errorCode = 404;
-    v_render(req, res, false);
-};
+    //? Application
+    application: async (req, res) => {
+        v_render(req, res, await vDB.item.view('v9_system_pages', 'application'));
+    },
 
-vWebsite.errorPage = async (req, res) => {
-    v_render(req, res, false);
-};
+    //? Dashboard
+    dashboard: async (req, res) => {
+        v_render(req, res, await vDB.item.view('v9_system_pages', 'dashboard'));
+    },
 
-//? Application
-vWebsite.application = async (req, res) => {
-    v_render(req, res, await vDB.item.view('v9_system_pages', 'application'));
-};
+    //! FOR DEBUG MODE ]>= = = = = = = = = = 
+    //? Find any by id [tries directly to load from db]
+    pageByID: async (req, res) => {
+        res.send(await vDB.item.view('pages', req.params.page_id));
+    },
 
-//? Dashboard
-vWebsite.dashboard = async (req, res) => {
-    v_render(req, res, await vDB.item.view('v9_system_pages', 'dashboard'));
-};
+    //? Find author by id  [direct DB load]
+    authorByID: async (req, res) => {
+        res.send(await vDB.item.view('authors', req.params.post_id));
+    },
 
-
-//! FOR DEBUG MODE ]>= = = = = = = = = = 
-//? Find any by id [tries directly to load from db]
-vWebsite.pageByID = async (req, res) => {
-    res.send(await vDB.item.view('pages', req.params.page_id));
-};
-
-//? Find author by id  [direct DB load]
-vWebsite.authorByID = async (req, res) => {
-    res.send(await vDB.item.view('authors', req.params.post_id));
-};
-
-//? Find post by id  [direct DB load]
-vWebsite.postByID = async (req, res) => {
-    res.send(await vDB.item.view('posts', req.params.post_id));
+    //? Find post by id  [direct DB load]
+    postByID: async (req, res) => {
+        res.send(await vDB.item.view('posts', req.params.post_id));
+    },
 };
 
 module.exports = vWebsite;
