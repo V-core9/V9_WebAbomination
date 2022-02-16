@@ -134,7 +134,7 @@ const routes = [
     {
         type: 'get',
         path: '/admin/regenerate_sitemap',
-        handle: [verify_jwt, verify_admin, sitemapGenerator.regenerate]
+        handle: [cookieJWT,verify_jwt, verify_admin, sitemapGenerator.regenerate]
     },
     {
         type: 'get',
