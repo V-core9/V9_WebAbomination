@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const vWebsite = require('../../../v_website');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (authHeader) {

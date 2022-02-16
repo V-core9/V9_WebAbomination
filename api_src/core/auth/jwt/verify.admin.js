@@ -1,4 +1,4 @@
-module.exports =  (req, res, next) => {
+module.exports = async (req, res, next) => {
     const { role } = req.user;
 
     if (role !== 'admin') {
