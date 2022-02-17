@@ -1,8 +1,8 @@
-describe('v-core9.com Demo', function() {
+describe('v-core9.com Demo', () => {
 
   before(browser => browser.navigateTo('https://www.google.com/'));
 
-  test('Demo test v-core9.com', function(browser) {
+  test('Demo test v-core9.com', (browser) => {
     browser
       .waitForElementVisible('body')
       .assert.titleContains('Google')
