@@ -28,5 +28,5 @@ var sampleFunctionList = [
 
   await router.new('/:page_slug', 'get', sampleFunctionList);
 
-  cluster({ port: 3000, maxCpu: 0.5 });
+  cluster({ port: 3000, maxCpu: 0.8125 });
 })();
