@@ -1,13 +1,12 @@
-const { cluster, router } = require('./modules');
-
+const { router } = require('../modules');
 
 sampleMiddleware = async (req, res, next) => {
-  //console.log('middleware');
+  res.write('Middleware@'+Date.now()+'\n');
   next();
 };
 
 sampleHandler = async (req, res) => {
-  return res.send('getting homepage');
+  res.end('Getting :'+JSON.stringify(req.params));
 };
 
 var sampleFunctionList = [
@@ -15,8 +14,7 @@ var sampleFunctionList = [
   sampleHandler
 ];
 
-(async () => {
-
+module.exports = async () => {
   await router.add('/', 'get', sampleFunctionList);
 
   await router.get('/page/', sampleFunctionList);
@@ -27,6 +25,5 @@ var sampleFunctionList = [
   await router.delete('/page/:id', sampleFunctionList);
 
   await router.new('/:page_slug', 'get', sampleFunctionList);
+};
 
-  cluster({ port: 3000, maxCpu: 0.8125 });
-})();
