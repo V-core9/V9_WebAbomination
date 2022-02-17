@@ -13,7 +13,6 @@ module.exports = (data = {}) => {
     methods.map(method => {
       app[method](routePath, route[method]);
     });
-
   });
 
   app.listen(port, async () => {
