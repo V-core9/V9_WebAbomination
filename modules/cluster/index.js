@@ -1,5 +1,5 @@
 module.exports = async (data = {}) => {
-  const app =  data.app || require("./app");
+  const app =  data.app || require("../core");
   const maxCpu = data.maxCpu || 0.5;
   const totalCPUs = Math.trunc(require("os").cpus().length * maxCpu);
   const cluster = require("cluster");
