@@ -1,4 +1,4 @@
-const { router } = require('../modules');
+const { router } = require('../../../modules');
 
 sampleMiddleware = async (req, res, next) => {
   res.write('Middleware@'+Date.now()+'\n');

@@ -1,6 +1,7 @@
-const userModel = require('../../../models/user');
+const user = require('../../../models');
 var faker = require('faker');
 
+var itemsCount = 200;
 
 randomTestUser = async () => {
   return {
@@ -11,9 +12,20 @@ randomTestUser = async () => {
 }
 
 (async() => {
-  console.log(Object.keys(userModel));
 
-  console.log(await userModel.create(await randomTestUser()));
+  test("Delete All USERS", async () => {
+    expect(await page.purge()).toEqual(true);
+  });
 
-  console.log(await userModel.all());
+  test("Create ["+itemsCount+"] Random USERS", async () => {
+    for (var i = 0; i < itemsCount; i++) {
+      expect(await user.create(await randomTestUser())).toEqual(true);
+    }
+  });
+
+  test("Listing USERS Count", async () => {
+    var items = await page.all();
+    expect(items).toHaveLength(itemsCount);
+  });
+
 })();

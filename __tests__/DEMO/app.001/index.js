@@ -1,4 +1,4 @@
-const { cluster } = require('../modules');
+const { cluster } = require('../../../modules');
 
 (async () => {
   await require('./routes')();

@@ -1,29 +1,19 @@
+const { asy } = require('../../../helpers');
+const models = require('../../../models');
+
+//! Prisma Client
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const asy = {
-  stringify: async (data) => {
-    return JSON.stringify(data, true, 2);
-  },
-  parseInt: async (data) => {
-    return parseInt(data);
-  }
-};
-
+//* Just some functions that use prisma.
+//* Still just testing of random things.
 module.exports = {
-  getHomepage: async (req, res) => {
-    return res.status(200).send(await asy.stringify(await prisma.page.findUnique({where: {slug : '/'}})));
-  },
-  getBlog: async (req, res) => {
-    return res.status(200).send(await asy.stringify(await prisma.post.findMany({take: 5})));
-  },
-  getPageBySlug: async (req, res) => {
-    return res.status(200).send(await asy.stringify(await prisma.page.findUnique({where: req.params})));
-  },
-  userList: async (req, res) => {
-    return res.status(200).send(await asy.stringify(await prisma.user.findMany({})));
-  },
-  userById: async (req, res) => {
-    return res.status(200).send(await async.stringify(await prisma.user.findUnique({where: {id : await asy.parseInt(req.params.id)}})));
-  },
+  getHomepage: async (req, res) => res.status(200).send(await asy.stringifyJSON(await models.page.home())),
+  getPageBySlug: async (req, res) => res.status(200).end(await asy.stringifyJSON(await models.page.byArgs(req.params))),
+  listPages: async (req, res) => res.status(200).end(await asy.stringifyJSON(await models.page.all())),
+
+  getBlog: async (req, res) => res.status(200).end(await asy.stringifyJSON(await models.post.all())),
+
+  userList: async (req, res) => res.status(200).end(await asy.stringifyJSON(await models.user.all())),
+  userById: async (req, res) => res.status(200).end(await asy.stringifyJSON(await models.user.byId(await asy.parseInt(req.params.id)))),
 };

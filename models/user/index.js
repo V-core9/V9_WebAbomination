@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const user = {
-  all: async () => await prisma.user.findMany({}),
+  all: async () => await prisma.user.findMany({take: 5}),
   byId: async (id) => await prisma.user.findUnique({where: {id: id}}),
   create: async (data) => await prisma.user.create({data: data}),
   update: async (id, data) => await prisma.user.update({where: {id: id}, data: data}),

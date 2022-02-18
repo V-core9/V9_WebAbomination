@@ -1,7 +1,9 @@
 const actions = require('./actions');
 
-const { errors } = require('../modules');
+const { errors } = require('../../../modules');
 
+//? Example routes structure that gets created by the router.
+//* This will be just appointed to the router.routes object just to show how it works.
 module.exports = {
   '/': {
     get: [actions.getHomepage]
@@ -14,6 +16,9 @@ module.exports = {
   },
   '/user/:id': {
     get: [actions.userById]
+  },
+  '/page/': {
+    get: [actions.listPages]
   },
   '/:slug': {
     get: [actions.getPageBySlug]
