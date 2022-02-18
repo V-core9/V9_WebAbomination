@@ -1,4 +1,7 @@
-const user = require('../../../models');
+const {User} = require('../../../models');
+
+const user = new User();
+
 var faker = require('faker');
 
 var itemsCount = 200;
@@ -14,7 +17,7 @@ randomTestUser = async () => {
 (async() => {
 
   test("Delete All USERS", async () => {
-    expect(await page.purge()).toEqual(true);
+    expect(await user.purge()).toEqual(true);
   });
 
   test("Create ["+itemsCount+"] Random USERS", async () => {
@@ -24,8 +27,7 @@ randomTestUser = async () => {
   });
 
   test("Listing USERS Count", async () => {
-    var items = await page.all();
-    expect(items).toHaveLength(itemsCount);
+    expect(await user.all()).toHaveLength(itemsCount);
   });
 
 })();

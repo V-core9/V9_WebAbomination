@@ -1,9 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
-
-const post = {
-  all: async () => await prisma.post.findMany({ take: 5 }),
-  byId: async (id) => await prisma.post.findUnique({where: {id: id}}),
+const Base = require('../base');
+module.exports = class Post extends Base {
+  constructor(app) {
+    super(app);
+    this.type = 'post';
+    this.blog = async () => await all(this.type);
+  }
 };
-
-module.exports = post;

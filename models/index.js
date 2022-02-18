@@ -1,7 +1,7 @@
 const models = {
-  user: require('./user'),
-  post: require('./post'),
-  page: require('./page'),
+  User: require('./user'),
+  Post: require('./post'),
+  Page: require('./page'),
 };
 
 module.exports = models;

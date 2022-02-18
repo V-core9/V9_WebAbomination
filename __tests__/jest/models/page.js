@@ -1,4 +1,6 @@
-const { page } = require('../../../models');
+const { Page } = require('../../../models');
+const page = new Page();
+
 var faker = require('faker');
 
 var itemsCount = 200;
@@ -9,7 +11,6 @@ randomTestPage = async () => {
     title: faker.lorem.words(),
     content: faker.lorem.text(),
     published: (Date.now() % 2 === 0 ? true : false),
-    authorId: 1
   };
 }
 
@@ -26,8 +27,7 @@ randomTestPage = async () => {
   });
 
   test("3.[mod.ALL] Listing Pages Count", async () => {
-    var items = await page.all();
-    expect(items).toHaveLength(itemsCount);
+    expect(await page.all()).toHaveLength(itemsCount);
   });
 
   test("4.[mod.UPDATE] Update a page to be home with / as slug", async () => {
