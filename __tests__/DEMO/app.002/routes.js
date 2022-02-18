@@ -4,22 +4,22 @@ const actions = require('./actions');
 //* This will be just appointed to the router.routes object just to show how it works.
 module.exports = {
   '/': {
-    get: [actions.getHomepage]
+    get: [actions.homepage]
   },
   '/blog': {
-    get: [actions.getBlog]
+    get: [actions.blog]
   },
   '/user/': {
-    get: [actions.userList]
+    get: [actions.users]
   },
   '/user/:id': {
     get: [actions.userById]
   },
   '/page/': {
-    get: [actions.listPages]
+    get: [actions.pages]
   },
   '/:slug': {
-    get: [actions.getPageBySlug]
+    get: [actions.pageBySlug]
   },
   '*': {
     get: [errors['404']],
