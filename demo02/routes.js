@@ -3,19 +3,19 @@ const prisma = new PrismaClient();
 
 const actions = {
   getHomepage: async (req, res) => {
-    return res.end('Hello World');
+    return res.json(await prisma.page.findUnique({where: {slug : '/'}}));
   },
   getBlog: async (req, res) => {
-    return res.end('Getting BLOG PAGE');
+    return res.json(await prisma.post.findMany({take: 5}));
   },
   getPageBySlug: async (req, res) => {
-    return res.end(req.params.slug);
+    return res.json(await prisma.page.findUnique({where: { slug: req.params.slug}}));
   },
   userList: async (req, res) => {
-    return res.end(JSON.stringify(await prisma.user.findMany({})));
+    return res.json(await prisma.user.findMany({}));
   },
   userById: async (req, res) => {
-    return res.end(JSON.stringify(await prisma.user.findUnique({where: {id : parseInt(req.params.id)}})));
+    return res.json(await prisma.user.findUnique({where: {id : parseInt(req.params.id)}}));
   },
 };
 
