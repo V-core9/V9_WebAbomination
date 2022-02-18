@@ -1,7 +1,6 @@
-const Base = require('../base');
-module.exports = class Post extends Base {
-  constructor(app) {
-    super(app);
+module.exports = class Post extends require('../base') {
+  constructor() {
+    super();
     this.type = 'post';
     this.blog = async () => await all(this.type);
   }

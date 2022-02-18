@@ -1,7 +1,5 @@
-const actions = require('./actions');
-
 const { errors } = require('../../../modules');
-
+const actions = require('./actions');
 //? Example routes structure that gets created by the router.
 //* This will be just appointed to the router.routes object just to show how it works.
 module.exports = {

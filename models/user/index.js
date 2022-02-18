@@ -1,7 +1,6 @@
-const Base = require('../base');
-module.exports = class User extends Base {
-  constructor(app) {
-    super(app);
+module.exports = class User extends require('../base') {
+  constructor() {
+    super();
     this.type = 'user';
   }
 };

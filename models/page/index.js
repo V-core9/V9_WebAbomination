@@ -1,7 +1,6 @@
-const Base = require('../base');
-module.exports = class Page extends Base {
-  constructor(app) {
-    super(app);
+module.exports = class Page extends require('../base') {
+  constructor() {
+    super();
     this.type = 'page';
     this.home = async () => await this.byArgs({ slug: '/' });
   }

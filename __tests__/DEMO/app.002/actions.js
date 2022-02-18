@@ -2,9 +2,8 @@ const { asy } = require('../../../helpers');
 const models = require('../../../models');
 
 const pageModel = new models.Page();
-const postModel = new models.Page();
-const userModel = new models.Page();
-
+const postModel = new models.Post();
+const userModel = new models.User();
 
 //* Just some functions that use prisma.
 //* Still just testing of random things.
