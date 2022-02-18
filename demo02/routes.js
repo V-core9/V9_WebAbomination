@@ -1,34 +1,48 @@
-const app = {
-  actions: {
-    getHomepage: (req, res) => {
-      return res.end('Hello World');
-    },
-    getBlog: (req, res) => {
-      return res.end('Getting BLOG PAGE');
-    },
-    getPageBySlug: (req, res) => {
-      return res.end(req.params.slug);
-    }
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+const actions = {
+  getHomepage: async (req, res) => {
+    return res.end('Hello World');
   },
-  errors: {
-    '404': async (req, res) => res.status(404).end(`[$)$] : ERROR 404 > \nPATH: ${req.path}\nMETHOD: ${req.method}\nPARAMS: ${JSON.stringify(req.params)}`)
-  }
+  getBlog: async (req, res) => {
+    return res.end('Getting BLOG PAGE');
+  },
+  getPageBySlug: async (req, res) => {
+    return res.end(req.params.slug);
+  },
+  userList: async (req, res) => {
+    return res.end(JSON.stringify(await prisma.user.findMany({})));
+  },
+  userById: async (req, res) => {
+    return res.end(JSON.stringify(await prisma.user.findUnique({where: {id : parseInt(req.params.id)}})));
+  },
 };
+
+const errors = {
+  '404': async (req, res) => res.status(404).end(`[$)$] : ERROR 404 > \nPATH: ${req.path}\nMETHOD: ${req.method}\nPARAMS: ${JSON.stringify(req.params)}`),
+}
 
 module.exports = {
   '/': {
-    get: [app.actions.getHomepage]
-  },
-  '/:slug': {
-    get: [app.actions.getPageBySlug]
+    get: [actions.getHomepage]
   },
   '/blog': {
-    get: [app.actions.getBlog]
+    get: [actions.getBlog]
+  },
+  '/user/': {
+    get: [actions.userList]
+  },
+  '/user/:id': {
+    get: [actions.userById]
+  },
+  '/:slug': {
+    get: [actions.getPageBySlug]
   },
   '*': {
-    get: [app.errors['404']],
-    post: [app.errors['404']],
-    put: [app.errors['404']],
-    delete: [app.errors['404']],
+    get: [errors['404']],
+    post: [errors['404']],
+    put: [errors['404']],
+    delete: [errors['404']],
   }
 };
