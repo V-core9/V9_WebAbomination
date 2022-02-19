@@ -33,6 +33,7 @@
   "dependencies": {
     "@prisma/client": "3.7.0",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
     "geoip-lite": "^1.4.3",
     "isbot": "^3.4.3",

@@ -1,10 +1,11 @@
 const { errors } = require('../../../modules');
 const actions = require('./actions');
+const {jwtFromCookie} = require('../../../middleware');
 //? Example routes structure that gets created by the router.
 //* This will be just appointed to the router.routes object just to show how it works.
 module.exports = {
   '/': {
-    get: [actions.homepage]
+    get: [jwtFromCookie, actions.homepage]
   },
   '/blog': {
     get: [actions.blog]

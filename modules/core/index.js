@@ -5,6 +5,11 @@ module.exports = (data = {}) => {
   var port = data.port || 3000;
   var routes = require('../router').routes;
   var routePaths = Object.keys(routes);
+  var middleware = require('../router').middleware;
+
+  middleware.map( item => {
+    app.use(item);
+  });
 
   routePaths.map(routePath => {
     var route = routes[routePath];
@@ -16,6 +21,8 @@ module.exports = (data = {}) => {
   });
 
   app.listen(port, async () => {
+    console.log("Application Middleware List:" , middleware);
+    console.log("Available Routes List:" ,routes);
     console.log(`App listening at http://localhost:${port}`);
   });
 };
