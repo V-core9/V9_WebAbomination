@@ -21,8 +21,8 @@ module.exports = (data = {}) => {
   });
 
   app.listen(port, async () => {
-    console.log("Application Middleware List:" , middleware);
-    console.log("Available Routes List:" ,routes);
+    //console.log("Application Middleware List:" , middleware);
+    //console.log("Available Routes List:" ,routes);
     console.log(`App listening at http://localhost:${port}`);
   });
 };
