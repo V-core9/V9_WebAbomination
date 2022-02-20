@@ -9,7 +9,7 @@ var compress = compression({ threshold: 0, level: 9 });
 
 module.exports = async () => {
   await router.use(cookieParser());
-  //await router.use(compress);
+  await router.use(compress);
   await router.use(bodyParser.urlencoded({ extended: true }));
   await router.use(bodyParser.json());
   await router.use(isBot);
