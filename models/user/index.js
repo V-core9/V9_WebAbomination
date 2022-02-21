@@ -11,5 +11,6 @@ module.exports = class User extends require('../base') {
       return await this.byArgs({username: username});
     };
 
+    this.byUsername = async (slug) =>  await this.byArgs({ username: slug });
   }
 };

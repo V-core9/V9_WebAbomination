@@ -12,14 +12,21 @@ module.exports = class Base {
       try {
         return await prisma[this.type].create({ data: data });
       } catch (err) {
-        console.log(err);
+        //console.log(err);
         return false;
       }
     };
 
       this.update = async (id, data) => (await prisma[this.type].update({ where: { id: id }, data: data })) ? true : false;
 
-      this.delete = async (id) => (await prisma[this.type].delete({ where: { id: id } })) ? true : false;
+      this.delete = async (id) => {
+        try {
+          return await prisma[this.type].delete({ where: { id: id } });
+        } catch (err) {
+          //console.log(err);
+          return false;
+        }
+      };
 
       this.byArgs = async (args) => await prisma[this.type].findFirst({ where: args });
 

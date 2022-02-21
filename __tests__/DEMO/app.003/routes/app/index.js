@@ -1,5 +1,6 @@
 module.exports = appRoutes = async () => {
-  await require('./post')();
-  await require('./page')();
   await require('./statics')();
+  await require('./post')();
+  await require('./user')();
+  await require('./page')();
 };

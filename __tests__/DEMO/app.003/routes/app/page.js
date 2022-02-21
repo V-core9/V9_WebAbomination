@@ -3,12 +3,21 @@ const { Page } = require('../../../../../models');
 
 const pageModel = new Page();
 
-homepage = async (req, res) => res.status(200).send((await pageModel.home()).content);
-
-pageBySlug = async (req, res) => {
+pageResponse = (req, res) => {
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
-  return res.end((await pageModel.bySlug(req.params.slug)).content || 'Page not found');
+  var { page } = req;
+  return res.end(( page !== null ) ? page.content : 'Page not found');
+};
+
+homepage = async (req, res) => {
+  req.page = await pageModel.home();
+  return pageResponse(req, res);
+};
+
+pageBySlug = async (req, res) => {
+  req.page = await pageModel.bySlug(req.params.slug);
+  return pageResponse(req, res);
 };
 
 module.exports = async () => {
