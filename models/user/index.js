@@ -3,8 +3,8 @@ module.exports = class User extends require('../base') {
     super();
     this.type = 'user';
 
-    this.register = async ( data ) => {
-      console.log(await this.create({data}));
+    this.register = async ( email, username, password, passConf ) => {
+      return await this.create({email: email, username: username, password: password});
     };
 
     this.login = async (username, password) => {

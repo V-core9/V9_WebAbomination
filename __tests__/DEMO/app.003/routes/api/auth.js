@@ -1,30 +1,32 @@
 const { router } = require("../../../../../modules");
 const {User} = require("../../../../../models");
+const user = new User();
+
+register = async (req, res) => {
+  const { username, email, password, passwordConfirm } = req.body;
+  const data = await user.register(email, username, password, passwordConfirm);
+  if (!data) {
+    return res.status(401).json({
+      message: "Failed to register new user."
+    });
+  } else {
+    return res.status(200).json(data);
+  }
+};
 
 login = async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = new User();
-  const data = await user.byArgs({ email: email });
-
+  const { username, password } = req.body;
+  const data = await user.login(username, password);
   if (!data) {
     return res.status(401).json({
       message: "User not found"
     });
+  } else {
+    return res.status(200).json(data);
   }
-
-  if (!user.validatePassword(password)) {
-    return res.status(401).json({
-      message: "Invalid password"
-    });
-  }
-
-  const token = user.generateToken();
-  return res.json({
-    token
-  });
 };
 
 module.exports = async () => {
   router.post('/api/auth/login', [login]);
+  router.post('/api/auth/register', [register]);
 };
