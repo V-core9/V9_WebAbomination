@@ -1,4 +1,4 @@
-const {isBot, geoIpLite, xPoweredBy, bodyParser, compression, cookieParser} = require('../../middleware');
+const { isBot, geoIpLite, xPoweredBy, bodyParser, compression, cookieParser } = require('../../middleware');
 
 module.exports = async (router) => {
   await router.use(cookieParser());
