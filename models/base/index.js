@@ -10,7 +10,8 @@ module.exports = class Base {
 
     this.create = async (data) => {
       try {
-        return await prisma[this.type].create({ data: data });
+        await prisma[this.type].create({ data: data });
+        return true;
       } catch (err) {
         //console.log(err);
         return false;
@@ -21,7 +22,8 @@ module.exports = class Base {
 
     this.delete = async (id) => {
       try {
-        return await prisma[this.type].delete({ where: { id: id } });
+        await prisma[this.type].delete({ where: { id: id } });
+        return true;
       } catch (err) {
         //console.log(err);
         return false;
@@ -30,7 +32,15 @@ module.exports = class Base {
 
     this.byArgs = async (args) => await prisma[this.type].findFirst({ where: args });
 
-    this.purge = async () => (await prisma[this.type].deleteMany({})) ? true : false;
+    this.purge = async () => {
+      try {
+        await prisma[this.type].deleteMany({});
+        return true;
+      } catch (err) {
+        //console.log(err);
+        return false;
+      }
+    };
 
   }
 };
