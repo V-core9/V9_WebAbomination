@@ -1,12 +1,13 @@
 const { errors } = require("../../modules");
 
-module.exports = async (router) => {
-  await require('./api')(router);
-  await require('./app')(router);
+module.exports = async (app) => {
 
-  await router.get('*', [errors['404']]);
-  await router.post('*', [errors['404']]);
-  await router.put('*', [errors['404']]);
-  await router.delete('*', [errors['404']]);
+  await require('./api')(app);
+  await require('./app')(app);
+
+  await app.get('*', [errors['404']]);
+  await app.post('*', [errors['404']]);
+  await app.put('*', [errors['404']]);
+  await app.delete('*', [errors['404']]);
 
 };

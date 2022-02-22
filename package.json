@@ -28,7 +28,8 @@
     "postinstall": "npx prisma generate",
     "dev": "node ./script.js",
     "test": "jest",
-    "prepack": "npm run test"
+    "prepack": "npm run test",
+    "v9" : "node v9"
   },
   "dependencies": {
     "@prisma/client": "3.7.0",

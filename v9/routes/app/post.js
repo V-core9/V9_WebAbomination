@@ -1,6 +1,6 @@
 const { post } = require('../../../handlers').app;
 
-module.exports = async (router) => {
-  router.get('/blog/', [post.blog]);
-  router.get('/blog/:slug', [post.bySlug]);
+module.exports = async (app) => {
+  await app.get('/blog/', [post.blog]);
+  await app.get('/blog/:slug', [post.bySlug]);
 };

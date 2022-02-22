@@ -56,11 +56,23 @@ model FormResponse {
   created DateTime @default(now())
 }
 
+model Role {
+  id Int @id @default(autoincrement())
+  name String
+  users User[]
+}
+
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   username  String?
   password  String
+  salt String
+  created   DateTime @default(now())
+  updated   DateTime @default(now())
+  verified Boolean? @default(false)
+  roleId Int?
+  role Role? @relation(fields: [roleId], references: [id])
   pages Page[]
   posts Post[]
   forms Form[]

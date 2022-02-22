@@ -1,11 +1,11 @@
 const { user } = require('../../../handlers').api;
 const userPath = '/api/user/';
 
-module.exports = async (router) => {
-  router.get(userPath, [user.list]);
-  router.post(userPath, [user.create]);
+module.exports = async (app) => {
+  app.get(userPath, [user.list]);
+  app.post(userPath, [user.create]);
 
-  router.get(userPath + ':id', [user.byId]);
-  router.put(userPath + ':id', [user.update]);
-  router.delete(userPath + ':id', [user.delete]);
+  app.get(userPath + ':id', [user.byId]);
+  app.put(userPath + ':id', [user.update]);
+  app.delete(userPath + ':id', [user.delete]);
 };

@@ -1,11 +1,11 @@
-module.exports = apiRoutes = async (router) => {
+module.exports = apiRoutes = async (app) => {
 
-  await router.get("/api/", async (req, res) => {
-    res.end(JSON.stringify(router, true, 4));
+  await app.get("/api/", async (req, res) => {
+    res.end(JSON.stringify(app, true, 4));
   });
 
-  await require('./auth')(router);
-  await require('./page')(router);
-  await require('./post')(router);
-  await require('./user')(router);
+  await require('./auth')(app);
+  await require('./page')(app);
+  await require('./post')(app);
+  await require('./user')(app);
 };

@@ -1,9 +1,9 @@
-module.exports = appRoutes = async (router) => {
+module.exports = appRoutes = async (app) => {
 
-  await require('./statics')(router);
+  await require('./statics')(app);
 
-  await require('./post')(router);
-  await require('./user')(router);
-  await require('./page')(router);
+  await require('./post')(app);
+  await require('./user')(app);
+  await require('./page')(app);
 
 };

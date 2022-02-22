@@ -1,5 +1,5 @@
-module.exports = async (data = {}) => {
-  const app =  data.app || require("../core");
+module.exports = async (app, data = {}) => {
+  const port = data.port || 8080;
   const maxCpu = data.maxCpu || 0.5;
   const totalCPUs = Math.trunc(require("os").cpus().length * maxCpu);
   const cluster = require("cluster");
@@ -13,6 +13,8 @@ module.exports = async (data = {}) => {
       cluster.fork();
     });
   } else {
-    app(data);
+    app.listen(port, async () => {
+      console.log('App Started! PATH: http://localhost:' + port + '/');
+    });
   }
 };
