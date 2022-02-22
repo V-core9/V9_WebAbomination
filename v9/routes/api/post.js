@@ -1,29 +1,5 @@
-const { asy } = require('../../../helpers');
-const { Post } = require('../../../models');
-
-const postModel = new Post();
-
-const post = {
-  list: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.all()));
-  },
-  byId: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.byId(await asy.parseInt(req.params.id))));
-  },
-
-  create: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.create(req.body)));
-  },
-  update: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.update(await asy.parseInt(req.params.id), req.body)));
-  },
-  delete: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.delete(await asy.parseInt(req.params.id))));
-  }
-};
-
-
-var postPath = '/api/post/';
+const { post } = require('../../../handlers').api;
+const postPath = '/api/post/';
 
 module.exports = async (router) => {
   router.get(postPath, [post.list]);

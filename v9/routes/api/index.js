@@ -1,9 +1,7 @@
 module.exports = apiRoutes = async (router) => {
 
   await router.get("/api/", async (req, res) => {
-    res.json({
-      message: "Hello World"
-    });
+    res.end(JSON.stringify(router, true, 4));
   });
 
   await require('./auth')(router);
