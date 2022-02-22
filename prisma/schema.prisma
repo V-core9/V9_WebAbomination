@@ -18,6 +18,7 @@ model Post {
   updated   DateTime @default(now())
   revision  Boolean? @default(false)
   authorId  Int?
+  renderMode String @default("html")
 }
 
 model Page {
@@ -31,6 +32,28 @@ model Page {
   updated   DateTime @default(now())
   revision  Boolean? @default(false)
   authorId  Int?
+  renderMode String @default("html")
+}
+
+model Form {
+  id Int @id @default(autoincrement())
+  slug String? @unique
+  title String
+  content String
+  published Boolean? @default(false)
+  author User? @relation(fields: [authorId], references: [id])
+  authorId Int?
+  created DateTime @default(now())
+  updated DateTime @default(now())
+  formResponses FormResponse[]
+}
+
+model FormResponse {
+  id Int @id @default(autoincrement())
+  form Form? @relation(fields: [formId], references: [id])
+  formId Int?
+  content String
+  created DateTime @default(now())
 }
 
 model User {
@@ -40,4 +63,5 @@ model User {
   password  String
   pages Page[]
   posts Post[]
+  forms Form[]
 }
