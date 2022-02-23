@@ -29,7 +29,7 @@
     "dev": "node ./script.js",
     "test": "jest",
     "prepack": "npm run test",
-    "v9" : "node v9"
+    "v9": "node v9"
   },
   "dependencies": {
     "@prisma/client": "3.7.0",
@@ -38,7 +38,8 @@
     "express": "^4.17.3",
     "geoip-lite": "^1.4.3",
     "isbot": "^3.4.3",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "v_to_sha256": "^1.0.9"
   },
   "engines": {
     "node": ">=12.2.0"

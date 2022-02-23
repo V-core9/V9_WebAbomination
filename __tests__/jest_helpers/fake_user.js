@@ -6,6 +6,5 @@ module.exports = async () => {
     password: faker.internet.password(),
     email: faker.internet.email(),
     salt: '123456789',
-    verified: true
   };
 };

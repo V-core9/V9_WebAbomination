@@ -19,6 +19,6 @@ module.exports = user = {
     return res.status(200).end(await asy.stringifyJSON(await userModel.delete(await asy.parseInt(req.params.id))));
   },
   purge: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.purge()));
+    return res.status(200).end(await asy.stringifyJSON(await userModel.purge()));
   },
 };
