@@ -5,14 +5,12 @@ const prisma = new PrismaClient();
 module.exports = auth = {
 
   register: async (req, res) => {
-    var { username, email, password, passwordConfirm } = req.body;
+    req.body.salt = await randomBytesGenerator();
+    req.body.password = await encryptPassword(req.body.password, req.body.salt);
 
-    const salt = await randomBytesGenerator();
-    password = await encryptPassword(password, salt);
+    var createResp = await prisma.user.create({ data: { email: req.body.email, password: req.body.password, username: req.body.username, salt: req.body.salt } });
 
-    var createResp = await prisma.user.create({ data: { email, username, salt, password } });
-
-    return (!createResp) ? res.status(401).json({ message: "Failed to register new user." }) : res.status(200).json(createResp);
+    return (createResp !== null) ? res.status(401).json({ message: "Failed to register new user." }) : res.status(200).json(createResp);
   },
 
   login: async (req, res) => {
