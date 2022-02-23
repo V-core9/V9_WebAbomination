@@ -1,4 +1,4 @@
-const { post } = require('../../../handlers').api;
+const { post } = require('../../handlers').api;
 
 module.exports = async (app) => {
   app.get('/api/post/', [post.list]);

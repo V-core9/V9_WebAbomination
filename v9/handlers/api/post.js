@@ -6,40 +6,36 @@ const prisma = new PrismaClient();
 module.exports = post = {
 
   list: async (req, res) => {
-    const data = await prisma.post.findMany({ orderBy: { createdAt: 'desc' } });
-
-    return res.status(200).end(await asy.stringifyJSON(data));
+    const data = await prisma.post.findMany({ take: 10, orderBy: { createdAt: 'desc' } });
+    return res.status(200).json(data);
   },
 
   byId: async (req, res) => {
-    var { id } = req.params;
-    id = await asy.parseInt(id);
-
+    const id = await asy.parseInt(req.params.id);
     const data = await prisma.post.findUnique({ where: { id: id } });
-
-    return res.status(200).end(await asy.stringifyJSON(data));
+    return res.status(200).json(data);
   },
 
   create: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.post.create(req.body)));
+    const data = await prisma.post.create(req.body);
+    return res.status(200).json(data);
   },
 
   update: async (req, res) => {
-    var { id } = req.params;
-    id = await asy.parseInt(id);
-
-    return res.status(200).end(await asy.stringifyJSON(await prisma.post.update({ where: { id: id }, data: req.body })));
+    const id = await asy.parseInt(req.params.id);
+    const data = await prisma.post.update({ where: { id: id }, data: req.body });
+    return res.status(200).json(data);
   },
 
   delete: async (req, res) => {
-    var { id } = req.params;
-    id = await asy.parseInt(id);
-
-    return res.status(200).end(await asy.stringifyJSON(await prisma.post.delete({ where: { id: id } })));
+    const id = await asy.parseInt(req.params.id);
+    const data = await prisma.post.delete({ where: { id: id } });
+    return res.status(200).json(data);
   },
 
   purge: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.post.deleteMany()));
+    const data = await prisma.post.deleteMany();
+    return res.status(200).json(data);
   },
 
 };

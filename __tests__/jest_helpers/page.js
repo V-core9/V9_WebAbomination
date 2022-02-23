@@ -1,29 +1,38 @@
 const fakePage = require('./fake_page');
-const { Page } = require('../../models');
-const page = new Page();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 module.exports = async (itemsCount = 5) => {
 
-  test("8.[mod.PURGE] Delete All Pages", async () => {
-    expect(await page.purge()).toEqual(true);
+  test("10. Delete All Pages", async () => {
+    expect(await prisma.page.deleteMany()).toEqual({ "count": 0 });
   });
 
-  test("9.[mod.CREATE] Create [" + itemsCount + "] Random Pages", async () => {
+  test("11. Create [" + itemsCount + "] Random Pages", async () => {
     for (var i = 0; i < itemsCount; i++) {
-      expect(await page.create(await fakePage())).toEqual(true);
+      const fkPage = await fakePage();
+      const results = await prisma.page.create({ data: fkPage });
+      expect(results !== null).toEqual(true);
     }
   });
 
-  test("10.[mod.ALL] Listing Pages Count", async () => {
-    expect(await page.all()).toHaveLength(itemsCount);
+  //? Compare number of PAGES to itemsCount
+  test("12. Listing Pages Count", async () => {
+    const results = await prisma.page.findMany();
+    expect(results).toHaveLength(itemsCount);
   });
 
-  test("11.[mod.UPDATE] Update a page to be home with / as slug", async () => {
+  //? Update one page to have a specific slug for home
+  test("13.[mod.UPDATE] Update a page to be home with / as slug", async () => {
     var pageData = await fakePage();
     pageData.slug = '/';
-    var pages = await page.all();
+    var pages = await prisma.page.findMany();
     var id = pages[2].id;
-    expect(await page.update(id, pageData)).toEqual(true);
+    expect(await prisma.page.update({ where: { id: id }, data: pageData }) !== null).toEqual(true);
   });
 
+  //? And DELETE it all once more when finishing
+  test("14. Delete All Pages", async () => {
+    expect(await prisma.page.deleteMany()).toEqual({ "count": 200 });
+  });
 };

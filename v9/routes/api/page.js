@@ -1,4 +1,4 @@
-const { page } = require('../../../handlers').api;
+const { page } = require('../../handlers').api;
 
 module.exports = async (app) => {
   app.get('/api/page/', [page.list]);

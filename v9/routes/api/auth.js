@@ -1,4 +1,4 @@
-const { login, register } = require('../../../handlers').api.auth;
+const { login, register } = require('../../handlers').api.auth;
 
 module.exports = async (app) => {
   app.post('/api/auth/login', [login]);

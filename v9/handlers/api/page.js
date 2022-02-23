@@ -2,30 +2,40 @@ const { asy } = require('../../../helpers');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+
 module.exports = page = {
 
   list: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.findMany()));
+    const data = await prisma.page.findMany({ take: 10, orderBy: { createdAt: 'desc' } });
+    return res.status(200).json(data);
   },
 
   byId: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.findUnique({ where: { id: await asy.parseInt(req.params.id) } })));
+    const id = await asy.parseInt(req.params.id);
+    const data = await prisma.page.findUnique({ where: { id: id } });
+    return res.status(200).json(data);
   },
 
   create: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.create(req.body)));
+    const data = await prisma.page.create(req.body);
+    return res.status(200).json(data);
   },
 
   update: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.update({ where: { id: await asy.parseInt(req.params.id), data: req.body } })));
+    const id = await asy.parseInt(req.params.id);
+    const data = await prisma.page.update({ where: { id: id }, data: req.body });
+    return res.status(200).json(data);
   },
 
   delete: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.delete({ where: { id: await asy.parseInt(req.params.id) } })));
+    const id = await asy.parseInt(req.params.id);
+    const data = await prisma.page.delete({ where: { id: id } });
+    return res.status(200).json(data);
   },
 
   purge: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await prisma.page.deleteMany()));
+    const data = await prisma.page.deleteMany();
+    return res.status(200).json(data);
   },
 
 };
