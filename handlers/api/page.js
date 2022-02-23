@@ -1,31 +1,31 @@
 const { asy } = require('../../helpers');
-const { Page } = require('../../models');
-const pageModel = new Page();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 module.exports = page = {
 
   list: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.all()));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.findMany()));
   },
 
   byId: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.byId(await asy.parseInt(req.params.id))));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.findUnique({ where: { id: await asy.parseInt(req.params.id) } })));
   },
 
   create: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.create(req.body)));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.create(req.body)));
   },
 
   update: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.update(await asy.parseInt(req.params.id), req.body)));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.update({ where: { id: await asy.parseInt(req.params.id), data: req.body } })));
   },
 
   delete: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.delete(await asy.parseInt(req.params.id))));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.delete({ where: { id: await asy.parseInt(req.params.id) } })));
   },
 
   purge: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await pageModel.purge()));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.page.deleteMany()));
   },
 
 };

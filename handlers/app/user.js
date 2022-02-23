@@ -1,11 +1,12 @@
 const { asy } = require('../../helpers');
-const { User } = require('../../models');
-var userModel = new User();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 module.exports = user = {
 
   byUsername: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await userModel.byUsername(req.params.username)));
+    var data = await prisma.user.findUnique({ where: { username: req.params.username } });
+    return res.status(200).end(await asy.stringifyJSON(data));
   },
 
 };

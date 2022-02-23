@@ -1,15 +1,17 @@
 const { asy } = require('../../helpers');
-const { Post } = require('../../models');
-const postModel = new Post();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 module.exports = post = {
 
   blog: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.all()));
+    var data = await prisma.post.findMany({ orderBy: { createdAt: 'desc' } });
+    return res.status(200).end(await asy.stringifyJSON(data));
   },
 
   bySlug: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.byArgs(req.params)));
+    var data = await prisma.post.findFirst({ where : { slug : req.params.slug, published : true } });
+    return res.status(200).end(await asy.stringifyJSON(data));
   },
 
 };

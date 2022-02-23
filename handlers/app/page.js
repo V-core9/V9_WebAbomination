@@ -1,15 +1,14 @@
-
 const { vCore9 } = require('../../render').render;
-
-const { Page } = require('../../models');
-const pageModel = new Page();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 pageResponse = async (req, res) => {
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
-  var { page } = req;
-  if (page !== null) {
-    switch (page.renderMode) {
+  var page = req.page || { renderMode : 'html', content : 'No Page Found!' };
+
+    var renderMode = page.renderMode || 'html';
+    switch (renderMode) {
       case "html":
         return res.end(page.content);
 
@@ -19,21 +18,18 @@ pageResponse = async (req, res) => {
       default:
         return res.end("Unknown Render Mode");
     }
-  } else {
-    return res.end('Page not found');
-  }
 
 };
 
 module.exports = page = {
 
   home: async (req, res) => {
-    req.page = await pageModel.home();
+    req.page = await prisma.page.findUnique({where : {slug : "/"}});
     return pageResponse(req, res);
   },
 
   bySlug: async (req, res) => {
-    req.page = await pageModel.bySlug(req.params.slug);
+    req.page = await prisma.page.findFirst({where : { slug: req.params.slug , published: true}});
     return pageResponse(req, res);
   },
 

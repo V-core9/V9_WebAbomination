@@ -15,10 +15,7 @@ module.exports = class User extends require('../base') {
         email: email,
         username: username,
         salt: salt,
-        password: passwordHash,
-        accountType: 'user',
-        active: true,
-        verified: false,
+        password: passwordHash
       });
     };
 

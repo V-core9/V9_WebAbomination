@@ -1,31 +1,45 @@
 const { asy } = require('../../helpers');
-const { Post } = require('../../models');
-const postModel = new Post();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
 
 module.exports = post = {
 
   list: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.all()));
+    const data = await prisma.post.findMany({ orderBy: { createdAt: 'desc' } });
+
+    return res.status(200).end(await asy.stringifyJSON(data));
   },
 
   byId: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.byId(await asy.parseInt(req.params.id))));
+    var { id } = req.params;
+    id = await asy.parseInt(id);
+
+    const data = await prisma.post.findUnique({ where: { id: id } });
+
+    return res.status(200).end(await asy.stringifyJSON(data));
   },
 
   create: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.create(req.body)));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.post.create(req.body)));
   },
 
   update: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.update(await asy.parseInt(req.params.id), req.body)));
+    var { id } = req.params;
+    id = await asy.parseInt(id);
+
+    return res.status(200).end(await asy.stringifyJSON(await prisma.post.update({ where: { id: id }, data: req.body })));
   },
 
   delete: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.delete(await asy.parseInt(req.params.id))));
+    var { id } = req.params;
+    id = await asy.parseInt(id);
+
+    return res.status(200).end(await asy.stringifyJSON(await prisma.post.delete({ where: { id: id } })));
   },
 
   purge: async (req, res) => {
-    return res.status(200).end(await asy.stringifyJSON(await postModel.purge()));
+    return res.status(200).end(await asy.stringifyJSON(await prisma.post.deleteMany()));
   },
 
 };
