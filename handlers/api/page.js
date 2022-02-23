@@ -13,7 +13,6 @@ module.exports = page = {
     return res.status(200).end(await asy.stringifyJSON(await pageModel.create(req.body)));
   },
   update: async (req, res) => {
-    console.log(req.body);
     return res.status(200).end(await asy.stringifyJSON(await pageModel.update(await asy.parseInt(req.params.id), req.body)));
   },
   delete: async (req, res) => {

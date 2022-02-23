@@ -9,4 +9,5 @@ module.exports = apiRoutes = async (app) => {
   await require('./page')(app);
   await require('./post')(app);
   await require('./user')(app);
+  await require('./form')(app);
 };

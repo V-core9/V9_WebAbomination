@@ -3,4 +3,6 @@ module.exports = api = {
   page: require('./page'),
   post: require('./post'),
   user: require('./user'),
+  form: require('./form'),
+  formResponse: require('./formResponse'),
 };
