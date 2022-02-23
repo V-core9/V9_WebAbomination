@@ -1,7 +1,7 @@
 
-const { Page } = require('../../models');
 const { vCore9 } = require('../../render').render;
 
+const { Page } = require('../../models');
 const pageModel = new Page();
 
 pageResponse = async (req, res) => {
@@ -26,12 +26,15 @@ pageResponse = async (req, res) => {
 };
 
 module.exports = page = {
+
   home: async (req, res) => {
     req.page = await pageModel.home();
     return pageResponse(req, res);
   },
+
   bySlug: async (req, res) => {
     req.page = await pageModel.bySlug(req.params.slug);
     return pageResponse(req, res);
   },
+
 };

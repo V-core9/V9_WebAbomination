@@ -13,7 +13,7 @@ module.exports = class Base {
         await prisma[this.type].create({ data: data });
         return true;
       } catch (err) {
-        //console.log(err);
+        console.log(err);
         return false;
       }
     };

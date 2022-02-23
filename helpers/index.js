@@ -1,3 +1,5 @@
 module.exports = helpers = {
-  asy: require('./asy')
+  asy: require('./asy'),
+  randomBytesGenerator: require('./randomBytesGenerator'),
+  encryptPassword: require('./encryptPassword'),
 };

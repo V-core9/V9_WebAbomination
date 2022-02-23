@@ -1,10 +1,4 @@
-makeSalt = async () => {
-  return crypto.randomBytes(16).toString('hex');
-};
-
-encryptPassword = async (password, salt) => {
-  return await v_to_sha256(password + salt);
-};
+const { encryptPassword, randomBytesGenerator } = require('../../helpers');
 
 module.exports = class User extends require('../base') {
   constructor() {
@@ -14,14 +8,17 @@ module.exports = class User extends require('../base') {
     this.register = async (email, username, password, passConf) => {
       if (!email || !username || !password || !passConf) return false;
 
-      const salt = await makeSalt();
+      const salt = await randomBytesGenerator();
       const passwordHash = await encryptPassword(password, salt);
 
       return await this.create({
         email: email,
         username: username,
-        salt: freshSalt,
-        password: passwordHash
+        salt: salt,
+        password: passwordHash,
+        accountType: 'user',
+        active: true,
+        verified: false,
       });
     };
 
