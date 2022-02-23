@@ -8,25 +8,26 @@ module.exports = auth = {
     req.body.salt = await randomBytesGenerator();
     req.body.password = await encryptPassword(req.body.password, req.body.salt);
 
-    var createResp = await prisma.user.create({ data: { email: req.body.email, password: req.body.password, username: req.body.username, salt: req.body.salt } });
-
-    return (createResp !== null) ? res.status(401).json({ message: "Failed to register new user." }) : res.status(200).json(createResp);
+    try {
+      var result = await prisma.user.create({ data: { email: req.body.email, password: req.body.password, username: req.body.username, salt: req.body.salt } });
+      return res.status(200).json(result);
+    } catch (error) {
+      return res.status(401).json({ message: error.message });
+    }
   },
 
   login: async (req, res) => {
-    const { username, password } = req.body;
-    const data = await user.login(username, password);
+    const userData = await prisma.user.findUnique({ where: { username: req.body.username } });
 
-    const userData = await prisma.user.findUnique({ where: { username: username } });
+    if (userData === null) return res.status(401).json({ message: "User not found." });
 
-    if (encryptPassword(password, userData.salt) === userData.password) {
-      return true;
+    const encPass = await encryptPassword(req.body.password, userData.salt);
+
+    if (encPass === userData.password) {
+      return res.status(200).json({ message: "User Logged In Successfully.", refreshToken: 1234567890, accessToken: 9876543210 });
     } else {
-      return false;
+      return res.status(401).json({ message: "Wrong Credentials." });
     }
-
-
-    return (!data) ? res.status(401).json({ message: "User not found" }) : res.status(200).json(data);
   },
 
 };

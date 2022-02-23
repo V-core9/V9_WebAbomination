@@ -1,12 +1,12 @@
 const v_to_sha256 = require('v_to_sha256');
 
 module.exports = encryptPassword = async (password, salt) => {
-  return new Promise((resolve, reject) => {
-    v_to_sha256(password + salt, (err, hash) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(hash);
-    });
+  return new Promise(async (resolve, reject) => {
+    var hash = await v_to_sha256(password + salt);
+    try {
+      return resolve(hash);
+    } catch (error) {
+      return reject(error);
+    }
   });
 };

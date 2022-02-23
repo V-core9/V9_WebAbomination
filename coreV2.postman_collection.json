@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "2e69f70f-ae37-46bd-8cf0-3f134f8f8816",
-		"name": "coreV2",
+		"_postman_id": "55309a05-14d3-4323-852e-d828c0002a01",
+		"name": "coreV2_CLEAN",
 		"description": "Welcome to **V-core9** WebAbomination.\n\nThis has been broken down into few sections/folders based on the Web App Routes:\n\n*   **API** \\- Contains things that go through \\[ /api/* \\]\n*   **WebApp** \\- Includes all urls that require user to be logged in.\n*   **Public** \\- Here you can find things/routes that are publicly available.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -163,7 +163,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail2 com\",\r\n    \"slug\": \"slavk121oa2.1vusletic9122@gmail.com3\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true\r\n}",
+									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail2 com\",\r\n    \"slug\": \"slavk121oa2.1vusletic91212@gmail.com3\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true,\r\n    \"metaDescription\" : \"yeaasd as asdasd asd asd asd asd\",\r\n    \"metaKeywords\": [1,2,3],\r\n    \"authorId\": 1,\r\n    \"thumbnail\" : \"#\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -741,6 +741,78 @@
 								"url": "http://localhost:2500/api/user/1"
 							},
 							"response": []
+						},
+						{
+							"name": "Update USER with ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 15ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail com\",\r\n    \"slug\": \"1111111111111111111111111111111\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_set1111111111111111ingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:2500/api/user/407"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete USER with ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 15ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail com\",\r\n    \"slug\": \"1111111111111111111111111111111\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_set1111111111111111ingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:2500/api/user/407"
+							},
+							"response": []
 						}
 					]
 				},
@@ -772,7 +844,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\" : \"slavk11oa.vuletic9122@gmail.com\",\r\n    \"username\": \"VVVVVVVVV\",\r\n    \"password\": \"system_settings\",\r\n    \"passwordConfirm\": \"system_settings\"\r\n}",
+									"raw": "{\r\n    \"email\": \"slavk11oa.vuletic9122XX1@gmail.com\",\r\n    \"username\": \"v-core911\",\r\n    \"password\": \"system_settings\",\r\n    \"passwordConfirm\": \"system_settings\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -782,319 +854,22 @@
 								"url": "http://localhost:2500/api/auth/register"
 							},
 							"response": []
-						}
-					]
-				},
-				{
-					"name": "form",
-					"item": [
-						{
-							"name": "[root] forms list",
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
 						},
 						{
-							"name": "by id",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "http://localhost:2500/api/form/1"
-							},
-							"response": []
-						},
-						{
-							"name": "New FORM",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
+							"name": "🚦 JWT - Refresh Access Token",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"contact us form sample\",\r\n    \"slug\": \"contact_us_form\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\"\r\n}",
+									"raw": "{\r\n    \"username\": \"v-core9\",\r\n    \"password\": \"system_settings\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "http://localhost:2500/api/form/"
-							},
-							"response": []
-						},
-						{
-							"name": "Update FORM with ID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"contact us form sample\",\r\n    \"slug\": \"contact_us_form\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "http://localhost:2500/api/form/2"
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a FORM by ID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 10ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(10);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": "http://localhost:2500/api/form/55"
-							},
-							"response": []
-						},
-						{
-							"name": "FORM RESPONSE [:bySlug]",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"contact us form sample\",\r\n    \"slug\": \"contact_us_form\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "http://localhost:2500/api/form/contact_us_form"
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "formResponse",
-					"item": [
-						{
-							"name": "[root] - form_response list",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "http://localhost:2500/api/form_response/"
-							},
-							"response": []
-						},
-						{
-							"name": "by ID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 7.5ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(7.5);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "http://localhost:2500/api/form_response/11"
-							},
-							"response": []
-						},
-						{
-							"name": "New FORM RESPONSE",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail com\",\r\n    \"slug\": \"slavk1331oa211333.1vusletic9122@gmail.com\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "http://localhost:2500/api/form/contact_us_form"
-							},
-							"response": []
-						},
-						{
-							"name": "Update FORM RESPONSE with ID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 15ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(15);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"slavk11oa2 vuletic9122 gmail com\",\r\n    \"slug\": \"1111111111111111111111111111111\",\r\n    \"content\": \"system_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_set1111111111111111ingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settingssystem_settings\",\r\n    \"published\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "http://localhost:2500/api/form_response/407"
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a FORM RESPONSE by ID",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 10ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(10);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": "http://localhost:2500/api/form_response/406"
+								"url": "http://localhost:2500/api/auth/token"
 							},
 							"response": []
 						}
