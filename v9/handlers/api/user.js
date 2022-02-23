@@ -1,4 +1,4 @@
-const { asy } = require('../../helpers');
+const { asy } = require('../../../helpers');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
