@@ -34,7 +34,7 @@ module.exports = class Base {
 
     this.purge = async () => {
       try {
-        await prisma[this.type].deleteMany({});
+        await prisma[this.type].deleteMany();
         return true;
       } catch (err) {
         //console.log(err);

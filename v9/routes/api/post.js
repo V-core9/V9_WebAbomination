@@ -1,11 +1,12 @@
 const { post } = require('../../../handlers').api;
-const postPath = '/api/post/';
 
 module.exports = async (app) => {
-  app.get(postPath, [post.list]);
-  app.post(postPath, [post.create]); // Creates new post
+  app.get('/api/post/', [post.list]);
+  app.post('/api/post/', [post.create]);
 
-  app.get(postPath + ':id', [post.byId]); // Gets post by id
-  app.put(postPath + ':id', [post.update]); // Updates post by id
-  app.delete(postPath + ':id', [post.delete]); // Deletes post by id
+  app.get('/api/post/purge/', [post.purge]);
+
+  app.get('/api/post/:id', [post.byId]);
+  app.put('/api/post/:id', [post.update]);
+  app.delete('/api/post/:id', [post.delete]);
 };

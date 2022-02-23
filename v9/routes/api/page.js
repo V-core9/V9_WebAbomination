@@ -1,11 +1,12 @@
 const { page } = require('../../../handlers').api;
-const pagePath = '/api/page/';
 
 module.exports = async (app) => {
-  app.get(pagePath, [page.list]); // Gets list of all pages
-  app.post(pagePath, [page.create]); // Creates new page
+  app.get('/api/page/', [page.list]);
+  app.post('/api/page/', [page.create]);
 
-  app.get(pagePath + ':id', [page.byId]); // Gets page by id
-  app.put(pagePath + ':id', [page.update]); // Updates page by id
-  app.delete(pagePath + ':id', [page.delete]); // Deletes page by id
+  app.get('/api/page/purge/', [page.purge]);
+
+  app.get('/api/page/:id', [page.byId]);
+  app.put('/api/page/:id', [page.update]);
+  app.delete('/api/page/:id', [page.delete]);
 };
