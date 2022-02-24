@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = middleware = {
 
   isBot: require('./isBot'),
   geoIpLite: require('./geoIpLite'),
