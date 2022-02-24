@@ -1,32 +1,29 @@
-const { encryptPassword, randomBytesGenerator } = require('../../../helpers');
+const { saltGenerator } = require('../../../helpers');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+const v_to_sha256 = require('v_to_sha256');
 
 module.exports = auth = {
 
   register: async (req, res) => {
-    req.body.salt = await randomBytesGenerator();
-    req.body.password = await encryptPassword(req.body.password, req.body.salt);
-
+    req.body.salt = await saltGenerator();
+    req.body.password = await v_to_sha256(req.body.password + req.body.salt);
     try {
-      var result = await prisma.user.create({ data: { email: req.body.email, password: req.body.password, username: req.body.username, salt: req.body.salt } });
-      return res.status(200).json(result);
+      return res.status(200).json(await prisma.user.create({ data: req.body }));
     } catch (error) {
       return res.status(401).json({ message: error.message });
     }
   },
 
   login: async (req, res) => {
-    const userData = await prisma.user.findUnique({ where: { username: req.body.username } });
+    const user = await prisma.user.findUnique({ where: { username: req.body.username } });
 
-    if (userData === null) return res.status(401).json({ message: "User not found." });
+    if (user === null) return res.status(401).json({ message: "Login failed, user does not exist." });
 
-    const encPass = await encryptPassword(req.body.password, userData.salt);
-
-    if (encPass === userData.password) {
-      return res.status(200).json({ message: "User Logged In Successfully.", refreshToken: 1234567890, accessToken: 9876543210 });
+    if (await v_to_sha256(req.body.password + user.salt) === user.password) {
+      return res.status(200).json({ message: "Successful login.", refreshToken: 1234567890, accessToken: 9876543210 });
     } else {
-      return res.status(401).json({ message: "Wrong Credentials." });
+      return res.status(401).json({ message: "Login failed, wrong password." });
     }
   },
 

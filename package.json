@@ -29,7 +29,8 @@
     "dev": "node ./script.js",
     "test": "jest",
     "prepack": "npm run test",
-    "v9": "node v9"
+    "v9": "node v9",
+    "seed": "node prisma/seed.js"
   },
   "dependencies": {
     "@prisma/client": "3.7.0",
