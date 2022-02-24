@@ -1,5 +1,5 @@
 const sysMonitorPage = {
-  title: 'V-core9 System Status Page',
+  title: 'V-core9 System Status',
   path: '/system-monitor',
   chartVisibility: {
     cpu: true,

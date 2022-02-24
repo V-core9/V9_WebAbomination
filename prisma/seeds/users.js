@@ -3,6 +3,7 @@ module.exports = users = [];
 
 (async () => {
 
+  //! #1 user prep [ v-core9 ]
   users.push({
     email: 'slavko.vuletic92@gmail.com',
     username: 'v-core9',
@@ -11,6 +12,7 @@ module.exports = users = [];
     roleId: 1
   });
 
+  //! #2 user prep [ ana_v9 ]
   users.push({
     email: 'blagojevic021@gmail.com',
     username: 'ana_v9',
