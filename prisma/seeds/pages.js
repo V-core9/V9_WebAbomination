@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-module.export = [
+module.exports = [
   {
-    slug:  'home',
+    slug: 'home',
     title: 'V-core9 - Welcome to Homepage',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'V-core9, Development, Web, Tools, APIs, Blog, News, Tech, Hire, SEO, Performance',
@@ -12,8 +12,9 @@ module.export = [
     renderMode: 'html',
     published: true
   },
+
   {
-    slug:  'about-us',
+    slug: 'about-us',
     title: 'V-core9 - About Us Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'V-core9, Development, Web, Tools, APIs, Blog, News, Tech, Hire, SEO, Performance',
@@ -22,8 +23,9 @@ module.export = [
     renderMode: 'html',
     published: true
   },
+
   {
-    slug:  'contact-us',
+    slug: 'contact-us',
     title: 'V-core9 - Contact Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'V-core9, Development, Web, Tools, APIs, Blog, News, Tech, Hire, SEO, Performance',
@@ -32,4 +34,5 @@ module.export = [
     renderMode: 'html',
     published: true
   },
+
 ];

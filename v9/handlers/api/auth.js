@@ -8,8 +8,10 @@ module.exports = auth = {
   register: async (req, res) => {
     req.body.salt = await saltGenerator();
     req.body.password = await v_to_sha256(req.body.password + req.body.salt);
+
+    var { email, username, password, salt } = req.body;
     try {
-      return res.status(200).json(await prisma.user.create({ data: req.body }));
+      return res.status(200).json(await prisma.user.create({ data: { email, username, password, salt } }));
     } catch (error) {
       return res.status(401).json({ message: error.message });
     }

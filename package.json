@@ -26,11 +26,11 @@
   },
   "scripts": {
     "postinstall": "npx prisma generate",
-    "dev": "node ./script.js",
+    "dev": "node v9",
     "test": "jest",
     "prepack": "npm run test",
-    "v9": "node v9",
-    "seed": "node prisma/seed.js"
+    "seed": "node prisma/seed.js",
+    "reset" : "echo \"y\"|prisma migrate reset"
   },
   "dependencies": {
     "@prisma/client": "3.7.0",

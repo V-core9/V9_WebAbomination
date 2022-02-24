@@ -23,7 +23,7 @@ pageResponse = async (req, res) => {
 
 
 homepage = async (req, res) => {
-  req.page = await prisma.page.findUnique({ where: { slug: "/" } });
+  req.page = await prisma.page.findUnique({ where: { slug: "home" } });
   return pageResponse(req, res);
 };
 
