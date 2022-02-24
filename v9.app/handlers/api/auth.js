@@ -18,15 +18,11 @@ module.exports = auth = {
   },
 
   login: async (req, res) => {
-    const user = await prisma.user.findUnique({ where: { username: req.body.username } });
+    const user = await prisma.user.findUnique({ where: { email: req.body.email } });
 
-    if (user === null) return res.status(401).json({ message: "Login failed, user does not exist." });
-
-    if (await v_to_sha256(req.body.password + user.salt) === user.password) {
-      return res.status(200).json({ message: "Successful login.", refreshToken: 1234567890, accessToken: 9876543210 });
-    } else {
-      return res.status(401).json({ message: "Login failed, wrong password." });
-    }
+    return ((user !== null) && (await v_to_sha256(req.body.password + user.salt) === user.password)) ?
+      res.status(200).json({ message: "Successful login.", refreshToken: 1234567890, accessToken: 9876543210 }) :
+      res.status(401).json({ message: "Login failed, wrong credentials provided." });
   },
 
 };

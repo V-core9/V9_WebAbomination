@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>DEMO LOGIN FORM</header>
-    <form id="form" class="topBefore">
+    <form id="login_form" class="topBefore">
       <input
         id="email"
         type="text"
@@ -27,13 +27,6 @@
       />
       <input id="submit" type="submit" value="GO!" />
     </form>
-    <script>
-      document.querySelector("#form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        e.target.elements.email.value = "";
-        e.target.elements.password.value = "";
-        alert("Fake LOGIN request sent!");
-      });
-    </script>
+    <script src="/scripts/login.base.js"></script>
   </body>
 </html>
