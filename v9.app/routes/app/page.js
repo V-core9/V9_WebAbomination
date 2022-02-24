@@ -1,7 +1,7 @@
 const { vCore9 } = require('../../../render').render;
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-
+var cache = require('route-cache');
 pageResponse = async (req, res) => {
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
@@ -18,7 +18,6 @@ pageResponse = async (req, res) => {
     default:
       return res.end("Unknown Render Mode");
   }
-
 };
 
 
@@ -28,13 +27,19 @@ homepage = async (req, res) => {
 };
 
 pageBySlug = async (req, res) => {
-  req.page = await prisma.page.findFirst({ where: { slug: req.params.slug, published: true } });
+  var filter = { slug: req.params.slug, published: true };
+
+  if (req.params.ext !== undefined) {
+    if (["htm", "html"].indexOf(req.params.ext) === -1) {
+      filter = { slug: `${req.params.slug}.${req.params.ext}`, published: true };
+    }
+  }
+
+  req.page = await prisma.page.findFirst({ where: filter });
   return pageResponse(req, res);
 };
 
-
-
 module.exports = async (app) => {
-  await app.get('/', [homepage]);
-  await app.get('/:slug', [pageBySlug]);
+  await app.get('/', [cache.cacheSeconds(30), homepage]);
+  await app.get('/:slug\.:ext?', [cache.cacheSeconds(30), pageBySlug]);
 };

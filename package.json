@@ -26,20 +26,26 @@
   },
   "scripts": {
     "postinstall": "npx prisma generate",
-    "dev": "node v9",
+    "prisma_seed": "node prisma/seed.js",
+    "prisma_reset": "echo \"y\"|prisma migrate reset",
+    "live": "bash -c \"NODE_ENV=production node v9.app\"",
+    "dev": "node v9.app",
     "test": "jest",
-    "prepack": "npm run test",
-    "seed": "node prisma/seed.js",
-    "reset" : "echo \"y\"|prisma migrate reset"
+    "prepack": "npm run test"
   },
   "dependencies": {
     "@prisma/client": "3.7.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
+    "express-list-endpoints": "^6.0.0",
+    "express-status-monitor": "^1.3.3",
+    "fast-json-stable-stringify": "^2.1.0",
     "geoip-lite": "^1.4.3",
+    "helmet": "^5.0.2",
     "isbot": "^3.4.3",
     "jsonwebtoken": "^8.5.1",
+    "route-cache": "^0.4.7",
     "v_to_sha256": "^1.0.9"
   },
   "engines": {

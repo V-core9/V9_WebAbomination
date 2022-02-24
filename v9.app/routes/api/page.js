@@ -1,12 +1,16 @@
 const { page } = require('../../handlers').api;
+var cache = require('route-cache');
 
 module.exports = async (app) => {
-  app.get('/api/page/', [page.list]);
-  app.post('/api/page/', [page.create]);
+  app.route('/api/page/')
+    .get([cache.cacheSeconds(1), page.list])
+    .post(page.create);
+
+
+  app.route('/api/page/:id')
+    .get([cache.cacheSeconds(1), page.byId])
+    .put(page.update)
+    .delete(page.delete);
 
   app.get('/api/page/purge/', [page.purge]);
-
-  app.get('/api/page/:id', [page.byId]);
-  app.put('/api/page/:id', [page.update]);
-  app.delete('/api/page/:id', [page.delete]);
 };

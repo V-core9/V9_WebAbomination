@@ -1,9 +1,17 @@
 const path = require("path");
-const express = require("express");
+
+var staticDirs = [
+  path.join(__dirname, "../../assets"),
+  path.join(__dirname, "../../public")
+];
 
 module.exports = async (app) => {
-  await app.use(express.static(path.join(__dirname, "../../assets")));
-  await app.use(express.static(path.join(__dirname, "../../public")));
+  try {
+    for (let i = 0; i < staticDirs.length; i++) {
+      await app.use(require("express").static(staticDirs[i]));
+    }
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
-
-

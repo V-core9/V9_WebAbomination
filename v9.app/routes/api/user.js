@@ -1,12 +1,14 @@
 const { user } = require('../../handlers').api;
 
 module.exports = async (app) => {
-  app.get('/api/user/', [user.list]);
-  app.post('/api/user/', [user.create]);
+  app.route('/api/user/')
+    .get(user.list)
+    .post(user.create);
+
+  app.route('/api/user/:id')
+    .get(user.byId)
+    .put(user.update)
+    .delete(user.delete);
 
   app.get('/api/user/purge/', [user.purge]);
-
-  app.get('/api/user/:id', [user.byId]);
-  app.put('/api/user/:id', [user.update]);
-  app.delete('/api/user/:id', [user.delete]);
 };
