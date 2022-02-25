@@ -1,26 +1,60 @@
-document.querySelector("#login_form").addEventListener("submit", (e) => {
-  e.preventDefault();
+apiReq = async (data) => {
+  const { method, url, body, callback } = data;
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({
-    email: e.target.elements.email.value,
-    password: e.target.elements.password.value,
-  });
-
   var requestOptions = {
-    method: "POST",
+    method: method,
     headers: myHeaders,
-    body: raw,
+    body: JSON.stringify(body),
     redirect: "follow",
   };
 
-  fetch("http://localhost:2500/api/auth/login", requestOptions)
+  fetch(url, requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => callback(JSON.parse(result)))
     .catch((error) => console.log("error", error));
+};
 
-  e.target.elements.email.value = "";
-  e.target.elements.password.value = "";
-});
+const loginForm = {
+  data : {
+    url: "http://localhost:2500/api/auth/login",
+    method: "POST",
+    body: {},
+    callback: async (data) => {
+      if (data.accessToken === undefined){
+        alert("Login Failed!");
+      } else {
+        alert("Login Success!");
+        localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+        window.location.href = "/application";
+      }
+    },
+  },
+
+  submitForm: async (e) => {
+    loginForm.data.body = {
+      email: e.target.elements.email.value,
+      password: e.target.elements.password.value,
+    };
+
+    await apiReq(loginForm.data);
+
+    e.target.elements.email.value = "";
+    e.target.elements.password.value = "";
+  },
+
+  init: async (selector) => {
+    const form = document.querySelector(selector);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      loginForm.submitForm(e);
+    });
+  },
+};
+
+(() => {
+  loginForm.init("#login_form");
+})();
