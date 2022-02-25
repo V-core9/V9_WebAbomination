@@ -10,6 +10,7 @@ module.exports = [
     renderMode: 'html',
     published: true
   },
+
   //! #2 post
   {
     slug: 'execution-time-when-running-for-vs-foreach',
