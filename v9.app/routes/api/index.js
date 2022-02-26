@@ -11,5 +11,6 @@ module.exports = apiRoutes = async (app) => {
   await require('./auth')(app);
   await require('./page')(app);
   await require('./post')(app);
+  await require('./role')(app);
   await require('./user')(app);
 };
