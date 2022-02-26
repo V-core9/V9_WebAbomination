@@ -26,6 +26,7 @@
   },
   "scripts": {
     "postinstall": "npx prisma generate",
+    "prisma_migrate": "bash -c \"cat prisma/models/*.prisma > prisma/schema.prisma\" && npx prisma migrate dev ",
     "prisma_seed": "node prisma/seed.js",
     "prisma_reset": "echo \"y\"|prisma migrate reset",
     "live": "bash -c \"NODE_ENV=production node v9.app\"",

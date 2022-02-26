@@ -2,27 +2,9 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-
 generator client {
   provider = "prisma-client-js"
 }
-
-model Post {
-  id              Int      @id @default(autoincrement())
-  slug            String?  @unique
-  published       Boolean? @default(false)
-  title           String
-  metaDescription String   @default("")
-  metaKeywords    String   @default("")
-  content         String?  @default("")
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @default(now())
-  renderMode      String   @default("html")
-  authorId        Int?
-  author          User?    @relation(fields: [authorId], references: [id])
-  thumbnail       String   @default("")
-}
-
 model Page {
   id              Int      @id @default(autoincrement())
   slug            String?  @unique
@@ -38,7 +20,21 @@ model Page {
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
 }
-
+model Post {
+  id              Int      @id @default(autoincrement())
+  slug            String?  @unique
+  published       Boolean? @default(false)
+  title           String
+  metaDescription String   @default("")
+  metaKeywords    String   @default("")
+  content         String?  @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  renderMode      String   @default("html")
+  authorId        Int?
+  author          User?    @relation(fields: [authorId], references: [id])
+  thumbnail       String   @default("")
+}
 model Role {
   id          Int      @id @default(autoincrement())
   name        String   @unique
@@ -47,17 +43,16 @@ model Role {
   updatedAt   DateTime @default(now())
   users       User[]
 }
-
 model User {
   id       Int      @id @default(autoincrement())
-  email    String?   @unique
-  username String?  @unique
-  password String
-  salt     String
-  created  DateTime @default(now())
-  updated  DateTime @default(now())
-  verified Boolean? @default(false)
-  active   Boolean? @default(true)
+  email    String?  @unique           // User primary email address
+  username String?  @unique           // Username that is also used to access it by "slug/username"
+  password String                     // Hashed value of password and salt combination.
+  salt     String                     // Salt that is used in password hashing.
+  created  DateTime @default(now())   // Time of creation.
+  updated  DateTime @default(now())   // Time of last update.
+  verified Boolean? @default(false)   // Checking if user is verified [email verification].
+  active   Boolean? @default(true)    // Checking whether user is active or not [ ban, blocked, disabled ].
   roleId   Int?
   role     Role?    @relation(fields: [roleId], references: [id])
   pages    Page[]
