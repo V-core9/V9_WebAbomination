@@ -1,6 +1,5 @@
 module.exports = app = {
-  auth: require('./auth'),
-  page: require('./page'),
-  post: require('./post'),
-  user: require('./user'),
+  index: async (req, res) => {
+    return res.end('Hello World!');
+  }
 };

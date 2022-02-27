@@ -6,6 +6,6 @@
   await require('./middleware')(app);
   await require('./routes')(app);
 
-  cluster(app, { port: 2500, count: 10 });
+  cluster(app, { port: 2500, count: 6 });
 
 })();
