@@ -2,7 +2,7 @@ module.exports = middleware = {
 
   isBot: require('./isBot'),
   geoIpLite: require('./geoIpLite'),
-  xPoweredBy: require('./xPoweredBy'),
+  //xPoweredBy: require('./xPoweredBy'),
 
   jwtFromCookie: require('./jwtFromCookie'),
 

@@ -12,9 +12,16 @@ verifyRegister = async (email, username, password, passwordConfirm) => {
   return ((await v_rifier.email(email)) == (await v_rifier.username(username)) == (await v_rifier.password(password, passwordConfirm)) == true);
 };
 
-verifyLogin = async (email, password) => {
+tryLogin = async (email, password) => {
+  //? Validations for email and password
   if (!email || !password) return false;
-  return ((await v_rifier.email(email)) == (await v_rifier.password(password, password)) == true);
+  if (((await v_rifier.email(email)) == (await v_rifier.password(password, password)) == false)) return false;
+  //! EOF Validations
+
+  //? Find user by email
+  const user = await prisma.user.findUnique({ where: { email: email } });
+  console.log(user);
+  return ((user !== null) && (await v_to_sha256(password + user.salt) === user.password)) ? { refreshToken: 1234567890, accessToken: 9876543210 } : false;
 };
 
 
@@ -38,15 +45,8 @@ module.exports = auth = {
 
   login: async (req, res) => {
     try {
-      var { email, password } = req.body;
-      if (await verifyLogin(email, password)) {
-        const user = await prisma.user.findUnique({ where: { email: email } });
-        return ((user !== null) && (await v_to_sha256(req.body.password + user.salt) === user.password)) ?
-          res.status(200).json({ message: statusCodes[200], refreshToken: 1234567890, accessToken: 9876543210 }) :
-          res.status(401).json({ message: statusCodes[401] });
-      } else {
-        return res.status(401).json({ message: "Data verification failed." });
-      }
+      const loginResult = await tryLogin(req.body.email, req.body.password);
+      return (loginResult !== false) ? res.status(200).json(loginResult) : res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
       return res.status(400).json(error);
     }
