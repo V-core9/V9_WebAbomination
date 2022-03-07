@@ -1,6 +1,6 @@
 const { user } = require('../../handlers').api;
 
-module.exports = async (app) => {
+module.exports = (app) => {
   app.route('/api/user/')
     .get(user.list)
     .post(user.create);

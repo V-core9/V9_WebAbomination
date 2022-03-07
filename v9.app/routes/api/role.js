@@ -1,6 +1,6 @@
 const { role } = require('../../handlers').api;
 
-module.exports = async (app) => {
+module.exports = (app) => {
   app.route('/api/role/')
     .get(role.list)
     .post(role.create);

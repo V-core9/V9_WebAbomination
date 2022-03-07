@@ -1,6 +1,6 @@
 const { post } = require('../../handlers').api;
 
-module.exports = async (app) => {
+module.exports = (app) => {
   app.route('/api/post/')
     .get(post.list)
     .post(post.create);

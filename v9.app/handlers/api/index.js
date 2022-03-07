@@ -1,4 +1,4 @@
-module.exports = api = {
+module.exports =  {
   auth: require('./auth'),
   page: require('./page'),
   post: require('./post'),
