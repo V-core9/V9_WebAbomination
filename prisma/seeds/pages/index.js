@@ -40,7 +40,7 @@ module.exports = [
 
   //! #4 page [ LOGIN ]
   {
-    slug: 'login',
+    slug: 'promo-login',
     title: 'V-core9 - Contact Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'Sign-in, Login, Authentication, Confirmation, V-core9',
@@ -52,7 +52,7 @@ module.exports = [
 
   //! #5 page [ REGISTER ]
   {
-    slug: 'register',
+    slug: 'promo-register',
     title: 'V-core9 - New User Account Registration Page',
     metaDescription: 'Best page to start your journey with V-core9 and all the wonders it brings.',
     metaKeywords: 'Register, Account, Profile, V-core9, Development, Web, Tools, APIs, JoinUs',

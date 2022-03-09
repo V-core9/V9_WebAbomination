@@ -11,7 +11,7 @@ module.exports = vCore9 = async (data) => {
     </head>
     <body>
       <script>
-        ${await asy.stringifyJSON(content)}
+        window.vCore9_Page = JSON.parse(${await asy.stringifyJSON(content)});
       </script>
     </body>
   </html>`;

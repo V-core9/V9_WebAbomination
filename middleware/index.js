@@ -1,16 +1,34 @@
-module.exports = middleware = {
 
-  isBot: require('./isBot'),
-  geoIpLite: require('./geoIpLite'),
-  //xPoweredBy: require('./xPoweredBy'),
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const cookieParser = require('cookie-parser');
+const xPoweredByRandom = require('x-powered-by-random');
 
-  jwtFromCookie: require('./jwtFromCookie'),
+const isBot = require('./isBot');
+const geoIpLite = require('./geoIpLite');
+const jwtFromCookie = require('./jwtFromCookie');
+const validateAccessToken = require('./validateAccessToken');
+const validateAdmin = require('./validateAdmin');
 
-  validateAccessToken: require('./validateAccessToken'),
-  validateAdmin: require('./validateAdmin'),
+const config = require('../config');
 
-  bodyParser: require('body-parser'),
-  compression: require('compression'),
-  cookieParser: require('cookie-parser'),
+
+
+module.exports = middleware = async (app) => {
+  app.use(require('express-status-monitor')(config.sysMonitorPage));
+  //app.use(require("helmet")());
+
+  app.use(xPoweredByRandom);
+
+  app.use(cookieParser());
+
+  app.use(compression(config.compression));
+
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+
+  app.use(isBot);
+
+  app.use(geoIpLite);
 
 };

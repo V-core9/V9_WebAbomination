@@ -47,7 +47,7 @@
     "isbot": "^3.4.3",
     "jsonwebtoken": "^8.5.1",
     "route-cache": "^0.4.7",
-    "v_rifier": "^0.0.8",
+    "v_rifier": "^0.0.10",
     "v_to_sha256": "^1.0.9",
     "x-powered-by-random": "^0.0.1"
   },

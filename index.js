@@ -1,6 +1,6 @@
 (async () => {
 
-  const { cluster } = require('../modules');
+  const { cluster } = require('./modules');
   const app = require('express')();
 
   await require('./middleware')(app);

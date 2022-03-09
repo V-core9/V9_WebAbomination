@@ -12,6 +12,7 @@ module.exports = async (app, data = {}) => {
       cluster.fork();
     });
   } else {
+    //! Start listening on port
     app.listen(port, async () => {
       console.log('App Started! PATH: http://localhost:' + port + '/');
     });
