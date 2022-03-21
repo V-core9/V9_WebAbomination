@@ -14,7 +14,8 @@ const config = require('../config');
 
 
 
-module.exports = middleware = async (app) => {
+module.exports = {
+  init: async (app) => {
   app.use(require('express-status-monitor')(config.sysMonitorPage));
   //app.use(require("helmet")());
 
@@ -30,5 +31,8 @@ module.exports = middleware = async (app) => {
   app.use(isBot);
 
   app.use(geoIpLite);
-
+  },
+  jwtFromCookie,
+  validateAccessToken,
+  validateAdmin,
 };

@@ -1,4 +1,4 @@
-const { login, register } = require('../../handlers').api.auth;
+const { login, refreshToken } = require('../../handlers').api.auth;
 
 module.exports = (app) => {
   console.log('Adding /api/auth/login');
@@ -7,10 +7,10 @@ module.exports = (app) => {
     .get([(req, res) => res.send('register')])
     .post([login]);
 
-  console.log('Adding /api/auth/register');
+  console.log('Adding /api/auth/token');
   app
-    .route('/api/auth/register')
-    .get([(req, res) => res.send('register')])
-    .post([register]);
+    .route('/api/auth/token')
+    .get([(req, res) => res.send('token')])
+    .post([refreshToken]);
 
 };

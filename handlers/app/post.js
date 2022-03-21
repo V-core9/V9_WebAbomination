@@ -1,4 +1,4 @@
-const { stringifyJSON } = require('../../../helpers').asy;
+const { stringifyJSON } = require('../../helpers').asy;
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 

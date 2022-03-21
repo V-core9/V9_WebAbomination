@@ -18,7 +18,11 @@ document.querySelector("#register_form").addEventListener("submit", (e) => {
     redirect: "follow",
   };
 
-  fetch("http://localhost:2500/api/auth/register", requestOptions)
+  var url = window.location.href;
+  var arr = url.split("/");
+  var result = arr[0] + "//" + arr[2];
+
+  fetch(result+"/api/user/", requestOptions)
     .then((response) => console.log(response))
     .catch((error) => console.warn(error));
 

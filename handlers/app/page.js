@@ -1,4 +1,4 @@
-const { vCore9 } = require('../../../render').render;
+const { vCore9 } = require('../../render').render;
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
