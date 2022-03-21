@@ -4,8 +4,8 @@
 
 - Live Mode
 
-      bash RUN
+      sh RUN
 
 - Development Mode
 
-      bash RUN dev
+      sh RUN dev
