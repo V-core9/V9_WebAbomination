@@ -5,19 +5,19 @@ services:
     container_name: ${PROJECT_NAME}_app
     image: node:17-alpine
     restart: unless-stopped
-    command: npm install && npm start
+    command: sh -c "npm install && npm start"
     ports:
       - ${APP_PORT}:${APP_DOCKER_PORT}
     working_dir: /app
     volumes:
       - ./app/:/app
     environment:
-      APP_DOCKER_PORT: ${APP_DOCKER_PORT}
+      PORT: ${APP_DOCKER_PORT}
     depends_on:
       - mysql
-    mem_limit: 512m
+    mem_limit: 1024m
     mem_reservation: 128M
-    cpus: 1
+    cpus: 2
 
   # api:
   #   container_name: ${PROJECT_NAME}_api
@@ -38,7 +38,7 @@ services:
   #   cpus: 1
 
   mysql:
-    image: mysql:5.7
+    image: mariadb:${MARIADB_VERSION:-latest}
     container_name: ${PROJECT_NAME}_mysql
     restart: unless-stopped
     volumes: 
@@ -52,6 +52,23 @@ services:
     mem_limit: 512m
     mem_reservation: 128M
     cpus: 2
+    ports:
+      - 8000:${MYSQL_PORT}
+
+  phpmyadmin:
+    container_name: ${PROJECT_NAME}_phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - ${PHPMYADMIN_PORT}:80
+    environment:
+      PMA_HOST: ${PROJECT_NAME}_mysql
+      PMA_PORT: ${MYSQL_PORT}
+      PMA_ARBITRARY: 1
+    links:
+      - mysql
 
 volumes:
   mysql:
