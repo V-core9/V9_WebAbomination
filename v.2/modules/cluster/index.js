@@ -1,7 +1,10 @@
-module.exports = async (app, data = {}) => {
-  const port = data.port || 8080;
+module.exports = async (data = {}) => {
+  const port = data.port || 8000;
+
   const count = data.count || 1;
-  const totalCPUs = (require("os").cpus().length > count) ? count : require("os").cpus().length;
+  const coreCount = require("os").cpus().length;
+  const totalCPUs = (count < coreCount) ? count : coreCount;
+
   const cluster = require("cluster");
 
   if (cluster.isMaster) {
@@ -12,6 +15,12 @@ module.exports = async (app, data = {}) => {
       cluster.fork();
     });
   } else {
+
+    const app = require('express')();
+
+    await require('../../middleware').init(app);
+    await require('../../routes')(app);
+
     //! Start listening on port
     app.listen(port, async () => {
       console.log('App Started! PATH: http://localhost:' + port + '/');

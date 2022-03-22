@@ -1,11 +1,7 @@
 (async () => {
 
   const { cluster } = require('./modules');
-  const app = require('express')();
 
-  await require('./middleware').init(app);
-  await require('./routes')(app);
-
-  cluster(app, { port: 3000, count: 8 });
+  cluster({ port: process.env.PORT, count: process.env.CORE_COUNT });
 
 })();

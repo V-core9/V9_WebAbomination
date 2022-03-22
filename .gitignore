@@ -1,2 +1,7 @@
+# Some Folders to ignore
 node_modules
+
+# Generated Files 
 .env
+package-lock.json
+
