@@ -1,0 +1,49 @@
+{
+  "name": "v-core9_com",
+  "version": "1.0.0",
+  "description": "V-core9.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lightmap": "bash -c \"node vLm.js \"",
+    "install": "bash -c \"npm install -g node-sass ; mkdir api_src/vLM_reports ; \" ",
+    "generate_readme": "node $_HELP/generate_base01.js",
+    "start": "node v9.host.js",
+    "host": " start bash -c \" npm run start \" && start bash -c \"cd ~/.cloudflared/ ; cloudflared tunnel run ; \"",
+    "dev": "start bash -c \"nodemon v9.host.js\" && start bash -c \"nodemon --exec 'npm run build_webapp'\" ",
+    "build_webapp": "bash -c \" rm -r -f public/ ; cp -r app_src/static/ public ;  node-sass app_src/style/SCSS/app.scss public/style/CSS/app.css ; npx webpack --config webpack.config.js ; \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-core9/V-core9.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/V-core9/V-core9.com/issues"
+  },
+  "homepage": "https://github.com/V-core9/V-core9.com#readme",
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.1",
+    "geoip-lite": "^1.4.2",
+    "is-mobile": "^3.0.0",
+    "is-online": "^9.0.1",
+    "isbot": "^3.3.4",
+    "jsonwebtoken": "^8.5.1",
+    "node-sass": "^6.0.1",
+    "v_database": "^0.1.8",
+    "v_file_system": "^1.0.5",
+    "v_lightmapper": "^0.0.9",
+    "v_rifier": "^0.0.8",
+    "v_scrolls": "^0.1.13",
+    "v_sitemap": "^0.0.2",
+    "v_to_sha256": "^1.0.9"
+  }
+}

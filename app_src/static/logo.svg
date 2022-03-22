@@ -1,0 +1,15 @@
+<svg id="v_logo" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" >
+  <rect width="4" height="4" stroke="#FFFFFF" fill="transparent"></rect>
+  <rect width="4" height="4" x="16" stroke="#FFFFFF" fill="transparent"></rect>
+  <rect width="4" height="4" x="8" y="16" stroke="#FFFFFF" fill="transparent"></rect>
+
+  <line x1="0" y1="0" x2="8" y2="16" stroke="#FFFFFF"></line>
+  <line x1="0" y1="4" x2="8" y2="20" stroke="#FFFFFF"></line>
+  <line x1="4" y1="0" x2="12" y2="16" stroke="#FFFFFF"></line>
+  <line x1="4" y1="4" x2="12" y2="20" stroke="#FFFFFF"></line>
+
+  <line x1="16" y1="0" x2="8" y2="16" stroke="#FFFFFF"></line>
+  <line x1="16" y1="4" x2="8" y2="20" stroke="#FFFFFF"></line>
+  <line x1="20" y1="0" x2="12" y2="16" stroke="#FFFFFF"></line>
+  <line x1="20" y1="4" x2="12" y2="20" stroke="#FFFFFF"></line>
+</svg>
