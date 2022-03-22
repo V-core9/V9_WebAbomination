@@ -4,6 +4,9 @@
     "description": "Node.js Rest Api with Express,MySQL",
     "main": "index.js",
     "scripts": {
+        "postinstall": "npx prisma generate",
+        "prisma:migrate": "sh -c \"cat prisma/models/*.prisma > prisma/schema.prisma\" && npx prisma migrate dev ",
+        "prisma:seed": "node prisma/seed.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js"
     },
@@ -13,6 +16,12 @@
     "dependencies": {
         "dotenv": "^10.0.0",
         "cors": "^2.8.5",
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "@prisma/client": "3.7.0",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.6",
+        "v_rifier": "^0.0.10",
+        "v_to_sha256": "^1.0.9",
+        "x-powered-by-random": "^0.0.1"
     }
 }

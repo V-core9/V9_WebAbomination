@@ -31,6 +31,7 @@ services:
       - ./api/:/api
     environment:
       PORT: ${API_DOCKER_PORT}
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${PROJECT_NAME}_mysql:${MYSQL_PORT}/${MYSQL_DATABASE}
     depends_on:
       - mysql
     mem_limit: 512m
