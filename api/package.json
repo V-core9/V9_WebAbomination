@@ -1,0 +1,18 @@
+{
+    "name": "v9_services_base_01",
+    "version": "0.0.0",
+    "description": "Node.js Rest Api with Express,MySQL",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "v9",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1"
+    }
+}
