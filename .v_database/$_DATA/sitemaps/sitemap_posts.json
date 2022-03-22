@@ -1,0 +1,8 @@
+{
+    "type": "posts",
+    "path": "posts_sitemap.xml",
+    "prefix": "/blog/",
+    "lastmod": "2020-01-01",
+    "changefreq": "monthly",
+    "priority": 0.6
+}
