@@ -10,8 +10,6 @@ const geoIp = require('./geoIp');
 const config = require('../config');
 
 middleware = async (app) => {
-  app.use(require('express-status-monitor')(config.sysMonitorPage));
-
   //app.use(require("helmet")());
   app.use(cookieParser());
   app.use(compression(config.compression));

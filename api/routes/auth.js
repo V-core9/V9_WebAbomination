@@ -2,16 +2,16 @@ const { login, refreshToken } = require('../handlers').auth;
 
 module.exports = (app) => {
 
-  app.route('/auth/login')
+  app.route('/auth/login/')
     .get([
-      (req, res) => res.send('register'),
+      (req, res) => res.send('login'),
     ])
     .post([
       login,
     ]);
 
 
-  app.route('/auth/token')
+  app.route('/auth/token/')
     .get([
       (req, res) => res.send('token'),
     ])
