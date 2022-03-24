@@ -1,0 +1,16 @@
+//--
+model Post {
+  id              Int      @id @default(autoincrement())
+  slug            String?  @unique
+  published       Boolean? @default(false)
+  title           String
+  metaDescription String   @default("")
+  metaKeywords    String   @default("")
+  content         String?  @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  renderMode      String   @default("html")
+  authorId        Int?
+  author          User?    @relation(fields: [authorId], references: [id])
+  thumbnail       String   @default("")
+}

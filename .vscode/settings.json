@@ -6,17 +6,10 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        ".vscode": true,
-        ".editorconfig": true,
-        ".jshintrc": true,
-        ".gitignore": true,
+        "node_modules": true,
         "package-lock.json": true,
         ".github": true,
-        "README.md": true,
-        "$_HELP": true,
-        "public": true,
-        "vLM_reports": true,
-        "node_modules": true
+        ".vscode": true
     },
     "explorerExclude.backup": null
 }

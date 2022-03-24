@@ -1,0 +1,76 @@
+// 1st item to start with in this setup. [NEED TO MOVE TO MySQL or something similar]
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+// 2nd thing in the chain.
+generator client {
+  provider = "prisma-client-js"
+}
+//--
+model JwtRefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String?  @unique
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  expires   Int      @default(86400)
+}
+//--
+model Page {
+  id              Int      @id @default(autoincrement())
+  slug            String?  @unique
+  title           String
+  metaDescription String   @default("")
+  metaKeywords    String   @default("")
+  content         String?  @default("")
+  published       Boolean? @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  renderMode      String   @default("html")
+  authorId        Int?
+  author          User?    @relation(fields: [authorId], references: [id])
+  thumbnail       String   @default("")
+}
+//--
+model Post {
+  id              Int      @id @default(autoincrement())
+  slug            String?  @unique
+  published       Boolean? @default(false)
+  title           String
+  metaDescription String   @default("")
+  metaKeywords    String   @default("")
+  content         String?  @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  renderMode      String   @default("html")
+  authorId        Int?
+  author          User?    @relation(fields: [authorId], references: [id])
+  thumbnail       String   @default("")
+}
+//--
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  users       User[]
+}
+//--
+model User {
+  id              Int               @id @default(autoincrement())
+  email           String?           @unique // User primary email address
+  username        String?           @unique // Username that is also used to access it by "slug/username"
+  password        String // Hashed value of password and salt combination.
+  salt            String // Salt that is used in password hashing.
+  created         DateTime          @default(now()) // Time of creation.
+  updated         DateTime          @default(now()) // Time of last update.
+  verified        Boolean?          @default(false) // Checking if user is verified [email verification].
+  active          Boolean?          @default(true) // Checking whether user is active or not [ ban, blocked, disabled ].
+  roleId          Int?
+  role            Role?             @relation(fields: [roleId], references: [id])
+  pages           Page[]
+  posts           Post[]
+  JwtRefreshToken JwtRefreshToken[]
+}
