@@ -18,7 +18,7 @@ module.exports = async (data = {}) => {
 
     const app = require('express')();
 
-    await require('../../middleware').init(app);
+    await require('../../middleware')(app);
     await require('../../routes')(app);
 
     //! Start listening on port

@@ -1,7 +1,1 @@
-(async () => {
-
-  const { cluster } = require('./modules');
-
-  cluster({ port: process.env.PORT, count: process.env.CORE_COUNT });
-
-})();
+require('./modules').cluster({ port: process.env.PORT, count: process.env.CORE_COUNT });
