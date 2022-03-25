@@ -1,4 +1,3 @@
-const port = process.env.PORT || 8000;
 const count = process.env.CORE_COUNT || 1;
 const coreCount = require("os").cpus().length;
 const totalCPUs = (count < coreCount) ? count : coreCount;
@@ -16,15 +15,12 @@ if (cluster.isMaster) {
     });
 
 } else {
-
+    const port = process.env.PORT || 8000;
     const app = require('express')();
-
     require('./middleware')(app);
     require('./routes')(app);
 
-    //! Start listening on port
     app.listen(port, async () => {
         console.log('App Started! PATH: http://localhost:' + port + '/');
     });
-
 }
