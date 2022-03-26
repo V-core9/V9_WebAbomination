@@ -1,6 +1,6 @@
 const statusCodes = require('http').STATUS_CODES;
 
-const { saltGenerator, asy } = require('../helpers');
+const { saltGenerator } = require('../helpers');
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -26,9 +26,9 @@ module.exports = user = {
   list: async (req, res) => {
     try {
       var data = await prisma.user.findMany({ take: 10, orderBy: { id: 'desc' }, select: { id: true, username: true, email: true, role: true } });
-      return res.status(200).end(await asy.stringify(data));
+      return res.status(200).json(data);
     } catch (error) {
-      return res.status(400).end(await asy.stringify(error));
+      return res.status(400).json(error);
     }
   },
 

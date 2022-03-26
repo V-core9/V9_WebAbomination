@@ -17,6 +17,8 @@ if (cluster.isMaster) {
 } else {
     const port = process.env.PORT || 8000;
     const app = require('express')();
+
+    require('./config').init(app);
     require('./middleware')(app);
     require('./routes')(app);
 

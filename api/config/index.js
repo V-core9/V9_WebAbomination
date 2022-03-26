@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
 
   //? JWT Config Data [ Need to move into prisma for it to better work with server restarts and permanent login ]
   jwtConfig: require('./JWT'),
@@ -9,4 +9,15 @@ module.exports = {
     level: 9
   },
 
+
+  disableEtag: true,
+
+
+  init: (app) => {
+
+    if (config.disableEtag) app.set('etag', false);
+
+  }
 };
+
+module.exports = config;

@@ -1,12 +1,15 @@
+
 // 1st item to start with in this setup. [NEED TO MOVE TO MySQL or something similar]
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
 // 2nd thing in the chain.
 generator client {
   provider = "prisma-client-js"
 }
+
 //--
 model JwtRefreshToken {
   id        Int      @id @default(autoincrement())
@@ -16,6 +19,7 @@ model JwtRefreshToken {
   createdAt DateTime @default(now())
   expires   Int      @default(86400)
 }
+
 //--
 model Page {
   id              Int      @id @default(autoincrement())
@@ -32,6 +36,7 @@ model Page {
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
 }
+
 //--
 model Post {
   id              Int      @id @default(autoincrement())
@@ -48,13 +53,15 @@ model Post {
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
 }
+
 //--
 enum Role {
   USER
   MERCHANT
   MANAGER
   ADMIN
-}//--
+}
+//--
 model User {
   id              Int               @id @default(autoincrement())
   email           String?           @unique // User primary email address
