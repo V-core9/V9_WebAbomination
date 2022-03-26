@@ -1,5 +1,9 @@
 module.exports = [
-  //! #1 post
+
+
+  /*
+  * #1 post
+  */
   {
     slug: 'the-silent-start',
     title: 'The Silent Start: An Intricate Art of a Deadly Fart!',
@@ -11,7 +15,10 @@ module.exports = [
     published: true
   },
 
-  //! #2 post
+
+  /*
+  * #2 Post 
+  */
   {
     slug: 'execution-time-when-running-for-vs-foreach',
     title: 'Execution Time Comparison when running [for] vs [foreach].',
@@ -22,5 +29,6 @@ module.exports = [
     renderMode: 'html',
     published: true
   },
+
 
 ];

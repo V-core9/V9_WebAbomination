@@ -32,10 +32,10 @@ module.exports = auth = {
       const user = await prisma.user.findUnique({ where: { email: email } });
 
       if ((user !== null) && (await v_to_sha256(password + user.salt) === user.password)) {
-        const role = await prisma.role.findUnique({ where: { id: user.roleId } });
+        const tokenData = { username: user.username, role: user.role };
 
-        const accessToken = await jwt.sign({ username: user.username, role: role.name }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
-        const refreshToken = await jwt.sign({ username: user.username, role: role.name }, jwtConfig.secret.refresh);
+        const accessToken = jwt.sign(tokenData, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
+        const refreshToken = jwt.sign(tokenData, jwtConfig.secret.refresh);
 
         await prisma.jwtRefreshToken.create({ data: { token: refreshToken, userId: user.id } });
 
@@ -63,12 +63,13 @@ module.exports = auth = {
             return res.status(403).json({ message: statusCodes[403] });
           }
 
-          res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires }) });
+          return res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires }) });
         });
+      } else {
+        return res.status(401).json({ message: statusCodes[401] });
       }
-      res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
-      res.status(400).json(error);
+      return res.status(400).json(error);
     }
   },
 
