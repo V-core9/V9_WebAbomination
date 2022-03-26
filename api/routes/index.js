@@ -8,6 +8,5 @@ module.exports = (app) => {
   require('./auth')(app);
   require('./page')(app);
   require('./post')(app);
-  require('./role')(app);
   require('./user')(app);
 };

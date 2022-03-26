@@ -1,15 +1,33 @@
 var stringify = require('fast-json-stable-stringify');
 
-//? ASYNC versions of some default functions/methods
+
+//!------------------------
+//? asy - helper async functions
+//* 1. stringifyJSON
+//* 2. parseInt
+//!------------------------
+
 module.exports = asy = {
-  parseJSON: async (str) => {
-    return JSON.parse(str);
+
+
+  /*
+  * Async from FAST-JSON-STABLE-STRINGIFY
+  */
+  stringify: async (data) => {
+    try {
+      return stringify(data);
+    } catch (err) {
+      return false;
+    }
   },
-  stringifyJSON: async (data) => {
-    return stringify(data);
-  },
+
+
+  /*
+  * parseInt() - Async
+  */
   parseInt: async (data) => {
     return parseInt(data);
   }
-};
 
+
+};
