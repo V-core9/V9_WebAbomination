@@ -1,8 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
+
 module.exports = [
-  //! #1 page  [ HOMEPAGE ]
+
+
+  /* 
+  * #1 page  [ HOMEPAGE ]
+  */
   {
     slug: 'home',
     title: 'V-core9 - Welcome to Homepage',
@@ -14,7 +19,10 @@ module.exports = [
     published: true
   },
 
-  //! #2 page [ ABOUT US ]
+
+  /*
+  * #2 page [ ABOUT US ]
+  */
   {
     slug: 'about-us',
     title: 'V-core9 - About Us Page',
@@ -26,7 +34,10 @@ module.exports = [
     published: true
   },
 
-  //! #3 page [ CONTACT US ]
+
+  /*
+  * #3 page [ CONTACT US ]
+  */
   {
     slug: 'contact-us',
     title: 'V-core9 - Contact Page',
@@ -38,7 +49,10 @@ module.exports = [
     published: true
   },
 
-  //! #4 page [ LOGIN ]
+
+  /*
+  * #4 page [ LOGIN ]
+  */
   {
     slug: 'promo-login',
     title: 'V-core9 - Contact Page',
@@ -50,7 +64,10 @@ module.exports = [
     published: true
   },
 
-  //! #5 page [ REGISTER ]
+
+  /*
+  * #5 page [ REGISTER ]
+  */
   {
     slug: 'promo-register',
     title: 'V-core9 - New User Account Registration Page',
@@ -61,5 +78,6 @@ module.exports = [
     renderMode: 'html',
     published: true
   },
+
 
 ];

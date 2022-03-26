@@ -1,3 +1,4 @@
+
 //--
 model JwtRefreshToken {
   id        Int      @id @default(autoincrement())
