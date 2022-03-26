@@ -17,9 +17,14 @@ apiReq = async (data) => {
     .catch((error) => console.log("error", error));
 };
 
+
+
+var arr = window.location.href.split("/");
+var pre_url = arr[0] + "//" + arr[2];
+
 const loginForm = {
   data : {
-    url: "http://localhost:2500/api/auth/login",
+    url: pre_url+"/api/auth/login",
     method: "POST",
     body: {},
     callback: async (data) => {

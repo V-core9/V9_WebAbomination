@@ -1,22 +1,26 @@
-require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const count = process.env.CORE_COUNT || 1;
+const coreCount = require("os").cpus().length;
+const totalCPUs = (count < coreCount) ? count : coreCount;
 
-const express = require("express");
-const app = express();
+const cluster = require("cluster");
 
-const cors = require("cors");
-var corsOptions = {
-    origin: "http://localhost:" + PORT
-};
+if (cluster.isMaster) {
 
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+    for (let i = 0; i < totalCPUs; i++) {
+        cluster.fork();
+    }
 
-app.get("/", async (req, res) => {
-    return res.end("Welcome to V9 API Location.");
-});
+    cluster.on("exit", (worker, code, signal) => {
+        cluster.fork();
+    });
 
-app.listen(PORT, async () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+} else {
+    const port = process.env.PORT || 8000;
+    const app = require('express')();
+    require('./middleware')(app);
+    require('./routes')(app);
+
+    app.listen(port, async () => {
+        console.log('App Started! PATH: http://localhost:' + port + '/');
+    });
+}

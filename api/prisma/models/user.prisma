@@ -9,8 +9,7 @@ model User {
   updated         DateTime          @default(now()) // Time of last update.
   verified        Boolean?          @default(false) // Checking if user is verified [email verification].
   active          Boolean?          @default(true) // Checking whether user is active or not [ ban, blocked, disabled ].
-  roleId          Int?
-  role            Role?             @relation(fields: [roleId], references: [id])
+  role            Role?             @default(USER)
   pages           Page[]
   posts           Post[]
   JwtRefreshToken JwtRefreshToken[]
