@@ -1,5 +1,6 @@
-const { jwtConfig } = require('../config');
 const statusCodes = require('http').STATUS_CODES;
+
+const { jwtConfig } = require('../config');
 const jwt = require('jsonwebtoken');
 
 const { PrismaClient } = require('@prisma/client');
@@ -9,15 +10,24 @@ const v_to_sha256 = require('v_to_sha256');
 const v_rifier = require('v_rifier');
 
 
+//!------------------------
+//? AUTH - Handlers
+//* 1. login
+//* 2. refreshToken
+//* 3. logout
+//!------------------------
+
 module.exports = auth = {
 
-  //! LOGIN
+
+  /*
+  * Login Handler
+  */
   login: async (req, res) => {
     try {
       var { email, password } = req.body;
 
-      if (((await v_rifier.email(email)) == (await v_rifier.password(password, password)) !== true))
-        return res.status(401).json({ message: statusCodes[401] });
+      if (((await v_rifier.email(email)) == (await v_rifier.password(password, password)) !== true)) return res.status(401).json({ message: statusCodes[401] });
 
       const user = await prisma.user.findUnique({ where: { email: email } });
 
@@ -31,19 +41,18 @@ module.exports = auth = {
 
         return res.status(200).json({ refreshToken: refreshToken, accessToken: accessToken });
       }
-      else {
-        return res.status(401).json({ message: statusCodes[401] });
-      }
-
+      return res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
       return res.status(400).json(error);
     }
   },
 
-  //! REFRESH TOKEN
+
+  /*
+  * Refresh Access Token
+  */
   refreshToken: async (req, res) => {
     try {
-      // read username and password from request body
       const { token } = req.body;
 
       var status = await prisma.jwtRefreshToken.findUnique({ where: { token: token } });
@@ -54,18 +63,19 @@ module.exports = auth = {
             return res.status(403).json({ message: statusCodes[403] });
           }
 
-          res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires })});
+          res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires }) });
         });
-
-      } else {
-        res.status(401).json({ message: statusCodes[401] });
       }
+      res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
       res.status(400).json(error);
     }
   },
 
-  //! LOGOUT
+
+  /*
+  * Logout Handler
+  */
   logout: async (req, res) => {
     try {
       return res.status(200).json(await prisma.jwtRefreshToken.delete({ where: { token: refreshToken } }));
@@ -73,5 +83,6 @@ module.exports = auth = {
       return res.status(400).json(error);
     }
   },
+
 
 };

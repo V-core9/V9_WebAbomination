@@ -19,10 +19,13 @@ const prisma = new PrismaClient();
 
 module.exports = user = {
 
-  //! Simple listing of users
+
+  /*
+  * Listing Users
+  */
   list: async (req, res) => {
     try {
-      var data = await prisma.user.findMany({ take: 10, orderBy: { id: 'desc' } });
+      var data = await prisma.user.findMany({ take: 10, orderBy: { id: 'desc' }, select: { id: true, username: true, email: true, role: true } });
       return res.status(200).json(data);
     } catch (error) {
       return res.status(400).json(error);
@@ -30,7 +33,9 @@ module.exports = user = {
   },
 
 
-  //! Find user by id
+  /*
+  * Get User By ID
+  */
   byId: async (req, res) => {
     try {
       const id = parseInt(req.params.id);
@@ -42,7 +47,9 @@ module.exports = user = {
   },
 
 
-  //! NEW USER REGISTER
+  /*
+  * Register/Create New User
+  */
   create: async (req, res) => {
     try {
       var { email, username, password, passwordConfirm } = req.body;
@@ -63,7 +70,9 @@ module.exports = user = {
   },
 
 
-  //! Update user
+  /*
+  * Update User Data
+  */
   update: async (req, res) => {
     try {
       var data = await prisma.user.update({ where: { id: parseInt(req.params.id), data: req.body } });
@@ -74,7 +83,10 @@ module.exports = user = {
   },
 
 
-  //! Delete User
+  /*
+  * Delete/Remove a user 
+  ! [NOTE: This should "Archive" User info for later]
+  */
   delete: async (req, res) => {
     try {
       var data = await prisma.user.delete({ where: { id: parseInt(req.params.id) } });
@@ -85,7 +97,9 @@ module.exports = user = {
   },
 
 
-  //! DELETE ALL DATA
+  /*
+  * Purge Table: Users
+  */
   purge: async (req, res) => {
     try {
       var data = await prisma.user.deleteMany();
@@ -96,7 +110,9 @@ module.exports = user = {
   },
 
 
-  //! CHANGE PASSWORD
+  /*
+  * Change User Password
+  */
   changePassword: async (req, res) => {
     try {
       return res.status(200).json({ message: "Change password successful" });
@@ -105,7 +121,10 @@ module.exports = user = {
     }
   },
 
-  //! CHANGE ROLE
+
+  /*
+  * Role Change
+  */
   changeRole: async (req, res) => {
     try {
       return res.status(200).json({ message: "Change role successful" });
@@ -113,5 +132,6 @@ module.exports = user = {
       return res.status(400).json(error);
     }
   },
+
 
 };
