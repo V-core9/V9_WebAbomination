@@ -17,7 +17,7 @@ services:
       - mysql
     mem_limit: 1024m
     mem_reservation: 128M
-    cpus: 2
+    cpus: ${APP_CPUS}
 
   api:
     container_name: ${PROJECT_NAME}_api
@@ -53,9 +53,9 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    mem_limit: 512m
-    mem_reservation: 128M
-    cpus: 2
+    mem_limit: 1024m
+    mem_reservation: 256M
+    cpus: ${MYSQL_CPUS}
     ports:
       - 8000:${MYSQL_PORT}
 
