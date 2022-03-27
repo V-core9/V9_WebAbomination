@@ -2,6 +2,8 @@ const { user } = require('../handlers');
 const { validateAccessToken, validateAdmin } = require('../middleware');
 
 module.exports = (app) => {
+
+
   app.route('/user/:page?/:perPage?')
     .get([
       validateAccessToken,
@@ -11,6 +13,7 @@ module.exports = (app) => {
     .post([
       user.create
     ]);
+
 
   app.route('/user/me')
     .get([
@@ -33,6 +36,7 @@ module.exports = (app) => {
       user.byUsername
     ]);
 
+
   app.route('/user/byId/:id')
     .get([
       validateAccessToken,
@@ -50,10 +54,13 @@ module.exports = (app) => {
       user.delete
     ]);
 
+
   app.route('/user/purge/')
     .get([
       validateAccessToken,
       validateAdmin,
       user.purge
     ]);
+
+
 };

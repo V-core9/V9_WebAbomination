@@ -9,9 +9,11 @@ const config = {
     level: 9
   },
 
-
   disableEtag: true,
 
+  helmet: true,
+
+  xPoweredByRandom: true,
 
   init: (app) => {
 

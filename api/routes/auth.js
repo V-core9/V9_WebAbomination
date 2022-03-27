@@ -1,6 +1,8 @@
 const { login, refreshToken, logout } = require('../handlers').auth;
 
+
 module.exports = (app) => {
+
 
   app.route('/auth/login/')
     .post([
@@ -13,8 +15,11 @@ module.exports = (app) => {
       refreshToken,
     ]);
 
+
   app.route('/auth/logout/')
     .post([
       logout,
     ]);
+
+
 };

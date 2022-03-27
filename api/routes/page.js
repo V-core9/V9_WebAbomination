@@ -1,6 +1,8 @@
 const { page } = require('../handlers');
 
 module.exports = (app) => {
+
+
   app.route('/page/:page?/:perPage?')
     .get([
       page.list
@@ -27,8 +29,11 @@ module.exports = (app) => {
       page.bySlug
     ]);
 
+
   app.route('/page/purge/')
     .get([
       page.purge
     ]);
+
+
 };
