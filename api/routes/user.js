@@ -2,7 +2,7 @@ const { user } = require('../handlers');
 const { validateAccessToken, validateAdmin } = require('../middleware');
 
 module.exports = (app) => {
-  app.route('/user/')
+  app.route('/user/:page?/:perPage?')
     .get([
       validateAccessToken,
       validateAdmin,
@@ -29,6 +29,7 @@ module.exports = (app) => {
 
   app.route('/user/:username')
     .get([
+      validateAccessToken,
       user.byUsername
     ]);
 

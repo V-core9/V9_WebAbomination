@@ -11,7 +11,7 @@ console.log(objListNames);
 
   for (var i = 0; i < objListNames.length; i++) {
     var objName = objListNames[i];
-    
+
     console.log(i + ". Cleaning & Seeding: " + objName);
     console.log(await prisma[objName].deleteMany());
 

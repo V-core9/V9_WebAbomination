@@ -17,7 +17,7 @@ module.exports = [
 
 
   /*
-  * #2 Post 
+  * #2 Post
   */
   {
     slug: 'execution-time-when-running-for-vs-foreach',

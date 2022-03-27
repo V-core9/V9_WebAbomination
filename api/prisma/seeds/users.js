@@ -3,7 +3,7 @@ const { saltGenerator } = require('../../helpers');
 
 
 /*
-* INIT Users 
+* INIT Users
 */
 
 var users = [
