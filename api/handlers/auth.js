@@ -1,6 +1,6 @@
 const statusCodes = require('http').STATUS_CODES;
 
-const { jwtConfig } = require('../config');
+const { jwtCfg } = require('../config');
 const jwt = require('jsonwebtoken');
 
 const { PrismaClient } = require('@prisma/client');
@@ -34,8 +34,8 @@ module.exports = auth = {
       if ((user !== null) && (await v_to_sha256(password + user.salt) === user.password)) {
         const tokenData = { username: user.username, role: user.role };
 
-        const accessToken = jwt.sign(tokenData, jwtConfig.secret.access, { expiresIn: jwtConfig.expires });
-        const refreshToken = jwt.sign(tokenData, jwtConfig.secret.refresh);
+        const accessToken = jwt.sign(tokenData, jwtCfg.access.secret, { expiresIn: jwtCfg.access.expires });
+        const refreshToken = jwt.sign(tokenData, jwtCfg.refresh.secret);
 
         await prisma.jwtRefreshToken.create({ data: { token: refreshToken, userId: user.id } });
 
@@ -43,7 +43,7 @@ module.exports = auth = {
       }
       return res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
-      return res.status(400).json(error);
+      return res.status(400).json({ message: error });
     }
   },
 
@@ -58,12 +58,12 @@ module.exports = auth = {
       var status = await prisma.jwtRefreshToken.findUnique({ where: { token: token } });
 
       if (status !== null) {
-        jwt.verify(token, jwtConfig.secret.refresh, (err, user) => {
+        jwt.verify(token, jwtCfg.refresh.secret, (err, user) => {
           if (err) {
             return res.status(403).json({ message: statusCodes[403] });
           }
 
-          return res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtConfig.secret.access, { expiresIn: jwtConfig.expires }) });
+          return res.status(200).json({ accessToken: jwt.sign({ username: user.username, role: user.role }, jwtCfg.access.secret, { expiresIn: jwtCfg.access.expires }) });
         });
       } else {
         return res.status(401).json({ message: statusCodes[401] });
@@ -79,7 +79,7 @@ module.exports = auth = {
   */
   logout: async (req, res) => {
     try {
-      return res.status(200).json(await prisma.jwtRefreshToken.delete({ where: { token: refreshToken } }));
+      return res.status(200).json(await prisma.jwtRefreshToken.delete({ where: { token: req.body.token } }));
     } catch (error) {
       return res.status(400).json(error);
     }

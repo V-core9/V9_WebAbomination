@@ -1,4 +1,4 @@
-const { login, refreshToken } = require('../handlers').auth;
+const { login, refreshToken, logout } = require('../handlers').auth;
 
 module.exports = (app) => {
 
@@ -13,4 +13,8 @@ module.exports = (app) => {
       refreshToken,
     ]);
 
+  app.route('/auth/logout/')
+    .post([
+      logout,
+    ]);
 };

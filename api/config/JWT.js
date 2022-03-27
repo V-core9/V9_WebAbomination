@@ -1,7 +1,13 @@
 module.exports = {
-  secret: {
-    access: process.env.ACCESS_JWT_SECRET,
-    refresh: process.env.REFRESH_JWT_SECRET
+
+  access: {
+    secret: process.env.ACCESS_JWT_SECRET,
+    expires: "5m"
   },
-  expires: "5m"
+
+  refresh: {
+    secret: process.env.REFRESH_JWT_SECRET,
+    expires: '7d'
+  }
+
 };

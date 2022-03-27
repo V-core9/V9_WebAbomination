@@ -1,7 +1,7 @@
 const { page } = require('../handlers');
 
 module.exports = (app) => {
-  app.route('/page/')
+  app.route('/page/:page?/:perPage?')
     .get([
       page.list
     ])
@@ -10,7 +10,7 @@ module.exports = (app) => {
     ]);
 
 
-  app.route('/page/:id')
+  app.route('/page/byId/:id')
     .get([
       page.byId
     ])
@@ -19,6 +19,12 @@ module.exports = (app) => {
     ])
     .delete([
       page.delete
+    ]);
+
+
+  app.route('/page/bySlug/:id')
+    .get([
+      page.bySlug
     ]);
 
   app.route('/page/purge/')

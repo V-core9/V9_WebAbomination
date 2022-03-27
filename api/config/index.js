@@ -1,7 +1,7 @@
 const config = {
 
   //? JWT Config Data [ Need to move into prisma for it to better work with server restarts and permanent login ]
-  jwtConfig: require('./JWT'),
+  jwtCfg: require('./JWT'),
 
   //? Compression Settings for the middleware
   compression: {

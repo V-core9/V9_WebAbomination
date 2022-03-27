@@ -1,12 +1,10 @@
-const count = process.env.CORE_COUNT || 1;
-const coreCount = require("os").cpus().length;
-const totalCPUs = (count < coreCount) ? count : coreCount;
-
 const cluster = require("cluster");
 
 if (cluster.isMaster) {
 
-    for (let i = 0; i < totalCPUs; i++) {
+    const CORE_COUNT = (process.env.CORE_COUNT < require("os").cpus().length) ? process.env.CORE_COUNT : require("os").cpus().length;
+
+    for (let i = 0; i < CORE_COUNT; i++) {
         cluster.fork();
     }
 
