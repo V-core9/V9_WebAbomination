@@ -9,6 +9,3 @@
 - Development Mode
 
       sh RUN dev
-
-
-> WARNING: v.2 app uses ~400MB of RAM Memory for  2cores.

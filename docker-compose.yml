@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   app:
     container_name: ${PROJECT_NAME}_app
     image: ${APP_NODE_IMAGE}
@@ -11,8 +12,10 @@ services:
     working_dir: /app
     volumes:
       - ./app/:/app
+      - ./api/prisma/:/app/prisma
     environment:
       PORT: ${APP_DOCKER_PORT}
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${PROJECT_NAME}_mysql:${MYSQL_PORT}/${MYSQL_DATABASE}
     depends_on:
       - mysql
     mem_limit: 1024m
@@ -45,9 +48,9 @@ services:
     image: mariadb:${MARIADB_VERSION:-latest}
     container_name: ${PROJECT_NAME}_mysql
     restart: unless-stopped
-    volumes: 
-        - ./mysql/conf.d:/etc/mysql/conf.d
-        - ./mysql/init:/docker-entrypoint-initdb.d
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
