@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     var data = await prisma.user.findUnique({ where: { id: parseInt(req.params.id) }, select: { id: true, username: true, email: true, role: true } });
-    return res.status(200).json(data);
+    res.render('user', { data: data});
   } catch (error) {
     return res.status(400).json(error);
   }
