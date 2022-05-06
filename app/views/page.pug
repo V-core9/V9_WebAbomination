@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  div!=content
+  v_app
+    include includes/header.pug
+    include includes/content.pug
+    include includes/footer.pug

@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = [
 
 
-  /* 
+  /*
   * #1 page  [ HOMEPAGE ]
   */
   {

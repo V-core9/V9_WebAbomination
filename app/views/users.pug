@@ -1,8 +1,14 @@
 extends layout
 
 block content
-  h1 Users
-  ul
-    each val in data
-      li
-        a(href='/users/'+val.username) #{val.username}
+  v_app
+    include includes/header.pug
+
+    content
+      h1 Users
+      ul
+        each val in data
+          li
+            a(href='/users/'+val.username) #{val.username}
+
+    include includes/footer.pug

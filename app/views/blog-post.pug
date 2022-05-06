@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1 #{title}
-  p  #{content}
+  v_app
+    include includes/header.pug
+
+    content
+      h1 #{title}
+      p  #{content}
+
+    include includes/footer.pug
