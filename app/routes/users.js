@@ -14,7 +14,17 @@ router.get('/', async (req, res, next) => {
 });
 
 /* GET user by id. */
-router.get('/:id', async (req, res, next) => {
+router.get('/:username', async (req, res, next) => {
+  try {
+    var data = await prisma.user.findUnique({ where: { username: req.params.username }, select: { id: true, username: true, email: true, role: true } });
+    res.render('user', { data: data});
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+});
+
+/* GET user by id. */
+router.get('/byId/:id', async (req, res, next) => {
   try {
     var data = await prisma.user.findUnique({ where: { id: parseInt(req.params.id) }, select: { id: true, username: true, email: true, role: true } });
     res.render('user', { data: data});
