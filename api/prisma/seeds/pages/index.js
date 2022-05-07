@@ -39,12 +39,12 @@ module.exports = [
   * #3 page [ CONTACT US ]
   */
   {
-    slug: 'contact-us',
-    title: 'V-core9 - Contact Page',
+    slug: 'contact',
+    title: 'Contact Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'Contact, Message, Signal, Ask Question, V-core9',
     thumbnail: '/images/favicon.png',
-    content: fs.readFileSync(path.join(__dirname, './contact-us.html'), 'utf8'),
+    content: fs.readFileSync(path.join(__dirname, './contact.html'), 'utf8'),
     renderMode: 'html',
     published: true
   },
@@ -55,7 +55,7 @@ module.exports = [
   */
   {
     slug: 'promo-login',
-    title: 'V-core9 - Contact Page',
+    title: 'Promo Login Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'Sign-in, Login, Authentication, Confirmation, V-core9',
     thumbnail: '/images/favicon.png',
@@ -70,7 +70,7 @@ module.exports = [
   */
   {
     slug: 'promo-register',
-    title: 'V-core9 - New User Account Registration Page',
+    title: 'Promo New User Account Registration Page',
     metaDescription: 'Best page to start your journey with V-core9 and all the wonders it brings.',
     metaKeywords: 'Register, Account, Profile, V-core9, Development, Web, Tools, APIs, JoinUs',
     thumbnail: '/images/favicon.png',

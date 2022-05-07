@@ -3,6 +3,8 @@ const { validateAccessToken, validateAdmin } = require('../middleware');
 
 module.exports = (app) => {
 
+  app.route('/user/')
+    .post(user.create);
 
   app.route('/user/:page?/:perPage?')
     .get([

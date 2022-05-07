@@ -6,12 +6,14 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const xPoweredByRandom = require('x-powered-by-random');
-
+var cors = require('cors');
 
 middleware = async (app) => {
 
 
   if (config.helmet) app.use(require("helmet")());
+
+  app.use(cors({ origin: 'http://localhost:2500', optionsSuccessStatus: 200 }));
 
   app.use(cookieParser());
 

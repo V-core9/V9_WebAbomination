@@ -11,7 +11,7 @@ const config = {
 
   disableEtag: true,
 
-  helmet: true,
+  helmet: false,
 
   xPoweredByRandom: true,
 
