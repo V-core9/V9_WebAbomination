@@ -3,11 +3,15 @@ extends layout
 block content
   v_app
     include includes/header.pug
+    include includes/navigation.pug
+
+
     content
       h1 Blog Posts
       ul
         each val in data
           li
             a(href='/blog/'+val.slug) #{val.title}
+
 
     include includes/footer.pug

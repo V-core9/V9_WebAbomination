@@ -1,11 +1,7 @@
 const actions = {
-  'footer_nav_toggle': async () => {
-    const footerNav = document.querySelector('footer navigation');
+  'navigation_toggle': async () => {
+    const footerNav = document.querySelector('v_app navigation');
     footerNav.classList.toggle('open');
-  },
-  'header_nav_toggle': async () => {
-    const headerNav = document.querySelector('header navigation');
-    headerNav.classList.toggle('open');
   },
 };
 
@@ -15,4 +11,4 @@ window.onclick = async (event) => {
   if (actions[action] !== undefined) {
     actions[action]();
   }
-}
+};

@@ -3,14 +3,6 @@ const { page } = require('../handlers');
 module.exports = (app) => {
 
 
-  app.route('/page/:page?/:perPage?')
-    .get([
-      page.list
-    ])
-    .post([
-      page.create
-    ]);
-
 
   app.route('/page/byId/:id')
     .get([
@@ -24,11 +16,19 @@ module.exports = (app) => {
     ]);
 
 
-  app.route('/page/bySlug/:id')
+  app.route('/page/bySlug/:slug')
     .get([
       page.bySlug
     ]);
 
+
+  app.route('/page/:page?/:perPage?')
+    .get([
+      page.list
+    ])
+    .post([
+      page.create
+    ]);
 
   app.route('/page/purge/')
     .get([

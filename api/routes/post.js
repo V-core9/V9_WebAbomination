@@ -3,16 +3,7 @@ const { post } = require('../handlers');
 module.exports = (app) => {
 
 
-  app.route('/post/')
-    .get([
-      post.list
-    ])
-    .post([
-      post.create
-    ]);
-
-
-  app.route('/post/:id')
+  app.route('/post/byId/:id')
     .get([
       post.byId
     ])
@@ -24,9 +15,24 @@ module.exports = (app) => {
     ]);
 
 
+
+  app.route('/post/bySlug/:slug')
+    .get([
+      post.bySlug
+    ]);
+
   app.route('/post/purge/')
     .get([
       post.purge
+    ]);
+
+
+  app.route('/post/:page?/:perPage?')
+    .get([
+      post.list
+    ])
+    .post([
+      post.create
     ]);
 
 

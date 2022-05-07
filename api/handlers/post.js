@@ -20,9 +20,18 @@ module.exports = post = {
   */
   list: async (req, res) => {
     try {
-      const pagination = parseInt(req.params.page) || 0;
-      const data = await prisma.post.findMany({ skip: 10 * pagination, take: 10, orderBy: { createdAt: 'desc' } });
-      return res.status(200).json(data);
+      const params = {
+        skip: 0,
+        take: 5,
+        orderBy: { id: 'asc' }
+      };
+
+      if (!isNaN(req.params.perPage)) params.take = parseInt(req.params.perPage);
+      if (!isNaN(req.params.page)) params.skip = (parseInt(req.params.page || 0) - 1) * params.take;
+      if (params.skip < 0) params.skip = 0;
+
+      const posts = await prisma.post.findMany(params);
+      return res.status(200).json(posts);
     } catch (err) {
       return res.status(500).json({ message: err });
     }
@@ -35,6 +44,18 @@ module.exports = post = {
   byId: async (req, res) => {
     try {
       const data = await prisma.post.findUnique({ where: { id: parseInt(req.params.id) } });
+      return res.status(200).json(data);
+    } catch (err) {
+      return res.status(500).json({ message: err });
+    }
+  },
+
+  /*
+  * Get Post By SLUG
+  */
+  bySlug: async (req, res) => {
+    try {
+      const data = await prisma.post.findUnique({ where: { slug: req.params.slug } });
       return res.status(200).json(data);
     } catch (err) {
       return res.status(500).json({ message: err });
