@@ -36,7 +36,11 @@ module.exports = auth = {
 
         const accessToken = jwt.sign(tokenData, jwtCfg.access.secret, { expiresIn: jwtCfg.access.expires });
         const refreshToken = jwt.sign(tokenData, jwtCfg.refresh.secret);
-
+        try {
+          await prisma.jwtRefreshToken.deleteMany({ where: { userId: user.id } });
+        } catch (error) {
+          console.log(error);
+        }
         await prisma.jwtRefreshToken.create({ data: { token: refreshToken, userId: user.id } });
 
         return res.status(200).json({ refreshToken: refreshToken, accessToken: accessToken });
