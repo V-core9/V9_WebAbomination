@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 router.get('/', async (req, res, next) => {
   try {
     var data = await prisma.post.findMany({ take: 10, orderBy: { id: 'desc' } });
-    res.render('blog-posts', { data: data });
+    res.render('blog-posts', { title: "V-core9 Blog Listing Page", metaDescription: "Freshest news and subjects related to development, gaming and tech", data: data });
   } catch (error) {
     return res.status(400).json(error);
   }
