@@ -16,7 +16,35 @@ module.exports = [
     thumbnail: '/images/favicon.png',
     content: fs.readFileSync(path.join(__dirname, './homepage.html'), 'utf8'),
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Public', slug: "public" },
+          where: { slug: "public" },
+        },
+        {
+          create: { title: 'Welcome', slug: "welcome" },
+          where: { slug: "welcome" },
+        },
+        {
+          create: { title: 'Home', slug: "home" },
+          where: { slug: "home" },
+        },
+        {
+          create: { title: 'Packages', slug: "packages" },
+          where: { slug: "packages" },
+        },
+        {
+          create: { title: 'Node.js', slug: "node.js" },
+          where: { slug: "node.js" },
+        },
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+      ],
+    }
   },
 
 
@@ -31,7 +59,31 @@ module.exports = [
     thumbnail: '/images/favicon.png',
     content: fs.readFileSync(path.join(__dirname, './about-us.html'), 'utf8'),
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Coding', slug: "contact" },
+          where: { slug: "contact" },
+        },
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+        {
+          create: { title: 'Tutorials', slug: "tutorials" },
+          where: { slug: "tutorials" },
+        },
+        {
+          create: { title: 'Packages', slug: "packages" },
+          where: { slug: "packages" },
+        },
+        {
+          create: { title: 'Node.js', slug: "node.js" },
+          where: { slug: "node.js" },
+        },
+      ],
+    }
   },
 
 
@@ -46,7 +98,27 @@ module.exports = [
     thumbnail: '/images/favicon.png',
     content: fs.readFileSync(path.join(__dirname, './contact.html'), 'utf8'),
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Contact', slug: "contact" },
+          where: { slug: "contact" },
+        },
+        {
+          create: { title: 'Page', slug: "page" },
+          where: { slug: "page" },
+        },
+        {
+          create: { title: 'Message', slug: "message" },
+          where: { slug: "message" },
+        },
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+      ],
+    },
   },
 
 
@@ -61,7 +133,31 @@ module.exports = [
     thumbnail: '/images/favicon.png',
     content: fs.readFileSync(path.join(__dirname, './login.html'), 'utf8'),
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+        {
+          create: { title: 'Login', slug: "login" },
+          where: { slug: "login" },
+        },
+        {
+          create: { title: 'Authorize', slug: "authorize" },
+          where: { slug: "authorize" },
+        },
+        {
+          create: { title: 'Account', slug: "account" },
+          where: { slug: "account" },
+        },
+        {
+          create: { title: 'Profile', slug: "profile" },
+          where: { slug: "profile" },
+        }
+      ]
+    }
   },
 
 
@@ -76,7 +172,23 @@ module.exports = [
     thumbnail: '/images/favicon.png',
     content: fs.readFileSync(path.join(__dirname, './register.html'), 'utf8'),
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Register', slug: "register" },
+          where: { slug: "register" },
+        },
+        {
+          create: { title: 'Account', slug: "account" },
+          where: { slug: "account" },
+        },
+        {
+          create: { title: 'Profile', slug: "profile" },
+          where: { slug: "profile" },
+        }
+      ]
+    }
   },
 
 

@@ -35,6 +35,7 @@ model Page {
   authorId        Int?
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
+  tags            Tag[]    @relation(references: [id])
 }
 
 //--
@@ -52,6 +53,7 @@ model Post {
   authorId        Int?
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
+  tags            Tag[]    @relation(references: [id])
 }
 
 //--
@@ -60,7 +62,17 @@ enum Role {
   MERCHANT
   MANAGER
   ADMIN
+}//--
+model Tag {
+  id        Int      @id @default(autoincrement())
+  slug      String?  @unique
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  pages     Page[]   @relation(references: [id])
+  posts     Post[]   @relation(references: [id])
 }
+
 //--
 model User {
   id              Int               @id @default(autoincrement())

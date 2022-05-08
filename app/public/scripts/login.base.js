@@ -1,3 +1,44 @@
+setCookie = (cname, cvalue, exMinutes) => {
+  const d = new Date();
+  d.setTime(d.getTime() + (exMinutes * 60 * 1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+getCookie = (cname) => {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 apiReq = async (data) => {
   const { method, url, body, callback } = data;
 
@@ -20,17 +61,18 @@ apiReq = async (data) => {
 
 
 const loginForm = {
-  data : {
+  data: {
     url: "http://localhost:2000/auth/login",
     method: "POST",
     body: {},
     callback: async (data) => {
-      if (data.accessToken === undefined){
+      if (data.accessToken === undefined) {
         alert("Login Failed!");
       } else {
         alert("Login Success!");
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
+        setCookie("accessToken", data.accessToken, 5);
         window.location.href = "/application";
       }
     },

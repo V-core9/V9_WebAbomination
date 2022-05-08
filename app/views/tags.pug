@@ -6,10 +6,10 @@ block content
     include includes/navigation.pug
 
     content
-      h1 #{title}
-      p  #{content}
-
-      each tag in tags
-        a(href='/tags/'+tag.slug) #{tag.title}
+      h1 Tags
+      ul
+        each val in data
+          li
+            a(href='/tags/'+val.slug) #{val.title}
 
     include includes/footer.pug

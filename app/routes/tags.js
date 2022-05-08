@@ -6,8 +6,9 @@ const prisma = new PrismaClient();
 /* blog */
 router.get('/', async (req, res, next) => {
   try {
-    var data = await prisma.post.findMany({ take: 10, orderBy: { id: 'desc' }, include: { tags: true } });
-    res.render('blog-posts', { title: "V-core9 Blog Listing Page", metaDescription: "Freshest news and subjects related to development, gaming and tech", data: data });
+    var data = await prisma.tag.findMany({});
+    console.log(data);
+    res.render('tags', { title: "V-core9 - All Tags List", metaDescription: "Freshest news and subjects related to development, gaming and tech", data: data });
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -16,8 +17,9 @@ router.get('/', async (req, res, next) => {
 /* GET user by id. */
 router.get('/:slug', async (req, res, next) => {
   try {
-    var data = await prisma.post.findUnique({ where: { slug: req.params.slug }, include: { tags: true } });
-    res.render('blog-post', data);
+    var data = await prisma.tag.findUnique({ where: { slug: req.params.slug }, include: { pages: true, posts: true } });
+    console.log(data);
+    res.render('tag', { title: "V-core9 - " + data.title, data: data });
   } catch (error) {
     return res.status(400).json(error);
   }

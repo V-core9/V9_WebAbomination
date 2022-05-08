@@ -14,4 +14,5 @@ model Page {
   authorId        Int?
   author          User?    @relation(fields: [authorId], references: [id])
   thumbnail       String   @default("")
+  tags            Tag[]    @relation(references: [id])
 }

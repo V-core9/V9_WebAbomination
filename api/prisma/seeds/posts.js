@@ -12,7 +12,23 @@ module.exports = [
     content: 'The Silent Start: An Intricate Art of a Deadly Fart!',
     thumbnail: '/images/favicon.png',
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+        {
+          create: { title: 'Farts', slug: "farts" },
+          where: { slug: "farts" },
+        },
+        {
+          create: { title: 'Coding', slug: "coding" },
+          where: { slug: "coding" },
+        },
+      ],
+    },
   },
 
 
@@ -27,7 +43,19 @@ module.exports = [
     content: 'Execution Time Comparison when running [for] vs [foreach].',
     thumbnail: '/images/favicon.png',
     renderMode: 'html',
-    published: true
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+        {
+          create: { title: 'Tutorials', slug: "tutorials" },
+          where: { slug: "tutorials" },
+        },
+      ],
+    },
   },
 
 

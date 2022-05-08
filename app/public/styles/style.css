@@ -2,9 +2,11 @@
   font-family: monospace;
   margin: 0;
   padding: 0;
+  line-height: 1.5em;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -50,13 +52,13 @@ content {
   overflow-x: hidden;
   background: #1e2f40;
   color: white;
+  gap: 1em;
 }
 
 footer {
   display: flex;
   flex-direction: row;
   border-top: 1px solid #112538;
-
   justify-content: space-between;
   align-items: center;
   background: #102030;
@@ -65,8 +67,9 @@ footer {
 
 copyright {
   display: flex;
-
-align-items: center;padding: 0 1em;}
+  align-items: center;
+  padding: 0 1em;
+}
 
 navigation content {
   display: flex;
@@ -180,7 +183,6 @@ post_list item info span {
   color: #2d4760;
 }
 
-
 footer button {
   margin: 0.5em;
 }
@@ -191,7 +193,23 @@ copyright a {
 
 @media screen and (min-width: 480px) {
   post_list item a {
-      flex-direction: row;
-      align-items: stretch;
+    flex-direction: row;
+    align-items: stretch;
   }
+}
+
+content>section {
+  flex-direction: column;
+
+  outline: 3px solid #102030;
+  background: #192837;
+  gap: 0;
+}
+
+content>section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 1.25em;
 }

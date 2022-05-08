@@ -4,9 +4,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 
+const { jwtFromCookie, validateAccessToken } = require('../helpers/AUTH');
+
+
 const getPageBySlug = async (req, res, next) => {
   try {
-    const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' } });
+    const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' }, include: { tags: true } });
     console.log(data);
     if (data === null) return res.render('error', { message: 'Error 404: Page not found.', error: { status: 404 } });
     return res.render('page', data);
@@ -14,6 +17,19 @@ const getPageBySlug = async (req, res, next) => {
     return res.render('error', { message: 'Prisma Client Error', error: err });
   }
 }
+
+
+
+// STATIC APPLICATION PAGES
+
+router.get('/application/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
+  try {
+    return res.render("application", { admin: true });
+  } catch (error) {
+    return res.render('error', { message: 'Application Client Error', error: err });
+  }
+});
+
 
 /* GET home page. */
 router.get('/', getPageBySlug);

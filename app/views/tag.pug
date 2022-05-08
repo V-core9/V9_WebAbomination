@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  v_app
+    include includes/header.pug
+    include includes/navigation.pug
+
+    content
+      section
+        header
+          h1 Tag Name: #{data.title}
+        content
+          h3 Slug: #{data.slug}
+          h4 Created: #{data.createdAt}
+
+      section
+        header
+          h2 Pages with this tag.
+        content
+          ul
+            each val in data.pages
+              li
+                a(href='/'+val.slug) #{val.title}
+
+      section
+        header
+          h2 Related posts with this tag.
+        content
+          ul
+            each val in data.posts
+              li
+                a(href='/blog/'+val.slug) #{val.title}
+
+    include includes/footer.pug

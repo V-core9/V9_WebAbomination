@@ -23,7 +23,8 @@ module.exports = post = {
       const params = {
         skip: 0,
         take: 5,
-        orderBy: { id: 'asc' }
+        orderBy: { id: 'asc' },
+        include: { tags: true }
       };
 
       if (!isNaN(req.params.perPage)) params.take = parseInt(req.params.perPage);

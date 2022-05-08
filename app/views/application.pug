@@ -4,12 +4,8 @@ block content
   v_app
     include includes/header.pug
     include includes/navigation.pug
-
     content
-      h1 #{title}
-      p  #{content}
-
-      each tag in tags
-        a(href='/tags/'+tag.slug) #{tag.title}
-
+      section
+        header
+          h1="Application Info & Stats"
     include includes/footer.pug
