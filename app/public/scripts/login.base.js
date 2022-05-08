@@ -73,7 +73,7 @@ const loginForm = {
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         setCookie("accessToken", data.accessToken, 5);
-        window.location.href = "/application";
+        window.location.href = "/dashboard/";
       }
     },
   },

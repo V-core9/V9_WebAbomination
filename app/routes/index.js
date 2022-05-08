@@ -22,11 +22,11 @@ const getPageBySlug = async (req, res, next) => {
 
 // STATIC APPLICATION PAGES
 
-router.get('/application/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
+router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
   try {
-    return res.render("application", { admin: true });
+    return res.render("dashboard_" + req.user.role.toLowerCase(), req.user);
   } catch (error) {
-    return res.render('error', { message: 'Application Client Error', error: err });
+    return res.render('error', { message: 'Application Client Error', error: error });
   }
 });
 
