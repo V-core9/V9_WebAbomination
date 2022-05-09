@@ -25,7 +25,7 @@ const getPageBySlug = async (req, res, next) => {
 //? Dashboard / Application Homepage
 router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
   try {
-    return res.render("dashboard/" + req.user.role.toLowerCase(), req.user);
+    return res.render("dashboard", req.user);
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }
