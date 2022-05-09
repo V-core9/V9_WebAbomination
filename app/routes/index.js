@@ -36,7 +36,7 @@ router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res,
 //? Register New User Page
 router.get('/register/', async (req, res, next) => {
   try {
-    return res.render('register', await prisma.page.findUnique({ where: { slug: 'register' } }));
+    return res.render('form_register', await prisma.page.findUnique({ where: { slug: 'register' } }));
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }
@@ -47,7 +47,7 @@ router.get('/register/', async (req, res, next) => {
 //? User Login Page
 router.get('/login/', async (req, res, next) => {
   try {
-    return res.render('login', await prisma.page.findUnique({ where: { slug: 'login' } }));
+    return res.render('form_login', await prisma.page.findUnique({ where: { slug: 'login' } }));
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }
@@ -58,7 +58,7 @@ router.get('/login/', async (req, res, next) => {
 //? User Login Page
 router.get('/contact/', async (req, res, next) => {
   try {
-    return res.render('contact', await prisma.page.findUnique({ where: { slug: 'contact' } }));
+    return res.render('form_contact', await prisma.page.findUnique({ where: { slug: 'contact' } }));
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }

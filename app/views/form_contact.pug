@@ -2,7 +2,7 @@ extends form_base
 
 block form
 
-  form(action="http://localhost:2000/auth/login", method="POST", id="login_form")
+  form(action="http://localhost:2000/contact/", method="POST", id="contact_form")
 
     header
       h1 Contact Form
@@ -19,11 +19,10 @@ block form
 
       group
         label 🔑 Message
-        input(type='text', name='message', placeholder='Random Message Demo Text...', required)
+        textarea(name='message', placeholder='Random Message Demo Text...', rows='4', cols='50' required)
 
       input(type='submit', name='submit', value='Login')
 
     footer
-      p Don't have an account? Register <a href='/register'>here</a>
+      p NOTE: Register <a href='/register'>here</a> for a better support and priority.
 
-  script(src='/scripts/login.js')
