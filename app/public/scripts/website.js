@@ -1,8 +1,5 @@
 const actions = {
-  'navigation_toggle': async () => {
-    const footerNav = document.querySelector('v_app navigation');
-    footerNav.classList.toggle('open');
-  },
+  'navigation_toggle': async () => document.querySelector('v_app navigation').classList.toggle('open') || null,
 };
 
 window.onclick = async (event) => {

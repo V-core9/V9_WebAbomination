@@ -9,7 +9,7 @@ const { jwtFromCookie, validateAccessToken } = require('../helpers/AUTH');
 
 const getPageBySlug = async (req, res, next) => {
   try {
-    const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' }, include: { tags: true } });
+    const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' } });
     console.log(data);
     if (data === null) return res.render('error', { message: 'Error 404: Page not found.', error: { status: 404 } });
     return res.render('page', data);
@@ -22,6 +22,7 @@ const getPageBySlug = async (req, res, next) => {
 
 // STATIC APPLICATION PAGES
 
+//? Dashboard / Application Homepage
 router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
   try {
     return res.render("dashboard_" + req.user.role.toLowerCase(), req.user);
@@ -29,6 +30,30 @@ router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res,
     return res.render('error', { message: 'Application Client Error', error: error });
   }
 });
+
+
+
+//? Register New User Page
+router.get('/register/', async (req, res, next) => {
+  try {
+    return res.render('register', await prisma.page.findUnique({ where: { slug: 'register' } }));
+  } catch (error) {
+    return res.render('error', { message: 'Application Client Error', error: error });
+  }
+});
+
+
+
+//? User Login Page
+router.get('/login/', async (req, res, next) => {
+  try {
+    return res.render('login', await prisma.page.findUnique({ where: { slug: 'login' } }));
+  } catch (error) {
+    return res.render('error', { message: 'Application Client Error', error: error });
+  }
+});
+
+
 
 
 /* GET home page. */

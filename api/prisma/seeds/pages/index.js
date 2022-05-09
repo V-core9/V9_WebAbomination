@@ -126,6 +126,76 @@ module.exports = [
   * #4 page [ LOGIN ]
   */
   {
+    slug: 'login',
+    title: 'Promo Login Page',
+    metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
+    metaKeywords: 'Sign-in, Login, Authentication, Confirmation, V-core9',
+    thumbnail: '/images/favicon.png',
+    content: "",
+    renderMode: 'html',
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Databases', slug: "databases" },
+          where: { slug: "databases" },
+        },
+        {
+          create: { title: 'Login', slug: "login" },
+          where: { slug: "login" },
+        },
+        {
+          create: { title: 'Authorize', slug: "authorize" },
+          where: { slug: "authorize" },
+        },
+        {
+          create: { title: 'Account', slug: "account" },
+          where: { slug: "account" },
+        },
+        {
+          create: { title: 'Profile', slug: "profile" },
+          where: { slug: "profile" },
+        }
+      ]
+    }
+  },
+
+
+  /*
+  * #5 page [ REGISTER ]
+  */
+  {
+    slug: 'register',
+    title: 'New User Account Registration Page',
+    metaDescription: 'Best page to start your journey with V-core9 and all the wonders it brings.',
+    metaKeywords: 'Register, Account, Profile, V-core9, Development, Web, Tools, APIs, JoinUs',
+    thumbnail: '/images/favicon.png',
+    content: "",
+    renderMode: 'html',
+    published: true,
+    tags: {
+      connectOrCreate: [
+        {
+          create: { title: 'Register', slug: "register" },
+          where: { slug: "register" },
+        },
+        {
+          create: { title: 'Account', slug: "account" },
+          where: { slug: "account" },
+        },
+        {
+          create: { title: 'Profile', slug: "profile" },
+          where: { slug: "profile" },
+        }
+      ]
+    }
+  },
+
+
+  /*
+  * #4 page [ LOGIN ]
+  */
+  {
     slug: 'promo-login',
     title: 'Promo Login Page',
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',

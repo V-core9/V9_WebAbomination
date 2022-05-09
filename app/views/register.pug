@@ -1,0 +1,36 @@
+extends page_form
+
+block form
+
+  form(action="http://localhost:2000/user/", method="POST", id="register_form")
+
+    header
+      h1 Register New User Form
+
+    content
+      group
+        label 📑Username
+        input(type='text', name='username', placeholder='Username', required)
+
+      group
+        label 📧 Email
+        input(type='email', name='email', placeholder='Email', required)
+
+      group
+        label 🔑 Password
+        input(type='password', name='password', placeholder='Password', required)
+
+      group
+        label 🔑 Confirmation Password
+        input(type='password', name='passwordConfirm', placeholder='Confirmation Password', required)
+
+      group(class='inline')
+        input(type='checkbox', name='terms', value='terms', required)
+        label  Accept Terms and Conditions
+
+      input(type='submit', name='submit', value='Register')
+
+    footer
+      p Already have an account? Login <a href='/login'>here</a>
+
+  script(src='/scripts/register.js')
