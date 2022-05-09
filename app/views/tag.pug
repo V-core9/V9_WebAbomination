@@ -3,15 +3,19 @@ extends layout
 block content
   v_app
     include includes/header.pug
-    include includes/navigation.pug
+    include includes/navigation/public.pug
 
     content
       section
         header
-          h1 Tag Name: #{data.title}
+          h1 # #{data.title}
         content
-          h3 Slug: #{data.slug}
-          h4 Created: #{data.createdAt}
+          h4 Slug:
+            span #{data.slug}
+          h4 Created:
+            span #{data.createdAt}
+          h4 Updated:
+            span #{data.createdAt}
 
       section
         header

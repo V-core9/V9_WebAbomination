@@ -5,14 +5,15 @@
   line-height: 1.5em;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
 a {
-  color: #00B7FF;
+  color: #2196f3;
 }
 
 header {
@@ -31,6 +32,9 @@ section {
 
 section a {
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 v_app {
@@ -42,14 +46,14 @@ v_app {
   box-shadow: 0 0 140px inset darkslategray;
 }
 
-content {
+v_app content {
   display: flex;
   flex: 1;
   padding: 1em;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #1e2f40;
+
   color: white;
   gap: 1em;
 }
@@ -198,15 +202,15 @@ copyright a {
 
 @media screen and (min-width: 480px) {
   post_list item a {
-      flex-direction: row;
-      align-items: stretch;
+    flex-direction: row;
+    align-items: stretch;
   }
 }
 
 content>section {
   flex-direction: column;
   outline: 3px solid #102030;
-  background: #192837;
+  background: linear-gradient(225deg, #162738, #10203000);
   gap: 0;
 }
 
@@ -267,8 +271,82 @@ navigation content a icon {
 navigation content a label {
   padding: 0 .5em;
   color: white;
-pointer-events: none;}
+  pointer-events: none;
+}
 
 navigation content a:hover icon {
   background: #2196f3;
+}
+
+/************************************************************************************************
+SVG LOGO STYLE
+*************************************************************************************************/
+svg * {
+  stroke-width: 1%;
+}
+
+line {
+  stroke-dashoffset: 1000;
+  animation: dash linear infinite;
+  animation-direction: alternate, reverse, normal;
+}
+
+line.alter_direction_animation {
+  animation: dash reverse infinite;
+  animation-direction: alternate, reverse, normal;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*
+END OF SVG LOGO STYLE
+*/
+ul {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+ul li a {
+  padding: .5em 1em;
+  background: #172839;
+  display: flex;
+  width: fit-content;
+  border: 1px solid #102030;
+}
+
+ul li a:hover {
+  background: #2196f3;
+  color: white;
+}
+
+h4 span {
+  color: #2196f3;
+  padding: .5em 1em;
+  background: #102030;
+}
+
+content h4 {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+
+li>a {
+  white-space: break-spaces;
+}
+
+v_app>content {
+  background: #203346;
 }

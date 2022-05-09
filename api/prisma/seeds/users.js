@@ -19,7 +19,14 @@ var users = [
     email: 'blagojevic021@gmail.com',
     username: 'ana_v9',
     password: '0123456789',
-    role: "ADMIN"
+    role: "MANAGER"
+  },
+
+  {
+    email: 'slavko_vuletic@hotmail.com',
+    username: 'slavko_v9',
+    password: '0123456789',
+    role: "MERCHANT"
   }
 
 ];
