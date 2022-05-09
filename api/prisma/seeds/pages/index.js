@@ -96,7 +96,7 @@ module.exports = [
     metaDescription: 'V-core9 Starting Point and How to Stay on Top of the Situation while looking confused.',
     metaKeywords: 'Contact, Message, Signal, Ask Question, V-core9',
     thumbnail: '/images/favicon.png',
-    content: fs.readFileSync(path.join(__dirname, './contact.html'), 'utf8'),
+    content: "",
     renderMode: 'html',
     published: true,
     tags: {

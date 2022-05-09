@@ -25,7 +25,7 @@ const getPageBySlug = async (req, res, next) => {
 //? Dashboard / Application Homepage
 router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
   try {
-    return res.render("dashboard_" + req.user.role.toLowerCase(), req.user);
+    return res.render("dashboard/" + req.user.role.toLowerCase(), req.user);
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }
@@ -48,6 +48,17 @@ router.get('/register/', async (req, res, next) => {
 router.get('/login/', async (req, res, next) => {
   try {
     return res.render('login', await prisma.page.findUnique({ where: { slug: 'login' } }));
+  } catch (error) {
+    return res.render('error', { message: 'Application Client Error', error: error });
+  }
+});
+
+
+
+//? User Login Page
+router.get('/contact/', async (req, res, next) => {
+  try {
+    return res.render('contact', await prisma.page.findUnique({ where: { slug: 'contact' } }));
   } catch (error) {
     return res.render('error', { message: 'Application Client Error', error: error });
   }

@@ -1,11 +1,11 @@
-extends page_form
+extends form_base
 
 block form
 
   form(action="http://localhost:2000/auth/login", method="POST", id="login_form")
 
     header
-      h1 Login Form
+      h1 Contact Form
 
     content
 
@@ -14,8 +14,12 @@ block form
         input(type='email', name='email', placeholder='Email', required)
 
       group
-        label 🔑 Password
-        input(type='password', name='password', placeholder='Password', required)
+        label 📧 Subject
+        input(type='text', name='subject', placeholder='Message Subject', required)
+
+      group
+        label 🔑 Message
+        input(type='text', name='message', placeholder='Random Message Demo Text...', required)
 
       input(type='submit', name='submit', value='Login')
 
