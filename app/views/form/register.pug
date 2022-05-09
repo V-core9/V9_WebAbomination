@@ -2,27 +2,27 @@ extends base
 
 block form
 
-  form(action="http://localhost:2000/user/", method="POST", id="register_form")
+  form(action="http://localhost:2000/user/", method="POST", id="register_form", autocomplete="off")
 
     header
-      h1 Register New User Form
+      h1 User Register Form
 
     content
       group
         label 📑Username
-        input(type='text', name='username', placeholder='Username', required)
+        input(type='text', name='username', placeholder='Username', autocomplete='off', required)
 
       group
         label 📧 Email
-        input(type='email', name='email', placeholder='Email', required)
+        input(type='email', name='email', placeholder='Email', autocomplete='off', required)
 
       group
         label 🔑 Password
-        input(type='password', name='password', placeholder='Password', required)
+        input(type='password', name='password', placeholder='Password', autocomplete='off', required)
 
       group
         label 🔑 Confirmation Password
-        input(type='password', name='passwordConfirm', placeholder='Confirmation Password', required)
+        input(type='password', name='passwordConfirm', placeholder='Confirmation Password', autocomplete='off', required)
 
       group(class='inline')
         input(type='checkbox', name='terms', value='terms', required)

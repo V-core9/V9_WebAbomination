@@ -5,8 +5,7 @@
   line-height: 1.5em;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -18,7 +17,7 @@ a {
 
 header {
   display: flex;
-  padding: 1em;
+  padding: .5em 1em;
   border-bottom: 1px solid #112538;
   background: #102030;
   justify-content: space-between;
@@ -27,7 +26,7 @@ header {
 
 section {
   display: flex;
-  gap: 1em;
+  /* gap: 1em; */
 }
 
 section a {
@@ -53,7 +52,6 @@ v_app content {
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-
   color: white;
   gap: 1em;
 }
@@ -66,22 +64,24 @@ footer {
   align-items: center;
   background: #102030;
   color: white;
-  padding: 1em;
+  padding: .5em;
 }
 
 copyright {
   display: flex;
   align-items: center;
   padding: 0 1em;
+  gap: 1em;
+  align-items: center;
 }
 
-navigation content {
+navigation > content {
   display: flex;
   flex-direction: column;
   font-size: 1.25em;
   flex: 1;
   gap: 0.5em;
-  padding: 0.25em;
+  padding: 0;
   border: 4px solid #102030;
 }
 
@@ -90,7 +90,7 @@ navigation {
   z-index: 500;
   height: 100%;
   color: white;
-  min-width: 300px;
+  min-width: 80%;
   display: flex;
   background: #263544;
   right: -100%;
@@ -99,15 +99,36 @@ navigation {
   box-shadow: 0 0 20px black;
 }
 
+@media screen and (min-width: 640px) {
+  navigation {
+      min-width: 400px;
+  }
+}
+
 navigation.open {
   right: 0;
 }
 
-button {
+button, input[type="submit"] {
   padding: 0.5em 1em;
   color: white;
   border: none;
   background: #2196f3;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: .15s linear all;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: #0d47a1;
+  border: 1px solid #2196f3;
+  transition: .25s ease all;
+}
+
+button:active, input[type="submit"]:active {
+  background: #2196f3;
+  border: 1px solid #ffffff;
+  transition: .05s linear all;
 }
 
 navigation content a {
@@ -197,13 +218,13 @@ footer button {
 }
 
 copyright a {
-  padding: 1em;
+  /* padding: 1em; */
 }
 
 @media screen and (min-width: 480px) {
   post_list item a {
-    flex-direction: row;
-    align-items: stretch;
+      flex-direction: row;
+      align-items: stretch;
   }
 }
 
@@ -227,14 +248,7 @@ form {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  margin: 0 auto;
-}
-
-input[type="submit"] {
-  padding: .5em 1em;
-  color: white;
-  background: #2196f3;
-  border: none;
+  margin: 2em auto;
 }
 
 form content group {
@@ -298,11 +312,11 @@ line.alter_direction_animation {
 
 @keyframes dash {
   0% {
-    stroke-dashoffset: 1000;
+      stroke-dashoffset: 1000;
   }
 
   100% {
-    stroke-dashoffset: 0;
+      stroke-dashoffset: 0;
   }
 }
 
@@ -342,11 +356,52 @@ content h4 {
   justify-content: space-between;
 }
 
-
 li>a {
   white-space: break-spaces;
 }
 
 v_app>content {
   background: #203346;
+  padding: 1em;
+}
+
+navigation>content>menu>*>* {
+  pointer-events: none;
+}
+
+navigation>content>actions>*>* {
+  pointer-events: none;
+}
+
+form>header {
+  border-bottom: 5px solid #18293b;
+}
+
+form>footer {
+  border-top: 5px solid #18293b;
+  border-bottom: 5px dashed #20334680;
+}
+
+navigation > content > menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5em;
+  padding: 0.25em;
+}
+
+navigation > content > actions {
+  flex-direction: row;
+  display: flex;
+}
+
+navigation > content > actions button {
+  flex: 1;
+}
+
+form > content > group > input, textarea {
+  background: #102030;
+  border: none;
+  padding: 1em;
+  color: white;
 }
