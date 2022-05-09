@@ -6,6 +6,7 @@ block form
 
     header
       h1 Login Form
+      icon 🔐
 
     content
 
@@ -17,9 +18,14 @@ block form
         label 🔑 Password
         input(type='password', name='password', placeholder='Password', required)
 
+      group(class='inline')
+        input(type='checkbox', name='perm_login', value='perm_login', )
+        label  Stay signed in.
+
       input(type='submit', name='submit', value='Login')
 
     footer
+      info(class='info_circle') i
       p Don't have an account? Register <a href='/register'>here</a>
 
   script(src='/scripts/login.js')

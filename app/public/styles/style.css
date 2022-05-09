@@ -22,6 +22,8 @@ header {
   background: #102030;
   justify-content: space-between;
   color: white;
+  align-items: center;
+  gap: 2em;
 }
 
 section {
@@ -270,16 +272,17 @@ form group label {
 group.inline {
   flex-direction: row;
   align-items: center;
+  display: flex;
 }
 
-navigation content a icon {
+icon {
   padding: 0.5em;
   display: flex;
-  line-height: 1em;
   width: 1em;
   justify-content: center;
   align-items: center;
-  background: #102030;
+  line-height: 1em;
+  font-size: 2em;
 }
 
 navigation content a label {
@@ -328,6 +331,7 @@ ul {
   gap: 1em;
   list-style: none;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 ul li a {
@@ -338,8 +342,8 @@ ul li a {
   border: 1px solid #102030;
 }
 
-ul li a:hover {
-  background: #2196f3;
+ul > li > a:hover {
+  background: #102030;
   color: white;
 }
 
@@ -375,11 +379,16 @@ navigation>content>actions>*>* {
 
 form>header {
   border-bottom: 5px solid #18293b;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
 }
 
 form>footer {
   border-top: 5px solid #18293b;
   border-bottom: 5px dashed #20334680;
+  gap: 1em;
+  justify-content: center;
 }
 
 navigation > content > menu {
@@ -404,4 +413,85 @@ form > content > group > input, textarea {
   border: none;
   padding: 1em;
   color: white;
+  border-left: 5px solid #18293b;
+}
+
+navigation menu a icon {
+  padding: 0.5em;
+  background: #102030;
+  font-size: 1em;
+}
+
+#contact_form > footer {
+  flex-direction: column;
+  align-items: baseline;
+}
+
+#contact_form > footer h4 {
+  font-size: 1.15em;
+}
+
+#contact_form > footer p {
+  font-size: .875em;
+}
+
+#contact_form > footer group {
+  display: flex;
+  gap: .5em;
+}
+
+#contact_form > header {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+form > header>* {
+  padding: 0.25em 0.5em;
+}
+
+info.info_circle {
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2196f3;
+  border-radius: 50%;
+}
+
+ul > li > a {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  gap: .5em;
+}
+
+ul > li {
+  flex: 1;
+  display: flex;
+}
+
+ul > li > a > group > h3 {
+  color: white;
+}
+
+ul > li > a > group {
+  justify-content: space-between;
+  border: 1px solid #102030;
+  border-left: 4px solid #102030;
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+
+ul > li > a > group > p {
+  padding: .5em 1em;
+  background: #203346;
+  border: 1px solid #102030;
+  min-height: 1em;
+  line-height: 1em;
+}
+
+ul > li > a > group:hover {
+  background: #172839;
 }

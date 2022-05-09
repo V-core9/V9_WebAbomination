@@ -6,23 +6,27 @@ block form
 
     header
       h1 Contact Form
+      icon 📤
 
     content
 
       group
-        label 📧 Email
+        label(for='email') @ Email
         input(type='email', name='email', placeholder='Email', required)
 
       group
-        label 📧 Subject
+        label(for='subject') 📧 Subject
         input(type='text', name='subject', placeholder='Message Subject', required)
 
       group
-        label 🔑 Message
+        label(for='message') 🔑 Message
         textarea(name='message', placeholder='Random Message Demo Text...', rows='5',  required)
 
-      input(type='submit', name='submit', value='Send 📤')
+      input(type='submit', name='submit', value='Send')
 
     footer
-      p NOTE: Register <a href='/register'>here</a> for a better support and priority.
+      group(class='inline')
+        info(class='info_circle') i
+        h4 NOTE:
+      p <a href='/register'>Register account</a> for a better support and priority.
 

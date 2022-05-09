@@ -10,6 +10,33 @@ block content
       ul
         each val in data
           li
-            a(href='/users/'+val.username) #{val.username}
+            a(href='/users/'+val.username)
+              group(class='inline')
+                h3 Username:
+                p #{val.username}
+
+              group(class='inline')
+                h3 Email:
+                p #{val.email}
+
+              group(class='inline')
+                h3 Created:
+                p #{val.created}
+
+              group(class='inline')
+                h3 Updated:
+                p #{val.updated}
+
+              group(class='inline')
+                h3 Verified:
+                p #{val.verified}
+
+              group(class='inline')
+                h3 Active:
+                p #{val.active}
+
+              group(class='inline')
+                h3 Role:
+                p #{val.role}
 
     include includes/footer.pug
