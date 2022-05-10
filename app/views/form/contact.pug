@@ -1,32 +1,33 @@
-extends base
+extends ../layout
 
-block form
+block content
+  content
 
-  form(action="http://localhost:2000/contact/", method="POST", id="contact_form")
+    form(action="http://localhost:2000/contact/", method="POST", id="contact_form")
 
-    header
-      h1 Contact Form
-      icon 📤
+      header
+        h1 Contact Form
+        icon 📤
 
-    content
+      content
 
-      group
-        label(for='email') @ Email
-        input(type='email', name='email', placeholder='Email', required)
+        group
+          label(for='email') @ Email
+          input(type='email', name='email', placeholder='Email', required)
 
-      group
-        label(for='subject') 📧 Subject
-        input(type='text', name='subject', placeholder='Message Subject', required)
+        group
+          label(for='subject') 📧 Subject
+          input(type='text', name='subject', placeholder='Message Subject', required)
 
-      group
-        label(for='message') 🔑 Message
-        textarea(name='message', placeholder='Random Message Demo Text...', rows='5',  required)
+        group
+          label(for='message') 🔑 Message
+          textarea(name='message', placeholder='Random Message Demo Text...', rows='5',  required)
 
-      input(type='submit', name='submit', value='Send')
+        input(type='submit', name='submit', value='Send')
 
-    footer
-      group(class='inline')
-        info(class='info_circle') i
-        h4 NOTE:
-      p <a href='/register'>Register account</a> for a better support and priority.
+      footer
+        group(class='inline')
+          info(class='info_circle') i
+          h4 NOTE:
+        p <a href='/register'>Register account</a> for a better support and priority.
 

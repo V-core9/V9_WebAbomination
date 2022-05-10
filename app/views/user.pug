@@ -1,13 +1,7 @@
 extends layout
 
 block content
-  v_app
-    include includes/header.pug
-    include includes/navigation/public.pug
-
-    content
-      h1 Username: #{data.username}
-      h1 Email: #{data.email}
-      h1 Role: #{data.role}
-
-    include includes/footer.pug
+  content
+    h1 Username: #{data.username}
+    h1 Email: #{data.email}
+    h1 Role: #{data.role}

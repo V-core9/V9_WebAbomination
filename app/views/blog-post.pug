@@ -1,15 +1,9 @@
 extends layout
 
 block content
-  v_app
-    include includes/header.pug
-    include includes/navigation/public.pug
+  content
+    h1 #{title}
+    p  #{content}
 
-    content
-      h1 #{title}
-      p  #{content}
-
-      each tag in tags
-        a(href='/tags/'+tag.slug) #{tag.title}
-
-    include includes/footer.pug
+    each tag in tags
+      a(href='/tags/'+tag.slug) #{tag.title}

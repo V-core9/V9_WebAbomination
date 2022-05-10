@@ -5,7 +5,8 @@
   line-height: 1.5em;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -77,7 +78,7 @@ copyright {
   align-items: center;
 }
 
-navigation > content {
+navigation>content {
   display: flex;
   flex-direction: column;
   font-size: 1.25em;
@@ -103,7 +104,7 @@ navigation {
 
 @media screen and (min-width: 640px) {
   navigation {
-      min-width: 400px;
+    min-width: 400px;
   }
 }
 
@@ -111,23 +112,30 @@ navigation.open {
   right: 0;
 }
 
-button, input[type="submit"] {
+button,
+input[type="submit"] {
   padding: 0.5em 1em;
   color: white;
   border: none;
   background: #2196f3;
+  display: flex;
   cursor: pointer;
   border: 1px solid transparent;
   transition: .15s linear all;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover,
+input[type="submit"]:hover {
   background: #0d47a1;
   border: 1px solid #2196f3;
   transition: .25s ease all;
 }
 
-button:active, input[type="submit"]:active {
+button:active,
+input[type="submit"]:active {
   background: #2196f3;
   border: 1px solid #ffffff;
   transition: .05s linear all;
@@ -225,8 +233,8 @@ copyright a {
 
 @media screen and (min-width: 480px) {
   post_list item a {
-      flex-direction: row;
-      align-items: stretch;
+    flex-direction: row;
+    align-items: stretch;
   }
 }
 
@@ -315,11 +323,11 @@ line.alter_direction_animation {
 
 @keyframes dash {
   0% {
-      stroke-dashoffset: 1000;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-      stroke-dashoffset: 0;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -342,7 +350,7 @@ ul li a {
   border: 1px solid #102030;
 }
 
-ul > li > a:hover {
+ul>li>a:hover {
   background: #102030;
   color: white;
 }
@@ -391,7 +399,7 @@ form>footer {
   justify-content: center;
 }
 
-navigation > content > menu {
+navigation>content>menu {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -399,16 +407,17 @@ navigation > content > menu {
   padding: 0.25em;
 }
 
-navigation > content > actions {
+navigation>content>actions {
   flex-direction: row;
   display: flex;
 }
 
-navigation > content > actions button {
+navigation>content>actions button {
   flex: 1;
 }
 
-form > content > group > input, textarea {
+form>content>group>input,
+textarea {
   background: #102030;
   border: none;
   padding: 1em;
@@ -422,31 +431,31 @@ navigation menu a icon {
   font-size: 1em;
 }
 
-#contact_form > footer {
+#contact_form>footer {
   flex-direction: column;
   align-items: baseline;
 }
 
-#contact_form > footer h4 {
+#contact_form>footer h4 {
   font-size: 1.15em;
 }
 
-#contact_form > footer p {
+#contact_form>footer p {
   font-size: .875em;
 }
 
-#contact_form > footer group {
+#contact_form>footer group {
   display: flex;
   gap: .5em;
 }
 
-#contact_form > header {
+#contact_form>header {
   align-items: center;
   justify-content: space-between;
   padding: 0;
 }
 
-form > header>* {
+form>header>* {
   padding: 0.25em 0.5em;
 }
 
@@ -460,31 +469,32 @@ info.info_circle {
   border-radius: 50%;
 }
 
-ul > li > a {
+ul>li>a {
   display: flex;
   flex-direction: column;
   flex: 1;
   text-decoration: none;
   gap: .5em;
+  white-space: pre;
 }
 
-ul > li {
+ul>li {
   flex: 1;
   display: flex;
 }
 
-ul > li > a > group > h3 {
+ul>li>a>group>h3 {
   color: white;
 }
 
-ul > li > a > group {
+ul>li>a>group {
   justify-content: space-between;
   border: 1px solid #102030;
   border-left: 4px solid #102030;
   padding: 0.25em 0.25em 0.25em 1em;
 }
 
-ul > li > a > group > p {
+ul>li>a>group>p {
   padding: .5em 1em;
   background: #203346;
   border: 1px solid #102030;
@@ -492,6 +502,46 @@ ul > li > a > group > p {
   line-height: 1em;
 }
 
-ul > li > a > group:hover {
+ul>li>a>group:hover {
   background: #172839;
+}
+
+.inline_list ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.inline_list ul li {
+  flex: 0;
+}
+
+button>icon {
+  font-size: 1em;
+  padding: 0.25em;
+}
+
+content.inline {
+  flex-direction: row;
+}
+
+side_nav {
+  display: flex;
+  flex-direction: column;
+  background: #1a2c3e;
+}
+
+side_nav menu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+side_nav menu a icon {
+  font-size: 1em;
+}
+
+
+content.application {
+  padding: 0;
+  gap: 0;
 }

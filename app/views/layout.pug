@@ -13,6 +13,15 @@ html
 
     link(rel='stylesheet', href='/styles/style.css')
   body
-    block content
+
+    v_app
+      include includes/header.pug
+
+      block content
+
+      include includes/footer.pug
+
+      include includes/navigation/public.pug
+
 
     script(src='/scripts/website.js')

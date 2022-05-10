@@ -1,23 +1,16 @@
 extends layout
 
 block content
-  v_app
-    include includes/header.pug
-    include includes/navigation/public.pug
+  content
+    h1 Blog Posts
+    post_list
+      each val in data
+        item
+          a(href='/blog/'+val.slug, width='200px', height='200px', alt=val.title)
+            img(src=val.thumbnail, width='200px', height='200px', alt=val.title)
+            info
+              header
+                h2 #{val.title}
+                p #{val.metaDescription}
+              span 📆 #{val.updatedAt}
 
-
-    content
-      h1 Blog Posts
-      post_list
-        each val in data
-          item
-            a(href='/blog/'+val.slug, width='200px', height='200px', alt=val.title)
-              img(src=val.thumbnail, width='200px', height='200px', alt=val.title)
-              info
-                header
-                  h2 #{val.title}
-                  p #{val.metaDescription}
-                span 📆 #{val.updatedAt}
-
-
-    include includes/footer.pug

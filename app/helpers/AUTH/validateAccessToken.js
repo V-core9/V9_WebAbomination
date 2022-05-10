@@ -13,6 +13,6 @@ module.exports = validateAccessToken = async (req, res, next) => {
       next();
     });
   } else {
-    return res.sendStatus(401);
+    return res.redirect('/login');
   }
 };

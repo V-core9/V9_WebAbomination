@@ -60,9 +60,9 @@ const publicMenu = `<menu>
 
 
 const userMenu = `<menu>
-                    <a href="/dashboard">
+                    <a href="/application">
                       <icon>🚀</icon>
-                      <label>Dashboard</label>
+                      <label>Application</label>
                     </a>
 
                     <a href="/">

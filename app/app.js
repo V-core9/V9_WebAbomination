@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 var tagsRouter = require('./routes/tags');
+var applicationRouter = require('./routes/application');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(require('./helpers/AUTH/jwtFromCookie'));
 app.use('/users', usersRouter);
 app.use('/blog', postsRouter);
 app.use('/tags', tagsRouter);
+app.use('/application', applicationRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

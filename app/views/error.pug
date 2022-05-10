@@ -1,6 +1,11 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  content
+    section(class='error')
+      header
+        h1= message
+      content
+        pre #{error.stack}
+      footer
+        h2 Error Status Code : #{error.status}

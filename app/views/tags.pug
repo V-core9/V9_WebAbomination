@@ -1,15 +1,14 @@
 extends layout
 
 block content
-  v_app
-    include includes/header.pug
-    include includes/navigation/public.pug
-
-    content
-      h1 Tags
-      ul
-        each val in data
-          li
-            a(href='/tags/'+val.slug) #{val.title}
-
-    include includes/footer.pug
+  content
+    section(class='inline_list')
+      header
+        h1 Tags
+      content
+        ul
+          each val in data
+            li
+              a(href='/tags/'+val.slug) #{val.title}
+      footer
+        p Many Tags To See

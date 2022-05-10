@@ -4,33 +4,16 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 
-const { jwtFromCookie, validateAccessToken } = require('../helpers/AUTH');
-
-
 const getPageBySlug = async (req, res, next) => {
   try {
     const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' } });
     console.log(data);
-    if (data === null) return res.render('error', { message: 'Error 404: Page not found.', error: { status: 404 } });
+    if (data === null) return res.render('error', { message: 'Error 404: Page not found.', error: { status: 404, stack: JSON.stringify(new Error().stack) } });
     return res.render('page', data);
   } catch (err) {
     return res.render('error', { message: 'Prisma Client Error', error: err });
   }
-}
-
-
-
-// STATIC APPLICATION PAGES
-
-//? Dashboard / Application Homepage
-router.get('/dashboard/', [jwtFromCookie, validateAccessToken], async (req, res, next) => {
-  try {
-    return res.render("dashboard/" + req.user.role.toLowerCase(), req.user);
-  } catch (error) {
-    return res.render('error', { message: 'Application Client Error', error: error });
-  }
-});
-
+};
 
 
 //? Register New User Page
@@ -43,7 +26,6 @@ router.get('/register/', async (req, res, next) => {
 });
 
 
-
 //? User Login Page
 router.get('/login/', async (req, res, next) => {
   try {
@@ -54,8 +36,7 @@ router.get('/login/', async (req, res, next) => {
 });
 
 
-
-//? User Login Page
+//? Contact Page
 router.get('/contact/', async (req, res, next) => {
   try {
     return res.render('form/contact', await prisma.page.findUnique({ where: { slug: 'contact' } }));
@@ -64,13 +45,8 @@ router.get('/contact/', async (req, res, next) => {
   }
 });
 
-
-
-
-/* GET home page. */
-router.get('/', getPageBySlug);
-
-router.get('/:slug', getPageBySlug);
+//? Home page & Page by Slug
+router.get('/:slug?', getPageBySlug);
 
 
 

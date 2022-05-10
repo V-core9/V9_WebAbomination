@@ -54,7 +54,7 @@ const loginForm = {
         alert("Login Success!");
         setCookie("accessToken", data.accessToken, 5);
         setCookie("refreshToken", data.refreshToken, (60 * 24 * 365));
-        window.location.href = "/dashboard/";
+        window.location.href = "/application/";
       }
     },
   },
@@ -65,7 +65,7 @@ const loginForm = {
       password: e.target.elements.password.value,
     };
 
-    await apiReq(loginForm.data);
+    let reqRes = await apiReq(loginForm.data);
 
     e.target.elements.email.value = "";
     e.target.elements.password.value = "";
@@ -80,6 +80,18 @@ const loginForm = {
   },
 };
 
-(() => {
+(async () => {
+  let refreshToken = getCookie("refreshToken");
+
+  if (refreshToken)
+    apiReq({ url: "http://localhost:2000/auth/token", method: "POST", body: { token: refreshToken }, callback: async (data) => {
+      if (data.accessToken !== undefined) {
+        setCookie("accessToken", data.accessToken, 5);
+        window.location.href = "/application/";
+      }
+    }
+  });
+
   loginForm.init("#login_form");
+
 })();
