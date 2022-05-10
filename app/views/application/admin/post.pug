@@ -3,6 +3,15 @@ extends layout
 block inner_content
 
   content
-    section
+    section(class='typeList')
       header
         h1="🚀 Dashboard / Posts"
+
+      content
+        list
+
+      footer
+        a(href='/application/post/new') New Post
+
+  script(src='/scripts/application/admin/post_list.js')
+

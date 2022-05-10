@@ -5,8 +5,7 @@
   line-height: 1.5em;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -104,7 +103,7 @@ navigation {
 
 @media screen and (min-width: 640px) {
   navigation {
-    min-width: 400px;
+      min-width: 400px;
   }
 }
 
@@ -112,8 +111,7 @@ navigation.open {
   right: 0;
 }
 
-button,
-input[type="submit"] {
+button, input[type="submit"] {
   padding: 0.5em 1em;
   color: white;
   border: none;
@@ -127,15 +125,13 @@ input[type="submit"] {
   gap: .5em;
 }
 
-button:hover,
-input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover {
   background: #0d47a1;
   border: 1px solid #2196f3;
   transition: .25s ease all;
 }
 
-button:active,
-input[type="submit"]:active {
+button:active, input[type="submit"]:active {
   background: #2196f3;
   border: 1px solid #ffffff;
   transition: .05s linear all;
@@ -233,8 +229,8 @@ copyright a {
 
 @media screen and (min-width: 480px) {
   post_list item a {
-    flex-direction: row;
-    align-items: stretch;
+      flex-direction: row;
+      align-items: stretch;
   }
 }
 
@@ -323,11 +319,11 @@ line.alter_direction_animation {
 
 @keyframes dash {
   0% {
-    stroke-dashoffset: 1000;
+      stroke-dashoffset: 1000;
   }
 
   100% {
-    stroke-dashoffset: 0;
+      stroke-dashoffset: 0;
   }
 }
 
@@ -416,8 +412,7 @@ navigation>content>actions button {
   flex: 1;
 }
 
-form>content>group>input,
-textarea {
+form>content>group>input, textarea {
   background: #102030;
   border: none;
   padding: 1em;
@@ -540,8 +535,40 @@ side_nav menu a icon {
   font-size: 1em;
 }
 
-
 content.application {
   padding: 0;
   gap: 0;
+}
+
+section content list {
+  display: flex;
+  flex-direction: column;
+  gap: .25em;
+}
+
+section content list item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.25em;
+  background: #1a2c3e;
+  border: 1px solid transparent;
+  justify-content: space-between;
+}
+
+section content list item img {
+  max-width: 50px;
+}
+
+section content list item:hover {
+  border: 1px solid #2196f3;
+}
+
+section.typeList {
+  flex: 1;
+}
+
+section content list item info, section content list item actions {
+  display: flex;
+  gap: 1em;
 }

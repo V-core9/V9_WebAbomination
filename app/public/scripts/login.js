@@ -3,7 +3,7 @@ setCookie = (cname, cvalue, exMinutes) => {
   d.setTime(d.getTime() + (exMinutes * 60 * 1000));
   let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+};
 
 getCookie = (cname) => {
   let name = cname + "=";
@@ -18,7 +18,7 @@ getCookie = (cname) => {
     }
   }
   return "";
-}
+};
 
 
 apiReq = async (data) => {
@@ -87,7 +87,7 @@ const loginForm = {
     apiReq({ url: "http://localhost:2000/auth/token", method: "POST", body: { token: refreshToken }, callback: async (data) => {
       if (data.accessToken !== undefined) {
         setCookie("accessToken", data.accessToken, 5);
-        window.location.href = "/application/";
+        history.back();
       }
     }
   });
