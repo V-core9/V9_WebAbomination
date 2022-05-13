@@ -1,0 +1,8 @@
+extends layout
+
+block inner_content
+
+  content
+    form(action="/api/pages/", method="PUT", id="edit_page_form")
+
+  script(src='/scripts/application/admin/page_edit.js')

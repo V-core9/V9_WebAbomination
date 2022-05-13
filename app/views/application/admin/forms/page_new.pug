@@ -1,0 +1,28 @@
+extends ../layout
+
+block inner_content
+  content
+
+    form(action="/api/pages/", method="POST", id="new_page_form")
+
+      header
+        h1 New Page Form
+        icon 📤
+
+      content
+
+        group
+          label(for='title') @ Page Title
+          input(type='text', name='title', placeholder='Page Title', required)
+
+        group
+          label(for='slug') 📧 Slug
+          input(type='text', name='slug', placeholder='page-slug', required)
+
+        group
+          label(for='content') 🔑 Content
+          textarea(name='content', placeholder='Random Page Demo Text...', rows='5',  required)
+
+        input(type='submit', name='submit', value='Create')
+
+    script(src='/scripts/application/admin/page_new.js')

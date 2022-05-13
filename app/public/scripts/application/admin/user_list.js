@@ -37,7 +37,7 @@ apiReq = async (data) => {
 (async () => {
 
   apiReq({
-    url: "http://localhost:2000/user", method: "GET", callback: async (data) => {
+    url: "/api/users/", method: "GET", callback: async (data) => {
       console.log(data);
 
       let viewString = '';

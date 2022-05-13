@@ -37,7 +37,7 @@ apiReq = async (data) => {
 (async () => {
 
   apiReq({
-    url: "http://localhost:2000/post", method: "GET", callback: async (data) => {
+    url: "/api/posts", method: "GET", callback: async (data) => {
       console.log(data);
 
       let viewString = '';
@@ -47,11 +47,12 @@ apiReq = async (data) => {
         viewString += `<item>
                         <info>
                           <img src='${itm.thumbnail}'/>
-                          <p class='id'>${itm.id}</p>
-                          <p class='title'>${itm.title}</p>
-                          <p class='slug'>${itm.title}</p>
-                          <p class='published'>${itm.published}</p>
-                          <p class='renderMode'>${itm.renderMode}</p>
+                          <info class="info_circle" status="${itm.published}">${(itm.published) ? 'Published' : 'Draft'}</info>
+                        </info>
+                        <info class='flex'>
+                          <p class='id'>ID: ${itm.id}</p>
+                          <p class='title'>Title: ${itm.title}</p>
+                          <p class='slug'>Slug: ${itm.slug}</p>
                         </info>
                         <actions>
                           <button class='edit'>Edit</button>

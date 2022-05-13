@@ -1,33 +1,82 @@
 #!/usr/bin/env node
+const vLog = require('../helpers/v_log');
+const cluster = require("cluster");
 
-/**
- * Module dependencies.
- */
+const CORE_COUNT = (process.env.CORE_COUNT < require("os").cpus().length) ? process.env.CORE_COUNT : require("os").cpus().length;
 
-var app = require('../app');
-var debug = require('debug')('app:server');
-var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+if (cluster.isMaster) {
 
-/**
- * Create HTTP server.
- */
 
-var server = http.createServer(app);
+  //! APP START LOG MESSAGE
+  vLog.log('APP STARTING.');
 
-/**
- * Listen on provided port, on all network interfaces.
- */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+  //! exiting helpers
+  process.on('SIGINT', async () => {
+    vLog.warn("SIGINT Received.", "APP EXITING.");
+
+    setTimeout(async () => process.exit(0), 1000);
+  });
+
+  process.on('beforeExit', (code) => {
+    vLog.warn('Process beforeExit event with code: ', code);
+    setTimeout(async () => process.exit(0), 1000);
+  });
+
+  process.on('exit', (code) => {
+    vLog.warn('Process exit event with code: ', code);
+    setTimeout(async () => process.exit(0), 1000);
+  });
+  //! EOF : exiting helpers
+
+
+  //? CREATE CORE COUNT WORKERS
+  for (let i = 0; i < CORE_COUNT; i++) {
+    cluster.fork();
+  }
+
+  //? On Worker Exit -> Just re-fork into a new one.
+  cluster.on("exit", (worker, code, signal) => {
+    cluster.fork();
+  });
+
+
+} else {
+
+
+
+  /**
+   * Module dependencies.
+   */
+
+  var app = require('../app');
+  var debug = require('debug')('app:server');
+  var http = require('http');
+
+  /**
+   * Get port from environment and store in Express.
+   */
+
+  var port = normalizePort(process.env.PORT || '8000');
+  app.set('port', port);
+
+  /**
+   * Create HTTP server.
+   */
+
+  var server = http.createServer(app);
+
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+
+}
 
 /**
  * Normalize a port into a number, string, or false.

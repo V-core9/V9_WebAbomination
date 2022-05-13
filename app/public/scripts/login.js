@@ -44,7 +44,7 @@ apiReq = async (data) => {
 
 const loginForm = {
   data: {
-    url: "http://localhost:2000/auth/login",
+    url: "/api/auth/login",
     method: "POST",
     body: {},
     callback: async (data) => {
@@ -84,7 +84,7 @@ const loginForm = {
   let refreshToken = getCookie("refreshToken");
 
   if (refreshToken)
-    apiReq({ url: "http://localhost:2000/auth/token", method: "POST", body: { token: refreshToken }, callback: async (data) => {
+    apiReq({ url: "/api/auth/token", method: "POST", body: { token: refreshToken }, callback: async (data) => {
       if (data.accessToken !== undefined) {
         setCookie("accessToken", data.accessToken, 5);
         history.back();

@@ -19,7 +19,7 @@ document.querySelector("#register_form").addEventListener("submit", (e) => {
   };
 
 
-  fetch("http://localhost:2000/user/", requestOptions)
+  fetch("/api/user/", requestOptions)
     .then(async (data) => {
       console.log(data);
       if (data.status === 200) {

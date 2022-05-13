@@ -5,7 +5,8 @@
   line-height: 1.5em;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -103,7 +104,7 @@ navigation {
 
 @media screen and (min-width: 640px) {
   navigation {
-      min-width: 400px;
+    min-width: 400px;
   }
 }
 
@@ -111,7 +112,8 @@ navigation.open {
   right: 0;
 }
 
-button, input[type="submit"] {
+button,
+input[type="submit"] {
   padding: 0.5em 1em;
   color: white;
   border: none;
@@ -125,13 +127,15 @@ button, input[type="submit"] {
   gap: .5em;
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover,
+input[type="submit"]:hover {
   background: #0d47a1;
   border: 1px solid #2196f3;
   transition: .25s ease all;
 }
 
-button:active, input[type="submit"]:active {
+button:active,
+input[type="submit"]:active {
   background: #2196f3;
   border: 1px solid #ffffff;
   transition: .05s linear all;
@@ -229,8 +233,8 @@ copyright a {
 
 @media screen and (min-width: 480px) {
   post_list item a {
-      flex-direction: row;
-      align-items: stretch;
+    flex-direction: row;
+    align-items: stretch;
   }
 }
 
@@ -319,11 +323,11 @@ line.alter_direction_animation {
 
 @keyframes dash {
   0% {
-      stroke-dashoffset: 1000;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-      stroke-dashoffset: 0;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -412,7 +416,8 @@ navigation>content>actions button {
   flex: 1;
 }
 
-form>content>group>input, textarea {
+form>content>group>input,
+textarea {
   background: #102030;
   border: none;
   padding: 1em;
@@ -550,7 +555,7 @@ section content list item {
   display: flex;
   align-items: center;
   gap: 1em;
-  padding: 0.25em;
+  padding: 0.25em 1em;
   background: #1a2c3e;
   border: 1px solid transparent;
   justify-content: space-between;
@@ -568,7 +573,41 @@ section.typeList {
   flex: 1;
 }
 
-section content list item info, section content list item actions {
+section content list item info,
+section content list item actions {
   display: flex;
   gap: 1em;
+}
+
+section content list item info.flex {
+  flex: 1;
+  align-items: baseline;
+  gap: 0.2em;
+}
+
+section content list item info {
+  flex-direction: column;
+  align-items: center;
+}
+
+section content list item info.info_circle,
+section content list item actions {
+  flex: 0;
+}
+
+info.info_circle[status='true'] {
+  border: 2px solid #4caf50;
+  border-radius: 1em;
+  padding: .25em .5em;
+  width: auto;
+  height: auto;
+  color: #4caf50;
+  background: transparent;
+  font-size: .75em;
+  line-height: 1em;
+}
+
+.application content form {
+  margin: 0;
+  width: auto;
 }

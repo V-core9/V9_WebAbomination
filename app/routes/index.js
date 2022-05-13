@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+const { jwtFromCookie, validateAccessToken } = require('../helpers/AUTH');
 
+
+
+//? Get Page By SLUG or HOMEPAGE
 const getPageBySlug = async (req, res, next) => {
   try {
     const data = await prisma.page.findUnique({ where: { slug: req.params.slug || 'home' } });
@@ -15,7 +18,7 @@ const getPageBySlug = async (req, res, next) => {
   }
 };
 
-
+//! Few Static Pages/Routes
 //? Register New User Page
 router.get('/register/', async (req, res, next) => {
   try {
@@ -45,8 +48,26 @@ router.get('/contact/', async (req, res, next) => {
   }
 });
 
+
+
+//? API Routes
+router.use('/api', require('./API'));
+
+//? APPLICATION Routes
+router.use('/application', [jwtFromCookie, validateAccessToken], require('./APP'));
+
+//? Public users
+router.use('/users', require('./users'));
+
+//? Public Blog Routes
+router.use('/blog', require('./posts'));
+
+//? Public Tags Routes
+router.use('/tags', require('./tags'));
+
 //? Home page & Page by Slug
 router.get('/:slug?', getPageBySlug);
+
 
 
 
