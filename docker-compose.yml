@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  nginx:
+    container_name: nginx
+    image: nginx:stable
+    depends_on:
+      - api
+      - app
+      - mysql
+    networks:
+      - internal
+    volumes:
+      - ./nginx/image-files/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
 
   app:
     container_name: ${PROJECT_NAME}_app
@@ -23,6 +36,8 @@ services:
     mem_limit: 1024m
     mem_reservation: 128M
     cpus: ${APP_CPUS}
+    networks:
+      - internal
 
   api:
     container_name: ${PROJECT_NAME}_api
@@ -45,6 +60,8 @@ services:
     mem_limit: 2048m
     mem_reservation: 256M
     cpus: ${API_CPUS}
+    networks:
+      - internal
 
   mysql:
     image: mariadb:${MARIADB_VERSION:-latest}
@@ -63,6 +80,8 @@ services:
     cpus: ${MYSQL_CPUS}
     ports:
       - 8000:${MYSQL_PORT}
+    networks:
+      - internal
 
   v2:
     container_name: ${PROJECT_NAME}_app_v2
@@ -98,6 +117,10 @@ services:
       PMA_ARBITRARY: 1
     links:
       - mysql
+
+networks:
+  internal:
+    driver: bridge
 
 volumes:
   mysql:

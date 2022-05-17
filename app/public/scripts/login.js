@@ -44,7 +44,7 @@ apiReq = async (data) => {
 
 const loginForm = {
   data: {
-    url: "http://localhost:2000/auth/login",
+    url: "/api/auth/login",
     method: "POST",
     body: {},
     callback: async (data) => {
