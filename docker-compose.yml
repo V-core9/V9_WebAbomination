@@ -39,6 +39,26 @@ services:
     networks:
       - internal
 
+  vue:
+    container_name: ${PROJECT_NAME}_vue
+    image: ${VUE_NODE_IMAGE}
+    restart: unless-stopped
+    command: sh -c "npm install && npx vite --host"
+    ports:
+      - ${VUE_PORT}:${VUE_DOCKER_PORT}
+    working_dir: /vue
+    volumes:
+      - ./vue/:/vue
+    environment:
+      PORT: ${VUE_DOCKER_PORT}
+    depends_on:
+      - mysql
+    mem_limit: 1024m
+    mem_reservation: 128M
+    cpus: ${VUE_CPUS}
+    networks:
+      - internal
+
   api:
     container_name: ${PROJECT_NAME}_api
     image: ${API_NODE_IMAGE}
