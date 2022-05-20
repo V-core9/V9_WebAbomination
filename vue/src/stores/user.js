@@ -15,7 +15,7 @@ function apiLogin(a, p) {
 export const useUserStore = defineStore({
   id: 'user',
   state: () => ({
-    name: 'Eduardo',
+    name: 'Slavko',
     isAdmin: true,
   }),
 
