@@ -1,8 +1,7 @@
 const statusCodes = require('http').STATUS_CODES;
-const v_rifier = require('v_rifier');
 const v_to_sha256 = require('v_to_sha256');
 
-const { saltGenerator } = require('../helpers');
+const { saltGenerator, verify } = require('../helpers');
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -61,7 +60,7 @@ module.exports = user = {
     }
   },
 
-  
+
   byUsername: async (req, res) => {
     try {
       const username = req.params.username;
@@ -80,9 +79,10 @@ module.exports = user = {
     try {
       var { email, username, password, passwordConfirm } = req.body;
 
-      if (await v_rifier.email(email) == await v_rifier.username(username) == await v_rifier.password(password, passwordConfirm) !== true) return res.status(401).json({ message: statusCodes[401] });
+      if (await verify.isEmail(email) == await verify.isUsername(username) == await verify.isPassword(password, passwordConfirm) !== true) return res.status(401).json({ message: statusCodes[401] });
 
       const salt = await saltGenerator();
+
       password = await v_to_sha256(password + salt);
 
       const data = { email, username, password, salt, role: "USER" };
@@ -105,11 +105,11 @@ module.exports = user = {
       id = parseInt(req.params.id);
       console.log(id);
       const data = {};
-      if (await v_rifier.email(email) == true) data.email = email;
+      if (await verify.isEmail(email) == true) data.email = email;
 
-      if (await v_rifier.username(username) == true) data.username = username;
+      if (await verify.isUsername(username) == true) data.username = username;
 
-      if (await v_rifier.password(password, passwordConfirmation) == true) {
+      if (await verify.isPassword(password, passwordConfirmation) == true) {
         data.salt = await saltGenerator();
         data.password = await v_to_sha256(password + data.salt);
       }
@@ -134,11 +134,11 @@ module.exports = user = {
       var { username, email, password, passwordConfirmation, role } = req.body;
 
       const data = {};
-      if (await v_rifier.email(email) == true) data.email = email;
+      if (await verify.isEmail(email) == true) data.email = email;
 
-      if (await v_rifier.username(username) == true) data.username = username;
+      if (await verify.isUsername(username) == true) data.username = username;
 
-      if (await v_rifier.password(password, passwordConfirmation) == true) {
+      if (await verify.isPassword(password, passwordConfirmation) == true) {
         data.salt = await saltGenerator();
         data.password = await v_to_sha256(password + data.salt);
       }
@@ -156,7 +156,7 @@ module.exports = user = {
 
 
   /*
-  * Delete/Remove a user 
+  * Delete/Remove a user
   ! [NOTE: This should "Archive" User info for later]
   */
   delete: async (req, res) => {

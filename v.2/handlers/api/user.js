@@ -1,6 +1,5 @@
 const statusCodes = require('http').STATUS_CODES;
 
-const { asy } = require('../../helpers');
 const { saltGenerator } = require('../../helpers');
 
 const { PrismaClient } = require('@prisma/client');
@@ -34,8 +33,7 @@ module.exports = user = {
   //! Find user by id
   byId: async (req, res) => {
     try {
-      const id = await asy.parseInt(req.params.id);
-      var data = await prisma.user.findUnique({ where: { id: id } });
+      var data = await prisma.user.findUnique({ where: { id: parseInt(req.params.id) } });
       return res.status(200).json(data);
     } catch (error) {
       return res.status(400).json(error);
@@ -67,7 +65,7 @@ module.exports = user = {
   //! Update user
   update: async (req, res) => {
     try {
-      var data = await prisma.user.update({ where: { id: await asy.parseInt(req.params.id), data: req.body } });
+      var data = await prisma.user.update({ where: { id: parseInt(req.params.id), data: req.body } });
       return res.status(200).json(data);
     } catch (error) {
       return res.status(400).json(error);
@@ -78,7 +76,7 @@ module.exports = user = {
   //! Delete User
   delete: async (req, res) => {
     try {
-      var data = await prisma.user.delete({ where: { id: await asy.parseInt(req.params.id) } });
+      var data = await prisma.user.delete({ where: { id: parseInt(req.params.id) } });
       return res.status(200).json(data);
     } catch (error) {
       return res.status(400).json(error);

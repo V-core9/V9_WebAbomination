@@ -53,7 +53,7 @@ if (cluster.isMaster) {
   require('./routes')(app);
 
   app.listen(port, async () => {
-    console.log('App Started! PATH: http://localhost:' + port + '/');
+    vLog.log('App Started! PATH: http://localhost:' + port + '/');
   });
 
 }

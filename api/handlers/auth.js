@@ -7,7 +7,8 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const v_to_sha256 = require('v_to_sha256');
-const v_rifier = require('v_rifier');
+const { isEmail, isPassword}  = require('../helpers/verify');
+const { log, info } = require('../helpers/v_log');
 
 
 //!------------------------
@@ -27,7 +28,9 @@ module.exports = auth = {
     try {
       var { email, password } = req.body;
 
-      if (((await v_rifier.email(email)) == (await v_rifier.password(password, password)) !== true)) return res.status(401).json({ message: statusCodes[401] });
+      await info('Login Attempt: ' + email + ' - ' + password);
+
+      if (!isEmail(email) || !isPassword(password, password)) return res.status(401).json({ message: statusCodes[401] });
 
       const user = await prisma.user.findUnique({ where: { email: email } });
 
@@ -47,7 +50,7 @@ module.exports = auth = {
       }
       return res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
-      return res.status(400).json({ message: error });
+      return res.status(400).json({ message: error.message });
     }
   },
 
@@ -60,6 +63,7 @@ module.exports = auth = {
       const { token } = req.body;
 
       var status = await prisma.jwtRefreshToken.findUnique({ where: { token: token } });
+      await info('refreshToken: ' + status);
 
       if (status !== null) {
         jwt.verify(token, jwtCfg.refresh.secret, (err, user) => {
@@ -83,6 +87,7 @@ module.exports = auth = {
   */
   logout: async (req, res) => {
     try {
+      await info('logout: ' + req.body.token);
       return res.status(200).json(await prisma.jwtRefreshToken.delete({ where: { token: req.body.token } }));
     } catch (error) {
       return res.status(400).json(error);

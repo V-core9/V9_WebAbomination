@@ -17,14 +17,15 @@ window.stores = { user };
     />
 
     <div class="wrapper">
-      <h2>Hello {{ user.name }}</h2>
+      <h2>Hello {{ user.email }}</h2>
 
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink v-if="user.email == ''" to="/login">Login</RouterLink>
+        <button v-if="user.email != ''" @click="user.logout">Logout</button>
       </nav>
     </div>
   </header>

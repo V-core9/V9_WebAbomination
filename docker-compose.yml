@@ -137,6 +137,8 @@ services:
       PMA_ARBITRARY: 1
     links:
       - mysql
+    networks:
+      - internal
 
 networks:
   internal:

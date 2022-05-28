@@ -11,9 +11,9 @@ var cors = require('cors');
 middleware = async (app) => {
 
 
-  if (config.helmet) app.use(require("helmet")());
+  //if (config.helmet) app.use(require("helmet")());
 
-  app.use(cors({ origin: 'http://localhost:2500', optionsSuccessStatus: 200 }));
+  //app.use(cors({ origin: 'http://localhost:80', optionsSuccessStatus: 200 }));
 
   app.use(cookieParser());
 

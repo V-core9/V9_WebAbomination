@@ -5,10 +5,24 @@ import ToolingIcon from "../icons/IconTooling.vue";
 import EcosystemIcon from "../icons/IconEcosystem.vue";
 import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
+import { ref } from 'vue'
+
+import { useUserStore } from '../../stores/user'
+
+const user = useUserStore()
+const userEmail = ref('')
+const userPassword = ref('')
+
+function loginUser() {
+  if (!userEmail.value && !userPassword.value) return
+  user.login(userEmail.value, userPassword.value)
+  userEmail.value = ''
+  userPassword.value = ''
+}
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="loginUser">
 
     <h1>Login Form</h1>
 
@@ -18,7 +32,7 @@ import SupportIcon from "../icons/IconSupport.vue";
       </template>
       <template #heading>Email</template>
 
-      <input type="email" name="email" required />
+      <input type="email" v-model="userEmail" required />
     </FormItem>
 
     <FormItem>
@@ -27,10 +41,10 @@ import SupportIcon from "../icons/IconSupport.vue";
       </template>
       <template #heading>Password</template>
 
-      <input type="password" name="password" required />
+      <input type="password" v-model="userPassword" required />
     </FormItem>
 
-    <input type="submit" value="Login" />
+    <button >Login</button>
 
   </form>
 

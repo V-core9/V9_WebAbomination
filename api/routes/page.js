@@ -2,11 +2,12 @@ const { page } = require('../handlers');
 
 module.exports = (app) => {
 
-
-
-  app.route('/page/byId/:id')
+  app.route('/page/:id?')
     .get([
-      page.byId
+      page.get
+    ])
+    .post([
+      page.create
     ])
     .put([
       page.update
@@ -14,26 +15,5 @@ module.exports = (app) => {
     .delete([
       page.delete
     ]);
-
-
-  app.route('/page/bySlug/:slug')
-    .get([
-      page.bySlug
-    ]);
-
-
-  app.route('/page/:page?/:perPage?')
-    .get([
-      page.list
-    ])
-    .post([
-      page.create
-    ]);
-
-  app.route('/page/purge/')
-    .get([
-      page.purge
-    ]);
-
 
 };

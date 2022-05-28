@@ -1,5 +1,5 @@
 const v_to_sha256 = require('v_to_sha256');
-const { saltGenerator } = require('../../helpers');
+const { saltGenerator } = require('../../helpers/');
 
 
 /*

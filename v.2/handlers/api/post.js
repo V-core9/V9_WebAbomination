@@ -1,4 +1,3 @@
-const { asy } = require('../../helpers');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -11,7 +10,7 @@ module.exports = post = {
   },
 
   byId: async (req, res) => {
-    const id = await asy.parseInt(req.params.id);
+    const id = parseInt(req.params.id);
     const data = await prisma.post.findUnique({ where: { id: id } });
     return res.status(200).json(data);
   },
@@ -22,13 +21,13 @@ module.exports = post = {
   },
 
   update: async (req, res) => {
-    const id = await asy.parseInt(req.params.id);
+    const id = parseInt(req.params.id);
     const data = await prisma.post.update({ where: { id: id }, data: req.body });
     return res.status(200).json(data);
   },
 
   delete: async (req, res) => {
-    const id = await asy.parseInt(req.params.id);
+    const id = parseInt(req.params.id);
     const data = await prisma.post.delete({ where: { id: id } });
     return res.status(200).json(data);
   },
