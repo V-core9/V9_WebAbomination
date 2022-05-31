@@ -1,5 +1,7 @@
 const config = {
 
+  logToFile: true,
+
   //? JWT Config Data [ Need to move into prisma for it to better work with server restarts and permanent login ]
   jwtCfg: require('./JWT'),
 

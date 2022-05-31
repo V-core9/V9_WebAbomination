@@ -14,10 +14,8 @@ const userEmail = ref('')
 const userPassword = ref('')
 
 function loginUser() {
-  if (!userEmail.value && !userPassword.value) return
-  user.login(userEmail.value, userPassword.value)
-  userEmail.value = ''
-  userPassword.value = ''
+  if (!userEmail.value && !userPassword.value) return;
+  user.login(userEmail.value, userPassword.value);
 }
 </script>
 

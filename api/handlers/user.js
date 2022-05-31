@@ -1,7 +1,10 @@
 const statusCodes = require('http').STATUS_CODES;
 const v_to_sha256 = require('v_to_sha256');
 
-const { saltGenerator, verify } = require('../helpers');
+const { saltGenerator } = require('../helpers');
+const { isRegister } = require('../helpers/verify');
+const { info } = require('../helpers/v_log');
+
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -77,18 +80,18 @@ module.exports = user = {
   */
   create: async (req, res) => {
     try {
-      var { email, username, password, passwordConfirm } = req.body;
+      if (await isRegister(req.body)) {
+        await info('Register Attempt: ', req.body);
+        var { email, username, password } = req.body;
+        const salt = await saltGenerator();
 
-      if (await verify.isEmail(email) == await verify.isUsername(username) == await verify.isPassword(password, passwordConfirm) !== true) return res.status(401).json({ message: statusCodes[401] });
+        password = await v_to_sha256(password + salt);
 
-      const salt = await saltGenerator();
+        const data = { email, username, password, salt, role: "USER" };
 
-      password = await v_to_sha256(password + salt);
-
-      const data = { email, username, password, salt, role: "USER" };
-
-      return res.status(200).json({ message: await prisma.user.create({ data: data }) });
-
+        return res.status(200).json({ message: await prisma.user.create({ data: data }) });
+      }
+      return res.status(401).json({ message: statusCodes[401] });
     } catch (error) {
       return res.status(400).json(error);
     }

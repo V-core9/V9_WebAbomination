@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   nginx:
-    container_name: nginx
+    container_name: ${PROJECT_NAME}_nginx
     image: nginx:stable
+    restart: unless-stopped
     depends_on:
       - api
       - app
@@ -43,7 +44,7 @@ services:
     container_name: ${PROJECT_NAME}_vue
     image: ${VUE_NODE_IMAGE}
     restart: unless-stopped
-    command: sh -c "npm install && npx vite --host"
+    command: sh -c "npm install && npx vite --force --host"
     ports:
       - ${VUE_PORT}:${VUE_DOCKER_PORT}
     working_dir: /vue

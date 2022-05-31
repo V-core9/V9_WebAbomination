@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "pinia": "^2.0.14",
+    "v_rifier": "^0.2.4",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
   },

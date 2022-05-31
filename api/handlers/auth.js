@@ -7,7 +7,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const v_to_sha256 = require('v_to_sha256');
-const { isEmail, isPassword}  = require('../helpers/verify');
+const { isLogin }  = require('../helpers/verify');
 const { log, info } = require('../helpers/v_log');
 
 
@@ -26,27 +26,23 @@ module.exports = auth = {
   */
   login: async (req, res) => {
     try {
-      var { email, password } = req.body;
+      await info('Login Attempt: ' , req.body);
+      if (isLogin(req.body)) {
+        const user = await prisma.user.findUnique({ where: { email: req.body.email } });
+        if ((user !== null) && (await v_to_sha256(req.body.password + user.salt) === user.password)) {
+          const tokenData = { username: user.username, role: user.role };
 
-      await info('Login Attempt: ' + email + ' - ' + password);
+          const accessToken = jwt.sign(tokenData, jwtCfg.access.secret, { expiresIn: jwtCfg.access.expires });
+          const refreshToken = jwt.sign(tokenData, jwtCfg.refresh.secret);
+          try {
+            await prisma.jwtRefreshToken.deleteMany({ where: { userId: user.id } });
+          } catch (error) {
+            console.log(error);
+          }
+          await prisma.jwtRefreshToken.create({ data: { token: refreshToken, userId: user.id } });
 
-      if (!isEmail(email) || !isPassword(password, password)) return res.status(401).json({ message: statusCodes[401] });
-
-      const user = await prisma.user.findUnique({ where: { email: email } });
-
-      if ((user !== null) && (await v_to_sha256(password + user.salt) === user.password)) {
-        const tokenData = { username: user.username, role: user.role };
-
-        const accessToken = jwt.sign(tokenData, jwtCfg.access.secret, { expiresIn: jwtCfg.access.expires });
-        const refreshToken = jwt.sign(tokenData, jwtCfg.refresh.secret);
-        try {
-          await prisma.jwtRefreshToken.deleteMany({ where: { userId: user.id } });
-        } catch (error) {
-          console.log(error);
+          return res.status(200).json({ refreshToken: refreshToken, accessToken: accessToken });
         }
-        await prisma.jwtRefreshToken.create({ data: { token: refreshToken, userId: user.id } });
-
-        return res.status(200).json({ refreshToken: refreshToken, accessToken: accessToken });
       }
       return res.status(401).json({ message: statusCodes[401] });
     } catch (error) {

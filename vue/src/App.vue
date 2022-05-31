@@ -25,6 +25,7 @@ window.stores = { user };
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink v-if="user.email == ''" to="/login">Login</RouterLink>
+        <RouterLink v-if="user.email == ''" to="/register">Register</RouterLink>
         <button v-if="user.email != ''" @click="user.logout">Logout</button>
       </nav>
     </div>
