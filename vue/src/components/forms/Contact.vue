@@ -5,6 +5,15 @@ import ToolingIcon from "../icons/IconTooling.vue";
 import EcosystemIcon from "../icons/IconEcosystem.vue";
 import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
+import { ref } from 'vue';
+import { useAuthStore } from '../../stores/auth';
+
+const auth = useAuthStore();
+
+const userEmail = ref('');
+if (auth.email !== "") {
+  userEmail.value = auth.email;
+}
 </script>
 
 <template>
@@ -27,7 +36,7 @@ import SupportIcon from "../icons/IconSupport.vue";
       </template>
       <template #heading>Email</template>
 
-      <input type="email" name="email" placeholder="example@mail.com" required />
+      <input type="email" v-model="userEmail" required />
     </FormItem>
 
     <FormItem>

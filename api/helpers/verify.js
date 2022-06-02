@@ -1,25 +1,9 @@
-const { log } = require('./v_log');
-
 const verify = require('v_rifier')();
 
 //? Login Verification
-verify.register('login', async (val = {}) => {
-  let email = val.email || '';
-  let password = val.password || '';
-  return (await verify.isEmail(email) && await verify.isPassword(password, password));
-});
+verify.register('login', async (val = {}) =>  (await verify.isEmail(val.email) && await verify.isPassword(val.password, val.password)));
 
 //? Register Verification
-verify.register('register', async (val = {}) => {
-  let username = val.username || '';
-  let email = val.email || '';
-  let password = val.password || '';
-  let passwordConfirm = val.passwordConfirm || '';
-  return (await verify.isUsername(username) && await verify.isEmail(email) && await verify.isPassword(password, passwordConfirm));
-});
-
-(async () => {
-  log(await verify.listTypes());
-})();
+verify.register('register', async (val = {}) => (await verify.isUsername(val.username) && await verify.isEmail(val.email) && await verify.isPassword(val.password, val.confirm)));
 
 module.exports = verify;

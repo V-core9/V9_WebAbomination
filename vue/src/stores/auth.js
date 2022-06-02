@@ -23,13 +23,13 @@ async function apiLogin(email, password) {
   return {};
 }
 
-export const useUserStore = defineStore({
-  id: 'user',
+export const useAuthStore = defineStore({
+  id: 'auth',
   state: () => ({
-    email: localStorage.getItem('user.email') || '',
-    isAdmin: (localStorage.getItem('user.isAdmin') == '1') ? true : false,
-    accessToken: localStorage.getItem('user.accessToken') || '',
-    refreshToken: localStorage.getItem('user.refreshToken') || '',
+    email: localStorage.getItem('auth.email') || '',
+    isAdmin: (localStorage.getItem('auth.isAdmin') == '1') ? true : false,
+    accessToken: localStorage.getItem('auth.accessToken') || '',
+    refreshToken: localStorage.getItem('auth.refreshToken') || '',
   }),
 
   actions: {
@@ -41,31 +41,31 @@ export const useUserStore = defineStore({
         refreshToken: '',
       });
 
-      localStorage.removeItem('user.email');
-      localStorage.removeItem('user.isAdmin');
-      localStorage.removeItem('user.accessToken');
-      localStorage.removeItem('user.refreshToken');
-      // we could do other stuff like redirecting the user
+      localStorage.removeItem('auth.email');
+      localStorage.removeItem('auth.isAdmin');
+      localStorage.removeItem('auth.accessToken');
+      localStorage.removeItem('auth.refreshToken');
+      // we could do other stuff like redirecting the auth
       router.push('login');
     },
 
     /**
-     * Attempt to login a user
+     * Attempt to authenticate the user
      * @param {string} email
      * @param {string} password
      */
     async login(email, password) {
       const apiResponse = await apiLogin(email, password);
-      console.log('LOGIN -> userData :', apiResponse);
+      console.log('LOGIN -> authData :', apiResponse);
       this.$patch({
         email: email,
         ...apiResponse.data,
       });
 
-      localStorage.setItem('user.email', this.email);
-      localStorage.setItem('user.isAdmin', this.isAdmin ? '1' : '0');
-      localStorage.setItem('user.accessToken', this.accessToken);
-      localStorage.setItem('user.refreshToken', this.refreshToken);
+      localStorage.setItem('auth.email', this.email);
+      localStorage.setItem('auth.isAdmin', this.isAdmin ? '1' : '0');
+      localStorage.setItem('auth.accessToken', this.accessToken);
+      localStorage.setItem('auth.refreshToken', this.refreshToken);
       router.push('blog');
     },
   },
@@ -74,5 +74,5 @@ export const useUserStore = defineStore({
 
 
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useAuthStore, import.meta.hot));
 }

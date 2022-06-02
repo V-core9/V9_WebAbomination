@@ -1,7 +1,7 @@
 import v_rifier from 'v_rifier';
 const verify = v_rifier();
 
-verify.register('userRegister', async (username, email, password, confirm, terms) => {
+verify.register('register', async (username, email, password, confirm, terms) => {
   const uName = await verify.isUsername(username);
   const eMail = await verify.isEmail(email);
   const pass = await verify.isPassword(password, confirm);

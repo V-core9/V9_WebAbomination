@@ -7,15 +7,15 @@ import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
 import { ref } from 'vue'
 
-import { useUserStore } from '../../stores/user'
+import { useAuthStore } from '../../stores/auth'
+const auth = useAuthStore()
 
-const user = useUserStore()
 const userEmail = ref('')
 const userPassword = ref('')
 
 function loginUser() {
   if (!userEmail.value && !userPassword.value) return;
-  user.login(userEmail.value, userPassword.value);
+  auth.login(userEmail.value, userPassword.value);
 }
 </script>
 
