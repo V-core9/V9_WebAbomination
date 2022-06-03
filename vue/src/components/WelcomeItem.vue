@@ -14,13 +14,13 @@
 
 <style scoped>
 .item {
-  margin-top: 2rem;
+  margin-top: 2em;
   display: flex;
 }
 
 .details {
   flex: 1;
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 
 i {
@@ -34,9 +34,9 @@ i {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: 500;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.4em;
   color: var(--color-heading);
 }
 

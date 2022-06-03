@@ -8,17 +8,17 @@ import SupportIcon from "../icons/IconSupport.vue";
 
 import verify from "../../utils/verify";
 
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const username = ref('')
-const email = ref('')
-const password = ref('')
-const confirm = ref('')
-const terms = ref('')
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const confirm = ref('');
+const terms = ref('');
 
 async function registerUser() {
   console.log(username, email, password, confirm, terms);
-  if (await verify.isUserRegister(username, email, password, confirm, terms)) {
+  if (await verify.isRegister(username.value, email.value, password.value, confirm.value, terms.value)) {
     return true;
   }
   return false;

@@ -4,6 +4,6 @@ const verify = require('v_rifier')();
 verify.register('login', async (val = {}) =>  (await verify.isEmail(val.email) && await verify.isPassword(val.password, val.password)));
 
 //? Register Verification
-verify.register('register', async (val = {}) => (await verify.isUsername(val.username) && await verify.isEmail(val.email) && await verify.isPassword(val.password, val.confirm)));
+verify.register('register', async (val = {}) => (await verify.isUsername(val.username) && await verify.isEmail(val.email) && await verify.isPassword(val.password, val.confirm) && val.terms === true));
 
 module.exports = verify;

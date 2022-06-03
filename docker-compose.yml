@@ -44,7 +44,7 @@ services:
     container_name: ${PROJECT_NAME}_vue
     image: ${VUE_NODE_IMAGE}
     restart: unless-stopped
-    command: sh -c "npm install && npx vite --force --host"
+    command: sh -c "npm install && npm run build"
     ports:
       - ${VUE_PORT}:${VUE_DOCKER_PORT}
     working_dir: /vue

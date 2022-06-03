@@ -3,10 +3,13 @@ import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
 import LogoV from "@/components/LogoV.vue";
 
-import { useAuthStore } from './stores/auth'
+import { useAuthStore } from './stores/auth';
+import { useSettingsStore } from './stores/settings';
 const auth = useAuthStore();
+const settings = useSettingsStore();
 
-window.stores = { auth };
+
+window.stores = { auth, settings };
 </script>
 
 <template>
@@ -18,6 +21,7 @@ window.stores = { auth };
 
     <div class="wrapper">
       <h2>Hello {{ auth.email }}</h2>
+      <h2>fontSize {{ settings.fontSize }}</h2>
 
 
       <nav>
@@ -34,6 +38,12 @@ window.stores = { auth };
   <RouterView />
 </template>
 
+<style scopped>
+#app * {
+  font-size: v-bind('settings.fontSize');
+}
+</style>
+
 <style>
 @import "@/assets/base.css";
 
@@ -41,7 +51,6 @@ window.stores = { auth };
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
 }
 
@@ -70,7 +79,6 @@ a,
 
 nav {
   width: 100%;
-  font-size: 12px;
   text-align: center;
   margin-top: 2rem;
 }
@@ -85,7 +93,7 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 1em;
   border-left: 1px solid var(--color-border);
 }
 
@@ -102,7 +110,7 @@ nav a:first-of-type {
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    padding: 0 2em;
   }
 
   header {
@@ -118,16 +126,16 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0 2em 0 0;
   }
 
   nav {
     text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+    margin-left: -1em;
+    font-size: 1em;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+    padding: 1em 0;
+    margin-top: 1em;
   }
 }
 </style>

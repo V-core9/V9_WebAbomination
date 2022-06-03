@@ -5,13 +5,13 @@ import ToolingIcon from "../icons/IconTooling.vue";
 import EcosystemIcon from "../icons/IconEcosystem.vue";
 import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { useAuthStore } from '../../stores/auth'
-const auth = useAuthStore()
+import { useAuthStore } from '../../stores/auth';
+const auth = useAuthStore();
 
-const userEmail = ref('')
-const userPassword = ref('')
+const userEmail = ref('');
+const userPassword = ref('');
 
 function loginUser() {
   if (!userEmail.value && !userPassword.value) return;
