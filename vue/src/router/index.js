@@ -7,6 +7,19 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: () => import("../views/Home.vue"),
+      meta: {
+        title: 'Home Page - Example App',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'The home page of our example app.'
+          },
+          {
+            property: 'og:description',
+            content: 'The home page of our example app.'
+          }
+        ]
+      }
     },
     {
       path: "/about",

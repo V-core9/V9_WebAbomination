@@ -1,48 +1,34 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
-import LogoV from "@/components/LogoV.vue";
+import { RouterView } from "vue-router";
 
 import { useAuthStore } from './stores/auth';
 import { useSettingsStore } from './stores/settings';
+import { useCursorStore } from './stores/cursor';
 const auth = useAuthStore();
 const settings = useSettingsStore();
+const cursor = useCursorStore();
 
 
-window.stores = { auth, settings };
+window.stores = { auth, settings, cursor };
+
+
+window.addEventListener('resize', settings.resize);
+
+window.addEventListener('blur', () => settings.setFocus(false));
+window.addEventListener('focus', () => settings.setFocus(true));
+
+window.addEventListener('mousemove', (event) => cursor.setPosition(event.clientX, event.clientY));
+
+window.addEventListener('mousedown', (event) => {
+  console.log(event);
+});
+
 </script>
 
-<template>
-  <header>
-    <LogoV
-      alt="Vue logo"
-      class="logo"
-    />
-
-    <div class="wrapper">
-      <h2>Hello {{ auth.email }}</h2>
-      <h2>fontSize {{ settings.fontSize }}</h2>
-
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-        <RouterLink v-if="auth.email == ''" to="/login">Login</RouterLink>
-        <RouterLink v-if="auth.email == ''" to="/register">Register</RouterLink>
-        <button v-if="auth.email != ''" @click="auth.logout">Logout</button>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+<template >
+  <RouterView :class="'fontSize_' + settings.fontSize" />
 </template>
 
-<style scopped>
-#app * {
-  font-size: v-bind('settings.fontSize');
-}
-</style>
 
 <style>
 @import "@/assets/base.css";

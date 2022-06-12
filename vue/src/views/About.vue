@@ -1,3 +1,6 @@
+<script setup>
+import AppHeader from "@/components/AppHeader.vue";
+</script>
 <script>
 export default {
   data() {
@@ -14,14 +17,16 @@ export default {
     },
   },
 };
+
 </script>
 
 <template>
-  <div class="about">
+  <main class="about">
+    <AppHeader />
     {{ count }}
     <button @click="increment">Inc</button>
     <button @click="decrement">Dec</button>
-  </div>
+  </main>
 </template>
 
 <style>
