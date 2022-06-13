@@ -4,12 +4,8 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import LogoV from "@/components/LogoV.vue";
 
 import { useAuthStore } from '../stores/auth';
-import { useSettingsStore } from '../stores/settings';
 const auth = useAuthStore();
-const settings = useSettingsStore();
 
-
-window.stores = { auth, settings };
 </script>
 
 <template>

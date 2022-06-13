@@ -253,3 +253,7 @@ LOG ["App Started! PATH: http://localhost:8000/"] @ Fri Jun 10 2022 19:44:21 GMT
 LOG ["App Started! PATH: http://localhost:8000/"] @ Fri Jun 10 2022 19:44:21 GMT+0000 (Coordinated Universal Time)
 INFO ["Login Attempt: ",{"email":"slavko.vuletic92@gmail.com","password":"slavko.vuletic92"}] @ Sun Jun 12 2022 06:40:57 GMT+0000 (Coordinated Universal Time)
 INFO ["Login Attempt: ",{"email":"slavko.vuletic92@gmail.com","password":"0123456789"}] @ Sun Jun 12 2022 06:41:02 GMT+0000 (Coordinated Universal Time)
+LOG ["APP STARTING."] @ Sun Jun 12 2022 21:34:57 GMT+0000 (Coordinated Universal Time)
+LOG ["App Started! PATH: http://localhost:8000/"] @ Sun Jun 12 2022 21:35:02 GMT+0000 (Coordinated Universal Time)
+LOG ["App Started! PATH: http://localhost:8000/"] @ Sun Jun 12 2022 21:35:02 GMT+0000 (Coordinated Universal Time)
+INFO ["Login Attempt: ",{"email":"slavko.vuletic92@gmail.com","password":"0123456789"}] @ Mon Jun 13 2022 09:43:33 GMT+0000 (Coordinated Universal Time)

@@ -1,6 +1,8 @@
 <script setup>
 import { RouterView } from "vue-router";
 
+import SvgCursor from "@/components/SvgCursor.vue";
+
 import { useAuthStore } from './stores/auth';
 import { useSettingsStore } from './stores/settings';
 import { useCursorStore } from './stores/cursor';
@@ -27,11 +29,16 @@ window.addEventListener('mousedown', (event) => {
 
 <template >
   <RouterView :class="'fontSize_' + settings.fontSize" />
+  <SvgCursor />
 </template>
 
 
 <style>
 @import "@/assets/base.css";
+
+* {
+  cursor: none;
+}
 
 #app {
   max-width: 1280px;
